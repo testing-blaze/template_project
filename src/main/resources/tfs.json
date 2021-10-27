@@ -1,0 +1,9 @@
+{
+  "profile":{
+    "testManager": "tfs",
+    "tfsUrl":"http://teamservices:8080/tfs/Saas/GovGrants Product",
+    "pat":"OmxkMjQ2aHZuM2ZpcmZqanJpZ3Z1Y2hxaTI1ZG4zaHprcDRoN2x3bmMzbmNuZWc0eHhzaXE=",
+    "authType":"Basic",
+    "apiVersion":3.1
+  }
+}
