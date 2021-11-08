@@ -68,43 +68,34 @@ public class UsersAndURL implements UsersController {
         String username;
         switch (userLevel.toUpperCase()) {
             case "ADMIN":
-                username = "reiadmin@ospi.org.automation";
+                username = "reiadmin@scdoe.org.automation";
                 break;
             case "PM":
-                username = "automation.pm.ospi@yopmail.com.automation";
+                username = "simon.pm@yopmail.com.automation";
                 break;
             case "EXE":
-                username = "automation.exe.ospi@yopmail.com.automation";
+                username = "test.user.exe@yopmail.com.automation";
                 break;
             case "PO":
-                username = "automation.po.ospi@yopmail.com.automation";
-                break;
-            case "IND":
-                username = "hannah@yopmail.com.automation";
-                break;
-            case "SPI":
-                username = "db@yopmail.com";
+                username = "test.user.po@yopmail.com.automation";
                 break;
             case "FO":
-                username = "automation.fo.ospi@yopmail.com.automation";
+                username = "test.user.fo@yopmail.com.automation";
                 break;
             case "FD":
-                username = "automation.fd.ospi@yopmail.com.automation";
+                username = "automationfd@scde.org.automation";
                 break;
-            case "SPI3":
-                username = "roger03test@yopmail.com.automation";
+            case "SPI":
+                username = "";
                 break;
             case "SPA":
-                username = "barnotest04@yopmail.com.automation";
+                username = "";
                 break;
             case "SME":
-                username = "test13peter@yopmail.com.automation";
-                break;
-            case "SPIADMIN":
-                username = "ospitestpeter@yopmail.com.automation";
+                username = "";
                 break;
             default:
-                username = "reiadmin@ospi.automation";
+                username = "reiadmin@scdoe.org.automation";
         }
         return username;
     }
@@ -113,22 +104,13 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "ADMIN":
-                password = "test12345";
+                password = "GovGrants@2021";
                 break;
-            case "SPI3":
+            case "SPI":
                 password = "password7890";
                 break;
-            case "FD":
-                password = "password2021";
-                break;
-            case "SPIADMIN":
-                password = "password1234";
-                break;
-            case "PO":
-                password = "test1234567";
-                break;
             default:
-                password = "password1234";
+                password = "GovGrants@2021";
         }
         return password;
     }
