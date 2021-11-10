@@ -5,7 +5,6 @@ Feature: Validate all scenarios related to registration
   Scenario:  Verify Update Registration fields to be SCDE-specific
     Given I am on "SUBPORTAL" portal
     When I click on "Register" button
-    And I click on "Organization" button
     And I click on "Begin Registration" button
     When I enter value as "ZLP4KVER3S75" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "123456807" into "Employer Identification Number (EIN)" on old form
@@ -33,7 +32,6 @@ Feature: Validate all scenarios related to registration
   Scenario:  Verify registration instructions to be SCDE-specific
     Given I am on "SUBPORTAL" portal
     When I click on "Register" button
-    And I click on "Organization" button
     Then I softly see the text :
       | An organization is an entity that submits grant applications. Organizations include, but are not limited to, local education agencies, nonprofit organizations, state agencies, institutions of higher education, and community-based organizations. |
       | If you have not registered, you will not be able to submit an application. Please discuss with the Point of Contact listed in the grant opportunity                                                                                                  |
@@ -50,3 +48,79 @@ Feature: Validate all scenarios related to registration
       | 1. The first registration for any organization is the WAC.                                                                                                                                                                                                                                                                                                                                                      |
       | 2. Additional users for the organization are created by the WAC.                                                                                                                                                                                                                                                                                                                                                |
       | 3. If you are NOT the WAC for this organization, please stop and identify the proper individual to complete this initial registration, OR, have the WAC send you an invitation.                                                                                                                                                                                                                                 |
+
+  @178888 @178899 @179094 @178893 @179820 @179588 @179029 @179014 @sprint-1 @userStory-176573
+  Scenario: Verify field label should be Unique Entity Identifier (UEI) on the first registration login page
+  |Verify UEI field help text
+  |Verify that the SAM.gov check fails, the user should show updated message
+  |Verify Unique Entity Identifier (UEI) <12 alphanumeric >numbers.
+  |Verify Unique Entity Identifier (UEI) is 12 characters and is alpha-numeric.
+  |Verify that SAM Expiration Date  field is read-only
+  |Verify that If the UEI is a valid number in SAM.gov, then the organization data from SAM.gov copies to the registration page
+    Given I am on "SUBPORTAL" portal
+    When I click on "Register" button
+    And I click on "Begin Registration" button
+      #178888
+    Then I softly see "Unique Entity Identifier (UEI)" inside page block detail
+    #178899
+    And I hovering mouse on help text icon inside page block detail "Unique Entity Identifier"
+    And I pause execution for "3" seconds
+    Then I see "The UEI is a unique 12-character identifier assigned to all entities who register in SAM.gov." shown as help text
+    Then I see the header is "Registration" in the page details
+    Then I see the sub-header is "Step 1 of 3" in the page details
+      #179094
+    When I enter value as "QGBBG68KN5N6" into "Unique Entity Identifier (UEI)" on old form
+    When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
+    When I click on "Verify Information" in the page details
+    Then I softly see the text :
+      | The SAM.gov validation did not pass. Please provide a valid UEI. If the UEI you provided is valid, then contact the SCDE help desk for assistance. |
+      #178893
+    When I enter value as "QGBBG68KN5N" into "Unique Entity Identifier (UEI)" on old form
+    When I enter value as "123456807" into "Employer Identification Number (EIN)" on old form
+    Then I softly see the text :
+      | Please enter a valid 12-character UEI. Do not enter commas or blank spaces. |
+    #179820
+    When I enter value as "QGBBG68KN5N5" into "Unique Entity Identifier (UEI)" on old form
+    When I enter value as "123456789" into "Employer Identification Number (EIN)" on old form
+    When I click on "Verify Information" in the page details
+    And I pause execution for "3" seconds
+    Then I softly can see top right button "Save and Continue" in page detail
+    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    Then I softly see the following messages in the page details contains:
+      | An organization with the same EIN or UEI already exists in the EGMS. For any questions, contact SCDE. You can continue with the registration if you think that there is a need to register the organization again. SCDE may not approve this registration. |
+    #179588
+    Then I see the header is "Registration" in the page details
+    Then I see the sub-header is "Step 2 of 3" in the page details
+    #179029
+    Then I softly see field "SAM Expiration Date (MM/DD/YYYY)" as "11/1/2022"
+    #179014
+    Then I softly see field "Unique Entity Identifier (UEI)" as "QGBBG68KN5N5"
+
+  @179821 @sprint-1 @userStory-176573
+  Scenario: Verify that the system allows two organizations to register with the same EIN but different UEI number
+    Given I am on "SUBPORTAL" portal
+    When I click on "Register" button
+    And I click on "Begin Registration" button
+    When I enter value as "PC65G3A1WNY9" into "Unique Entity Identifier (UEI)" on old form
+    When I enter value as "234567889" into "Employer Identification Number (EIN)" on old form
+    When I click on "Verify Information" in the page details
+    And I pause execution for "2" seconds
+    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    Then I softly see the following messages in the page details contains:
+      | An organization with the same EIN or UEI already exists in the EGMS. For any questions, contact SCDE. You can continue with the registration if you think that there is a need to register the organization again. SCDE may not approve this registration. |
+
+  @179095 @sprint-1 @userStory-176573
+  Scenario: Verify that the system allows two organizations to register with the same EIN and same UEI number
+    Given I am on "SUBPORTAL" portal
+    When I click on "Register" button
+    And I click on "Begin Registration" button
+    When I enter value as "QGBBG68KN5N5" into "Unique Entity Identifier (UEI)" on old form
+    When I enter value as "989995208" into "Employer Identification Number (EIN)" on old form
+    When I click on "Verify Information" in the page details
+    And I pause execution for "2" seconds
+    When I click on "Save and Continue" in the page details
+    And I pause execution for "5" seconds
+    Then I softly see the following messages in the page details contains:
+      | An organization with the same EIN or UEI already exists in the EGMS. For any questions, contact SCDE. You can continue with the registration if you think that there is a need to register the organization again. SCDE may not approve this registration. |
