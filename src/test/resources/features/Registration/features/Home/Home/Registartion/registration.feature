@@ -124,3 +124,47 @@ Feature: Validate all scenarios related to registration
     And I pause execution for "5" seconds
     Then I softly see the following messages in the page details contains:
       | An organization with the same EIN or UEI already exists in the EGMS. For any questions, contact SCDE. You can continue with the registration if you think that there is a need to register the organization again. SCDE may not approve this registration. |
+
+  @179912 @179913 @179294 @179911 @sprint-1 @userStory-176387
+  Scenario: Verify Authorized Representative Information section has the updated label Web Accessibility Coordinator Information (WAC)
+  |Verify do not see the Country field in the Web Accessibility Coordinator Information section
+  |Verify Organization Representative section label
+  |Verify the instructional text in the Organization Representative section.
+    Given I am on "SUBPORTAL" portal
+    When I click on "Register" button
+    And I click on "Begin Registration" button
+    When I enter value as "ZLP4KVER3S75" into "Unique Entity Identifier (UEI)" on old form
+    When I enter value as "123456807" into "Employer Identification Number (EIN)" on old form
+    When I click on "Verify Information" in the page details
+    And I pause execution for "2" seconds
+    When I click on "Save and Continue" in the page details
+    And I enter value "Local Education Agency" into field "fieldOrganizationTypeSInglePicklist__c"
+    And I enter value "0123456789" into field "fieldOrgnizationPhoneNumber__c"
+    And I enter value "LA" into field "fieldStateDropdownList__c"
+    And I enter value "12345" into field "fieldOrganizationZipCode__c"
+    And I enter value "address" into field "fieldPaymentAddressLine1__c"
+    And I enter value "city" into field "fieldPaymentAddressCity__c"
+    And I enter value "LA" into field "fieldPaymentAddressState__c"
+    And I enter value "12345" into field "fieldPaymentAddressZipCode__c"
+    When I click on "Save" in the page details
+      #179912
+    Then I softly see "Web Accessibility Coordinator Information (WAC)" page block displayed
+      #179913
+    Then I softly do not see field "Country" inside "Web Accessibility Coordinator Information (WAC)" section
+      #179294
+    Then I softly see "Organization Representative:" page block displayed
+      #179911
+    Then I softly see the Instruction text in the page
+    Then I softly see the text containing :
+      | To continue this registration, the following user profile information is required.                                                         |
+      | Upon approval of this registration request, the account information will be sent through email to the Web Accessibility Coordinator (WAC). |
+      | The WAC is the authorized representative for the organization and is responsible for adding additional users and assigning roles.          |
+
+  @181689 @179289 @sprint-1 @userStory-176381
+  Scenario: Verify Remove Legal Disclaimers during registration ( Conflict of Interest )
+  |Verify Remove Legal Disclaimers during registration (Non-Disclosure Agreement)
+    Given I am on "SUBPORTAL" portal
+    When I click on "Register" button
+    And I click on "Begin Registration" button
+    Then I see the header is "Registration" in the page details
+    Then I see the sub-header is "Step 1 of 3" in the page details

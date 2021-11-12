@@ -88,8 +88,8 @@ public class UsersAndURL implements UsersController {
             case "SPI":
                 username = "";
                 break;
-            case "SPA":
-                username = "";
+            case "SPIWAC":
+                username = "jerrypowell5567@yahoo.com.automation";
                 break;
             case "SME":
                 username = "";
@@ -106,8 +106,8 @@ public class UsersAndURL implements UsersController {
             case "ADMIN":
                 password = "GovGrants@2021";
                 break;
-            case "SPI":
-                password = "password7890";
+            case "SPIWAC":
+                password = "GovGrants@2021";
                 break;
             default:
                 password = "GovGrants@2021";
