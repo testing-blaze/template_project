@@ -39,3 +39,77 @@ Feature: Validate all scenarios related to subrecipient organization
     Then I softly see "Web Accessibility Coordinator (WAC)" page block displayed
       #179285
     Then I softly do not see field "Country" inside "Web Accessibility Coordinator (WAC)" section
+
+  @180079 @180078 @180072 @180082 @180084 @180085 @180080 @180074 @179301 @180076 @sprint-1 @userStory-176390
+  Scenario: Verify do not see the DUNS field in the header.
+  |Verify  do not see the some fields in the Description section of the Overview tab
+  |Verify Description section has a field for Vendor ID that is editable,
+  |Verify I do not see the Country column in the Additional Addresses section.
+  |Verify I see that the section for Active Child Organizations is hidden during edit and view modes.
+  |Verify Web Accessibility Coordinator (WAC) in the Additional Information section
+  |Verify Description section has a field for Send Claims to SCEIS
+  |Verify Description section has a field for UEI that is editable
+  |Verify Description section has a field for Maximum Users Allowed which is editable
+    When I login to "As a Grantor" app as "Admin" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "PEACE CANAL" in "---tableID:-:SubrecipientOrganization---" panel
+    When I click on "View" icon for "PEACE CANAL" inside flex table with id "---tableID:-:SubrecipientOrganization---"
+      #180079
+    Then I softly do not see "DUNS" field inside header "Subrecipient Organization"
+      #180078
+    Then I softly do not see field "Country" inside "Description" section
+    Then I softly do not see field "Congressional District" inside "Description" section
+    Then I softly do not see field "Cage Code" inside "Description" section
+    Then I softly do not see field "Organization DBA" inside "Description" section
+    Then I softly do not see field "DUNS Number" inside "Description" section
+      #180072
+    When I click on "Edit" in the page details
+    Then I softly see fields "fieldSupplierId__c" is in edit mode
+    Then I softly do not see asterisk mark on "Vendor ID"
+    When I enter value "01234567891" into field "fieldSupplierId__c"
+    And I click on "Save" in the page details
+    Then I softly see field "Vendor ID" as "0123456789"
+      #180082
+    Then I softly do not see "Country" in flex table header "---tableID:-:AdditionalAddressInternal---"
+      #180084
+    Then I softly see "Status" field inside header "Subrecipient Organization"
+    Then I softly see "Org Code" field inside header "Subrecipient Organization"
+    Then I softly see "EIN" field inside header "Subrecipient Organization"
+    Then I softly see "UEI" field inside header "Subrecipient Organization"
+    And I click on "Edit" in the page details
+    Then I softly see field "Org Code" as ""
+      #180085
+    Then I softly do not see "Active Child Organizations" page block displayed
+    And I click on "Save" in the page details
+    Then I softly do not see "Active Child Organizations" page block displayed
+      #180080
+    Then I softly see field "Web Accessibility Coordinator (WAC)" inside "Additional Information" section
+    Then I softly see field "Web Accessibility Coordinator (WAC)" as "null Avinash null"
+      #180074
+    And I click on "Edit" in the page details
+    Then I softly see fields "fieldSCDE_Sendclaims__c" is in edit mode
+    Then I softly see "--None--:Yes:No" inside selectbox field "fieldSCDE_Sendclaims__c"
+    And I click on "Save" in the page details
+    Then I softly see field "Send claims to SCEIS?" inside "Description" section
+     #179301
+    And I click on "Edit" in the page details
+    Then I softly see fields "fieldUEINumber__c" is in edit mode
+    When I enter values into "Description" page block
+      | QGBBG68KN5N567 |
+    And I click on "Save" in the page details
+    Then I softly see field "UEI" inside "Description" section
+    Then I softly see field "UEI" as "QGBBG68KN5N5"
+      #180076
+    And I click on "Edit" in the page details
+    Then I softly see fields "fieldSCDE_MaximumUsersAllowed__c" is in edit mode
+    When I enter value "0" into field "fieldSCDE_MaximumUsersAllowed__c"
+    And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview tab - Maximum Users Allowed must be greater than 0. |
+    Then I softly see the following messages in the page details contains:
+      | Overview Tab - Maximum Users Allowed must be equal to or greater than the number of current active or invited users for the organization. You must deactivate one or more active users to lower the maximum number of users allowed. |
+    When I enter value "111" into field "fieldSCDE_MaximumUsersAllowed__c"
+    And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Maximum Users Allowed : Number is too large. |

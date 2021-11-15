@@ -38,7 +38,7 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "ADMIN":
-                password = "test1234";
+                password = "GovGrants@2021";
                 break;
             default:
                 password = "password1234";
@@ -50,7 +50,7 @@ public class UsersAndURL implements UsersController {
         String username;
         switch (userLevel.toUpperCase()) {
             case "ADMIN":
-                username = "reiadmin@ospi.qa";
+                username = "reiadmin@scdoe.org.qa1";
                 break;
             case "PM":
                 username = "pmdanny@yopmail.com";
@@ -114,6 +114,5 @@ public class UsersAndURL implements UsersController {
         }
         return password;
     }
-
 
 }
