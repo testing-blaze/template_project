@@ -37,7 +37,7 @@ public class ProjectWebServices {
         String defaultEndPointGetToken = "";
         switch (EnvironmentFactory.getEnvironmentName().toUpperCase()) {
             case "QA":
-                defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG9sLbBxQYwWqshy35zWOkobcTcCuQqTPfoTqT.nfLl5Vrh6yymLpnp1.fURC5XMfXprTY7c.NeUtXDI796&client_secret=57B54A7AC41CDBB9A8DF0BFBA1C94C2B98D3D56CF9DE1F1DA7E525A15B376199&username=manu.admin@lsc.org.automation&password=SALESF0RCE2020";
+                defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG9BiWFlgZEySViZ28cC3t9qysqBKFzp7Nq8TeIoxDZchfEVjlzCnoTtl8AonVxlgD7YmauV37m8uUr5aym&client_secret=DEC1633D12C25C2D4E1B9C387509720D08575A3E184127D8C06988C735BF8EFE&username=reiadmin@scdoe.org.qa1&password=GovGrants@2021";
                 break;
             case "AUTO":
                 defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG91w9zi214CtXnzIWdn2xPuHAN1XkYAitPT2j.uYialP.IkZPFfvjOR2aOfLI4oD5hkp14UCTxBkhZj_R4&client_secret=577B7DCF8AB585D9076AFF0B5AE8DAAAD39DFEE89F9DAFA15BE824B9A2DF1B91&username=reiadmin@scdoe.org.automation&password=GovGrants@2021";

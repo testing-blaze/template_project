@@ -154,7 +154,6 @@ Feature: Validate all scenarios related to registration
       #179294
     Then I softly see "Organization Representative:" page block displayed
       #179911
-    Then I softly see the Instruction text in the page
     Then I softly see the text containing :
       | To continue this registration, the following user profile information is required.                                                         |
       | Upon approval of this registration request, the account information will be sent through email to the Web Accessibility Coordinator (WAC). |

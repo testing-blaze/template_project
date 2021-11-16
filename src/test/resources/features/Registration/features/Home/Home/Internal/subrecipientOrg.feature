@@ -40,7 +40,7 @@ Feature: Validate all scenarios related to subrecipient organization
       #179285
     Then I softly do not see field "Country" inside "Web Accessibility Coordinator (WAC)" section
 
-  @180079 @180078 @180072 @180082 @180084 @180085 @180080 @180074 @179301 @180076 @sprint-1 @userStory-176390
+  @180079 @180078 @180072 @180082 @180084 @180085 @180080 @180074 @179301 @180073 @180076 @sprint-1 @userStory-176390
   Scenario: Verify do not see the DUNS field in the header.
   |Verify  do not see the some fields in the Description section of the Overview tab
   |Verify Description section has a field for Vendor ID that is editable,
@@ -49,6 +49,7 @@ Feature: Validate all scenarios related to subrecipient organization
   |Verify Web Accessibility Coordinator (WAC) in the Additional Information section
   |Verify Description section has a field for Send Claims to SCEIS
   |Verify Description section has a field for UEI that is editable
+  |Verify Description section has a field for Organization Code which is editable, optional and is a numeric, 4-digit field.
   |Verify Description section has a field for Maximum Users Allowed which is editable
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Home" tab
@@ -86,20 +87,29 @@ Feature: Validate all scenarios related to subrecipient organization
       #180080
     Then I softly see field "Web Accessibility Coordinator (WAC)" inside "Additional Information" section
     Then I softly see field "Web Accessibility Coordinator (WAC)" as "null Avinash null"
-      #180074
+      #180074 (BugId-182140)
     And I click on "Edit" in the page details
     Then I softly see fields "fieldSCDE_Sendclaims__c" is in edit mode
     Then I softly see "--None--:Yes:No" inside selectbox field "fieldSCDE_Sendclaims__c"
+    Then I softly see asterisk mark on "Send claims to SCEIS?"
     And I click on "Save" in the page details
     Then I softly see field "Send claims to SCEIS?" inside "Description" section
-     #179301
+     #179301 (BugId-182140)
     And I click on "Edit" in the page details
     Then I softly see fields "fieldUEINumber__c" is in edit mode
+    Then I softly see asterisk mark on "UEI"
     When I enter values into "Description" page block
       | QGBBG68KN5N567 |
     And I click on "Save" in the page details
     Then I softly see field "UEI" inside "Description" section
     Then I softly see field "UEI" as "QGBBG68KN5N5"
+    #180073 (BugId-182138)
+    And I click on "Edit" in the page details
+    Then I softly see fields "fieldSCDE_Org_Code__c" is in edit mode
+    When I enter value "12345" into field "fieldSCDE_Org_Code__c"
+    Then I softly do not see asterisk mark on "Organization Code"
+    And I click on "Save" in the page details
+    Then I softly see field "Organization Code" as "1234"
       #180076
     And I click on "Edit" in the page details
     Then I softly see fields "fieldSCDE_MaximumUsersAllowed__c" is in edit mode
@@ -113,3 +123,60 @@ Feature: Validate all scenarios related to subrecipient organization
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
       | Maximum Users Allowed : Number is too large. |
+
+  @181881 @181860 @181873 @181871 @181867 @181863 @181874 @181877 @181876 @181862 @181861 @sprint-1 @userStory-176388
+  Scenario: Verify an organization with the same EIN or UEI already exists in the system.
+  |Verify "Vendor ID" field is optional
+  |Verify Maximum Users Allowed field has help text saying, "This is the maximum number of EGMS users allowed for the organization."
+  |Verify Maximum Users Allowed field is required before Approve the approval decision.
+  |Verify Maximum Users Allowed is a new field
+  |Verify the "Send claims to SCEIS?" is a dropdown field with Yes/No options
+  |Verify Maximum Users Allowed field can be up to 2 digits
+  |Verify that the Maximum Users Allowed field cannot enter zero (0).
+  |Verify the number entered cannot exceed the maximum number of licenses allowed for the customer.
+  |Verify no validation that the Vendor ID be unique
+    When I login to "As a Grantor" app as "Admin" user
+    And I navigate to "Home" tab
+    When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
+    When I perform quick search for "PEACE CANAL" in "---tableID:-:PendingSubrecipientOrganization---" panel
+    When I click on "Start" icon for "PEACE CANAL" inside flex table with id "---tableID:-:PendingSubrecipientOrganization---"
+    #181881
+    Then I softly see the text :
+      | An organization with the same EIN or UEI Number already exists in the system. |
+      #181860
+    And I click on "Update Organization Fields" in the page details
+    Then I softly do not see asterisk mark on "Vendor ID"
+      #181873
+    And I hovering mouse on help text icon inside page block detail "Maximum Users Allowed"
+    Then I see "This is the maximum number of EGMS users allowed for the organization." shown as help text
+      #181871
+    Then I softly see asterisk mark on "Maximum Users Allowed"
+      #181867
+    Then I softly see "Office" inside page block detail
+      #181863
+    Then I softly see "--None--:Yes:No" inside selectbox field "fieldSCDE_Sendclaims__c"
+      #181874
+    When I enter value "111" into field "fieldSCDE_MaximumUsersAllowed__c"
+    And I click modal button "Save And Close"
+    Then I softly see the following messages in the page details contains:
+      | Maximum Users Allowed : Number is too large. |
+      #181877
+    When I enter value "20" into field "fieldSCDE_MaximumUsersAllowed__c"
+    And I click modal button "Save And Close"
+    Then I softly see the following messages in the page details contains:
+      | Maximum Users Allowed must be less than available Partner Community licenses. There are 18 available Partner Community licenses. Deactivate Partner Community users to increase the available licenses. |
+      #181876
+    When I enter value "0" into field "fieldSCDE_MaximumUsersAllowed__c"
+    And I click modal button "Save And Close"
+    Then I softly see the following messages in the page details contains:
+      | Overview tab - Maximum Users Allowed must be greater than 0. |
+      #181862
+    When I enter value "5" into field "fieldSCDE_MaximumUsersAllowed__c"
+    When I enter value "a1234567890" into field "fieldSupplierID__c"
+    And I click modal button "Save And Close"
+    Then I softly see field "Vendor ID" as "a123456789"
+    #181861
+    And I click on "Update Organization Fields" in the page details
+    When I enter value "12er34" into field "fieldSupplierID__c"
+    And I click modal button "Save And Close"
+    Then I softly see field "Vendor ID" as "12er34"
