@@ -40,8 +40,23 @@ public class UsersAndURL implements UsersController {
             case "ADMIN":
                 password = "GovGrants@2021";
                 break;
+            case "FD":
+                password = "GovGrants@2022";
+                break;
+            case "FO":
+                password = "GovGrants@2022";
+                break;
+            case "PM":
+                password = "GovGrants@2022";
+                break;
+            case "PO":
+                password = "GovGrants@2022";
+                break;
+            case "EXE":
+                password = "GovGrants@2021";
+                break;
             default:
-                password = "password1234";
+                password = "GovGrants@2021";
         }
         return password;
     }
@@ -53,13 +68,34 @@ public class UsersAndURL implements UsersController {
                 username = "reiadmin@scdoe.org.qa1";
                 break;
             case "PM":
-                username = "pmdanny@yopmail.com";
+                username = "automationpm@scdoe.org.qa1";
                 break;
-            case "IND":
-                username = "hannah@yopmail.com";
+            case "PO":
+                username = "test.user.po@yopmail.com.qa1";
+                break;
+            case "FD":
+                username = "automationfd@scdoe.org.qa1";
+                break;
+            case "FO":
+                username = "test.user.fo@yopmail.com.qa1";
+                break;
+            case "EXE":
+                username = "test.user.exe@yopmail.com.qa1";
+                break;
+            case "SPI":
+                username = "automationspi@scde.org.qa1";
+                break;
+            case "SPA":
+                username = "automationspa@scde.org.qa1";
+                break;
+            case "SPIWAC":
+                username = "automationspiwac@scde.org.qa1";
+                break;
+            case "SME":
+                username = "smeautomation@scde.org.qa1";
                 break;
             default:
-                username = "reiadmin@ospi.qa";
+                username = "reiadmin@scdoe.org.qa1";
         }
         return username;
     }
