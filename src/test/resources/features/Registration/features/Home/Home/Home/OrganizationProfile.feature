@@ -20,3 +20,11 @@ Feature: Validate all scenarios related to organization profile
     #181127
     Then I softly see value "Status" for title "Invitation Sent" inside table "---tableID:-:OrganizationProfileContacts---"
     Then I softly can see row level action button "Send Invitation" against "test test" in flex table with id "---tableID:-:OrganizationProfileContacts---"
+
+  @181042 @sprint-1 @userStory-178210
+  Scenario: Verify the organization type for the sub-recipient organization is retained
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    Then I softly see field "Organization Type" as "Nonprofit Organization"

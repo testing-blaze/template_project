@@ -167,3 +167,10 @@ Feature: Validate all scenarios related to registration
     And I click on "Begin Registration" button
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Step 1 of 3" in the page details
+
+  @179470 @sprint-1 @userStory-178200
+  Scenario: Verify That the note on the subrecipient registration page
+    Given I am on "SUBPORTAL" portal
+    When I click on "Register" button
+    Then I softly do not see the Instruction text in the page
+      | NOTE:  Passwords expire every 90 days.  For more account management information, review the Applicant FAQs. |
