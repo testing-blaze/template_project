@@ -1,4 +1,4 @@
-@subrecipientOrg @regression
+@subrecipientOrg @regression @Organization
 Feature: Validate all scenarios related to subrecipient organization
 
   @179296 @sprint-1 @userStory-176430
@@ -19,6 +19,7 @@ Feature: Validate all scenarios related to subrecipient organization
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
+    And I click toggle button to select "Subrecipient Organizations - Pending"
     When I perform quick search for "PEACE CANAL" in "---tableID:-:PendingSubrecipientOrganization---" panel
     When I click on "Start" icon for "PEACE CANAL" inside flex table with id "---tableID:-:PendingSubrecipientOrganization---"
       #179961
@@ -87,14 +88,14 @@ Feature: Validate all scenarios related to subrecipient organization
       #180080
     Then I softly see field "Web Accessibility Coordinator (WAC)" inside "Additional Information" section
     Then I softly see field "Web Accessibility Coordinator (WAC)" as "null Avinash null"
-      #180074 (BugId-182140)
+      #180074
     And I click on "Edit" in the page details
     Then I softly see fields "fieldSCDE_Sendclaims__c" is in edit mode
     Then I softly see "--None--:Yes:No" inside selectbox field "fieldSCDE_Sendclaims__c"
     Then I softly see asterisk mark on "Send claims to SCEIS?"
     And I click on "Save" in the page details
     Then I softly see field "Send claims to SCEIS?" inside "Description" section
-     #179301 (BugId-182140)
+     #179301
     And I click on "Edit" in the page details
     Then I softly see fields "fieldUEINumber__c" is in edit mode
     Then I softly see asterisk mark on "UEI"
@@ -105,8 +106,8 @@ Feature: Validate all scenarios related to subrecipient organization
     Then I softly see field "UEI" as "QGBBG68KN5N5"
     #180073 (BugId-182138)
     And I click on "Edit" in the page details
-    Then I softly see fields "fieldSCDE_Org_Code__c" is in edit mode
-    When I enter value "12345" into field "fieldSCDE_Org_Code__c"
+    Then I softly see fields "fieldOrgCode__c" is in edit mode
+    When I enter value "12345" into field "fieldOrgCode__c"
     Then I softly do not see asterisk mark on "Organization Code"
     And I click on "Save" in the page details
     Then I softly see field "Organization Code" as "1234"
@@ -138,6 +139,7 @@ Feature: Validate all scenarios related to subrecipient organization
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Home" tab
     When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
+    And I click toggle button to select "Subrecipient Organizations - Pending"
     When I perform quick search for "PEACE CANAL" in "---tableID:-:PendingSubrecipientOrganization---" panel
     When I click on "Start" icon for "PEACE CANAL" inside flex table with id "---tableID:-:PendingSubrecipientOrganization---"
     #181881
@@ -180,3 +182,51 @@ Feature: Validate all scenarios related to subrecipient organization
     When I enter value "12er34" into field "fieldSupplierID__c"
     And I click modal button "Save And Close"
     Then I softly see field "Vendor ID" as "12er34"
+
+  @181864 @181866 @181878 @181872 @181865 @sprint-1 @userStory-176388
+  Scenario: Verify "Send claims to SCEIS?" field is required to approve the registration request
+  |Verify the Validation message (Before approving the registration request, click the 'Update Organization Fields' button and make a selection for 'Send Claims to SCEIS?' for the organization.)
+  |Verify Validation message:  Before approving the registration request, click the 'Update Organization Fields' button to enter the 'Maximum Users Allowed' for the organization.
+  |Then I see Maximum Users Allowed field not required if Reject the approval decision
+  |Verify "Send claims to SCEIS?" field is not required if I reject the registration request
+    When I login to "As a Grantor" app as "PM1" user
+    And I navigate to "Home" tab
+    When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
+    And I click toggle button to select "Subrecipient Organizations - Pending"
+    When I perform quick search for "PEACE CANAL" in "---tableID:-:PendingSubrecipientOrganization---" panel
+    When I click on "Start" icon for "PEACE CANAL" inside flex table with id "---tableID:-:PendingSubrecipientOrganization---"
+    And I click on "Update Organization Fields" in the page details
+      #181872 #181865
+    Then I softly see asterisk mark on "Maximum Users Allowed"
+    Then I softly see asterisk mark on "Send claims to SCEIS?"
+     #181864 #181866 #181878
+    And I clear the value from field "fieldSCDE_MaximumUsersAllowed__c"
+    And I clear the value from field "fieldSCDE_Sendclaims__c"
+    And I click modal button "Save And Close"
+    When I "Approve" in the approval decision
+    Then I softly see the following messages in the page details contains:
+      | Before approving the registration request, click the ‘Update Organization Fields’ button to enter the ‘Maximum Users Allowed and make a selection for ‘Send Claims to SCEIS?’ |
+
+  @179308 @sprint-1 @userStory-176431
+  Scenario: Verify Add column for Organization Code to Organizations List page
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    Then I softly see "Name" in flex table header "---tableID:-:SubrecipientOrganization---"
+    Then I softly see "EIN" in flex table header "---tableID:-:SubrecipientOrganization---"
+    Then I softly see "UEI" in flex table header "---tableID:-:SubrecipientOrganization---"
+    Then I softly see "Org Code" in flex table header "---tableID:-:SubrecipientOrganization---"
+    Then I softly see "Type" in flex table header "---tableID:-:SubrecipientOrganization---"
+    Then I softly see "Approved Date" in flex table header "---tableID:-:SubrecipientOrganization---"
+    Then I softly see "Actions" in flex table header "---tableID:-:SubrecipientOrganization---"
+
+  @181038 @sprint-1 @userStory-178210 @BugId-182451
+  Scenario: Verify that the Organization Type does not copy from SAM.gov
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "PEACE CANAL" in "---tableID:-:SubrecipientOrganization---" panel
+    When I click on "View" icon for "PEACE CANAL" inside flex table with id "---tableID:-:SubrecipientOrganization---"
+    Then I softly see field "Organization Type" as "Nonprofit Organization"
+    And I click on "Verify" in the page details
+    Then I softly see field "Organization Type" as "Nonprofit Organization"

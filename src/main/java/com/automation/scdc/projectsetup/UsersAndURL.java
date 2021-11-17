@@ -70,6 +70,9 @@ public class UsersAndURL implements UsersController {
             case "PM":
                 username = "automationpm@scdoe.org.qa1";
                 break;
+            case "PM1":
+                username = "simon.pm@yopmail.com.qa1";
+                break;
             case "PO":
                 username = "test.user.po@yopmail.com.qa1";
                 break;

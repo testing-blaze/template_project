@@ -35,6 +35,7 @@ Feature: Validate all scenarios related to internal program
     #180231
     Then I softly see "--None--:Formula Grant:Competitive Grant:State Grant:Direct Grant" inside selectbox field "fieldType__c"
     #180247
+    When I enter value "description" into field "fieldObjectives__c"
     And I click on "Save" in the page details
     Then I softly see "Office" inside page block detail
     #180227
@@ -50,3 +51,25 @@ Feature: Validate all scenarios related to internal program
     When I enter value "test" into field "fieldSCDE_Office__c"
     And I click on "Save" in the page details
     Then I softly see field "Office" as "test"
+
+  @179640 @179642 @sprint-1 @userStory-177257
+  Scenario: Verify that Project Role field do not see while create a contact in Internal program
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:InternalProgram---"
+      #179640
+    Then I softly do not see "Project Role" inside page block detail
+      #179642
+    When I enter value "Automation Runtime Internal Program" into field "fieldProgramName__c"
+    When I enter value "Formula Grant" into field "fieldType__c"
+    When I enter value "Department of Education" into field "fieldPrimaryFundingOrganization__c"
+    When I enter value "No" into field "fieldFocusAreaRequired__c"
+    When I enter value "No" into field "fieldIsGoalsRequired__c"
+    When I enter value "No" into field "fieldKPIsRequired__c"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I click on top right button "Associate" in flex table with id "---tableID:-:InternalProgramContacs---"
+    When I click "Associate" after selection of "Automation PM" in the table "---tableID:-:Modal---"
+    And I click on "Edit" icon for "Automation PM" inside flex table with id "---tableID:-:InternalProgramContacs---"
+    Then I softly see "--None--:State Coordinator" inside selectbox field "ProjectRole__c"
