@@ -1,4 +1,4 @@
-@subrecipientOrg @regression @Organization
+@subrecipientOrg @regression @Organization @scdeRegression
 Feature: Validate all scenarios related to subrecipient organization
 
   @179296 @sprint-1 @userStory-176430

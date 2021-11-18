@@ -1,4 +1,4 @@
-@registration @regression
+@registration @regression @scdeRegression
 Feature: Validate all scenarios related to registration
 
   @179595 @179431 @179596 @179597 @179811 @179812 @sprint-1 @userStory-174754

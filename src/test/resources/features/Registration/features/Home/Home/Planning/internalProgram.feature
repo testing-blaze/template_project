@@ -1,4 +1,4 @@
-@internalProgram @regression
+@internalProgram @regression @scdeRegression @programs
 Feature: Validate all scenarios related to internal program
 
   @179998 @180232 @180216 @180226 @180231 @180247 @180227 @180249 @180248 @sprint-1 @userStory-177256
@@ -19,7 +19,7 @@ Feature: Validate all scenarios related to internal program
     Then I softly see "--None--:Formula Grant:Competitive Grant:State Grant:Direct Grant" inside selectbox field "fieldType__c"
     #180232
     And I hovering mouse on help text icon inside page block detail "Type"
-    Then I see "Program Type:  Formula Grant, Competitive Grant, State Grant, Direct Grant" shown as help text
+    Then I softly see "Program Type:  Formula Grant, Competitive Grant, State Grant, Direct Grant" shown as help text
     #180216
     Then I softly do not see "Internal Organization" inside page block detail
     #180226
@@ -31,7 +31,7 @@ Feature: Validate all scenarios related to internal program
     When I enter value "No" into field "fieldKPIsRequired__c"
     And I click modal button "Save and Continue"
     And I hovering mouse on help text icon inside page block detail "Type"
-    Then I see "Program Type:  Formula Grant, Competitive Grant, State Grant, Direct Grant" shown as help text
+    Then I softly see "Program Type:  Formula Grant, Competitive Grant, State Grant, Direct Grant" shown as help text
     #180231
     Then I softly see "--None--:Formula Grant:Competitive Grant:State Grant:Direct Grant" inside selectbox field "fieldType__c"
     #180247
