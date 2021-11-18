@@ -85,12 +85,6 @@ public class ProjectWebServices {
     private String getAuthToken(String userType) {
         Response response = null;
         response = I.amPerforming().restHttp().postCall(null, null, endPoint + getAuthTokenEndPoint(userType), null, null, null);
-        /*
-        if ("deletion".equalsIgnoreCase(type)) {
-            response = I.amPerforming().restHttp().postCall(null, null, endPoint + setDefaultDeletionEndPointGetToken(), null, null, null);
-        } else if ("others".equalsIgnoreCase("others")) {
-            response = I.amPerforming().restHttp().postCall(null, null, endPoint + setDefaultOthersEndPointGetToken(), null, null, null);
-        }*/
         return response.body().jsonPath().getString("access_token");
     }
 
