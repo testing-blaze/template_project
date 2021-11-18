@@ -1,4 +1,4 @@
-@organization @regression
+@organizationProfile @Organization @regression @scdeRegression
 Feature: Validate all scenarios related to organization profile
 
   @181132 @181127 @sprint-1 @userStory-177832

@@ -39,4 +39,12 @@ public class setup {
         userController.usersController(new UsersAndURL());
     }
 
+    @After(order = 1)
+    public void deleteMe() {
+        if (projectWebServices == null) {
+            projectWebServices = new ProjectWebServices();
+        }
+        projectWebServices.deleteRecordInHooks();
+    }
+
 }

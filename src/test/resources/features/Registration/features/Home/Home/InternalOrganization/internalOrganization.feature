@@ -1,4 +1,4 @@
-@internalOrganization @regression @Organization
+@internalOrganization @regression @Organization @scdeRegression
 Feature: Validate all scenarios related to internal organization
 
   @179218 @179223 @179224 @179219 @sprint-1 @userStory-178208
