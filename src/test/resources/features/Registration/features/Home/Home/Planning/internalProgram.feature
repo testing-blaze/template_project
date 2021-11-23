@@ -73,3 +73,47 @@ Feature: Validate all scenarios related to internal program
     When I click "Associate" after selection of "Automation PM" in the table "---tableID:-:Modal---"
     And I click on "Edit" icon for "Automation PM" inside flex table with id "---tableID:-:InternalProgramContacs---"
     Then I softly see "--None--:State Coordinator" inside selectbox field "ProjectRole__c"
+
+  @181188 @181199 @181198 @181193 @sprint-2 @userStory-178202
+  Scenario: Verify 'Primary Funding Organization' field on the create program modal window
+  |Verify that 'Organization Type' column in Primary Funding Organization lookup modal
+  |Verify that the 'Primary Funding Organization' lookup modal does not shows internal organization (e.g. SCDE) or an external sub-recipient organization
+  |Verify that the 'Primary Funding Organization' lookup modal shows only Federal, State, and NGO organizations
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:InternalProgram---"
+      #181188
+    Then I softly see "Primary Funding Organization" inside page block detail
+      #181199
+    When I click search icon for look up field "Primary Funding Organization Lookup (New Window)" with clearing
+    Then I softly do not see "Organization Type" in flex table header "---tableID:-:Modal---"
+      #181198
+    When I perform quick search for "South Carolina Department of Education" in "---tableID:-:OrganizationModalSearch---" panel
+    Then I softly see "No Records Found" inside flex table with id "---tableID:-:OrganizationModalSearch---"
+      #181193
+    When I perform quick search for "Test NGO Org" in "---tableID:-:OrganizationModalSearch---" panel
+    Then I softly see value "Test NGO Org" for title "Organization Name" inside table "---tableID:-:OrganizationModalSearch---"
+    When I perform quick search for "Federal Assistance" in "---tableID:-:OrganizationModalSearch---" panel
+    Then I softly see value "Federal Assistance" for title "Organization Name" inside table "---tableID:-:OrganizationModalSearch---"
+    When I perform quick search for "Department of State" in "---tableID:-:OrganizationModalSearch---" panel
+    Then I softly see value "Department of State" for title "Organization Name" inside table "---tableID:-:OrganizationModalSearch---"
+
+  @181350 @181351 @181353 @181349 @181356 @181358 @sprint-2 @userStory-178202 @BugId-183705
+  Scenario Outline: Verify the Grantee module for EXE user profile
+  |Verify the Grantee module for FD user profile
+  |Verify the Grantee module for FO user profile
+  |Verify the Grantee module for PM user profile
+  |Verify the Grantee module for PO user profile
+  |Verify the Grantee module for System Admin user profile
+    When I login to "As a Grantor" app as "<userType>" user
+    And I navigate to "Home" tab
+    Then I see "As a Grantee" inside CustomApp dropDown not displayed
+    Examples:
+      | userType |
+      | EXE      |
+      | FD       |
+      | FO       |
+      | PM       |
+      | PO       |
+      | Admin    |
