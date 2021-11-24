@@ -99,13 +99,12 @@ Feature: Validate all scenarios related to internal program
     When I perform quick search for "Department of State" in "---tableID:-:OrganizationModalSearch---" panel
     Then I softly see value "Department of State" for title "Organization Name" inside table "---tableID:-:OrganizationModalSearch---"
 
-  @181350 @181351 @181353 @181349 @181356 @181358 @sprint-2 @userStory-178202 @BugId-183705
+  @181350 @181351 @181353 @181349 @181356 @sprint-2 @userStory-178202
   Scenario Outline: Verify the Grantee module for EXE user profile
   |Verify the Grantee module for FD user profile
   |Verify the Grantee module for FO user profile
   |Verify the Grantee module for PM user profile
   |Verify the Grantee module for PO user profile
-  |Verify the Grantee module for System Admin user profile
     When I login to "As a Grantor" app as "<userType>" user
     And I navigate to "Home" tab
     Then I see "As a Grantee" inside CustomApp dropDown not displayed
@@ -116,4 +115,9 @@ Feature: Validate all scenarios related to internal program
       | FO       |
       | PM       |
       | PO       |
-      | Admin    |
+
+  @181358 @sprint-2 @userStory-178202
+  Scenario: Verify the Grantee module for System Admin user profile
+    When I login to "As a Grantor" app as "Admin" user
+    And I navigate to "Home" tab
+    Then I see "As a Grantee" inside CustomApp dropDown
