@@ -37,12 +37,29 @@ public class ProjectWebServices {
         response.then().statusCode(200);
     }
 
+    /**
+     * get the record id
+     *
+     * @param recordName
+     * @param fieldName
+     * @param objectType
+     * @return
+     */
+    public Response getRecordId(String recordName, String fieldName, String objectType) {
+        var tokenString = getAuthToken("ADMIN");
+        String finalEndPoint = endPoint + "/services/apexrest/productAutomationGetFieldValue?objectType=" + objectType
+                + "&fieldValue=" + recordName + "&fieldName=" + fieldName;
+        Response response = I.amPerforming().restHttp().getCall(finalEndPoint, "Authorization", "Bearer " + tokenString);
+        response.prettyPrint();
+        assertStatusCode(response);
+        return response;
+    }
 
     private static String getEndPointForAuthToken() {
         String defaultEndPointGetToken = "";
         switch (EnvironmentFactory.getEnvironmentName().toUpperCase()) {
             case "QA":
-                defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG9BiWFlgZEySViZ28cC3t9qysqBKFzp7Nq8TeIoxDZchfEVjlzCnoTtl8AonVxlgD7YmauV37m8uUr5aym&client_secret=DEC1633D12C25C2D4E1B9C387509720D08575A3E184127D8C06988C735BF8EFE&username=reiadmin@scdoe.org.qa1&password=GovGrants@2021";
+                defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG9_I_oWkIqLrl7h.HM0nqegU6Ah0VVUJrwZYSyP_xsfZeV3pjkfxFzj.u5pDZw94PiW0vwsoQrhe8iNm8f&client_secret=253B5F330D34E723F878A4FDA6FF74B771FCBCA5E08806B5772339A36D56E75A&username=reiadmin@scdoe.org.qa1&password=GovGrants@2021";
                 break;
             case "AUTO":
                 defaultEndPointGetToken = "/services/oauth2/token?grant_type=password&client_id=3MVG91w9zi214CtXnzIWdn2xPuHAN1XkYAitPT2j.uYialP.IkZPFfvjOR2aOfLI4oD5hkp14UCTxBkhZj_R4&client_secret=577B7DCF8AB585D9076AFF0B5AE8DAAAD39DFEE89F9DAFA15BE824B9A2DF1B91&username=reiadmin@scdoe.org.automation&password=GovGrants@2021";
@@ -131,7 +148,7 @@ public class ProjectWebServices {
                 deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "ANNOUNCEMENT");
                 deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "Contact");
             }
-            if (StringUtils.containsIgnoreCase(record, "InternalProgram")) {
+            if (StringUtils.containsIgnoreCase(record, "Internal Program")) {
                 deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "PROGRAM");
             }
             if (StringUtils.containsIgnoreCase(record, "Federal Program")) {

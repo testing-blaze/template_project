@@ -47,6 +47,37 @@ public class InternalOrganizationPage extends ProjectManager {
         }
     }
 
+    /**
+     * @param userType e.g (INTERNAL,EXTERNAL)
+     * @param subject  e.g Subject of mail that needs to be verified
+     * @return true if we get expected Subject in mail notification
+     * @throws MessagingException
+     */
+    public boolean validateMailSubject(String userType, String subject) throws MessagingException {
+        Map<String, String> credentials = usersAndURL.getUserCredentialsForMailNotification(userType);
+
+
+        if (subject.toLowerCase().contains("<award id>")) {
+            subject = subject.replace("<award id>", getRecordId("Automation Permanent Award", "GrantAwardName__c", "Award__c").asString().replaceAll("^\"|\"$", ""));
+        }
+
+        if (subject.toLowerCase().contains("<payment id>")) {
+            subject = subject.replace("<payment id>", I.amPerforming().propertiesFileOperationsTo().getValue("PaymentId"));
+        }
+
+        if (subject.contains("SavedValue")) {
+            String expected = subject.split(">")[0].split("<")[1];
+            subject = subject.replace("<" + expected + ">", I.amPerforming().propertiesFileOperationsTo().getValue(expected.split(":")[1]));
+        }
+
+        if (subject.toLowerCase().contains("<subrecipient name>")) {
+            if (System.getProperty("env").equalsIgnoreCase("auto")) {
+                subject = subject.replace("<subrecipient name>", "Automation SPI");
+            }
+        }
+        return govgrants.perform().email().isSubjectEmailReceived(credentials.get("username"), credentials.get("password"), "GMAIL", 5, subject);
+    }
+
     /*********
      * "Local Methods with complete functionality - private"
      *****************/

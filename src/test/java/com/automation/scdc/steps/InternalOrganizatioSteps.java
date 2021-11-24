@@ -27,4 +27,13 @@ public class InternalOrganizatioSteps extends ProjectWebServices {
         internalOrganizationPage.iSoftlySeeExpandIcon(usage, tableId);
     }
 
+    @Given("^I (softly can see|can see) mail notification for \"([^\"]*)\" user with following subject:$")
+    public void iSeeMailSubject(String usage, String userType, List<String> subjectList) throws MessagingException {
+        String subject = subjectList.get(0);
+        if (usage.contains("softly")) {
+            I.amPerforming().assertionsTo().assertThat(internalOrganizationPage.validateMailSubject(userType, subject)).isTrue();
+        } else {
+            Assert.assertTrue(internalOrganizationPage.validateMailSubject(userType, subject));
+        }
+    }
 }

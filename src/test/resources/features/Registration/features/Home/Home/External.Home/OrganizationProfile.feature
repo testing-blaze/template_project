@@ -90,3 +90,66 @@ Feature: Validate all scenarios related to organization profile
     Then I softly do not see "Country" in flex table header "---tableID:-:AdditionalAddressInternal---"
       #182054
     Then I softly cannot see top right button "Associate Parent Organization" in page detail
+
+  @181149 @181147 @181146 @181143 @181151 @181142 @sprint-2 @userStory-178219
+  Scenario: Verify  'Profile Description' section on My Profile page
+  |Verify 'Country' field on My Profile page
+  |Verify 'Affiliated Institution' field on My Profile page
+  |Verify 'Accessibility Mode' field on My Profile page
+  |Verify editable fields in User Profile for external users
+  |Verify non editable fields in User Profile for external users
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Home" tab
+    When I select "My Profile" from user dropdown
+      #181149
+    Then I softly do not see "Profile Description" page block displayed
+      #181147
+    Then I softly do not see field "Country" inside "Contact Information" section
+      #181146
+    Then I softly do not see "Affiliated Institution" inside page block detail
+      #181143
+    And I click on "Edit" in the page details
+    Then I softly see fields "fieldGNT__Enable508Compliance__c" is in edit mode
+    #181151
+    Then I softly see fields "fieldPhone" is in edit mode
+    Then I softly see fields "fieldMailingStreet" is in edit mode
+    Then I softly see fields "fieldMailingCity" is in edit mode
+    Then I softly see fields "fieldAddress2__c" is in edit mode
+    Then I softly see fields "fieldMailingState" is in edit mode
+    Then I softly see fields "fieldMailingPostalCode" is in edit mode
+    #181142
+    Then I softly see that "fieldFirstName" rendered in view mode only
+    Then I softly see that "fieldLastName" rendered in view mode only
+    Then I softly see that "fieldUserRole__c" rendered in view mode only
+    Then I softly see that "fieldEmail" rendered in view mode only
+
+  @181851 @sprint-2 @userStory-178203
+  Scenario: Verify that the Country field in "subrecipient organization layout"
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:OrganizationProfileContacts---"
+    Then I softly do not see "Country" inside page block detail
+
+  @181890 @181891 @sprint-2 @userStory-178211
+  Scenario: Verify that when I create an additional address, I do not see the Country field.
+  | Verify that when I edit an additional address, I do not see the Congressional District and County
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:AdditionalAddressOnSubrecipientOrg---"
+        #181890
+    Then I softly do not see "Country" inside page block detail
+        #181891
+    When I enter value "Backup" into field "fieldAddressType__c"
+    When I enter value "Street" into field "fieldAddressLine1__c"
+    When I enter value "city" into field "fieldCity__c"
+    When I enter value "LA" into field "fieldState__c"
+    When I enter value "12345" into field "fieldZipCode__c"
+    And I click modal button "Save"
+    And I click on "Edit" icon for "Backup" inside flex table with id "---tableID:-:AdditionalAddressOnSubrecipientOrg---"
+    Then I softly do not see "Country" inside page block detail
+    Then I softly do not see "Congressional District" inside page block detail
