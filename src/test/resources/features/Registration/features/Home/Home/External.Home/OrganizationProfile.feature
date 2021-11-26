@@ -135,7 +135,7 @@ Feature: Validate all scenarios related to organization profile
 
   @181890 @181891 @sprint-2 @userStory-178211
   Scenario: Verify that when I create an additional address, I do not see the Country field.
-  | Verify that when I edit an additional address, I do not see the Congressional District and County
+  |Verify that when I edit an additional address, I do not see the Congressional District and County
     Given I am on "SUBPORTAL" portal
     When I login as "SPIWAC" user
     And I navigate to "Home" tab
@@ -153,3 +153,18 @@ Feature: Validate all scenarios related to organization profile
     And I click on "Edit" icon for "Backup" inside flex table with id "---tableID:-:AdditionalAddressOnSubrecipientOrg---"
     Then I softly do not see "Country" inside page block detail
     Then I softly do not see "Congressional District" inside page block detail
+
+  @181719 @181722 @sprint-2 @userStory-178205
+  Scenario: Verify that as a WAC user, when I create a new external contact, I do not see the Country field
+  |Verify that when I view a recipient (external) contact , the Country field is hidden. a. The Country field is set as USA and the field is hidden.
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:OrganizationProfileContacts---"
+      #181719
+    Then I softly do not see "Country" inside page block detail
+    And I close modal by clicking the top right x button
+      #181722
+    And I click on "View" icon for "Automation Contact" inside flex table with id "---tableID:-:OrganizationProfileContacts---"
+    Then I softly do not see "Country" inside page block detail

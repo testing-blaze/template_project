@@ -121,3 +121,46 @@ Feature: Validate all scenarios related to internal program
     When I login to "As a Grantor" app as "Admin" user
     And I navigate to "Home" tab
     Then I see "As a Grantee" inside CustomApp dropDown
+
+  @182248 @182250 @sprint-2 @userStory-178222
+  Scenario: Verify the 'Sequence Number' column on the Preview Form Package modal window (Programs)
+  |Verify the forms are listed in the ascending order of the sequence numbers listed on the form package (Programs)
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:InternalProgram---"
+    When I enter value "Automation Runtime Internal Program" into field "fieldProgramName__c"
+    When I enter value "Formula Grant" into field "fieldType__c"
+    When I enter value "Department of Education" into field "fieldPrimaryFundingOrganization__c"
+    When I enter value "No" into field "fieldFocusAreaRequired__c"
+    When I enter value "No" into field "fieldIsGoalsRequired__c"
+    When I enter value "No" into field "fieldKPIsRequired__c"
+    And I click modal button "Save and Continue"
+    When I enter value "description" into field "fieldObjectives__c"
+    And I click on "Save" in the page details
+      #182248
+    And I navigate to "Setup" sub tab
+    When I click on "Preview" icon for "Application" inside flex table with id "---tableID:-:ProgramsBusinessForms---"
+    Then I softly see "Sequence Number" in flex table header "---tableID:-:PreviewPackageForms---"
+      #182250
+    Then I softly see content of expected column "Sequence Number" is in "ASC" order of table id "---tableID:-:PreviewPackageForms---"
+
+  @181384 @sprint-2 @userStory-178224
+  Scenario: Verify columns in the Preview Form Package modal window for Internal Programs
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:InternalProgram---"
+    When I enter value "Automation Runtime Internal Program" into field "fieldProgramName__c"
+    When I enter value "Formula Grant" into field "fieldType__c"
+    When I enter value "Department of Education" into field "fieldPrimaryFundingOrganization__c"
+    When I enter value "No" into field "fieldFocusAreaRequired__c"
+    When I enter value "No" into field "fieldIsGoalsRequired__c"
+    When I enter value "No" into field "fieldKPIsRequired__c"
+    And I click modal button "Save and Continue"
+    When I enter value "description" into field "fieldObjectives__c"
+    And I click on "Save" in the page details
+    And I navigate to "Setup" sub tab
+    When I click on "Preview" icon for "Application" inside flex table with id "---tableID:-:ProgramsBusinessForms---"
+    Then I softly do not see "Form Expiration" in flex table header "---tableID:-:PreviewPackageForms---"
+    Then I softly do not see "Is Available?" in flex table header "---tableID:-:PreviewPackageForms---"

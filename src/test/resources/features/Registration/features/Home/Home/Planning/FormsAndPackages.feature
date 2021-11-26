@@ -1,4 +1,4 @@
-@formsAndPackages @regression @scdeRegression
+@formsAndPackages @regression @scdeRegression @programs
 Feature: Validate all scenarios related to forms and packages
 
   @181925 @181926 @182136 @182133 @sprint-2 @userStory-178221
