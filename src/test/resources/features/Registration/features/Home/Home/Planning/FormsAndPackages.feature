@@ -1,7 +1,7 @@
 @formsAndPackages @regression @scdeRegression
 Feature: Validate all scenarios related to forms and packages
 
-  @181925 @181926 @182136 @182133 @sprint-2 @userStory-178221
+  @181925 @181926 @182136 @182133 @sprint-2 @userStory-178221 @training
   Scenario: Verify the Custom App field is hidden from the UI
   |Verify that the 'Sequence Number' column on the Package modal window.
   |Verify that enter a Sequence Number is not required field or unique field
