@@ -21,7 +21,8 @@ Feature: Validate all scenarios related to internal program
     And I hovering mouse on help text icon inside page block detail "Type"
     Then I softly see "Program Type:  Formula Grant, Competitive Grant, State Grant, Direct Grant" shown as help text
     #180216
-    Then I softly do not see "Internal Organization" inside page block detail
+    Then I see only the following ordered page blocks :
+      | Information| Program Specific Settings|
     #180226
     When I enter value "Automation Runtime Internal Program" into field "fieldProgramName__c"
     When I enter value "Formula Grant" into field "fieldType__c"

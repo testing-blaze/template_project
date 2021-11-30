@@ -22,10 +22,10 @@ public class setup {
     private static CSS report;
     ProjectWebServices projectWebServices;
 
-    public setup(TestSetupController userController,ProjectWebServices projectWebServices) {
+    public setup(TestSetupController userController, ProjectWebServices projectWebServices) {
         this.userController = userController;
         this.projectWebServices = projectWebServices;
-        if(report == null) {
+        if (report == null) {
             this.report = new CSS();
             EnvironmentFactory.setProjectName("GovGrants SCDC Test Automation");
             EnvironmentFactory.setOrgName("REI Systems [Saas Business Unit]");
@@ -46,5 +46,24 @@ public class setup {
         }
         projectWebServices.deleteRecordInHooks();
     }
+
+    /* ReCaptcha Steps */
+
+    @Before("@recaptcha")
+    public void turnOffRecaptcha() {
+        if (projectWebServices == null) {
+            projectWebServices = new ProjectWebServices();
+        }
+        projectWebServices.recaptchaChange(true);
+    }
+
+    @After("@recaptcha")
+    public void turnOnRecaptcha() {
+        if (projectWebServices == null) {
+            projectWebServices = new ProjectWebServices();
+        }
+        projectWebServices.recaptchaChange(false);
+    }
+
 
 }

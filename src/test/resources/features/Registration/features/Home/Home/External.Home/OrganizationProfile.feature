@@ -168,3 +168,33 @@ Feature: Validate all scenarios related to organization profile
       #181722
     And I click on "View" icon for "Automation Contact" inside flex table with id "---tableID:-:OrganizationProfileContacts---"
     Then I softly do not see "Country" inside page block detail
+
+  @179473 @VerifyLegalDisclaimers @sprint-1 @userstory-176428
+  Scenario: Verify legal disclaimers during LEA registration
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    And I navigate to "Home" tab
+    And I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    When I navigate to "Overview" tab
+    When I click on top right button "New" in flex table with id "{tableID:OrganizationProfileContacts}"
+    When I enter value "Automation" into field "fieldFirstName"
+    When I enter value "Contact" into field "fieldLastName"
+    When I enter value "(111) 222-3333" into field "fieldPhone"
+    And I enter email id "testmailDrop" into field "fieldEmail"
+    When I enter value "Secondary" into field "fieldUserRole__c"
+    When I enter value "1133 Fifteenth St. N.W., Suite 1000" into field "fieldMailingStreet"
+    When I enter value "Washington" into field "fieldMailingCity"
+    When I enter value "HI" into field "fieldState__c"
+    When I enter value "67848" into field "fieldMailingPostalCode"
+    And I click modal button "Save"
+    And I save the field labeled "Email" as "emailId"
+    And I close modal by clicking the top right x button
+    When I perform quick search for "{SavedValue:emailId}" in "{tableID:OrganizationProfileContacts}" panel
+    And I click on "Send Invitation" icon for "{SavedValue:emailId}" inside flex table with id "{tableID:OrganizationProfileContacts}"
+    When I click modal button "Send"
+    And I click "Ok" on modal confirmation box
+    And I pause execution for "180" seconds
+    And I checkout to maildrop with mailid "{SavedValue:emailId}"
+    And I pause execution for "2" seconds
+    When I perform operations on mailDropCC with mail "{SavedValue:emailId}" and subject "Sandbox: Notification: EGMS User Invitation" with link "AdditionalApplicant"
+    Then I softly see "Additional User Detail" page block displayed

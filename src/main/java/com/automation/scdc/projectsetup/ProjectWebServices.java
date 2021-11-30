@@ -182,5 +182,10 @@ public class ProjectWebServices {
         }
     }
 
+    public void recaptchaChange(boolean shouldBeDisabled) {
+        String finalEndPoint = endPoint + "/services/apexrest/recaptcha?shouldBeDisabled=" + shouldBeDisabled;
+        Response response = I.amPerforming().restHttp().postCall(null, null, finalEndPoint, "Authorization", "Bearer " + tokenString, null);
+        assertStatusCode(response);
+    }
 
 }
