@@ -175,8 +175,17 @@ public class ProjectWebServices {
             if (StringUtils.containsIgnoreCase(record, "Announcement")) {
                 deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "Announcement");
             }
+            if (StringUtils.containsIgnoreCase(record, "Formula Announcement")) {
+                deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "Application");
+                deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "Announcement");
+            }
         }
     }
 
+    public void recaptchaChange(boolean shouldBeDisabled) {
+        String finalEndPoint = endPoint + "/services/apexrest/recaptcha?shouldBeDisabled=" + shouldBeDisabled;
+        Response response = I.amPerforming().restHttp().postCall(null, null, finalEndPoint, "Authorization", "Bearer " + tokenString, null);
+        assertStatusCode(response);
+    }
 
 }

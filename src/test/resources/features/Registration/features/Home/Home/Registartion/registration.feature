@@ -32,9 +32,10 @@ Feature: Validate all scenarios related to registration
   Scenario:  Verify registration instructions to be SCDE-specific
     Given I am on "SUBPORTAL" portal
     When I click on "Register" button
-    Then I softly see the text :
+    Then I softly see the text containing :
       | An organization is an entity that submits grant applications. Organizations include, but are not limited to, local education agencies, nonprofit organizations, state agencies, institutions of higher education, and community-based organizations. |
-      | If you have not registered, you will not be able to submit an application. Please discuss with the Point of Contact listed in the grant opportunity                                                                                                  |
+    Then I softly see the text containing :
+      |If you have not registered in the EGMS, you will not be able to submit an application. Please discuss with the Point of Contact listed in the grant opportunity if you have further questions.|
     Then I softly see the Instruction text in the page
       | 1. Register for your Employer Identification Number (EIN):                                                                                                                                                                                                                                                                                                                                                      |
       | https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online                                                                                                                                                                                                                                                                                            |

@@ -230,3 +230,16 @@ Feature: Validate all scenarios related to subrecipient organization
     Then I softly see field "Organization Type" as "Nonprofit Organization"
     And I click on "Verify" in the page details
     Then I softly see field "Organization Type" as "Nonprofit Organization"
+
+  @181738 @sprint-2 @userStory-179347
+  Scenario: Verify Pending Subrecipient Organizations list page
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Home" tab
+    When I navigate to "Pending Subrecipient Registrations" content inside "Organization" subheader on left panel
+    And I click toggle button to select "Subrecipient Organizations - Pending"
+    Then I softly see "Name" in flex table header "---tableID:-:PendingSubrecipientOrganization---"
+    Then I softly see "EIN" in flex table header "---tableID:-:PendingSubrecipientOrganization---"
+    Then I softly see "UEI" in flex table header "---tableID:-:PendingSubrecipientOrganization---"
+    Then I softly see "Request Date" in flex table header "---tableID:-:PendingSubrecipientOrganization---"
+    Then I softly see "Type" in flex table header "---tableID:-:PendingSubrecipientOrganization---"
+    Then I softly see "Actions" in flex table header "---tableID:-:PendingSubrecipientOrganization---"
