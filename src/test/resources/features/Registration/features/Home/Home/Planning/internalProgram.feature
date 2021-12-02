@@ -22,7 +22,7 @@ Feature: Validate all scenarios related to internal program
     Then I softly see "Program Type:  Formula Grant, Competitive Grant, State Grant, Direct Grant" shown as help text
     #180216
     Then I see only the following ordered page blocks :
-      | Information| Program Specific Settings|
+      | Information | Program Specific Settings |
     #180226
     When I enter value "Automation Runtime Internal Program" into field "fieldProgramName__c"
     When I enter value "Formula Grant" into field "fieldType__c"
@@ -165,3 +165,23 @@ Feature: Validate all scenarios related to internal program
     When I click on "Preview" icon for "Application" inside flex table with id "---tableID:-:ProgramsBusinessForms---"
     Then I softly do not see "Form Expiration" in flex table header "---tableID:-:PreviewPackageForms---"
     Then I softly do not see "Is Available?" in flex table header "---tableID:-:PreviewPackageForms---"
+
+  @179226 @sprint-2 @userStory-178214
+  Scenario: Verify Library for Files to match with organization hierarchy on Pograms
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:InternalProgram---"
+    When I enter value "Automation Runtime Internal Program" into field "fieldProgramName__c"
+    When I enter value "Formula Grant" into field "fieldType__c"
+    When I enter value "Department of Education" into field "fieldPrimaryFundingOrganization__c"
+    When I enter value "No" into field "fieldFocusAreaRequired__c"
+    When I enter value "No" into field "fieldIsGoalsRequired__c"
+    When I enter value "No" into field "fieldKPIsRequired__c"
+    And I click modal button "Save and Continue"
+    When I enter value "description" into field "fieldObjectives__c"
+    And I click on "Save" in the page details
+    And I navigate to "Files" sub tab
+    And I click on top right button "Add Files" in flex table with id "---tableID:-:InternalProgramFilesTable---"
+    When I click on SelectChange Folder in add file modal
+    Then I softly see library/folder/file "SCDE" is displayed under files library

@@ -80,7 +80,7 @@ Feature: Validate all scenarios related to subrecipient organization
     Then I softly see "EIN" field inside header "Subrecipient Organization"
     Then I softly see "UEI" field inside header "Subrecipient Organization"
     And I click on "Edit" in the page details
-    Then I softly see field "Org Code" as ""
+    Then I softly see field "Org Code" as "1111"
       #180085
     Then I softly do not see "Active Child Organizations" page block displayed
     And I click on "Save" in the page details
