@@ -19,7 +19,7 @@ Feature: Validate all scenarios related to internal program
     Then I softly see "--None--:Formula Grant:Competitive Grant:State Grant:Direct Grant" inside selectbox field "fieldType__c"
     #180232
     And I hovering mouse on help text icon inside page block detail "Type"
-    Then I softly see "Program Type:  Formula Grant, Competitive Grant, State Grant, Direct Grant" shown as help text
+    Then I softly see "Program Type: Formula Grant, Competitive Grant, State Grant, Direct Grant" shown as help text
     #180216
     Then I see only the following ordered page blocks :
       | Information | Program Specific Settings |
@@ -32,7 +32,7 @@ Feature: Validate all scenarios related to internal program
     When I enter value "No" into field "fieldKPIsRequired__c"
     And I click modal button "Save and Continue"
     And I hovering mouse on help text icon inside page block detail "Type"
-    Then I softly see "Program Type:  Formula Grant, Competitive Grant, State Grant, Direct Grant" shown as help text
+    Then I softly see "Program Type: Formula Grant, Competitive Grant, State Grant, Direct Grant" shown as help text
     #180231
     Then I softly see "--None--:Formula Grant:Competitive Grant:State Grant:Direct Grant" inside selectbox field "fieldType__c"
     #180247
@@ -43,7 +43,7 @@ Feature: Validate all scenarios related to internal program
     Then I softly do not see field "Internal Organization" inside "Information" section
     Then I softly do not see field "Authorized Signatory" inside "Information" section
     Then I softly do not see field "Organization Level" inside "Information" section
-    #180249 (Bug Id-182162)
+    #180249
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview Tab - Provide the Office. |

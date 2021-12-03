@@ -10,7 +10,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
     When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    And I click modal button "Continue"
+    And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
@@ -68,7 +68,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
     When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    And I click modal button "Continue"
+    And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
@@ -130,7 +130,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
     When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    And I click modal button "Continue"
+    And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
@@ -416,7 +416,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$1,000"
 
-  @181764 @sprint-2 @userStory-179997
+  @181764 @sprint-2 @userStory-179997 @wip
   Scenario: Verify that the allocation amount should not updated in application while application Status 'Reviewed'
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -513,7 +513,7 @@ Feature: Validate all scenarios related to application
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
-    And I pause execution for "2" seconds
+    And I pause execution for "5" seconds
     And I refresh the page
     When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
@@ -546,7 +546,7 @@ Feature: Validate all scenarios related to application
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
     And I check "All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignAppToUsergrid---"
-    And I pause execution for "2" seconds
+    And I pause execution for "5" seconds
     And I refresh the page
     When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
@@ -604,7 +604,7 @@ Feature: Validate all scenarios related to application
     And I check "All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
-    And I pause execution for "2" seconds
+    And I pause execution for "5" seconds
     When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
