@@ -243,3 +243,93 @@ Feature: Validate all scenarios related to subrecipient organization
     Then I softly see "Request Date" in flex table header "---tableID:-:PendingSubrecipientOrganization---"
     Then I softly see "Type" in flex table header "---tableID:-:PendingSubrecipientOrganization---"
     Then I softly see "Actions" in flex table header "---tableID:-:PendingSubrecipientOrganization---"
+
+  @184344 @184343 @184351 @184350 @184357 @184353 @184339 @184341 @184345 @184347 @184361 @184364 @184368 @184369 @sprint-3 @userStory-@176427
+  Scenario: Verify that  "Approved Indirect Cost Rate (%)" field is required to save on Create Indirect Rate modal
+  | Verify that  "Approved Indirect Cost Rate (%)" field on Create Indirect Rate modal
+  | Verify that  "Fiscal Year" field is required to save on Create Indirect Rate modal
+  | Verify that  "Indirect Cost Rate Type" field is required to save on Create Indirect Rate modal
+  | Verify that "Fiscal Year" field has years listed 2021, 2022, 2023..etc on Create Indirect Rate modal
+  | Verify that "Indirect Cost Rate Type" field is a dropdown on Create Indirect Rate modal
+  | Verify that "Indirect Rates" section on the Subrecipient organization
+  | Verify that "Indirect Rates" section table columns
+  | Verify that on Create Indirect Rate modal , "Approved Indirect Cost Rate (%)" field is a percentage field allowing up to 2 decimal places
+  | Verify that on Create Indirect Rate modal , "Approved Indirect Cost Rate (%)" field is a percentage field allowing up to 2 decimal places (Negative Scenario)
+  | Verify that only one Restricted Indirect Cost Rate Type per Fiscal Year
+  | Verify that only one Restricted Indirect Cost Rate Type per Fiscal Year (Negative Scenario)
+  | Verify that only one Unrestricted Indirect Cost Rate Type per Fiscal Year
+  | Verify that only one Unrestricted Indirect Cost Rate Type per Fiscal Year (Negative Scenario)
+
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "PEACE CANAL" in "---tableID:-:SubrecipientOrganization---" panel
+    When I click on "View" icon for "PEACE CANAL" inside flex table with id "---tableID:-:SubrecipientOrganization---"
+    And I click on top right button "New" in flex table with id "---tableID:-:IndirectRatesApplication---"
+    #184344
+    Then I softly see asterisk mark on "Approved Indirect Cost Rate (%)"
+    #184343
+    Then I softly see field "Approved Indirect Cost Rate (%)" as ""
+    #184351
+    Then I softly see asterisk mark on "Fiscal Year"
+    #184350
+    Then I softly see asterisk mark on "Indirect Cost Rate Type"
+    #184357
+    Then I see the following options in dropdown field "fieldSCDE_FiscalYear__c" :
+      | 2018 | 2019 | 2023 | 2024 | 2025 | 2026 | 2031 | 2032 | 2033 | 2034 | 2035 |
+    #184353
+    Then I see the following options in dropdown field "fieldIndirectCostRateType__c" :
+      | Restricted | Unrestricted |
+    And I close modal by clicking the top right x button
+    #184339
+    Then I see only the following ordered page blocks :
+      | Description | Additional Information | Additional Addresses | Contacts | Indirect Rates | Third Party Verification | System Information |
+    #184341
+    Then I see only the following ordered headers in table with id "---tableID:-:IndirectRatesApplication---" :
+      | Indirect Cost Rate Type | Approved Indirect Cost Rate (%) | Fiscal Year | Actions |
+    #184345
+    And I click on top right button "New" in flex table with id "---tableID:-:IndirectRatesApplication---"
+    Then I enter value "30" into field "fieldCostRate__c"
+    Then I enter value "Unrestricted" into field "fieldIndirectCostRateType__c"
+    Then I enter value "2019" into field "fieldSCDE_FiscalYear__c"
+    And I click modal button "Save"
+    And I click on "Delete" icon for "30.00%" inside flex table with id "---tableID:-:IndirectRatesApplication---"
+    #184347
+    And I click on top right button "New" in flex table with id "---tableID:-:IndirectRatesApplication---"
+    When I enter value "120" into field "fieldCostRate__c"
+    When I enter value "Restricted" into field "fieldIndirectCostRateType__c"
+    When I enter value "2018" into field "fieldSCDE_FiscalYear__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | The approved indirect cost rate cannot be greater than 100%. |
+    And I close modal by clicking the top right x button
+    #184361
+    And I click on top right button "New" in flex table with id "---tableID:-:IndirectRatesApplication---"
+    When I enter value "40" into field "fieldCostRate__c"
+    When I enter value "Restricted" into field "fieldIndirectCostRateType__c"
+    When I enter value "2020" into field "fieldSCDE_FiscalYear__c"
+    And I click modal button "Save"
+    #184364
+    And I click on top right button "New" in flex table with id "---tableID:-:IndirectRatesApplication---"
+    When I enter value "50" into field "fieldCostRate__c"
+    When I enter value "Restricted" into field "fieldIndirectCostRateType__c"
+    When I enter value "2020" into field "fieldSCDE_FiscalYear__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | There can only be one Restricted Indirect cost rate type per Fiscal Year |
+    And I close modal by clicking the top right x button
+    #184368
+    And I click on top right button "New" in flex table with id "---tableID:-:IndirectRatesApplication---"
+    When I enter value "35" into field "fieldCostRate__c"
+    When I enter value "Unrestricted" into field "fieldIndirectCostRateType__c"
+    When I enter value "2020" into field "fieldSCDE_FiscalYear__c"
+    And I click modal button "Save"
+    #184369
+    And I click on top right button "New" in flex table with id "---tableID:-:IndirectRatesApplication---"
+    When I enter value "80" into field "fieldCostRate__c"
+    When I enter value "Unrestricted" into field "fieldIndirectCostRateType__c"
+    When I enter value "2020" into field "fieldSCDE_FiscalYear__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | There can only be one Unrestricted Indirect cost rate type per Fiscal Year |
+    And I close modal by clicking the top right x button
