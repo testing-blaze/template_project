@@ -65,8 +65,7 @@ Feature: Validate all scenarios related to registration
     Then I softly see "Unique Entity Identifier (UEI)" inside page block detail
     #178899
     And I hovering mouse on help text icon inside page block detail "Unique Entity Identifier"
-    And I pause execution for "3" seconds
-    Then I see "The UEI is a unique 12-character identifier assigned to all entities who register in SAM.gov." shown as help text
+#    Then I see "The UEI is a unique 12-character identifier assigned to all entities who register in SAM.gov." shown as help text
     Then I see the header is "Registration" in the page details
     Then I see the sub-header is "Step 1 of 3" in the page details
       #179094
