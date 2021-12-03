@@ -9,7 +9,7 @@ Feature: Validate all scenarios related to announcement
     And I click on top right button "New" in flex table with id "---tableID:-:Announcements---"
     When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    And I click modal button "Continue"
+    And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
@@ -29,7 +29,7 @@ Feature: Validate all scenarios related to announcement
     And I click on top right button "New" in flex table with id "---tableID:-:Announcements---"
     When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    And I click modal button "Continue"
+    And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
@@ -60,7 +60,7 @@ Feature: Validate all scenarios related to announcement
     #183124
     When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    And I click modal button "Continue"
+    And I click on "Continue" in the page details
     Then I softly do not see "Advance Payment Allowed?" inside page block detail
     #183127
     Then I softly do not see "Are Expense Details Required on Reimbursement?" inside page block detail
@@ -91,7 +91,7 @@ Feature: Validate all scenarios related to announcement
     #183125
     When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    And I click modal button "Continue"
+    And I click on "Continue" in the page details
     Then I softly do not see "Advance Payment Allowed?" inside page block detail
     #183128
     Then I softly do not see "Are Expense Details Required on Reimbursement?" inside page block detail
@@ -121,7 +121,7 @@ Feature: Validate all scenarios related to announcement
     #183123
     When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    And I click modal button "Continue"
+    And I click on "Continue" in the page details
     Then I softly do not see "Advance Payment Allowed?" inside page block detail
     #183126
     Then I softly do not see "Are Expense Details Required on Reimbursement?" inside page block detail

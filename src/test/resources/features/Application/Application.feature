@@ -10,7 +10,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
     When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    And I click modal button "Continue"
+    And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
@@ -68,7 +68,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
     When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    And I click modal button "Continue"
+    And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
@@ -130,7 +130,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
     When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    And I click modal button "Continue"
+    And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
