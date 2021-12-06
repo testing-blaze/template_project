@@ -92,7 +92,7 @@ Feature: Validate all scenarios related to subrecipient organization
     And I click on "Edit" in the page details
     Then I softly see fields "fieldSCDE_Sendclaims__c" is in edit mode
     Then I softly see "--None--:Yes:No" inside selectbox field "fieldSCDE_Sendclaims__c"
-    Then I softly see asterisk mark on "Send claims to SCEIS?"
+    Then I softly see asterisk mark on "*Send claims to SCEIS?"
     And I click on "Save" in the page details
     Then I softly see field "Send claims to SCEIS?" inside "Description" section
      #179301
