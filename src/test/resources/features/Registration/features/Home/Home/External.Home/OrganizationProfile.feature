@@ -49,9 +49,9 @@ Feature: Validate all scenarios related to organization profile
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
       #182058
     And I click on "Edit" in the page details
-    Then I softly see field "Maximum Users Allowed" as "5"
+    Then I softly see field "Maximum Users Allowed" as "10"
       #182057
-    Then I softly see field "*Send Claims to SCEIS?" as ""
+    Then I softly see field "*Send Claims to SCEIS?" as "No"
     And I click on "Save" in the page details
       #182062
     Then I softly do not see field "Last Audit Year" inside "Additional Information" section
@@ -207,13 +207,14 @@ Feature: Validate all scenarios related to organization profile
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     When I perform quick search for "Active" in "---tableID:-:OrganizationProfileContacts---" panel
     Then I softly cannot see top right button "New" in flex table with id "---tableID:-:OrganizationProfileContacts---"
-    Then I softly cannot see row level action button "Edit" against "Automation Contact" in flex table with id "---tableID:-:OrganizationProfileContacts---"
-
+    Then I softly cannot see row level action button "Edit" against "Active" in flex table with id "---tableID:-:OrganizationProfileContacts---"
+    
   @181420 @sprint-2 @userStory-178214
   Scenario: Verify External WAC user can create or edit contacts for organization.
     Given I am on "SUBPORTAL" portal
     When I login as "SPIWAC" user
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    When I perform quick search for "Active" in "---tableID:-:OrganizationProfileContacts---" panel
     Then I softly can see top right button "New" in flex table with id "---tableID:-:OrganizationProfileContacts---"
-    Then I softly can see row level action button "Edit" against "Automation Contact" in flex table with id "---tableID:-:OrganizationProfileContacts---"
+    Then I softly can see row level action button "Edit" against "Active" in flex table with id "---tableID:-:OrganizationProfileContacts---"

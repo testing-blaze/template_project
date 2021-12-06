@@ -201,3 +201,47 @@ Feature: Validate all scenarios related to announcement
     Then I softly do not see "Pre-Application Required?" inside page block detail
      #184131
     Then I softly do not see "Program Income Allowed?" inside page block detail
+
+
+  @183344 @184092 @184093 @sprint-3 @userStory-@179300
+    Scenario:  Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Created".
+    | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Submitted for Review".
+    | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Reviewed".
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    And I click on top right button "New" in flex table with id "---tableID:-:Announcements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    And I navigate to "Overview" sub tab
+    #183344
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementContactsTable---"
+    When I click "Associate" after selection of "Automation PM" in the table "---tableID:-:AnnouncementContactsModal---"
+    Then I softly can see row level action button "Edit" against "Automation PM" in flex table with id "---tableID:-:AnnouncementContactsTable---"
+    #184092
+    And I navigate to "Responsibilities" sub tab
+    And I click on top right button "New" in flex table with id "---tableID:-:PeerReviewers---"
+    When I enter value "Automation PM" into field "s2id_autogen15"
+    When I enter value "Test" into field "Responsibility__c"
+    When I enter value "200" into field "DueDate__c"
+    And I click on "Save" in the page details
+    And I click on "Send for Review" icon for "Automation PM" inside flex table with id "---tableID:-:PeerReviewers---"
+    And I softly see field "Status" as "Submitted for Review"
+    And I navigate to "Overview" sub tab
+    Then I softly can see row level action button "Edit" against "Automation PM" in flex table with id "---tableID:-:AnnouncementContactsTable---"
+    #184093
+    And I navigate to "Responsibilities" sub tab
+    And I click on "Enter Review" icon for "Automation PM" inside flex table with id "---tableID:-:PeerReviewers---"
+    When I enter value "Passed" into field "fieldRating__c"
+    When I enter value "Reviewed" into field "fieldReviewComments__c"
+    And I click modal button "Save"
+    And I click modal button "Submit Review"
+    And I click on "Resend for Review" icon for "Automation PM" inside flex table with id "---tableID:-:PeerReviewers---"
+    And I click on "Complete Review" in the page details
+    And I softly see field "Status" as "Reviewed"
+    And I navigate to "Overview" sub tab
+    Then I softly can see row level action button "Edit" against "Automation PM" in flex table with id "---tableID:-:AnnouncementContactsTable---"
