@@ -203,12 +203,12 @@ Feature: Validate all scenarios related to announcement
     Then I softly do not see "Program Income Allowed?" inside page block detail
 
   @183344 @183343 @184116 @184092 @184093 @184094 @sprint-3 @userStory-@179300 @UmangParekh
-    Scenario: Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Created"
-    | Verify that when I edit a contact in-line on my announcement for the Project Role field is optional
-    | Verify that when I edit a contact in-line on my announcement for the Project Role this field is a dropdown with option a. State Coordinator
-    | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Submitted for Review"
-    | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Reviewed"
-    | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Under Revision"
+  Scenario: Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Created"
+  | Verify that when I edit a contact in-line on my announcement for the Project Role field is optional
+  | Verify that when I edit a contact in-line on my announcement for the Project Role this field is a dropdown with option a. State Coordinator
+  | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Submitted for Review"
+  | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Reviewed"
+  | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Under Revision"
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     And I click on top right button "New" in flex table with id "---tableID:-:Announcements---"
@@ -233,8 +233,8 @@ Feature: Validate all scenarios related to announcement
     #184092
     And I navigate to "Responsibilities" sub tab
     When I enter the following values into flex table with id "---tableID:-:PeerReviewers---" by clicking "New" :
-      | Name | Responsibility  | Description | Due Date | Allow Record Editing |
-      | Automation PM | Fiscal Reviewer | Test     | 1        | No                   |
+      | Name          | Responsibility  | Description | Due Date | Allow Record Editing |
+      | Automation PM | Fiscal Reviewer | Test        | 1        | No                   |
     And I click on "Send for Review" icon for "Automation PM" inside flex table with id "---tableID:-:PeerReviewers---"
     And I softly see field "Status" as "Submitted for Review"
     And I navigate to "Overview" sub tab
@@ -451,3 +451,94 @@ Feature: Validate all scenarios related to announcement
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | For Formula announcements, the Maximum Applications Allowed must be 1. |
+
+  @184196 @184199 @184198 @184201 @184200 @Sprint-3 @userStory-179307
+  Scenario: Verify that do not see the link for "Directed" announcements
+  |Verify that the type field help text say:  Type of funding announcement (Competitive or Formula)
+  |Verify that the type field shows only Competitive and Formula options
+  |Verify that on the Overview tab of the announcement layout the help text say:  Type of funding announcement (Competitive or Formula)
+  |Verify that on the Overview tab of the announcement layout the Type field shows the Competitive or Formula options
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    #184196
+    Then I softly do not see field "Directed" inside "Announcements" section
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "AnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+     #184199
+    And I hovering mouse on help text icon inside page block detail "Type"
+    Then I softly see "Funding Announcement Type (Competitive or Formula)" shown as help text
+    And I click on "Continue" in the page details
+    #184198
+    Then I softly see "--None--:Competitive:Formula" inside selectbox field "fieldAnnouncementType__c"
+    #184201
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    And I hovering mouse on help text icon inside page block detail "Type"
+    Then I softly see "Funding Announcement Type (Competitive or Formula)" shown as help text
+    #184200
+    Then I softly see field "Type" as "Formula"
+
+  @183311 @183291 @183312 @183314 @183395 @183293 @183310 @183296 @183309 @183294 @183313 @sprint-3 @userStory-181656
+  Scenario: Verify that There is a field on the announcement create modal in the Announcement Specific Settings section labeled 'Detailed Budgeting Options'
+  |Verify that There is a new field on the announcement create modal in the Announcement Specific Settings section labeled "Allocation Level".
+  |Verify that 'Detailed Budgeting Options' is a multi-select field and it's options order
+  |Verify that If Allocation Level is By Applicant and School, then at least School must be selected for Detailed Budgeting Options.
+  | Verify the Validation message:  If 'Allocation Level' is by Applicant and School, then School must be selected for a 'Detailed Budgeting Option'.
+  |Verify that "Allocation Level" This is a dropdown field with options: By Applicant By Applicant and School N/A
+  |Verify that 'Allocation level' There is Help text saying:  Allocation level specifies how allocations can be apportioned for formula announcements.
+  |Verify that If the announcement Type is Competitive then the user must select "Allocation Level" as N/A.
+  |Verify the Validation message:  'Competitive' announcement types must have the 'Allocation Level' set as N/A.
+  |Verify that The field "Allocation Level" is required to create the announcement.
+  |Verify that 'Detailed Budgeting Options' Field is optional.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+      #183311
+    Then I softly see "Detailed Budgeting Options" inside page block detail
+      #183291
+    Then I softly see "Allocation Level" inside page block detail
+      #183312
+    Then I softly see "Title I Reform Strategy:Title II Reform Strategy:Title IV Focus Areas or Subcategories:Title V Reform Strategy:Data Need is Based on:Evidence Level:Identified Need:Use of Funds:Program Activity Type:School:Course:Location" inside selectbox field "fieldSCDE_Detailed_Budgeting_Options__c"
+    #183314 #183395
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | If 'Allocation Level' is by Applicant and School, then School must be selected for a 'Detailed Budgeting Option'. |
+      #183293
+    When I enter value "Competitive" into field "fieldAnnouncementType__c"
+    Then I softly see "--None--:N/A" inside selectbox field "fieldSCDE_Allocation_Level__c"
+      #183310
+    And I hovering mouse on help text icon inside page block detail "Allocation Level"
+    Then I softly see "Allocation level specifies how allocations can be apportioned for formula announcements." shown as help text
+    #183296 #183309 #183294
+    And I clear the value from field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | Allocation Level is required to save. |
+    #183313
+    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    Then I softly see field "Detailed Budgeting Option" as ""
+
+  @183396 @sprint-3 @userStory-181656
+  Scenario: Verify that 'Detailed Budgeting Option' is having Help text saying:  Specifies program-related fields for applicants to fill on the budget template.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    And I hovering mouse on help text icon inside page block detail "Detailed Budgeting Options"
+    Then I softly see "Specifies program-related fields for applicants to fill on the budget template." shown as help text
