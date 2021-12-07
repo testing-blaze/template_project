@@ -92,7 +92,7 @@ Feature: Validate all scenarios related to subrecipient organization
     And I click on "Edit" in the page details
     Then I softly see fields "fieldSCDE_Sendclaims__c" is in edit mode
     Then I softly see "--None--:Yes:No" inside selectbox field "fieldSCDE_Sendclaims__c"
-    Then I softly see asterisk mark on "*Send claims to SCEIS?"
+    Then I softly see asterisk mark on "Send claims to SCEIS?"
     And I click on "Save" in the page details
     Then I softly see field "Send claims to SCEIS?" inside "Description" section
      #179301
@@ -108,9 +108,9 @@ Feature: Validate all scenarios related to subrecipient organization
     And I click on "Edit" in the page details
     Then I softly see fields "fieldOrgCode__c" is in edit mode
     When I enter value "12345" into field "fieldOrgCode__c"
-    Then I softly do not see asterisk mark on "Organization Code"
+    Then I softly do not see asterisk mark on "Org Code"
     And I click on "Save" in the page details
-    Then I softly see field "Organization Code" as "1234"
+    Then I softly see field "Org Code" as "1234"
       #180076
     And I click on "Edit" in the page details
     Then I softly see fields "fieldSCDE_MaximumUsersAllowed__c" is in edit mode

@@ -202,10 +202,13 @@ Feature: Validate all scenarios related to announcement
      #184131
     Then I softly do not see "Program Income Allowed?" inside page block detail
 
-  @183344 @184092 @184093 @sprint-3 @userStory-@179300
-    Scenario:  Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Created".
-    | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Submitted for Review".
-    | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Reviewed".
+  @183344 @183343 @184116 @184092 @184093 @184094 @sprint-3 @userStory-@179300 @UmangParekh
+    Scenario: Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Created"
+    | Verify that when I edit a contact in-line on my announcement for the Project Role field is optional
+    | Verify that when I edit a contact in-line on my announcement for the Project Role this field is a dropdown with option a. State Coordinator
+    | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Submitted for Review"
+    | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Reviewed"
+    | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Under Revision"
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     And I click on top right button "New" in flex table with id "---tableID:-:Announcements---"
@@ -216,18 +219,22 @@ Feature: Validate all scenarios related to announcement
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
-    And I navigate to "Overview" sub tab
     #183344
     And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementContactsTable---"
     When I click "Associate" after selection of "Automation PM" in the table "---tableID:-:AnnouncementContactsModal---"
+    And I click on "Save" in the page details
     Then I softly can see row level action button "Edit" against "Automation PM" in flex table with id "---tableID:-:AnnouncementContactsTable---"
+    #183343
+    And I click on "Edit" icon for "Automation PM" inside flex table with id "---tableID:-:AnnouncementContactsTable---"
+    Then I softly do not see asterisk mark on "Project Role"
+    #184116
+    Then I softly see "--None--:State Coordinator" inside selectbox field "ProjectRole__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:AnnouncementContactsTable---"
     #184092
     And I navigate to "Responsibilities" sub tab
-    And I click on top right button "New" in flex table with id "---tableID:-:PeerReviewers---"
-    When I enter value "Automation PM" into field "s2id_autogen15"
-    When I enter value "Test" into field "Responsibility__c"
-    When I enter value "200" into field "DueDate__c"
-    And I click on "Save" in the page details
+    When I enter the following values into flex table with id "---tableID:-:PeerReviewers---" by clicking "New" :
+      | Name | Responsibility  | Description | Due Date | Allow Record Editing |
+      | Automation PM | Fiscal Reviewer | Test     | 1        | No                   |
     And I click on "Send for Review" icon for "Automation PM" inside flex table with id "---tableID:-:PeerReviewers---"
     And I softly see field "Status" as "Submitted for Review"
     And I navigate to "Overview" sub tab
@@ -244,7 +251,32 @@ Feature: Validate all scenarios related to announcement
     And I softly see field "Status" as "Reviewed"
     And I navigate to "Overview" sub tab
     Then I softly can see row level action button "Edit" against "Automation PM" in flex table with id "---tableID:-:AnnouncementContactsTable---"
-    
+    #184094
+    And I click on "Edit" in the page details
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "1" into field "fieldMaxApplicationsAllowed__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on "Submit For Approval" in the page details
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I click on "Unpublish" in the page details
+    And I softly see field "Status" as "Under Revision"
+    And I navigate to "Overview" sub tab
+    Then I softly can see row level action button "Edit" against "Automation PM" in flex table with id "---tableID:-:AnnouncementContactsTable---"
+
   @184152 @184163 @184149 @184122 @184083 @184187 @184119 @184162 @184184 @184127 @184099 @sprint-3 @userStory-175346
   Scenario: Verify that the Allocation Level field  is read-only in "Announcement Specific Settings" section under "Overview" tab
   |Verify that the Detailed Budgeting Option field  is read-only in "Announcement Specific Settings" section under "Overview" tab

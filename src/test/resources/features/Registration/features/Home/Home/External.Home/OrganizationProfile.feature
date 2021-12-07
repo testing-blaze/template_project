@@ -18,7 +18,8 @@ Feature: Validate all scenarios related to organization profile
     Then I softly see confirmation box with body "Email sent successfully." is displayed
     And I close modal by clicking the top right x button
     #181127
-    Then I softly see value "Status" for title "Invitation Sent" inside table "---tableID:-:OrganizationProfileContacts---"
+
+    Then I softly see value "Invitation Sent" for title "Status" inside table "---tableID:-:OrganizationProfileContacts---"
     Then I softly can see row level action button "Send Invitation" against "test test" in flex table with id "---tableID:-:OrganizationProfileContacts---"
 
   @181042 @sprint-1 @userStory-178210
