@@ -202,8 +202,10 @@ Feature: Validate all scenarios related to announcement
      #184131
     Then I softly do not see "Program Income Allowed?" inside page block detail
 
-  @183344 @183343 @184116 @184092 @184093 @184094 @sprint-3 @userStory-@179300 @UmangParekh
-  Scenario: Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Created"
+  @183342 @183339 @183344 @183343 @184116 @184092 @184093 @184094 @sprint-3 @userStory-@179300 @UmangParekh
+  Scenario: Verify that when I create a new contact on my announcement, I do not see the Country field on the create new model
+  | Verify that when I create a new contact on my announcement, I do not see the Project Role field on the create new modal
+  | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Created"
   | Verify that when I edit a contact in-line on my announcement for the Project Role field is optional
   | Verify that when I edit a contact in-line on my announcement for the Project Role this field is a dropdown with option a. State Coordinator
   | Verify that I should see an edit button in the actions column so that I can edit in-line when my announcement is in state "Submitted for Review"
@@ -219,7 +221,23 @@ Feature: Validate all scenarios related to announcement
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
+    #183342
+    And I click on top right button "New" in flex table with id "---tableID:-:AnnouncementContactsTable---"
+    Then I softly do not see field "Country" inside "Create Contact" section
+    #183339
+    Then I softly do not see field "Project Role" inside "Create Contact" section
+    And I close modal by clicking the top right x button
+    And I pause execution for "2" seconds
     #183344
+    And I navigate to "Announcements" tab
+    And I click on top right button "New" in flex table with id "---tableID:-:Announcements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
     And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementContactsTable---"
     When I click "Associate" after selection of "Automation PM" in the table "---tableID:-:AnnouncementContactsModal---"
     And I click on "Save" in the page details
@@ -276,6 +294,99 @@ Feature: Validate all scenarios related to announcement
     And I softly see field "Status" as "Under Revision"
     And I navigate to "Overview" sub tab
     Then I softly can see row level action button "Edit" against "Automation PM" in flex table with id "---tableID:-:AnnouncementContactsTable---"
+
+  @184277 @184258 @184279 @184259 @184290 @184307 @184289 @184755 @184757 @184735 @184760 @sprint-3 @userStory-181662 @UmangParekh
+  Scenario: Verify that do not see the row-level edit and delete icons in the Invited Applicants section when status is submitted for approval
+  | Verify that do not see the section-level actions in the Invited Applicants section (Download in Excel, Upload Excel, Delete Selected, Delete All) when status is submitted for approval
+  | Verify that do not see the row-level edit and delete icons in the Invited Applicants section when the status is approved
+  | Verify that do not see the section-level actions in the Invited Applicants section (Download in Excel, Upload Excel, Delete Selected, Delete All) when status is approved
+  | Verify that do not see the row-level delete icon in the Invited Applicants section under overview tab when status is Published
+  | Verify that see the row-level edit icon in the Invited Applicants section under overview tab when status is Published
+  | Verify that the section-level actions in the Invited Applicants section under overview tab when status is Published
+  | Verify that see the row-level delete icon in the Invited Applicants section under overview tab when status is Under Revision
+  | Verify that see the row-level edit icon in the Invited Applicants section under overview tab when status is Under Revision
+  | Verify that the section-level actions in the Invited Applicants section under overview tab when status is Under Revision
+  | Verify that I can add or edit using Excel in the Invited Applicants section under overview tab when status is Under Revision
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    And I close modal by clicking the top right x button
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "3" seconds
+    #184277
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    Then I softly cannot see row level action button "Edit" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly cannot see row level action button "Remove" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #184258
+    Then I softly cannot see top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly cannot see top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly cannot see top right button "Delete Selected" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly cannot see top right button "Delete All" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    And I pause execution for "2" seconds
+    #184279
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved"
+    Then I softly cannot see row level action button "Edit" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly cannot see row level action button "Remove" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #184259
+    Then I softly cannot see top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly cannot see top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly cannot see top right button "Delete Selected" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly cannot see top right button "Delete All" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    And I pause execution for "2" seconds
+    #184290
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    Then I softly cannot see row level action button "Remove" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #184307
+    Then I softly can see row level action button "Edit" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #184289
+    Then I softly can see top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly can see top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #184755
+    And I click on "Unpublish" in the page details
+    And I softly see field "Status" as "Under Revision"
+    Then I softly can see row level action button "Remove" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #184757
+    Then I softly can see row level action button "Edit" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #184735
+    Then I softly can see top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly can see top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #184760
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "3" seconds
 
   @184152 @184163 @184149 @184122 @184083 @184187 @184119 @184162 @184184 @184127 @184099 @sprint-3 @userStory-175346
   Scenario: Verify that the Allocation Level field  is read-only in "Announcement Specific Settings" section under "Overview" tab

@@ -173,7 +173,7 @@ Feature: Validate all scenarios related to registration
     Then I softly do not see the Instruction text in the page
       | NOTE:  Passwords expire every 90 days.  For more account management information, review the Applicant FAQs. |
 
-  @183979 @183946 @183968 @183973 @183969 @183944 @183975 @183976 @sprint-3 @userStory-180376
+  @183979 @183946 @183968 @183973 @183969 @183944 @183975 @183976 @sprint-3 @userStory-180376 @UmangParekh
   Scenario: Verify the field "4-Digit Zip Code Extension" is read-only in the "Organization Address " section
   | Verify the field "Address Line 1" is read-only in the "Organization Address " section
   | Verify the field "Address Line 2" is read-only in the "Organization Address " section

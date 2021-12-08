@@ -244,7 +244,7 @@ Feature: Validate all scenarios related to subrecipient organization
     Then I softly see "Type" in flex table header "---tableID:-:PendingSubrecipientOrganization---"
     Then I softly see "Actions" in flex table header "---tableID:-:PendingSubrecipientOrganization---"
 
-  @184344 @184343 @184351 @184350 @184357 @184353 @184339 @184341 @184345 @184347 @184361 @184364 @184368 @184369 @sprint-3 @userStory-@176427
+  @184344 @184343 @184351 @184350 @184357 @184353 @184339 @184341 @184345 @184347 @184361 @184364 @184368 @184369 @sprint-3 @userStory-@176427 @UmangParekh
   Scenario: Verify that  "Approved Indirect Cost Rate (%)" field is required to save on Create Indirect Rate modal
   | Verify that  "Approved Indirect Cost Rate (%)" field on Create Indirect Rate modal
   | Verify that  "Fiscal Year" field is required to save on Create Indirect Rate modal
