@@ -48,7 +48,7 @@ Feature: Validate all scenarios related to application
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
-    Then I softly see field "Status" as "Qualified"
+    And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -106,7 +106,7 @@ Feature: Validate all scenarios related to application
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
-    Then I softly see field "Status" as "Qualified"
+    And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -169,7 +169,7 @@ Feature: Validate all scenarios related to application
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
-    Then I softly see field "Status" as "Qualified"
+    And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
       #181730 #181729
@@ -259,7 +259,7 @@ Feature: Validate all scenarios related to application
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
-    Then I softly see field "Status" as "Qualified"
+    And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     When I enter value "project abstract" into field "fieldProjectAbstract__c"
@@ -359,7 +359,7 @@ Feature: Validate all scenarios related to application
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
-    Then I softly see field "Status" as "Qualified"
+    And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     When I enter value "project abstract" into field "fieldProjectAbstract__c"
@@ -395,7 +395,7 @@ Feature: Validate all scenarios related to application
     And I click toggle button to select "Applications - All"
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
-    Then I softly see field "Status" as "Review Initiated"
+    And I softly see field "Status" as "Review Initiated"
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
@@ -468,7 +468,7 @@ Feature: Validate all scenarios related to application
     When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
-    Then I softly see field "Status" as "Qualified"
+    And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     When I enter value "project abstract" into field "fieldProjectAbstract__c"
