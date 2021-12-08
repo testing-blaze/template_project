@@ -200,7 +200,7 @@ Feature: Validate all scenarios related to organization profile
     When I perform operations on mailDropCC with mail "{SavedValue:emailId}" and subject "Sandbox: Notification: EGMS User Invitation" with link "AdditionalApplicant"
     Then I softly see "Additional User Detail" page block displayed
 
-  @181419 @sprint-2 @userStory-178214
+  @181419 @sprint-2 @userStory-178214 @UmangParekh
   Scenario: Verify External SPI (primary) user cannot create or edit contacts for organization
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -210,7 +210,7 @@ Feature: Validate all scenarios related to organization profile
     Then I softly cannot see top right button "New" in flex table with id "---tableID:-:OrganizationProfileContacts---"
     Then I softly cannot see row level action button "Edit" against "Active" in flex table with id "---tableID:-:OrganizationProfileContacts---"
     
-  @181420 @sprint-2 @userStory-178214
+  @181420 @sprint-2 @userStory-178214 @UmangParekh
   Scenario: Verify External WAC user can create or edit contacts for organization.
     Given I am on "SUBPORTAL" portal
     When I login as "SPIWAC" user
