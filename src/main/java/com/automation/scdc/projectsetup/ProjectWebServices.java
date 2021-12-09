@@ -190,4 +190,14 @@ public class ProjectWebServices {
         assertStatusCode(response);
     }
 
+    public void callAPItoChangetheStatusOfAnnouncement() {
+        I.amPerforming().waitFor().makeThreadSleep(3000);
+        String URL = I.amPerforming().browserOperationsTo().getCurrentUrl();
+        String[] a = URL.split("\\#|=");
+        String id = a[1];
+        getAuthToken();
+        String finalEndPoint = endPoint + "/services/apexrest/SetAnnouncementStatusToClosedService?id=" + id;
+        Response response = I.amPerforming().restHttp().getCall(finalEndPoint, "Authorization", "Bearer " + tokenString);
+        assertStatusCode(response);
+    }
 }

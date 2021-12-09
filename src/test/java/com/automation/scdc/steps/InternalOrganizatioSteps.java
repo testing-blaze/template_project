@@ -36,4 +36,8 @@ public class InternalOrganizatioSteps extends ProjectWebServices {
             Assert.assertTrue(internalOrganizationPage.validateMailSubject(userType, subject));
         }
     }
+    @And("I call API to change the status of Announcement")
+    public void iCallApitoChangeStatusOfAnnouncement() {
+        internalOrganizationPage.callAPItoChangetheStatusOfAnnouncement();
+    }
 }
