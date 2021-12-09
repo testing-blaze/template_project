@@ -341,6 +341,8 @@ Feature: Validate all scenarios related to announcement
     When I upload file "AppWithSchoolCode.xlsx" into library
     And I click modal button "Upload File"
     And I pause execution for "3" seconds
+#    And I call API to change the status of Announcement
+#    Then I softly see field "Status" as "Closed"
     #184277
     And I click on "Submit For Approval" in the page details
     And I softly see field "Status" as "Submitted for Approval"
@@ -653,3 +655,136 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     And I hovering mouse on help text icon inside page block detail "Detailed Budgeting Options"
     Then I softly see "Specifies program-related fields for applicants to fill on the budget template." shown as help text
+
+  @183708 @183750 @183735 @183762 @183713 @183730 @183728 @183729 @183748 @183763 @183726 @183746 @sprint-3 @userStory-181659 @UmangParekh
+    Scenario: Verify that all the section-level actions are  present in the Invited Applicants section of Formula Announcement
+    | Verify that the Invited Applicants section's default sorting is by Applicant
+    | Verify that if the excel sheet contains any unwanted information, all the error messages on upload should have row numbers listed
+    | Verify that if the excel sheet contains multiple rows of the same organization codes, there is a validation message for allocation level n/a
+    | Verify that if the excel sheet contains organization codes that do not exist is the system, there is a validation message
+    | Verify that if the excel sheet contains organization codes that do not have only numbers, there is a validation message
+    | Verify that if the excel sheet contains school codes that do not exist is the system, there is a validation message
+    | Verify that if the excel sheet contains school codes that do not have only numbers, there is a validation message
+    | Verify that if the excel sheet does not contain applicant name or school name, has system populates the Applicant based on Org Code, and School based on the School Code in the Invited Applications and Allocations section
+    | Verify that if the excel sheet does not contain data there is a validation message
+    | Verify that if the excel sheet does not contain organization codes or school code, there is a validation message
+    | Verify that if the user deletes a row in the downloaded Excel, and then upload the Excel, the system should not delete the corresponding rows in the Invited Applicants section.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    #183708
+    Then I softly can see top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly can see top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly can see top right button "Delete Selected" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly can see top right button "Delete All" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly cannot see top right button "Add organizations" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #183750
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "SortByApplicant.xlsx" into library
+    And I pause execution for "3" seconds
+    And I click modal button "Upload File"
+    Then I softly see value "REI Systems, Inc." for title "Applicant" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "TEXAS BEAR CREEK STORAGE" for title "Applicant" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    And I click on "Remove" icon for "1234" inside flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    And I click on "Remove" icon for "1212" inside flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #183735 #183762 #183713 #183730
+    And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    And I close modal by clicking the top right x button
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "UPExcelByApplicant.xlsx" into library
+    And I pause execution for "3" seconds
+    And I click modal button "Upload File"
+    Then I softly see the following messages in the page details contains:
+      | Row Number - 4 - Final Allocation - Invalid Amount format: A50
+      | Row Number 5 - Org Code : 1212 is entered more than once in the Excel. Please remove the duplicate entries and retry uploading.
+      | Row Number 6 - Org Code: 4321 does not exist in the system.
+      | Row Number - 7 - Negative value (-100) is not allowed in "Allocation"
+      | Row Number 8 - Org Code: 4162AC must be numeric.
+    And I wait for "3" seconds
+    And I close modal by clicking the top right x button
+    #183728 #183729
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    And I close modal by clicking the top right x button
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "UPExcelByApplicantAndSchool.xlsx" into library
+    And I pause execution for "3" seconds
+    And I click modal button "Upload File"
+    Then I softly see the following messages in the page details contains:
+     | Row Number 2 - School Code: 866 does not exist in the system.
+     | Row Number 3 - School Code: 123ABC must be numeric.
+    And I wait for "3" seconds
+    And I close modal by clicking the top right x button
+    #183748
+    And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    And I close modal by clicking the top right x button
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I pause execution for "3" seconds
+    And I click modal button "Upload File"
+    Then I softly see value "TEXAS BEAR CREEK STORAGE" for title "Applicant" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "Wright Middle" for title "School" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    And I click on "Remove" icon for "1212" inside flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #183763
+    And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    And I close modal by clicking the top right x button
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "EmptyFile.xlsx" into library
+    And I pause execution for "3" seconds
+    And I click modal button "Upload File"
+    Then I softly see the following messages in the page details contains:
+     | The uploaded Excel file must contain data.
+    And I wait for "3" seconds
+    And I close modal by clicking the top right x button
+    #183726
+    And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    And I close modal by clicking the top right x button
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "OrgCodeOnly.xlsx" into library
+    And I pause execution for "3" seconds
+    And I click modal button "Upload File"
+    Then I softly see the following messages in the page details contains:
+      | School Code is required. Verify that all Excel rows contain a value for School Code.
+    When I upload file "SchoolCodeOnly.xlsx" into library
+    And I pause execution for "3" seconds
+    And I click modal button "Upload File"
+    Then I softly see the following messages in the page details contains:
+      | Org Code is required. Verify that all Excel rows contain a value for Org Code.
+    And I wait for "3" seconds
+    And I close modal by clicking the top right x button
+    #183746
+    And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    And I close modal by clicking the top right x button
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "RowsDeleted.xlsx" into library
+    And I pause execution for "3" seconds
+    And I click modal button "Upload File"
+    Then I softly see value "$0.00" for title "Allocation" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "Wright Middle" for title "School" inside table "---tableID:-:AnnouncementInvitedApplicants---"
