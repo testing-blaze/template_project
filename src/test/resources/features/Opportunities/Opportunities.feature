@@ -113,3 +113,70 @@ Feature: Validate all scenarios related to opportunities
     Then I softly do not see field "Is a Detailed Budget Required on the Application?" inside "Budget Specific Settings" section
     #183440
     Then I softly see field "Estimated Number of Awards" inside "Financial Details" section
+
+  @184506 @184510 @184509 @184806 @184502 @184507 @184508 @184501 @184511 @184504 @184505 @184500 @184512 @184809 @184811 @184812 @184810 @sprint-3 @userStory-182040
+  Scenario: Verify that  Program Income Allowed? in Opportunity Specific Settings section
+  |Verify that Advance Payment Allowed? in Opportunity Specific Settings section
+  |Verify that Are Expense Details Required on Reimbursements? in Opportunity Specific Settings section
+  |Verify that Funding Organization Unit field in Opportunity Information section
+  |Verify that Funding Organization field in Opportunity Information section
+  |Verify that Leverage Allowed? in Opportunity Specific Settings section
+  |Verify that Pre-Application Required? in Opportunity Specific Settings section
+  |Verify that Program field shows the Program Title
+  |Verify that Help Text on Federal/NGO Program section
+  |Verify that Office field is shown and is read-only in Opportunity Information section
+  |Verify that Funding Source field is shown and is read-only in Opportunity Information section
+  |Verify that Type field help text
+  |Verify that the Allocated Amount section shows the allocations for the organization of the logged in user only
+  |Verify that the Allocated Amount table shows the same columns from the Internal view of the section dependent on the Allocation Level
+  |Verify that Budget Category Package field is hidden
+  |Verify that Is a Detailed Budget Required on the Application? field in Budget specific Settings section
+  |Verify that the Estimated Number of Awards field and this is read-only
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+      #184506
+    Then I softly do not see field "Program Income Allowed?" inside "Opportunity Specific Settings" section
+      #184510
+    Then I softly do not see field "Advance Payment Allowed?" inside "Opportunity Specific Settings" section
+      #184509
+    Then I softly do not see field "Are Expense Details Required on Reimbursements?" inside "Opportunity Specific Settings" section
+    #184806
+    Then I softly do not see field "Funding Organization Unit" inside "Opportunity Information" section
+    #184502
+    Then I softly do not see field "Funding Organization" inside "Opportunity Information" section
+    #184507
+    Then I softly do not see field "Leverage Allowed?" inside "Opportunity Specific Settings" section
+    #184508
+    Then I softly do not see field "Pre-Application Required?" inside "Opportunity Specific Settings" section
+    #184501
+    Then I softly see field "Program" as "Automation Permanent Program"
+    #184511
+    And I hovering mouse on help text icon inside page block detail "Federal/NGO Program"
+    Then I softly see "For Federal programs, the Program Number is the Assistance Listing number." shown as help text
+    #184504
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly see field "Office" inside "Opportunity Information" section
+    #184505
+    Then I softly see field "Funding Source" inside "Opportunity Information" section
+    #184500
+    And I refresh the page
+    And I hovering mouse on help text icon inside page block detail "Type"
+    Then I softly see "Type of funding opportunity (Competitive or Formula)" shown as help text
+    #184512
+    Then I softly see value "TEXAS BEAR CREEK STORAGE" for title "Applicant" inside table "---tableID:-:QualifiedOpportunityAllocatedAmount---"
+    #184809
+    Then I see only the following ordered headers in table with id "---tableID:-:QualifiedOpportunityAllocatedAmount---" :
+      | Org Code | Applicant | School Code | School Name | Allocation | Program Manager | Last Updated By | Last Updated |
+    #184811
+    And I navigate to "Financials" sub tab
+    Then I softly do not see field "Budget Category Package" inside "Budget Specific Settings" section
+    #184812
+    Then I softly do not see field "Is a Detailed Budget Required on the Application?" inside "Budget Specific Settings" section
+    #184810
+    Then I softly see field "Estimated Number of Awards" inside "Financial Details" section
