@@ -209,7 +209,7 @@ Feature: Validate all scenarios related to organization profile
     When I perform quick search for "Active" in "---tableID:-:OrganizationProfileContacts---" panel
     Then I softly cannot see top right button "New" in flex table with id "---tableID:-:OrganizationProfileContacts---"
     Then I softly cannot see row level action button "Edit" against "Active" in flex table with id "---tableID:-:OrganizationProfileContacts---"
-    
+
   @181420 @sprint-2 @userStory-178214 @UmangParekh
   Scenario: Verify External WAC user can create or edit contacts for organization.
     Given I am on "SUBPORTAL" portal
@@ -219,3 +219,22 @@ Feature: Validate all scenarios related to organization profile
     When I perform quick search for "Active" in "---tableID:-:OrganizationProfileContacts---" panel
     Then I softly can see top right button "New" in flex table with id "---tableID:-:OrganizationProfileContacts---"
     Then I softly can see row level action button "Edit" against "Active" in flex table with id "---tableID:-:OrganizationProfileContacts---"
+
+  @184128 @184124 @184130 @184324 @sprint-3 @userStory-@176427
+  Scenario: Verify that "Indirect Rates" section is located after the Contacts section.
+  |Verify that there is a section for "Indirect Rates" on my organization's layout
+  |Verify that the "Indirect Rates" section grid has the following columns
+  |Verify that the "Indirect Rates" section grid has the following columns and all fields are read-only
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    And I navigate to "Home" tab
+    And I navigate to "Overview" sub tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    #184128 #184124
+    Then I see only the following ordered page blocks :
+      | Description | Additional Information | Additional Addresses | Contacts | Indirect Rates | System Information |
+    #184130
+    Then I see only the following ordered headers in table with id "---tableID:-:SubOrgIndirectRates---" :
+      | Indirect Cost Rate Type | Approved Indirect Cost Rate (%) | Fiscal Year |
+    #184324
+    Then I softly cannot see row level action button "Edit" against "2021" in flex table with id "---tableID:-:SubOrgIndirectRates---"

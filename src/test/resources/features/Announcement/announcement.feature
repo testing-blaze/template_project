@@ -920,3 +920,32 @@ Feature: Validate all scenarios related to announcement
     Then I softly see value "TEXAS BEAR CREEK STORAGE" for title "Applicant" inside table "---tableID:-:AnnouncementInvitedApplicants---"
     Then I softly see value "$500.00" for title "Allocation" inside table "---tableID:-:AnnouncementInvitedApplicants---"
     Then I softly see value "Jim bob" for title "Program Manager" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+
+  @183098 @sprint-3 @userStory-182490
+  Scenario: Verify that when I create a new announcement (All Announcements), Internal Program looks up shows only programs for which I am the owner
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    And I click on top right button "New" in flex table with id "---tableID:-:Announcements---"
+    When I click search icon for look up field "Program ID Lookup (New Window)" with clearing
+    When I perform quick search for "PG-SCDE-0105" in "---tableID:-:ProgramModalQuickSearch---" panel
+    Then I softly see value "PG-SCDE-0105" for title "EGMS ID" inside table "---tableID:-:Modal---"
+
+  @183100 @sprint-3 @userStory-182490
+  Scenario: Verify that when I create a new announcement (Competitive Announcements), Internal Program looks up shows only programs for which I am the owner
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:CompetitiveAnnouncements---"
+    When I click search icon for look up field "Program ID Lookup (New Window)" with clearing
+    When I perform quick search for "PG-SCDE-0105" in "---tableID:-:ProgramModalQuickSearch---" panel
+    Then I softly see value "PG-SCDE-0105" for title "EGMS ID" inside table "---tableID:-:Modal---"
+
+  @183099 @sprint-3 @userStory-182490
+  Scenario: Verify that when I create a new announcement (Formula Announcements), Internal Program looks up shows only programs for which I am the owner
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I click search icon for look up field "Program ID Lookup (New Window)" with clearing
+    When I perform quick search for "PG-SCDE-0105" in "---tableID:-:ProgramModalQuickSearch---" panel
+    Then I softly see value "PG-SCDE-0105" for title "EGMS ID" inside table "---tableID:-:Modal---"
