@@ -140,7 +140,7 @@ Feature: Validate all scenarios related to registration
     When I click on "Save and Continue" in the page details
     And I enter value "Local Education Agency" into field "fieldOrganizationTypeSInglePicklist__c"
     And I enter value "0123456789" into field "fieldOrgnizationPhoneNumber__c"
-    And I enter value "address" into field "fieldPaymentAddressLine1__c"
+    And I enter value "address" into field123456807 "fieldPaymentAddressLine1__c"
     And I enter value "city" into field "fieldPaymentAddressCity__c"
     And I enter value "LA" into field "fieldPaymentAddressState__c"
     And I enter value "12345" into field "fieldPaymentAddressZipCode__c"
@@ -153,9 +153,8 @@ Feature: Validate all scenarios related to registration
     Then I softly see "Organization Representative:" page block displayed
       #179911
     Then I softly see the text containing :
-      | To continue this registration, the following user profile information is required.                                                         |
-      | Upon approval of this registration request, the account information will be sent through email to the Web Accessibility Coordinator (WAC). |
-      | The WAC is the authorized representative for the organization and is responsible for adding additional users and assigning roles.          |
+      | To continue this registration, the following user profile information is required.  Upon approval of this registration request, the account information will be sent through email to the Web Accessibility Coordinator (WAC). |
+      | The WAC is the authorized representative for the organization and is responsible for adding additional users and assigning roles.                                                                                              |
 
   @181689 @179289 @sprint-1 @userStory-176381
   Scenario: Verify Remove Legal Disclaimers during registration ( Conflict of Interest )
