@@ -1095,12 +1095,3 @@ Feature: Validate all scenarios related to announcement
     And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     And I close modal by clicking the top right x button
     Then I softly cannot see "Last Updated By" in downloaded xls or csv file "govgrants"
-
-
-
-
-
-
-
-
-

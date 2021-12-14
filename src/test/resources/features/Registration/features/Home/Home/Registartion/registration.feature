@@ -140,7 +140,7 @@ Feature: Validate all scenarios related to registration
     When I click on "Save and Continue" in the page details
     And I enter value "Local Education Agency" into field "fieldOrganizationTypeSInglePicklist__c"
     And I enter value "0123456789" into field "fieldOrgnizationPhoneNumber__c"
-    And I enter value "address" into field123456807 "fieldPaymentAddressLine1__c"
+    And I enter value "address" into field "fieldPaymentAddressLine1__c"
     And I enter value "city" into field "fieldPaymentAddressCity__c"
     And I enter value "LA" into field "fieldPaymentAddressState__c"
     And I enter value "12345" into field "fieldPaymentAddressZipCode__c"
