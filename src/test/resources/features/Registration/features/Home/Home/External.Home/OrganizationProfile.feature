@@ -216,9 +216,21 @@ Feature: Validate all scenarios related to organization profile
     When I login as "SPIWAC" user
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    When I perform quick search for "Active" in "---tableID:-:OrganizationProfileContacts---" panel
     Then I softly can see top right button "New" in flex table with id "---tableID:-:OrganizationProfileContacts---"
-    Then I softly can see row level action button "Edit" against "Active" in flex table with id "---tableID:-:OrganizationProfileContacts---"
+    When I click on top right button "New" in flex table with id "{tableID:OrganizationProfileContacts}"
+    When I enter value "Automation" into field "fieldFirstName"
+    When I enter value "Contact" into field "fieldLastName"
+    When I enter value "(111) 222-3333" into field "fieldPhone"
+    And I enter email id "testmailDrop" into field "fieldEmail"
+    When I enter value "Secondary" into field "fieldUserRole__c"
+    When I enter value "1133 Fifteenth St. N.W., Suite 1000" into field "fieldMailingStreet"
+    When I enter value "Washington" into field "fieldMailingCity"
+    When I enter value "HI" into field "fieldState__c"
+    When I enter value "67848" into field "fieldMailingPostalCode"
+    And I click modal button "Save"
+    And I wait for "2" seconds
+    Then I softly can see top right button "Edit" in flex table with id "---tableID:-:AdditionalUserModal---"
+    And I close modal by clicking the top right x button
 
   @184128 @184124 @184130 @184324 @sprint-3 @userStory-@176427
   Scenario: Verify that "Indirect Rates" section is located after the Contacts section.
