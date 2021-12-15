@@ -295,7 +295,7 @@ Feature: Validate all scenarios related to announcement
     And I navigate to "Overview" sub tab
     Then I softly can see row level action button "Edit" against "Automation PM" in flex table with id "---tableID:-:AnnouncementContactsTable---"
 
-  @184277 @184258 @184279 @184259 @184290 @184307 @184289 @184755 @184757 @184735 @184760 @sprint-3 @userStory-181662 @UmangParekh
+  @184277 @184258 @184279 @184259 @184290 @184307 @184289 @184755 @184757 @184735 @184760 @184754 @184756 @184306 @sprint-3 @userStory-181662 @UmangParekh
   Scenario: Verify that do not see the row-level edit and delete icons in the Invited Applicants section when status is submitted for approval
   | Verify that do not see the section-level actions in the Invited Applicants section (Download in Excel, Upload Excel, Delete Selected, Delete All) when status is submitted for approval
   | Verify that do not see the row-level edit and delete icons in the Invited Applicants section when the status is approved
@@ -307,6 +307,9 @@ Feature: Validate all scenarios related to announcement
   | Verify that see the row-level edit icon in the Invited Applicants section under overview tab when status is Under Revision
   | Verify that the section-level actions in the Invited Applicants section under overview tab when status is Under Revision
   | Verify that I can add or edit using Excel in the Invited Applicants section under overview tab when status is Under Revision
+  | Verify that do not see the row-level delete icon in the Invited Applicants section under overview tab when status is Closed
+  | Verify that see the row-level edit icon in the Invited Applicants section under overview tab when status is Closed
+  | Verify that the section-level actions in the Invited Applicants section under overview tab when status is Closed
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -341,8 +344,6 @@ Feature: Validate all scenarios related to announcement
     When I upload file "AppWithSchoolCode.xlsx" into library
     And I click modal button "Upload File"
     And I pause execution for "3" seconds
-#    And I call API to change the status of Announcement
-#    Then I softly see field "Status" as "Closed"
     #184277
     And I click on "Submit For Approval" in the page details
     And I softly see field "Status" as "Submitted for Approval"
@@ -389,6 +390,48 @@ Feature: Validate all scenarios related to announcement
     When I upload file "AppWithSchoolCode.xlsx" into library
     And I click modal button "Upload File"
     And I pause execution for "3" seconds
+    #184754
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    And I close modal by clicking the top right x button
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "3" seconds
+    And I call API to change the status of Announcement
+    Then I softly see field "Status" as "Closed"
+    Then I softly cannot see row level action button "Remove" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #184756
+    Then I softly can see row level action button "Edit" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #184306
+    Then I softly can see top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly can see top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
 
   @184152 @184163 @184149 @184122 @184083 @184187 @184119 @184162 @184184 @184127 @184099 @sprint-3 @userStory-175346
   Scenario: Verify that the Allocation Level field  is read-only in "Announcement Specific Settings" section under "Overview" tab
@@ -963,7 +1006,7 @@ Feature: Validate all scenarios related to announcement
     When I perform quick search for "PG-SCDE-0105" in "---tableID:-:ProgramModalQuickSearch---" panel
     Then I softly see value "PG-SCDE-0105" for title "EGMS ID" inside table "---tableID:-:Modal---"
 
-  @183588 @183586 @183616 @183619 @183610 @183592 @183634 @183595 @183622 @183653 @183654 @183625 @183585 @183580 @183579 @183578 @183577 @183573 @183575 @183581 @sprint-3 @userStory-182464 @UmangParekh
+  @183588 @183586 @183616 @183619 @183610 @183592 @183634 @183595 @183622 @183629 @183653 @183654 @183625 @183585 @183580 @183579 @183578 @183577 @183573 @183575 @183583 @183581 @sprint-3 @userStory-182464 @UmangParekh
     Scenario: Verify that if "Allocation Level" is "By Applicant and School" then the 'Invited Applicants and Allocations' table has Org Code (Org code associated to the applicant organization)
     | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has  Multi-record select box
     | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Allocation (Currency field allowing two decimals)
@@ -973,6 +1016,7 @@ Feature: Validate all scenarios related to announcement
     | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has the following columns  Actions with Edit and Remove
     | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has the School Code (7 digit text field)
     | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Last Updated By i. The Last updated column shows the last updated date and time for each allocation entry
+    | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Last Updated i.  The Last updated by column shows the name of the user who last updated the allocation entry
     | Verify that there is no validation preventing the Allocation amount to be below the Subaward Floor amount or above the Subaward Ceiling amount.  Validation is running when Saving the Invited Applicants and Allocations table
     | Verify that there is no validation preventing the Allocation amounts to be higher than the Estimated Total Funding
     | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Last Updated By ii. I should not see the Last Updated By column in the downloaded Excel
@@ -983,6 +1027,7 @@ Feature: Validate all scenarios related to announcement
     | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Applicant (Name of the organization)
     | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Multi-record select box
     | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Org Code (Org code associated to the applicant organization)
+    | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Last Updated i.  The Last updated by column shows the name of the user who last updated the allocation entry
     | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has  Last Updated By  ii.  I should not see the Last Updated By column in the downloaded Excel
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1027,9 +1072,10 @@ Feature: Validate all scenarios related to announcement
     Then I softly see "School Code" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
     Then I softly see value "0160016" for title "School Code" inside table "---tableID:-:AnnouncementInvitedApplicants---"
     #183622
+    Then I softly see "Last Updated" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    #183629
     Then I softly see "Last Updated By" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
     Then I softly see value "Automation PM" for title "Last Updated By" inside table "---tableID:-:AnnouncementInvitedApplicants---"
-    Then I softly see "Last Updated" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
     #183653
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
@@ -1074,8 +1120,6 @@ Feature: Validate all scenarios related to announcement
     Then I softly can see row level action button "Edit" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     Then I softly can see row level action button "Remove" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     #183580
-    Then I softly see "Last Updated By" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
-    Then I softly see value "Automation PM" for title "Last Updated By" inside table "---tableID:-:AnnouncementInvitedApplicants---"
     Then I softly see "Last Updated" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
     #183579
     Then I softly see "Program Manager" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
@@ -1091,6 +1135,9 @@ Feature: Validate all scenarios related to announcement
     #183575
     Then I softly see "Org Code" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
     Then I softly see value "1212" for title "Org Code" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    #183583
+    Then I softly see "Last Updated By" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "Automation PM" for title "Last Updated By" inside table "---tableID:-:AnnouncementInvitedApplicants---"
     #183581
     And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     And I close modal by clicking the top right x button

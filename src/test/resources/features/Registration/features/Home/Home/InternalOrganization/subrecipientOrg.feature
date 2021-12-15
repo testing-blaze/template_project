@@ -153,7 +153,7 @@ Feature: Validate all scenarios related to subrecipient organization
       #181871
     Then I softly see asterisk mark on "Maximum Users Allowed"
       #181867
-    Then I softly see "Maximum Users Allowed" inside page block detail
+    Then I softly do not see "Office" inside page block detail
       #181863
     Then I softly see "--None--:Yes:No" inside selectbox field "fieldSCDE_Sendclaims__c"
       #181874
