@@ -104,14 +104,12 @@ Feature: Validate all scenarios related to subrecipient organization
     And I click on "Save" in the page details
     Then I softly see field "UEI" inside "Description" section
     Then I softly see field "UEI" as "QGBBG68KN5N5"
-    #180073
+    #180073 (BugId-182138)
     And I click on "Edit" in the page details
     Then I softly see fields "fieldOrgCode__c" is in edit mode
-    When I enter values into "Description" page block
-      | QGBBG68KN5N567 | 12345 |
     Then I softly do not see asterisk mark on "Org Code"
     And I click on "Save" in the page details
-    Then I softly see field "Org Code" as "1234"
+    Then I softly see field "Org Code" as "1111"
       #180076
     And I click on "Edit" in the page details
     Then I softly see fields "fieldSCDE_MaximumUsersAllowed__c" is in edit mode
