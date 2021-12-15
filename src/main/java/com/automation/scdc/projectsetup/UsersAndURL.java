@@ -61,7 +61,7 @@ public class UsersAndURL implements UsersController {
                 password = "GovGrants@2021";
                 break;
             default:
-                password = "GovGrants@2021";
+                password = "c";
         }
         return password;
     }

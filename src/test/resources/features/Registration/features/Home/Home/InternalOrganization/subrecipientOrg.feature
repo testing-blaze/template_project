@@ -104,12 +104,13 @@ Feature: Validate all scenarios related to subrecipient organization
     And I click on "Save" in the page details
     Then I softly see field "UEI" inside "Description" section
     Then I softly see field "UEI" as "QGBBG68KN5N5"
-    #180073 (BugId-182138)
+    #180073
     And I click on "Edit" in the page details
     Then I softly see fields "fieldOrgCode__c" is in edit mode
+    When I enter value "12345" into field "fieldOrgCode__c"
     Then I softly do not see asterisk mark on "Org Code"
     And I click on "Save" in the page details
-    Then I softly see field "Org Code" as "1111"
+    Then I softly see field "Org Code" as "1234"
       #180076
     And I click on "Edit" in the page details
     Then I softly see fields "fieldSCDE_MaximumUsersAllowed__c" is in edit mode
@@ -153,7 +154,7 @@ Feature: Validate all scenarios related to subrecipient organization
       #181871
     Then I softly see asterisk mark on "Maximum Users Allowed"
       #181867
-    Then I softly see "Maximum Users Allowed" inside page block detail
+    Then I softly do not see "Office" inside page block detail
       #181863
     Then I softly see "--None--:Yes:No" inside selectbox field "fieldSCDE_Sendclaims__c"
       #181874

@@ -189,7 +189,6 @@ public class ProjectWebServices {
         Response response = I.amPerforming().restHttp().postCall(null, null, finalEndPoint, "Authorization", "Bearer " + tokenString, null);
         assertStatusCode(response);
     }
-
     public void callAPItoChangetheStatusOfAnnouncement() {
         I.amPerforming().waitFor().makeThreadSleep(3000);
         String URL = I.amPerforming().browserOperationsTo().getCurrentUrl();
