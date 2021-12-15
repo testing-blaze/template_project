@@ -287,6 +287,8 @@ Feature: Validate all scenarios related to announcement
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
     And I click on "Submit For Approval" in the page details
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
@@ -336,6 +338,8 @@ Feature: Validate all scenarios related to announcement
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
     And I navigate to "Overview" sub tab
     And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     And I close modal by clicking the top right x button
@@ -1007,28 +1011,28 @@ Feature: Validate all scenarios related to announcement
     Then I softly see value "PG-SCDE-0105" for title "EGMS ID" inside table "---tableID:-:Modal---"
 
   @183588 @183586 @183616 @183619 @183610 @183592 @183634 @183595 @183622 @183629 @183653 @183654 @183625 @183585 @183580 @183579 @183578 @183577 @183573 @183575 @183583 @183581 @sprint-3 @userStory-182464 @UmangParekh
-    Scenario: Verify that if "Allocation Level" is "By Applicant and School" then the 'Invited Applicants and Allocations' table has Org Code (Org code associated to the applicant organization)
-    | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has  Multi-record select box
-    | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Allocation (Currency field allowing two decimals)
-    | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Program Manager  (Text field 255 char limit)
-    | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns School (Formula field showing school name associated with School Code)
-    | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has the  Applicant (Name of the organization)
-    | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has the following columns  Actions with Edit and Remove
-    | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has the School Code (7 digit text field)
-    | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Last Updated By i. The Last updated column shows the last updated date and time for each allocation entry
-    | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Last Updated i.  The Last updated by column shows the name of the user who last updated the allocation entry
-    | Verify that there is no validation preventing the Allocation amount to be below the Subaward Floor amount or above the Subaward Ceiling amount.  Validation is running when Saving the Invited Applicants and Allocations table
-    | Verify that there is no validation preventing the Allocation amounts to be higher than the Estimated Total Funding
-    | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Last Updated By ii. I should not see the Last Updated By column in the downloaded Excel
-    | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has  Actions with Edit and Remove
-    | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has  Last Updated By  i. The Last updated column shows the last updated date and time for each allocation entry
-    | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has  Program Manager  (Text field 255 char limit)
-    | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Allocation (Currency field allowing two decimals)
-    | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Applicant (Name of the organization)
-    | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Multi-record select box
-    | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Org Code (Org code associated to the applicant organization)
-    | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Last Updated i.  The Last updated by column shows the name of the user who last updated the allocation entry
-    | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has  Last Updated By  ii.  I should not see the Last Updated By column in the downloaded Excel
+  Scenario: Verify that if "Allocation Level" is "By Applicant and School" then the 'Invited Applicants and Allocations' table has Org Code (Org code associated to the applicant organization)
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has  Multi-record select box
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Allocation (Currency field allowing two decimals)
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Program Manager  (Text field 255 char limit)
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns School (Formula field showing school name associated with School Code)
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has the  Applicant (Name of the organization)
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has the following columns  Actions with Edit and Remove
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has the School Code (7 digit text field)
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Last Updated By i. The Last updated column shows the last updated date and time for each allocation entry
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Last Updated i.  The Last updated by column shows the name of the user who last updated the allocation entry
+  | Verify that there is no validation preventing the Allocation amount to be below the Subaward Floor amount or above the Subaward Ceiling amount.  Validation is running when Saving the Invited Applicants and Allocations table
+  | Verify that there is no validation preventing the Allocation amounts to be higher than the Estimated Total Funding
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Last Updated By ii. I should not see the Last Updated By column in the downloaded Excel
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has  Actions with Edit and Remove
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has  Last Updated By  i. The Last updated column shows the last updated date and time for each allocation entry
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has  Program Manager  (Text field 255 char limit)
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Allocation (Currency field allowing two decimals)
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Applicant (Name of the organization)
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Multi-record select box
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Org Code (Org code associated to the applicant organization)
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Last Updated i.  The Last updated by column shows the name of the user who last updated the allocation entry
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has  Last Updated By  ii.  I should not see the Last Updated By column in the downloaded Excel
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1088,7 +1092,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "30000" into field "fieldAwardCeiling__c"
     And I click on "Save" in the page details
     Then I softly see the following messages in the page details contains:
-    | Award Ceiling value should be greater than Award Floor |
+      | Award Ceiling value should be greater than Award Floor |
     #183654
     And I click on "Edit" in the page details
     When I enter value "400" into field "fieldTotalCommittedAmount__c"
@@ -1142,3 +1146,72 @@ Feature: Validate all scenarios related to announcement
     And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     And I close modal by clicking the top right x button
     Then I softly cannot see "Last Updated By" in downloaded xls or csv file "govgrants"
+
+  @183671 @183665 @183670 @183662 @183676 @183679 @183677 @183673 @sprint-3 @userStory-182041
+  Scenario: Verify that the General Information section has the CDFA Number field is re-labeled to be Federal/NGO Program Number and shows the Program Number from the Federal/NGO Program section and is read-only.
+  |Verify that the General Information section has the field Office is shown and is read-only
+  |Verify that the General Information section has the Funding Source is shown and is read-only
+  |Verify that the General Information section has the Program Name shows the program name and not the EGMS ID.
+  |Verify that In the Description section the Version Summary is hidden
+  |Verify that In the Eligibility section the Announcement Description field is hidden.
+  |Verify that In the Key Dates section the Pre-Application Due Date is hidden
+  |Verify that the Financial Details section has the Estimated Number of Awards is shown and is read-only.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:CompetitiveAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    When I enter value "Location" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFederalNGOProgram---"
+    When I click "Associate" after selection of "Wildlife Services" in the table "SelectAnnCFDA"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FundingOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FundingOpportunities---"
+      #183671 (BugId-187166)
+    Then I softly cannot see top right button "Edit" in page detail
+    Then I softly see field "Federal/NGO Program Number" inside "General Information" section
+    And I softly see field "Federal/NGO Program Number" as "10.028"
+      #183665
+    Then I softly see field "Office" inside "General Information" section
+      #183670
+    Then I softly see field "Funding Source" inside "General Information" section
+      #183662
+    Then I softly see field "Program Name" inside "General Information" section
+    Then I softly see field "Program Name" as "Automation Permanent Program"
+      #183676
+    Then I softly do not see field "Version Summary" inside "Description" section
+      #183679
+    Then I softly do not see field "Announcement Description" inside "Eligibility" section
+      #183677
+    Then I softly do not see field "Pre-Application Due Date" inside "Key Dates" section
+      #183673
+    Then I softly see field "Estimated Number of Awards" inside "Financial Details" section
