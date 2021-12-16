@@ -888,8 +888,8 @@ Feature: Validate all scenarios related to announcement
       | BP01               | 250        | 365      |
     And I pause execution for "3" seconds
     And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementBudgetCategory---"
-    When I perform quick search for "Construction" in "---tableID:-:SelectBudgetCategory---" panel
-    And I check "Construction" boxes in flex table with id "---tableID:-:SelectBudgetCategory---"
+    When I perform quick search for "110 - General Instruction" in "---tableID:-:SelectBudgetCategory---" panel
+    And I check "110 - General Instruction" boxes in flex table with id "---tableID:-:SelectBudgetCategory---"
     And I click on top right button "Associate" in flex table with id "---tableID:-:SelectBudgetCategory---"
     And I wait for "3" seconds
     And I navigate to "Overview" sub tab
@@ -1215,3 +1215,46 @@ Feature: Validate all scenarios related to announcement
     Then I softly do not see field "Pre-Application Due Date" inside "Key Dates" section
       #183673
     Then I softly see field "Estimated Number of Awards" inside "Financial Details" section
+
+  @187358 @187235 @187367 @187359 @187368 @sprint-4 @userStory-180192
+  Scenario: Verify that the function codes are not populated in a new announcement
+  |Verify that the function codes has help text says: "This table lists the function codes allowed for applications submitted for this announcement."
+  |Verify that I can select one or more Function Codes that I wish to associate to the announcement
+  |Verify that the function codes sort in ascending order
+  |Verify that I cannot select a function code that I have already associated to the announcement
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    And I click on "Save" in the page details
+      #187358
+    Then I softly see "No Records Found" inside flex table with id "---tableID:-:AnnouncementFunctionCode---"
+      #187235
+    And I hovering mouse on help text icon inside page block detail "Function Codes"
+    Then I softly see "This table lists the function codes allowed for applications submitted for this announcement." shown as help text
+      #187367
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I pause execution for "2" seconds
+    Then I softly see value "110 - General Instruction" for title "Function Code" inside table "---tableID:-:AnnouncementFunctionCode---"
+      #187359
+    Then I softly see content of expected column "Function Code" is in "ASC" order of table id "---tableID:-:AnnouncementFunctionCode---"
+    #187368
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I perform quick search for "110 - General Instruction" in "---tableID:-:SelectBudgetCategory---" panel
+    Then I softly see "No Records Found" inside flex table with id "---tableID:-:Modal---"
