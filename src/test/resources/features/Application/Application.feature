@@ -682,9 +682,9 @@ Feature: Validate all scenarios related to application
 
   @183467 @183470 @183472 @183465 @sprint-3 @userStory-181779 @UmangParekh
   Scenario: Verify that all Forms section is re-labeled to be "Forms" for External view
-    | Verify that sequence of the sections in "Forms and Files" tab for External view
-    | Verify that the columns on the Forms table tab for External view
-    | Verify that the Files tab is relabeled to be "Forms and Files" for External view
+  | Verify that sequence of the sections in "Forms and Files" tab for External view
+  | Verify that the columns on the Forms table tab for External view
+  | Verify that the Files tab is relabeled to be "Forms and Files" for External view
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -751,10 +751,10 @@ Feature: Validate all scenarios related to application
     Then I softly can see "Forms and Files" sub tab at view detail page
 
   @183483 @183484 @183486 @183481 @sprint-3 @userStory-182031 @UmangParekh
-    Scenario: Verify that all Forms section is re-labeled to be "Forms" for Internal view
-    | Verify that sequence of the sections in "Forms and Files" tab for Internal view
-    | Verify that the columns on the Forms table tab for Internal view
-    | Verify that the Files tab is relabeled to be "Forms and Files" for Internal view
+  Scenario: Verify that all Forms section is re-labeled to be "Forms" for Internal view
+  | Verify that sequence of the sections in "Forms and Files" tab for Internal view
+  | Verify that the columns on the Forms table tab for Internal view
+  | Verify that the Files tab is relabeled to be "Forms and Files" for Internal view
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -942,3 +942,166 @@ Feature: Validate all scenarios related to application
       #183991
     Then I see only the following ordered headers in table with id "---tableID:-:AllocationsBySchool---" :
       | School Code | School | Allocation | Program Manager |
+
+  @185303 @185304 @185631 @185628 @185602 @185630 @185627 @185612 @185607 @185575 @185305 @sprint-4 @userStory-184591 @UmangParekh
+  Scenario: Verify that after save revisions tab changes in the application, I see a 'Cancel Revision' button on the application
+  | Verify that If I cancel the revision, I see a warning message (in a pop-up) with an option to continue or not continue
+  | Verify that If user click YES in the pop-up then in the Revisions tab user see 'Explanation of Revisions Needed' section shows data that user saved before canceled
+  | Verify that If user click YES in the pop-up then in the Revisions tab, user see Application Section for Revisions Shows data that I saved before I canceled
+  | Verify that If user click YES in the pop-up then user see Applicant Name as read-only in the Revisions tab
+  | Verify that If user click YES in the pop-up then user see In the 'Available Forms for Revisions' section, user see all forms associated with the application. I see that the 'Allow Edits' column is checked if I checked it for a given form before I canceled
+  | Verify that If user click YES in the pop-up then user see Revised Due Date (that was saved before user canceled) in Revision tab as read only
+  | Verify that If user click YES in the pop-up then user see Revised Submitted Date is blank in the Revisions tab
+  | Verify that If user click YES in the pop-up then user see Revision Created Date as read-only in the Revisions tab
+  | Verify that If user click YES in the pop-up then user see Revision Request Status " Canceled" as read-only in the Revisions tab
+  | Verify that after cancelation, I see that the Decision Status for the application in the review step is reset to 'Pending'. The application status remains 'Review Initiated'
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    When I enter value "project abstract" into field "fieldProjectAbstract__c"
+    When I enter value "checked" into field "fieldAcknowledgment4__c"
+    And I navigate to "Budget" sub tab
+    When I enter value "justification" into field "fieldJustification__c"
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---tableID:-:ApplicationBudgetPeriod---" by clicking "Edit" :
+      | Category Name                     | Budget |
+      | Administrative and legal expenses | 1000   |
+    And I navigate to "Overview" sub tab
+    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
+    When I enter value "checked" into field "IsKeyContact__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
+    And I navigate to "Forms and Files" sub tab
+    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
+    When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
+      | Participant’s Name | School Name | Role    | Stakeholder Representation |
+      | Automation         | Dixie High  | Teacher | School within District     |
+    And I click on "Save" in the page details
+    And I click on "Validate" in the page details
+    And I click on "Submit Application" in the page details
+    And I softly see field "Status" as "Submitted to Grantor"
+    And I save the field containing "EGMS ID" as "APPID"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Applications" tab
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    And I softly see field "Status" as "Review Initiated"
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
+    And I enter value "1" into field "MinimumNumberOfReviewers__c"
+    And I enter value "5" into field "DueInDays__c"
+    And I enter value "Checked" into field "Required__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ReviewForms---"
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I pause execution for "5" seconds
+    And I refresh the page
+    And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I navigate to "Revisions" sub tab
+    When I enter value "200" into field "NegotiationDueDate__c"
+    When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
+    When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    #185303
+    Then I softly can see top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    #185304
+    And I click on top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I softly see the following messages in the page details contains:
+      | The revisions will no longer be editable. Are you sure you are ready to cancel the revisions? |
+    #185631
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    And I navigate to "Revisions" sub tab
+    Then I softly see field "Details" inside "Explanation of Revisions Needed" section
+    #185628
+    Then I softly see field "Application Section for Revisions" inside "Request Revision Details" section
+    #185602
+    Then I softly see that "Applicant Name" rendered in view mode only
+    #185630
+    Then I softly see value "Title II, Part A - Private Schools" for title "Form Name" inside table "---tableID:-:ApplicationFormsRevision---"
+    Then I softly see value "Title II, Part A - Stakeholder Participants" for title "Form Name" inside table "---tableID:-:ApplicationFormsRevision---"
+    Then I softly see value "checked" for title "Allow Edits?" inside table "---tableID:-:ApplicationFormsRevision---"
+    #185627
+    Then I softly see that "Due Date" rendered in view mode only
+    #185612
+    Then I softly see field "Revised Submitted Date" inside "Request Revision Details" section
+    #185607
+    Then I softly see that "Revision Created Date" rendered in view mode only
+    #185575
+    Then I softly see field "Revision Request Status" as "Canceled"
+    Then I softly see that "Revision Request Status" rendered in view mode only
+   #185305
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
+    And I softly see field "Status" as "In Progress"
+    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
