@@ -713,8 +713,8 @@ Feature: Validate all scenarios related to application
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
     And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementBudgetCategory---"
-    When I perform quick search for "Construction" in "---tableID:-:SelectBudgetCategory---" panel
-    And I check "Construction" boxes in flex table with id "---tableID:-:SelectBudgetCategory---"
+    When I perform quick search for "110 - General Instruction" in "---tableID:-:SelectBudgetCategory---" panel
+    And I check "110 - General Instruction" boxes in flex table with id "---tableID:-:SelectBudgetCategory---"
     And I click on top right button "Associate" in flex table with id "---tableID:-:SelectBudgetCategory---"
     And I wait for "3" seconds
     And I navigate to "Overview" sub tab
