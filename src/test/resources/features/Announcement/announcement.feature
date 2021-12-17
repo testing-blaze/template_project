@@ -1258,3 +1258,38 @@ Feature: Validate all scenarios related to announcement
     And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
     When I perform quick search for "110 - General Instruction" in "---tableID:-:SelectBudgetCategory---" panel
     Then I softly see "No Records Found" inside flex table with id "---tableID:-:Modal---"
+
+  @187361 @187232 @187365 @187356 @sprint-4 @userStory-180192
+  Scenario: Verify that the modal window is labeled 'Associate Function Codes' with the section labeled as 'Function Codes'
+  |Verify the  Function Codes section under Financial tab
+  |Verify that the table has columns in this order: Select box, Function Code
+  |Verify that the table has the columns in this order: Function Code, Actions
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    And I click on "Save" in the page details
+      #187361 #187232
+    Then I softly see "Function Codes" page block displayed
+     #187365
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    Then I softly see "Function Code" in flex table header "---tableID:-:Modal---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+     #187356
+    Then I see only the following ordered headers in table with id "---tableID:-:AnnouncementFunctionCode---" :
+      | Function Code | Actions |
