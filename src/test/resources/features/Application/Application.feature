@@ -1115,7 +1115,7 @@ Feature: Validate all scenarios related to application
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I softly see field "Status" as "In Progress"
     Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
-    
+
   @185293 @185521 @185523 @185535 @185321 @185538 @185319 @185286 @185282 @185285 @185323 @sprint-4 @userStory-184581 @UmangParekh
   Scenario: Verify that 'Explanation of Revisions Needed' is text field accept up to 4,000 chars
   | Verify that after save changes in revisions tab, user not see the request revision action (dollar icon) in the review step for the application
@@ -1433,3 +1433,21 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Send to Subrecipient" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
     And I click on top right button "Back to Current Review Step" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
     Then I softly see value "Review Incomplete" for title "Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
+
+  @185233 @185232 @185236 @sprint-4 @userStory-180192
+  Scenario: Verify the Message: "Overview tab: The SAM Expiration Date is in the past. You must immediately update your SAM.gov registration to be eligible to receive a grant award for this application from SCDE, when announcement has a funding source is "Federal"
+  |Verify the validation message:  "Overview tab:  The SAM Expiration Date is in the past.  You must have an updated SAM.gov registration in order to submit the application" when announcement has a funding source is "Federal"
+  |Verify the Message:  "Overview tab:  The SAM Expiration Date is in the past.  You must immediately update your SAM.gov registration to be eligible to receive a grant award for this application from SCDE.", when announcement has a funding source is "State"
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Applications" tab
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{StaticRecords:AutomationPermanentApplicationWithPassedSamExpirationDate}" in "---tableID:-:ApplicationId---" panel
+    When I click on "View" icon for "{StaticRecords:AutomationPermanentApplicationWithPassedSamExpirationDate}" inside flex table with id "---tableID:-:ApplicationId---"
+      #185233
+    Then I softly see the following messages in the page details contains:
+      | Overview tab:  The SAM Expiration Date is in the past. You must immediately update your SAM.gov registration to be eligible to receive a grant award for this application from SCDE. |
+      #185232 #185236
+    And I click on "Submit Application" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Overview tab: The SAM Expiration Date is in the past. You must have an updated SAM.gov registration in order to submit the application. |

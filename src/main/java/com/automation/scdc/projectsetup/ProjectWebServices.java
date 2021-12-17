@@ -173,6 +173,7 @@ public class ProjectWebServices {
                 deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "Funding Source");
             }
             if (StringUtils.containsIgnoreCase(record, "Announcement")) {
+                deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "Qualified Announcement");
                 deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "Announcement");
             }
             if (StringUtils.containsIgnoreCase(record, "Formula Announcement")) {
