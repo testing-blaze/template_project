@@ -165,13 +165,12 @@ Feature: Validate all scenarios related to subrecipient organization
     When I enter value "20" into field "fieldSCDE_MaximumUsersAllowed__c"
     And I click modal button "Save And Close"
     Then I softly see the following messages in the page details contains:
-      | Maximum Users Allowed must be less than available Partner Community licenses. There are 18 available Partner Community licenses. Deactivate Partner Community users to increase the available licenses. |
+      | Maximum Users Allowed must be less than available Partner Community licenses. There are 9 available Partner Community licenses. Deactivate Partner Community users to increase the available licenses. |
       #181876
     When I enter value "0" into field "fieldSCDE_MaximumUsersAllowed__c"
     And I click modal button "Save And Close"
     Then I softly see the following messages in the page details contains:
-      | Overview Tab - Maximum Users Allowed must be equal to or greater than the number of current active or invited users for the organization. You must deactivate one or more active users to lower the maximum number of users allowed. |
-      | Overview tab - Maximum Users Allowed must be greater than 0.                                                                                                                                                                         |
+      | Overview tab - Maximum Users Allowed must be greater than 0. |
       #181862
     When I enter value "5" into field "fieldSCDE_MaximumUsersAllowed__c"
     When I enter value "a1234567890" into field "fieldSupplierID__c"

@@ -50,7 +50,8 @@ Feature: Validate all scenarios related to organization profile
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
       #182058
     And I click on "Edit" in the page details
-    Then I softly see field "Maximum Users Allowed" as "10"
+    Then I softly see that "Maximum Users Allowed" rendered in view mode only
+    Then I softly see field "Maximum Users Allowed" as "9"
       #182057
     Then I softly see field "*Send Claims to SCEIS?" as "No"
     And I click on "Save" in the page details
@@ -207,6 +208,7 @@ Feature: Validate all scenarios related to organization profile
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     When I perform quick search for "Active" in "---tableID:-:OrganizationProfileContacts---" panel
+    And I pause execution for "2" seconds
     Then I softly cannot see top right button "New" in flex table with id "---tableID:-:OrganizationProfileContacts---"
     Then I softly cannot see row level action button "Edit" against "Active" in flex table with id "---tableID:-:OrganizationProfileContacts---"
 

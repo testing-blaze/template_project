@@ -6,7 +6,7 @@ Feature: Validate all scenarios related to opportunities
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I pause execution for "3" seconds
     And I click on "Continue" in the page details
@@ -69,8 +69,8 @@ Feature: Validate all scenarios related to opportunities
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
       #183428
     Then I softly do not see field "Program Income Allowed?" inside "Opportunity Specific Settings" section
       #183433
@@ -136,8 +136,8 @@ Feature: Validate all scenarios related to opportunities
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
     And I softly see field "Status" as "Qualified"
       #184506

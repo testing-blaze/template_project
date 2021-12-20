@@ -152,7 +152,7 @@ Feature: Validate all scenarios related to registration
       #179294
     Then I softly see "Organization Representative:" page block displayed
       #179911
-    Then I softly see the text containing :
+    Then I softly see the text :
       | To continue this registration, the following user profile information is required.  Upon approval of this registration request, the account information will be sent through email to the Web Accessibility Coordinator (WAC). |
       | The WAC is the authorized representative for the organization and is responsible for adding additional users and assigning roles.                                                                                              |
 
