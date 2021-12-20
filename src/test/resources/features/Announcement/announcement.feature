@@ -165,7 +165,8 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
-    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
      #184024
     Then I softly see field "Type" as "Formula"
@@ -458,10 +459,11 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
-    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
       #184152
-    Then I softly see field "Allocation Level" as "N/A"
+    Then I softly see field "Allocation Level" as "By Applicant and School"
       #184163
     Then I softly see field "Detailed Budgeting Option" as ""
       #184149
@@ -504,7 +506,8 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
-    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I navigate to "Financials" sub tab
@@ -522,7 +525,8 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
-    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I hovering mouse on help text icon inside page block detail "Detailed Budgeting Option"
@@ -539,7 +543,8 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
-    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I hovering mouse on help text icon inside page block detail "Federal/NGO Programs"
@@ -556,7 +561,8 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
-    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I hovering mouse on help text icon inside page block detail "Type"
@@ -587,7 +593,7 @@ Feature: Validate all scenarios related to announcement
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I pause execution for "3" seconds
     And I click on "Continue" in the page details
@@ -907,6 +913,7 @@ Feature: Validate all scenarios related to announcement
     When I upload file "UpdateRows.xlsx" into library
     And I pause execution for "3" seconds
     And I click modal button "Upload File"
+    And I pause execution for "3" seconds
     Then I softly see value "0201001" for title "School Code" inside table "---tableID:-:AnnouncementInvitedApplicants---"
     Then I softly see value "0201002" for title "School Code" inside table "---tableID:-:AnnouncementInvitedApplicants---"
     #183727
@@ -1226,7 +1233,7 @@ Feature: Validate all scenarios related to announcement
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I pause execution for "3" seconds
     And I click on "Continue" in the page details
@@ -1268,7 +1275,7 @@ Feature: Validate all scenarios related to announcement
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I pause execution for "3" seconds
     And I click on "Continue" in the page details

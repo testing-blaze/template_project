@@ -8,7 +8,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
@@ -49,8 +49,8 @@ Feature: Validate all scenarios related to application
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
@@ -70,7 +70,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
@@ -111,8 +111,8 @@ Feature: Validate all scenarios related to application
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
@@ -136,7 +136,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
@@ -177,31 +177,31 @@ Feature: Validate all scenarios related to application
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
       #181730 #181729
+    And I navigate to "Budget" sub tab
     Then I softly see that "fieldSCDE_Allocation_Amount__c" rendered in view mode only
     And I click on "Save" in the page details
       #181731
-    And I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$500"
      #181726
-    Then I softly see field "Allocation Amount" inside "Allocation Amount and Indirect Costs" section
+    Then I softly see field "Allocation Amount" inside "Allocation, Admin, and Indirect Costs" section
      #181725
     Then I see only the following ordered page blocks :
-      | Allocation Amount and Indirect Costs | Allocations By School | Budget Periods | Budget Narrative |
+      | Allocation, Admin, and Indirect Costs | Allocations By School | Budget Periods | Budget Narrative |
     #181749
     And I logout
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "UpdatedAllocationAmount.xlsx" into library
@@ -213,8 +213,8 @@ Feature: Validate all scenarios related to application
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$1,000"
 
@@ -224,7 +224,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I pause execution for "3" seconds
     And I click on "Continue" in the page details
@@ -270,8 +270,8 @@ Feature: Validate all scenarios related to application
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
@@ -303,8 +303,8 @@ Feature: Validate all scenarios related to application
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "UpdatedAllocationAmount.xlsx" into library
@@ -316,8 +316,8 @@ Feature: Validate all scenarios related to application
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$1,000"
 
@@ -327,7 +327,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I pause execution for "3" seconds
     And I click on "Continue" in the page details
@@ -373,8 +373,8 @@ Feature: Validate all scenarios related to application
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
@@ -405,18 +405,18 @@ Feature: Validate all scenarios related to application
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I softly see field "Status" as "Review Initiated"
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "UpdatedAllocationAmount.xlsx" into library
@@ -428,8 +428,8 @@ Feature: Validate all scenarios related to application
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$1,000"
 
@@ -439,7 +439,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I pause execution for "3" seconds
     And I click on "Continue" in the page details
@@ -485,8 +485,8 @@ Feature: Validate all scenarios related to application
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
@@ -517,8 +517,8 @@ Feature: Validate all scenarios related to application
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     #Pre-screen Review
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
@@ -548,8 +548,8 @@ Feature: Validate all scenarios related to application
     And I wait for "5" seconds
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
@@ -606,8 +606,8 @@ Feature: Validate all scenarios related to application
     And I wait for "5" seconds
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
@@ -641,35 +641,35 @@ Feature: Validate all scenarios related to application
     #Promote To FDM
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewStep------"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to FDM" in flex table with id "---tableID:-:ReviewApplication---"
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:FDMtableId---" panel
-    And I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:FDMtableId---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FDMtableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FDMtableId---"
     And I click on "Edit" in the page details
     And I enter value "SA" into field "fieldGrantCode__c"
     And I enter value "Justification Automation" into field "fieldJustification__c"
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---tableID:-:fdmRecommnedApplication---" by clicking "Edit" :
       | Application Title                                        | Recommended Budget | Recommend for Funding | Comments           |
-      | {SavedValue:Automation Runtime Competitive Announcement} | 2000               | Yes                   | Automation Comment |
+      | {SavedValue:Automation Runtime Announcement} | 2000               | Yes                   | Automation Comment |
     And I pause execution for "3" seconds
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I softly see field "Status" as "Reviewed"
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "UpdatedAllocationAmount.xlsx" into library
@@ -681,8 +681,8 @@ Feature: Validate all scenarios related to application
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$1,000"
 
@@ -695,7 +695,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I pause execution for "3" seconds
     And I click on "Continue" in the page details
@@ -739,8 +739,8 @@ Feature: Validate all scenarios related to application
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
@@ -766,7 +766,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I pause execution for "3" seconds
     And I click on "Continue" in the page details
@@ -812,8 +812,8 @@ Feature: Validate all scenarios related to application
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
@@ -845,8 +845,8 @@ Feature: Validate all scenarios related to application
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
     #183483
     And I navigate to "Forms and Files" sub tab
     Then I softly see "Forms" Panel Header
@@ -870,7 +870,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
@@ -911,8 +911,8 @@ Feature: Validate all scenarios related to application
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
@@ -923,8 +923,8 @@ Feature: Validate all scenarios related to application
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "UpdatedAllocationAmount.xlsx" into library
@@ -936,8 +936,8 @@ Feature: Validate all scenarios related to application
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I navigate to "Budget" sub tab
       #184011 #183996 #184009
     Then I softly see value "0160003" for title "School Code" inside table "---tableID:-:AllocationsBySchool---"
@@ -968,7 +968,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I pause execution for "3" seconds
     And I click on "Continue" in the page details
@@ -1014,8 +1014,8 @@ Feature: Validate all scenarios related to application
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
@@ -1046,16 +1046,16 @@ Feature: Validate all scenarios related to application
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I softly see field "Status" as "Review Initiated"
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
@@ -1086,8 +1086,8 @@ Feature: Validate all scenarios related to application
     #185631
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I navigate to "Revisions" sub tab
     Then I softly see field "Details" inside "Explanation of Revisions Needed" section
     #185628
@@ -1109,14 +1109,14 @@ Feature: Validate all scenarios related to application
     Then I softly see that "Revision Request Status" rendered in view mode only
    #185305
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I softly see field "Status" as "In Progress"
     Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
 
-  @185293 @185521 @185523 @185535 @185321 @185538 @185319 @185286 @185282 @185285 @185323 @sprint-4 @userStory-184581 @UmangParekh
+  @185293 @185521 @185523 @185535 @185321 @185538 @185319 @185286 @185282 @185285 @185323 @185237 @185324 @185537 @185299 @185289 @185287 @sprint-4 @userStory-184581 @UmangParekh
   Scenario: Verify that 'Explanation of Revisions Needed' is text field accept up to 4,000 chars
   | Verify that after save changes in revisions tab, user not see the request revision action (dollar icon) in the review step for the application
   | Verify that after saved changes in revisions tab, the 'Decision Status' for the application for the review step is updated from "Pending" to "Revision In-Progress"
@@ -1128,11 +1128,17 @@ Feature: Validate all scenarios related to application
   | Verify that in the 'Revisions' tab, date field accept only a future date
   | Verify that in the 'Revisions' tab, date field accept only a future date(Negative Scenario)
   | Verify that internal user can request revision on an application in pre-screen review step, if the review step decision status is 'Pending' and Application Status is 'Review Initiated'
+  | Verify that internal user can request revision on an application in the Management review step, if the review step decision status is 'Pending' and Application Status is 'Review Initiated'
+  | Verify that internal user can request revision on an application in the SME review step, if the review step decision status is 'Pending' and Application Status is 'Review Initiated'
+  | Verify that Revision Created Date after save revisions tab changes in the application
+  | Verify that Revision initiated Application cannot promote to the next review step
+  | Verify that the 'Available Forms for Revisions' section, I can select one or more forms on which I wish to allow edit in the 'Allow Edits' column
+  | Verify that the 'Available Forms for Revisions' section, I see all forms associated with the application
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I pause execution for "3" seconds
     And I click on "Continue" in the page details
@@ -1178,8 +1184,8 @@ Feature: Validate all scenarios related to application
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
@@ -1210,16 +1216,16 @@ Feature: Validate all scenarios related to application
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I softly see field "Status" as "Review Initiated"
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
@@ -1245,8 +1251,8 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Review Initiated"
     #185521
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     Then I softly cannot see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ApplicationRevisions---"
@@ -1255,8 +1261,8 @@ Feature: Validate all scenarios related to application
     #185535
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I navigate to "Revisions" sub tab
     Then I softly see field "Revision Request Status" as "Created"
     Then I softly see that "Revision Request Status" rendered in view mode only
@@ -1283,13 +1289,122 @@ Feature: Validate all scenarios related to application
       | Revisions Tab - 'Due Date' must be in future. |
     #185323
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
     Then I softly see value "Review Initiated" for title "Application Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
     Then I softly can see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    #185237
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Next Review Step" in the page details
+    When I edit the following rows inline in flex table with id "---tableID:-:ReviewForms---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Management Review | 5           |
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I refresh the page
+    And I pause execution for "5" seconds
+    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
+    And I pause execution for "3" seconds
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
+    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:ApplicationManagementReview---"
+    Then I softly see value "Review Initiated" for title "Application Status" inside table "---tableID:-:ApplicationManagementReview---"
+    Then I softly can see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ApplicationManagementReview---"
+    #185324
+    #Fiscal Review
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    #Program Review
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    #Compliance Review
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
+    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:ApplicationSmeReview---"
+    Then I softly see value "Review Initiated" for title "Application Status" inside table "---tableID:-:ApplicationSmeReview---"
+    Then I softly can see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ApplicationSmeReview---"
+    #185537
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    And I navigate to "Revisions" sub tab
+    Then I softly see that "Revision Created Date" rendered in view mode only
+    #185299
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on top right button "Promote to next step" in flex table with id "---tableID:-:AnnouncementReviewSteps---"
+    Then I softly see the following messages in the page details contains:
+    | One or more applications selected for promotion are not eligible for promotion because the application is already promoted or a revision is in progress. |
+    #185289
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    And I navigate to "Revisions" sub tab
+    Then I softly see value "checked" for title "Allow Edits?" inside table "---tableID:-:ApplicationFormsRevision---"
+    #185287
+    Then I softly see value "Title II, Part A - Private Schools" for title "Form Name" inside table "---tableID:-:ApplicationFormsRevision---"
+    Then I softly see value "Title II, Part A - Stakeholder Participants" for title "Form Name" inside table "---tableID:-:ApplicationFormsRevision---"
 
   @186363 @186156 @186232 @186233 @187634 @sprint-4 @userStory-184588 @UmangParekh
   Scenario: Verify that after application sending to the sub-recipient, user see that the Decision Status for the application in the review step is set to 'Revision In-Progress' and application status is set to 'Revision Initiated'
@@ -1301,7 +1416,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Formula Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I pause execution for "3" seconds
     And I click on "Continue" in the page details
@@ -1347,8 +1462,8 @@ Feature: Validate all scenarios related to application
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     When I click on "Qualify" in the page details
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
@@ -1379,16 +1494,16 @@ Feature: Validate all scenarios related to application
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Formula Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I softly see field "Status" as "Review Initiated"
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
@@ -1413,8 +1528,8 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
     #186363
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Competitive Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Formula Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     Then I softly see value "Revision In-Progress" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
