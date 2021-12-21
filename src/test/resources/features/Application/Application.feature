@@ -283,8 +283,8 @@ Feature: Validate all scenarios related to application
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---tableID:-:ApplicationBudgetPeriod---" by clicking "Edit" :
-      | Category Name                     | Budget |
-      | Administrative and legal expenses | 1000   |
+      | Category Name             | Budget |
+      | 110 - General Instruction | 1000   |
     And I navigate to "Overview" sub tab
     When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
     When I enter value "checked" into field "IsKeyContact__c"
@@ -386,8 +386,8 @@ Feature: Validate all scenarios related to application
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---tableID:-:ApplicationBudgetPeriod---" by clicking "Edit" :
-      | Category Name                     | Budget |
-      | Administrative and legal expenses | 1000   |
+      | Category Name             | Budget |
+      | 110 - General Instruction | 1000   |
     And I navigate to "Overview" sub tab
     When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
     When I enter value "checked" into field "IsKeyContact__c"
@@ -498,8 +498,8 @@ Feature: Validate all scenarios related to application
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---tableID:-:ApplicationBudgetPeriod---" by clicking "Edit" :
-      | Category Name                     | Budget |
-      | Administrative and legal expenses | 1000   |
+      | Category Name             | Budget |
+      | 110 - General Instruction | 1000   |
     And I navigate to "Overview" sub tab
     When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
     When I enter value "checked" into field "IsKeyContact__c"
@@ -655,7 +655,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Justification Automation" into field "fieldJustification__c"
     And I click on "Save" in the page details
     When I edit the following rows inline in flex table with id "---tableID:-:fdmRecommnedApplication---" by clicking "Edit" :
-      | Application Title                                        | Recommended Budget | Recommend for Funding | Comments           |
+      | Application Title                            | Recommended Budget | Recommend for Funding | Comments           |
       | {SavedValue:Automation Runtime Announcement} | 2000               | Yes                   | Automation Comment |
     And I pause execution for "3" seconds
     And I click on "Submit for Approval" in the page details
@@ -720,9 +720,7 @@ Feature: Validate all scenarios related to application
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
     And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementBudgetCategory---"
-    When I perform quick search for "110 - General Instruction" in "---tableID:-:SelectBudgetCategory---" panel
-    And I check "110 - General Instruction" boxes in flex table with id "---tableID:-:SelectBudgetCategory---"
-    And I click on top right button "Associate" in flex table with id "---tableID:-:SelectBudgetCategory---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
     And I wait for "3" seconds
     And I navigate to "Overview" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
@@ -825,8 +823,8 @@ Feature: Validate all scenarios related to application
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---tableID:-:ApplicationBudgetPeriod---" by clicking "Edit" :
-      | Category Name                     | Budget |
-      | Administrative and legal expenses | 1000   |
+      | Category Name             | Budget |
+      | 110 - General Instruction | 1000   |
     And I navigate to "Overview" sub tab
     When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
     When I enter value "checked" into field "IsKeyContact__c"
@@ -1027,8 +1025,8 @@ Feature: Validate all scenarios related to application
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---tableID:-:ApplicationBudgetPeriod---" by clicking "Edit" :
-      | Category Name                     | Budget |
-      | Administrative and legal expenses | 1000   |
+      | Category Name             | Budget |
+      | 110 - General Instruction | 1000   |
     And I navigate to "Overview" sub tab
     When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
     When I enter value "checked" into field "IsKeyContact__c"
@@ -1197,8 +1195,8 @@ Feature: Validate all scenarios related to application
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---tableID:-:ApplicationBudgetPeriod---" by clicking "Edit" :
-      | Category Name                     | Budget |
-      | Administrative and legal expenses | 1000   |
+      | Category Name             | Budget |
+      | 110 - General Instruction | 1000   |
     And I navigate to "Overview" sub tab
     When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
     When I enter value "checked" into field "IsKeyContact__c"
@@ -1394,7 +1392,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Related Log" sub tab
     And I click on top right button "Promote to next step" in flex table with id "---tableID:-:AnnouncementReviewSteps---"
     Then I softly see the following messages in the page details contains:
-    | One or more applications selected for promotion are not eligible for promotion because the application is already promoted or a revision is in progress. |
+      | One or more applications selected for promotion are not eligible for promotion because the application is already promoted or a revision is in progress. |
     #185289
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -1406,11 +1404,19 @@ Feature: Validate all scenarios related to application
     Then I softly see value "Title II, Part A - Private Schools" for title "Form Name" inside table "---tableID:-:ApplicationFormsRevision---"
     Then I softly see value "Title II, Part A - Stakeholder Participants" for title "Form Name" inside table "---tableID:-:ApplicationFormsRevision---"
 
-  @186363 @186156 @186232 @186233 @187634 @sprint-4 @userStory-184588 @UmangParekh
+  @186363 @186156 @186232 @186233 @186249 @186251 @186247 @186239 @186244 @186240 @186236 @186237 @187634 @sprint-4 @userStory-184588 @UmangParekh
   Scenario: Verify that after application sending to the sub-recipient, user see that the Decision Status for the application in the review step is set to 'Revision In-Progress' and application status is set to 'Revision Initiated'
   | Verify that after user saved the revision changes on an application, user can see 'Send to Subrecipient' button on the application
   | Verify that If I try to send the application to the sub-recipient after selecting 'Files and Forms: Forms' as one of the options but without checking the 'Allow Edits' box for any form, then I get the error message
   | Verify that If I try to send the application to the sub-recipient without selecting 'Files and Forms: Forms' as one of the options after checking the 'Allow Edits' box for at least one form, then I get the error message
+  | Verify that when user send the application for revision then in the 'Available Forms for Revisions' section, I see all forms associated with the application.  I see that the 'Allow Edits' column is checked if I checked it for a given form
+  | Verify that when user send the application for revision then in the Revisions tab user see 'Explanation of Revisions Needed' section shows data that user saved before 'Send to Subrecipient'
+  | Verify that when user send the application for revision then in the Revisions tab, user see Application Section for Revisions Shows data that I saved before I Send to Subrecipient
+  | Verify that when user send the application for revision then user see Applicant Name as read-only in the Revisions tab
+  | Verify that when user send the application for revision then user see Revised Due Date (that was saved before user Send to Subrecipient) in Revision tab as read only
+  | Verify that when user send the application for revision then user see Revised Submitted Date is blank in the Revisions tab
+  | Verify that when user send the application for revision then user see Revision Created Date as read-only in the Revisions tab
+  | Verify that when user send the application for revision then user see Revision Request Status (status  = Sent to Subrecipient) as read-only in the Revisions tab
   | Verify that review status is 'Sent to Review',  set the review status to 'Review Incomplete' when user send the application to subrecipient by clicking the Send to Subrecipient button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1475,8 +1481,8 @@ Feature: Validate all scenarios related to application
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     And I edit the following rows inline in flex table with id "---tableID:-:ApplicationBudgetPeriod---" by clicking "Edit" :
-      | Category Name                     | Budget |
-      | Administrative and legal expenses | 1000   |
+      | Category Name             | Budget |
+      | 110 - General Instruction | 1000   |
     And I navigate to "Overview" sub tab
     When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
     When I enter value "checked" into field "IsKeyContact__c"
@@ -1541,11 +1547,28 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Send to Subrecipient" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
     Then I softly see the text :
       | Revisions Tab- Select at least one form to allow edits on, because the Form section is added for revision. |
-    #187634
+    #186249
     And I click on "Edit" icon for "Title II, Part A - Stakeholder Participants" inside flex table with id "---tableID:-:AvailableFormsforRevision---"
     When I enter value "checked" into field "AllowEdit__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:AvailableFormsforRevision---"
     And I click on top right button "Send to Subrecipient" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly see value "checked" for title "Allow Edits?" inside table "---tableID:-:ApplicationFormsRevision---"
+    #186251
+    Then I softly see field "Explanation of Revisions Needed" as "Test"
+    #186247
+    Then I softly see field "Application Section for Revisions" as "Overview"
+    #186239
+    Then I softly see that "Applicant Name" rendered in view mode only
+    #186244
+    Then I softly see that "Due Date" rendered in view mode only
+    #186240
+    Then I softly see field "Revised Submitted Date" inside "Request Revision Details" section
+    #186236
+    Then I softly see that "Revision Created Date" rendered in view mode only
+    #186237
+    Then I softly see field "Revision Request Status" as "Sent to Subrecipient"
+    Then I softly see that "Revision Request Status" rendered in view mode only
+    #187634
     And I click on top right button "Back to Current Review Step" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
     Then I softly see value "Review Incomplete" for title "Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
 
@@ -1566,3 +1589,126 @@ Feature: Validate all scenarios related to application
     And I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
       | Overview tab: The SAM Expiration Date is in the past. You must have an updated SAM.gov registration in order to submit the application. |
+
+  @188031 @187887 @sprint-4 @userStory-185306
+  Scenario: Verify that 'Available Forms for Revisions' section is in edit mode
+  | Verify that "Applicant Response" is Read-only field
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    When I enter value "project abstract" into field "fieldProjectAbstract__c"
+    When I enter value "checked" into field "fieldAcknowledgment4__c"
+    And I navigate to "Budget" sub tab
+    When I enter value "justification" into field "fieldJustification__c"
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "BP01"
+    And I edit the following rows inline in flex table with id "---tableID:-:ApplicationBudgetPeriod---" by clicking "Edit" :
+      | Category Name             | Budget |
+      | 110 - General Instruction | 1000   |
+    And I navigate to "Overview" sub tab
+    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
+    When I enter value "checked" into field "IsKeyContact__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
+    And I navigate to "Forms and Files" sub tab
+    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
+    When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
+      | Participant’s Name | School Name | Role    | Stakeholder Representation |
+      | Automation         | Dixie High  | Teacher | School within District     |
+    And I click on "Save" in the page details
+    And I click on "Validate" in the page details
+    And I click on "Submit Application" in the page details
+    And I softly see field "Status" as "Submitted to Grantor"
+    And I save the field containing "EGMS ID" as "APPID"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Applications" tab
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    And I softly see field "Status" as "Review Initiated"
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
+    And I enter value "1" into field "MinimumNumberOfReviewers__c"
+    And I enter value "5" into field "DueInDays__c"
+    And I enter value "Checked" into field "Required__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ReviewForms---"
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I pause execution for "5" seconds
+    And I refresh the page
+    And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I navigate to "Revisions" sub tab
+    When I enter value "200" into field "NegotiationDueDate__c"
+    When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
+    When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    #188031
+    Then I softly can see top right button "Edit" in flex table with id "---tableID:-:ApplicationFormsRevision---"
+    Then I softly can see row level action button "Edit" against "Title II, Part A - Stakeholder Participants" in flex table with id "---tableID:-:AvailableFormsforRevision---"
+    #187887
+    Then I softly see that "Applicant Response" rendered in view mode only
