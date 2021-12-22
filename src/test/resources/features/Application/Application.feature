@@ -1590,9 +1590,20 @@ Feature: Validate all scenarios related to application
     Then I softly see the following messages in the page details contains:
       | Overview tab: The SAM Expiration Date is in the past. You must have an updated SAM.gov registration in order to submit the application. |
 
-  @188031 @187887 @sprint-4 @userStory-185306
-  Scenario: Verify that 'Available Forms for Revisions' section is in edit mode
+  @187897 @188031 @188032 @187887 @187874 @187884 @188071 @188083 @187859 @187899 @188114 @187900 @188109 @sprint-4 @userStory-185306
+  Scenario: Verify that I can click on 'Request Revisions' button to request revision again on the application
+  | Verify that 'Available Forms for Revisions' section is in edit mode
+  | Verify that that Explanation of Revisions Needed' section is in edit mode
   | Verify that "Applicant Response" is Read-only field
+  | Verify that all forms associated with the application
+  | Verify that Explanation of Revisions Needed is Read-only and its Shows data that the SCDE announcement owner saved
+  | Verify that I can again send the application back to the sub-recipient
+  | Verify that I can cancel the revision
+  | Verify that that the Revision Request Status (status  = Submitted to Grantor) is Read-only field when application is in Revision Submitted state
+  | Verify that I can click on 'Complete Revisions' button to mark the ongoing revision process as complete
+  | Verify that I click on 'Complete Revisions' button to mark the revisions as complete
+  | Verify that the 'Complete Revisions' button available on the application
+  | Verify that I see that the status as  'Review Initiated'
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1699,19 +1710,51 @@ Feature: Validate all scenarios related to application
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
-    And I pause execution for "5" seconds
+    And I pause execution for "2" seconds
     And I refresh the page
+    #187897
+    Then I softly can see row level action button "Request Revisions" against "Automation PM" in flex table with id "---tableID:-:Reviewer---"
+    #188031
     And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
     And I navigate to "Revisions" sub tab
     When I enter value "200" into field "NegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
     When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
-    #188031
-    Then I softly can see top right button "Edit" in flex table with id "---tableID:-:ApplicationFormsRevision---"
+    Then I softly can see top right button "Edit" in flex table with id "---tableID:-:ApplicationRevisions---"
     Then I softly can see row level action button "Edit" against "Title II, Part A - Stakeholder Participants" in flex table with id "---tableID:-:AvailableFormsforRevision---"
+    #188032
+    And I click on top right button "Edit" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I softly see fields "fieldExplanationOfRevisionsNeeded__c" is in edit mode
     #187887
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
     Then I softly see that "Applicant Response" rendered in view mode only
+    #187874
+    Then I softly see value "Title II, Part A - Stakeholder Participants" for title "Form Name" inside table "---tableID:-:AvailableFormsforRevision---"
+	#187884
+    And I softly see field "Explanation of Revisions Needed" as "Test"
+    Then I softly see that "Explanation of Revisions Needed" rendered in view mode only
+    #188071
+    And I click on top right button "Edit" in flex table with id "---tableID:-:ApplicationRevisions---"
+    When I enter value "250" into field "NegotiationDueDate__c"
+    When I enter value "Automation Testing" into field "fieldExplanationOfRevisionsNeeded__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I softly can see top right button "Send To Subrecipient" in flex table with id "---tableID:-:ApplicationRevisions---"
+    #188083
+    Then I softly can see top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    #187859
+    And I softly see field "Revision Request Status" as "Submitted to Grantor"
+    Then I softly see that "Revision Request Status" rendered in view mode only
+   #187899 #188114 #187900
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    And I pause execution for "2" seconds
+    Then I softly can see top right button "Complete Revisions" in flex table with id "---tableID:-:ApplicationRevisions---"
+    #188109
+    And I click on top right button "Complete Revisions" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I softly see field "Status" as "Review Initiated"
 
   @185269 @185278 @185277 @sprint-4 @userStory-179376
   Scenario: Verify that the Application's Budget tab has a section labeled 'Allocation, Admin, and Indirect Costs'
