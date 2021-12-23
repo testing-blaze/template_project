@@ -96,6 +96,9 @@ public class UsersAndURL implements UsersController {
             case "SPA":
                 username = "automationspa@scde.org.qa1";
                 break;
+            case "SPA1":
+                username = "avtest@yopmail.com";
+                break;
             case "SPIWAC":
                 username = "automationspiwac@scde.org.qa1";
                 break;
