@@ -1590,20 +1590,30 @@ Feature: Validate all scenarios related to application
     Then I softly see the following messages in the page details contains:
       | Overview tab: The SAM Expiration Date is in the past. You must have an updated SAM.gov registration in order to submit the application. |
 
-  @187897 @188031 @188032 @187887 @187874 @187884 @188071 @188083 @187859 @187899 @188114 @187900 @188109 @sprint-4 @userStory-185306
+  @187897 @187896 @188031 @188032 @187887 @188030 @188028 @187874 @187884 @188071 @188083 @187859 @187865 @187860 @187857 @187866 @187864 @187899 @188114 @187900 @188109 @187846 @187845 @sprint-4 @userStory-185306
   Scenario: Verify that I can click on 'Request Revisions' button to request revision again on the application
+  | Verify that the 'Request Revisions' button available on the application
   | Verify that 'Available Forms for Revisions' section is in edit mode
   | Verify that that Explanation of Revisions Needed' section is in edit mode
   | Verify that "Applicant Response" is Read-only field
+  | Verify that the Application Section for Revisions is in edit mode
+  | Verify that the Due date is in edit mode
   | Verify that all forms associated with the application
   | Verify that Explanation of Revisions Needed is Read-only and its Shows data that the SCDE announcement owner saved
   | Verify that I can again send the application back to the sub-recipient
   | Verify that I can cancel the revision
   | Verify that that the Revision Request Status (status  = Submitted to Grantor) is Read-only field when application is in Revision Submitted state
+  | Verify that the "Application Sections for Revisions" is Read-only field when application is in Revision Submitted state
+  | Verify that the Applicant Name is Read-only field when application is in Revision Submitted state
+  | Verify that the Due Date is Read-only field when Application is in Revision Submitted state
+  | Verify that the Revised Submitted Date is Read-only field when application is in Revision Submitted state
+  | Verify that the Revision Created Date is Read-only field when application is in Revision Submitted state
   | Verify that I can click on 'Complete Revisions' button to mark the ongoing revision process as complete
   | Verify that I click on 'Complete Revisions' button to mark the revisions as complete
   | Verify that the 'Complete Revisions' button available on the application
   | Verify that I see that the status as  'Review Initiated'
+  | Verify that the Due Date should populate as 7 days from the task creation date
+  | Verify that the Task Subject: Review <<Application Title>> for <<Subrecipient Org Name>>
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1712,7 +1722,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "2" seconds
     And I refresh the page
-    #187897
+    #187897 #187896
     Then I softly can see row level action button "Request Revisions" against "Automation PM" in flex table with id "---tableID:-:Reviewer---"
     #188031
     And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
@@ -1729,9 +1739,15 @@ Feature: Validate all scenarios related to application
     #187887
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
     Then I softly see that "Applicant Response" rendered in view mode only
+    #188030
+    And I click on top right button "Edit" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I softly see fields "fieldApplicationSectionsForRevision__c" is in edit mode
+    #188028
+    Then I softly see fields "NegotiationDueDate__c" is in edit mode
     #187874
     Then I softly see value "Title II, Part A - Stakeholder Participants" for title "Form Name" inside table "---tableID:-:AvailableFormsforRevision---"
 	#187884
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
     And I softly see field "Explanation of Revisions Needed" as "Test"
     Then I softly see that "Explanation of Revisions Needed" rendered in view mode only
     #188071
@@ -1743,8 +1759,19 @@ Feature: Validate all scenarios related to application
     #188083
     Then I softly can see top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
     #187859
+    And I click on top right button "Send To Subrecipient" in flex table with id "---tableID:-:ApplicationRevisions---"
     And I softly see field "Revision Request Status" as "Submitted to Grantor"
     Then I softly see that "Revision Request Status" rendered in view mode only
+    #187865
+    Then I softly see that "Application Section for Revisions" rendered in view mode only
+    #187860
+    Then I softly see that "Applicant Name" rendered in view mode only
+     #187857
+    Then I softly see that "Due Date" rendered in view mode only
+    #187866
+    Then I softly see that "Revised Submitted Date" rendered in view mode only
+    #187864
+    Then I softly see that "Revision Created Date" rendered in view mode only
    #187899 #188114 #187900
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -1755,6 +1782,11 @@ Feature: Validate all scenarios related to application
     #188109
     And I click on top right button "Complete Revisions" in flex table with id "---tableID:-:ApplicationRevisions---"
     And I softly see field "Status" as "Review Initiated"
+    #187846
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    Then I softly see value "12/30/2021" for title "Due Date" inside table "---tableID:-:ApplicationPendingTask---"
+    #187845
+    Then I softly see value "Review Automation Runtime Announcement for SPI Automation" for title "Subject" inside table "---tableID:-:ApplicationPendingTask---"
 
   @185269 @185278 @185277 @sprint-4 @userStory-179376
   Scenario: Verify that the Application's Budget tab has a section labeled 'Allocation, Admin, and Indirect Costs'

@@ -28,7 +28,7 @@ Feature: Validate all scenarios related to registration
     Then I softly see "Unique Entity Identifier (UEI)" inside page block detail
     Then I softly do not see "Data Universal Number System (DUNS)" inside page block detail
 
-  @179221 @sprint-1 @userStory-176385
+  @179221 @sprint-1 @userStory-176385 @wip
   Scenario:  Verify registration instructions to be SCDE-specific
     Given I am on "SUBPORTAL" portal
     When I click on "Register" button
