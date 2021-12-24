@@ -1851,11 +1851,12 @@ Feature: Validate all scenarios related to application
       #185278 #185277
     Then I softly see field "Indirect Cost Rate" as "10.00%"
 
-  @185276 @185461 @185466 @185464 @sprint-4 @userStory-179376
+  @185276 @185461 @185466 @185464 @185437 @sprint-4 @userStory-179376
   Scenario: Verify that 'indirect cost rate'  field is pre-populated for the Restricted Indirect Cost Rate Type selected on the announcement.
   |Verify that The field 'Indirect Cost Taken' in section 'Allocation, Admin, and Indirect Costs'
   |Verify that The field 'Indirect Cost Taken' in section 'Allocation, Admin, and Indirect Costs' is optional.
   |Verify that The field 'Indirect Cost Taken' in section 'Allocation, Admin, and Indirect Costs'  is a user entered currency field - up to 2 decimals.
+  | Verify that If my organization profile does not have a rate for the same fiscal year and indirect cost rate type as the announcement, the system shows the previous fiscal year's rate for my organization of the same indirect cost rate type.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1921,11 +1922,14 @@ Feature: Validate all scenarios related to application
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
     And I click on "Save" in the page details
     Then I softly see field "Indirect Cost Taken" as "$0.00"
+    #185437
+    Then I softly see field "Max Indirect Cost Allowed" as "$65.22"
 
-  @185446 @185456 @185457 @sprint-4 @userStory-179376
+  @185446 @185456 @185457 @185440 @sprint-4 @userStory-179376
   Scenario: Verify that If the Maximum Indirect Cost Rate field on the announcement is blank, then the system shows the organization's rate for the same Fiscal Year and rate type as selected on the announcement.
   |Verify that The field 'Max Indirect Cost Allowed' in section 'Allocation, Admin, and Indirect Costs'  is read only and computed as follows: (Allocation Amount * Indirect Cost Rate) / (1 + Indirect Cost Rate)
   |Verify that The field 'Max Indirect Cost Allowed' in section 'Allocation, Admin, and Indirect Costs' Show the computed value with up to 2 decimals.
+  |Verify that the field shows the lower rate between that found in 2b and the Maximum Indirect Cost Rate field on the announcement.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1982,6 +1986,188 @@ Feature: Validate all scenarios related to application
     And I navigate to "Budget" sub tab
     Then I softly see field "Indirect Cost Rate" as "15.00%"
     Then I softly see field "Max Indirect Cost Allowed" as "$65.22"
-    #185456 #185457
+    #185456 #185457 #185440
     And I click on "Edit" in the page details
     Then I softly see field "Max Indirect Cost Allowed" as "$65.22"
+
+  @185443 @sprint-4 @userStory-179376
+  Scenario: Verify that If the organization does not have an indirect cost rate of the type on the announcement for any year, and if the Maximum Indirect Cost Rate is not filled, then the rate is blank on the application.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Restricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "ByApplicant.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA1" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    Then I softly see field "Max Indirect Cost Allowed" as "$0.00"
+
+  @185442 @sprint-4 @userStory-179376
+  Scenario: Verify that If the organization does not have an indirect cost rate of the type on the announcement for any year, then the application should show the Maximum Indirect Cost Rate from the announcement.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Restricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "10" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "ByApplicant.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA1" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I navigate to "Budget" sub tab
+    Then I softly see field "Max Indirect Cost Allowed" as "$45.45"
+
+  @185439 @185273 @185449 @185487 @sprint-4 @userStory-179376
+  Scenario: Verify that the rate on the application is blank if the 'Indirect Cost Rate Type' for the announcement is set at 'Not Allowed'.
+  |Verify that there is a field for 'Indirect Cost Rate' that pre-populates as read-only in 'Allocation, Admin, and Indirect Costs' section
+  |Verify that There is a field for 'Max Indirect Cost Allowed'
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Not Allowed" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "10" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "ByApplicant.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA1" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I navigate to "Budget" sub tab
+        #185439 #185273
+    Then I softly see field "Max Indirect Cost Allowed" as "$0.00"
+    Then I softly see field "Indirect Cost Rate" as ""
+        #185449
+    Then I softly see "Max Indirect Cost Allowed" inside page block detail
+        #185487
+    And I navigate to "Overview" sub tab
+    When I enter value "12345" into field "fieldZip4__c"
+    And I navigate to "Budget" sub tab
+    When I enter value "50" into field "fieldSCDE_IndirectCostTaken__c"
+    And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Budget Tab - Indirect Cost Taken amount cannot be greater than the Max Indirect Cost Allowed. |
