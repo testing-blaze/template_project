@@ -1404,12 +1404,14 @@ Feature: Validate all scenarios related to application
     Then I softly see value "Title II, Part A - Private Schools" for title "Form Name" inside table "---tableID:-:ApplicationFormsRevision---"
     Then I softly see value "Title II, Part A - Stakeholder Participants" for title "Form Name" inside table "---tableID:-:ApplicationFormsRevision---"
 
-  @186363 @186156 @186232 @186233 @186249 @186251 @186247 @186239 @186244 @186240 @186236 @186237 @187634 @sprint-4 @userStory-184588 @UmangParekh
-  Scenario: Verify that after application sending to the sub-recipient, user see that the Decision Status for the application in the review step is set to 'Revision In-Progress' and application status is set to 'Revision Initiated'
+  @186370 @186363 @186156 @186232 @186233 @186249 @186613 @186251 @186247 @186239 @186244 @186240 @186236 @186237 @186373 @186615 @186372 @187634 @sprint-4 @userStory-184588 @UmangParekh
+  Scenario: Verify that after user saved the revision changes on an application, user can see 'Cancel Revision' button on the application
+  | Verify that after application sending to the sub-recipient, user see that the Decision Status for the application in the review step is set to 'Revision In-Progress' and application status is set to 'Revision Initiated'
   | Verify that after user saved the revision changes on an application, user can see 'Send to Subrecipient' button on the application
   | Verify that If I try to send the application to the sub-recipient after selecting 'Files and Forms: Forms' as one of the options but without checking the 'Allow Edits' box for any form, then I get the error message
   | Verify that If I try to send the application to the sub-recipient without selecting 'Files and Forms: Forms' as one of the options after checking the 'Allow Edits' box for at least one form, then I get the error message
   | Verify that when user send the application for revision then in the 'Available Forms for Revisions' section, I see all forms associated with the application.  I see that the 'Allow Edits' column is checked if I checked it for a given form
+  | Verify that when user send the application for revision then user see Revised Submitted Date as read-only in the Revisions tab
   | Verify that when user send the application for revision then in the Revisions tab user see 'Explanation of Revisions Needed' section shows data that user saved before 'Send to Subrecipient'
   | Verify that when user send the application for revision then in the Revisions tab, user see Application Section for Revisions Shows data that I saved before I Send to Subrecipient
   | Verify that when user send the application for revision then user see Applicant Name as read-only in the Revisions tab
@@ -1417,6 +1419,9 @@ Feature: Validate all scenarios related to application
   | Verify that when user send the application for revision then user see Revised Submitted Date is blank in the Revisions tab
   | Verify that when user send the application for revision then user see Revision Created Date as read-only in the Revisions tab
   | Verify that when user send the application for revision then user see Revision Request Status (status  = Sent to Subrecipient) as read-only in the Revisions tab
+  | Verify that when user send the application for revision then in the Revisions tab user see 'Applicant Response' section shows data that user saved before 'Send to Subrecipient'
+  | Verify that when user send the application to the sub-recipient after selecting 'Files and Forms: Forms' as one of the options then user will see the Edit button against each form name in Forms section
+  | Verify that when user send the application to the sub-recipient after selecting 'Files and Forms: Forms' as one of the options then user will see the different forms associated with Forms section
   | Verify that review status is 'Sent to Review',  set the review status to 'Review Incomplete' when user send the application to subrecipient by clicking the Send to Subrecipient button
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -1531,8 +1536,10 @@ Feature: Validate all scenarios related to application
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
     When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
-    And I click on top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    #186370
+    Then I softly can see top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
     #186363
+    And I click on top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
@@ -1553,6 +1560,8 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Save" in flex table with id "---tableID:-:AvailableFormsforRevision---"
     And I click on top right button "Send to Subrecipient" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
     Then I softly see value "checked" for title "Allow Edits?" inside table "---tableID:-:ApplicationFormsRevision---"
+    #186613
+    Then I softly see that "Revised Submitted Date" rendered in view mode only
     #186251
     Then I softly see field "Explanation of Revisions Needed" as "Test"
     #186247
@@ -1568,7 +1577,15 @@ Feature: Validate all scenarios related to application
     #186237
     Then I softly see field "Revision Request Status" as "Sent to Subrecipient"
     Then I softly see that "Revision Request Status" rendered in view mode only
+    #186373
+    Then I softly see field "Applicant Response" as "Automation Testing"
+    #186615
+    And I navigate to "Forms and files" sub tab
+    Then I softly see value "Title II, Part A - Stakeholder Participants" for title "Form Name" inside table "---tableID:-:ApplicationFormsRevision---"
+    #186372
+    Then I softly can see row level action button "Edit" against "Title II, Part A - Private Schools" in flex table with id "---tableID:-:ApplicationFormsRevision---"
     #187634
+    And I navigate to "Revisions" sub tab
     And I click on top right button "Back to Current Review Step" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
     Then I softly see value "Review Incomplete" for title "Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
 
@@ -1590,7 +1607,7 @@ Feature: Validate all scenarios related to application
     Then I softly see the following messages in the page details contains:
       | Overview tab: The SAM Expiration Date is in the past. You must have an updated SAM.gov registration in order to submit the application. |
 
-  @187897 @187896 @188031 @188032 @187887 @188030 @188028 @187874 @187884 @188071 @188083 @187859 @187865 @187860 @187857 @187866 @187864 @187899 @188114 @187900 @188109 @187846 @187845 @sprint-4 @userStory-185306
+  @187897 @187896 @188031 @188032 @187887 @188030 @188028 @187874 @187884 @188071 @188083 @187859 @187865 @187860 @187857 @187866 @187864 @187899 @188114 @187900 @188109 @187846 @187845 @187844 @188205 @187842 @sprint-4 @userStory-185306
   Scenario: Verify that I can click on 'Request Revisions' button to request revision again on the application
   | Verify that the 'Request Revisions' button available on the application
   | Verify that 'Available Forms for Revisions' section is in edit mode
@@ -1611,9 +1628,12 @@ Feature: Validate all scenarios related to application
   | Verify that I can click on 'Complete Revisions' button to mark the ongoing revision process as complete
   | Verify that I click on 'Complete Revisions' button to mark the revisions as complete
   | Verify that the 'Complete Revisions' button available on the application
-  | Verify that I see that the status as  'Review Initiated'
+  | Verify that I see that the status as 'Review Initiated'
   | Verify that the Due Date should populate as 7 days from the task creation date
   | Verify that the Task Subject: Review <<Application Title>> for <<Subrecipient Org Name>>
+  | Verify the Task Type: Review Revised Application
+  | Verify when I click on the 'Play' icon for the task, I am navigated to the application record
+  | Verify that I see the status as 'Approved' on the application record
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -1787,6 +1807,13 @@ Feature: Validate all scenarios related to application
     Then I softly see value "12/30/2021" for title "Due Date" inside table "---tableID:-:ApplicationPendingTask---"
     #187845
     Then I softly see value "Review Automation Runtime Announcement for SPI Automation" for title "Subject" inside table "---tableID:-:ApplicationPendingTask---"
+    #187844
+    Then I softly see value "Review Revised Application" for title "Type" inside table "---tableID:-:ApplicationPendingTask---"
+    #188205
+    And I click on "Start" icon for "Review Revised Application" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    Then I softly see field "Announcement EGMS ID" inside "Automation Runtime Announcement" section
+    #187842
+    And I softly see field "Status" as "Approved"
 
   @185269 @185278 @185277 @sprint-4 @userStory-179376
   Scenario: Verify that the Application's Budget tab has a section labeled 'Allocation, Admin, and Indirect Costs'
