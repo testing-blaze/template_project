@@ -465,7 +465,7 @@ Feature: Validate all scenarios related to announcement
       #184152
     Then I softly see field "Allocation Level" as "By Applicant and School"
       #184163
-    Then I softly see field "Detailed Budgeting Option" as ""
+    Then I softly see that "Detailed Budgeting Option" rendered in view mode only
       #184149
     Then I softly see "Local Education Agency:Nonprofit Organization:State Agency:Public Institution of Higher Education:Private Institution of Higher Education:Community-based Organization (CBO):For Profit Organization:Faith-based Organization:Library:Native American tribal Government:Native American tribal organization:Public Housing Authority:Other" inside selectbox field "fieldEligibleApplicantTypes__c"
       #184122
