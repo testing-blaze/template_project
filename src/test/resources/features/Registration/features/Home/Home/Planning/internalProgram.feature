@@ -185,3 +185,36 @@ Feature: Validate all scenarios related to internal program
     And I click on top right button "Add Files" in flex table with id "---tableID:-:InternalProgramFilesTable---"
     When I click on SelectChange Folder in add file modal
     Then I softly see library/folder/file "SCDE" is displayed under files library
+
+  @188600 @188589 @188548 @188607 @188576 @sprint-5 @userStory-187905 @UmangParekh
+  Scenario: Verify internal user (program owner) should see a new column "Review Response shared" in the Review Forms nested table under Review steps section on Setup tab
+  | Verify internal user (program owner) should see the default value is set to "YES" for all review forms in all review steps that are inserted in a new program.
+  | Verify internal user (program owner) should see a info icon in the header of the 'Review Response Shared' column
+  | Verify the text mentioned on the mouse hover of info icon in the header of the 'Review Response Shared' column
+  | Verify internal user (program owner) should see a Yes/No dropdown in the new column "Review Response shared" in the Review Forms nested table under Review steps section on Setup tab
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:InternalProgram---"
+    When I enter value "Automation Runtime Internal Program" into field "fieldProgramName__c"
+    When I enter value "Formula Grant" into field "fieldType__c"
+    When I enter value "Department of Education" into field "fieldPrimaryFundingOrganization__c"
+    When I enter value "No" into field "fieldFocusAreaRequired__c"
+    When I enter value "No" into field "fieldIsGoalsRequired__c"
+    When I enter value "No" into field "fieldKPIsRequired__c"
+    And I click modal button "Save and Continue"
+    When I enter value "description" into field "fieldObjectives__c"
+    And I click on "Save" in the page details
+    And I navigate to "Setup" sub tab
+    And I expand nested table containing column value "Pre-Screen Review"
+    #188548
+    Then I softly see "Review Response Shared" in flex table header "---tableID:-:InternalProgramReviewForms---"
+    #188589
+    And I softly see field "Review Response Shared" as "Yes"
+    #188600 #188607
+    And I hovering mouse on help text icon inside page block detail "Review Response Shared"
+    Then I softly see "Select 'No' to allow only the assigned reviewer and the announcement record owner (for any announcement created for this program) to view the review response provided for an application in this review step. To share the review response with all SCDE users, select 'YES'." shown as help text
+    #188576
+    When I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:InternalProgramReviewForms---"
+    Then I see the following options in dropdown field "ReviewResponseShared__c" :
+      | Yes | No |
