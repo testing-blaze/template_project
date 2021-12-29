@@ -332,3 +332,21 @@ Feature: Validate all scenarios related to subrecipient organization
     Then I softly see the following messages in the page details contains:
       | There can only be one Unrestricted Indirect cost rate type per Fiscal Year |
     And I close modal by clicking the top right x button
+
+  @189538 @189561 @189543 @sprint-5 @userStory-188692
+  Scenario: Verify that the Organization Files section (Internal user)
+  |Verify that I do not see the Parent/Child Legal Document option (Internal User)
+  |Verify that I see the option to upload a document for 'Neglected and Delinquent Annual Count' in the Classification picklist (Internal User)
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "PEACE CANAL" in "---tableID:-:SubrecipientOrganization---" panel
+    When I click on "View" icon for "PEACE CANAL" inside flex table with id "---tableID:-:SubrecipientOrganization---"
+    And I navigate to "Files" sub tab
+      #189538
+    Then I softly see "Organization Files" page block displayed
+      #189561
+    And I click on top right button "Add Files" in flex table with id "---tableID:-:InternalSubOrganizationFiles---"
+    Then I softly do not see Classification as "Parent/Child Legal Document" at upload file modal
+      #189543
+    Then I softly see Classification as "Neglected and Delinquent Annual Count" at upload file modal
