@@ -252,3 +252,20 @@ Feature: Validate all scenarios related to organization profile
       | Indirect Cost Rate Type | Approved Indirect Cost Rate (%) | Fiscal Year |
     #184324
     Then I softly cannot see row level action button "Edit" against "2021" in flex table with id "---tableID:-:SubOrgIndirectRates---"
+
+  @189493 @189510 @189499 @sprint-5 @userStory-188692
+  Scenario: Verify that the Organization Files section (External user)
+  |Verify that I do not see the Parent/Child Legal Document option (External User)
+  |Verify that I see the option to upload a document for 'Neglected and Delinquent Annual Count' in the Classification picklist (External User)
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Files" sub tab
+      #189493
+    Then I softly see "Organization Files" page block displayed
+      #189510
+    And I click on top right button "Add Files" in flex table with id "---tableID:-:ExternalSubOrganizationFiles---"
+    Then I softly do not see Classification as "Parent/Child Legal Document" at upload file modal
+      #189499
+    Then I softly see Classification as "Neglected and Delinquent Annual Count" at upload file modal
