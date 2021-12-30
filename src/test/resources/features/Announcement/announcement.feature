@@ -1300,3 +1300,81 @@ Feature: Validate all scenarios related to announcement
      #187356
     Then I see only the following ordered headers in table with id "---tableID:-:AnnouncementFunctionCode---" :
       | Function Code | Actions |
+
+  @188616 @188628 @188633 @188634 @188627 @sprint-5 @userStory-187882 @UmangParekh
+  Scenario: Verify internal user (announcement owner) should see a new column "Review Response shared" in the Review Forms nested table under Review steps section on Setup tab
+  | Verify internal user (announcement owner) should see the default value is set to "YES" for the 'Review Response Shared' column in the review step in the announcement, when a new review form is added.
+  | Verify internal user (announcement owner) should see a info icon in the header of the 'Review Response Shared' column
+  | Verify the text mentioned on the mouse hover of info icon in the header of the 'Review Response Shared' column
+  | Verify internal user (announcement owner) should see a Yes/No dropdown in the new column "Review Response shared" in the Review Forms nested table under Review steps section on Setup tab
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    And I navigate to "Setup" sub tab
+    And I expand nested table containing column value "Management Review"
+    #188616
+    Then I softly see "Review Response Shared" in flex table header "---tableID:-:AnnouncementReviewForms---"
+    #188628
+    And I click on top right button "New" in flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I softly see field "Review Response Shared" as "Yes"
+    #188633 #188634
+    And I hovering mouse on help text icon inside page block detail "Review Response Shared"
+    Then I softly see "Select 'No' to allow only the assigned reviewer and the announcement record owner (for any announcement created for this program) to view the review response provided for an application in this review step. To share the review response with all SCDE users, select 'YES'." shown as help text
+    #188627
+    And I click on top right button "New" in flex table with id "---tableID:-:AnnouncementReviewStep---"
+    Then I see the following options in dropdown field "ReviewResponseShared__c" :
+      | Yes | No |
+
+  @188599 @188612 @189815 @188598 @188610 @sprint-5 @userStory-187055 @UmangParekh
+  Scenario:  Verify  that on the Financials Tab in the Financial Details section there is a new field for 'Maximum Admin Cost Rate' displayed on announcement type : Competitive
+  | Verify 'Maximum Indirect Cost Rate' field displayed on announcement type : Competitive
+  | Verify the field is  Maximum Admin Cost rate is optional
+  | Verify  that on the Financials Tab in the Financial Details section there is a new field for 'Maximum Admin Cost Rate' displayed on announcement type : Formula
+  | Verify the field  'Maximum Admin Cost Rate' allows 2 decimal places
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:CompetitiveAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    And I navigate to "Financials" sub tab
+    #188599
+    Then I softly see field "Maximum Admin Cost Rate" inside "Financial Details" section
+    #188612
+    Then I softly see field "Maximum Indirect Cost Rate" inside "Financial Details" section
+    #189815
+    Then I softly do not see asterisk mark on "Maximum Admin Cost Rate"
+    #188598
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    And I navigate to "Financials" sub tab
+    Then I softly see field "Maximum Admin Cost Rate" inside "Financial Details" section
+    #188610
+    When I enter value "10.1111" into field "fieldSCDE_MaxAdminCostRate__c"
+    And I click on "Save" in the page details
+    Then I softly see field "Maximum Admin Cost Rate" as "10.11%"
