@@ -2351,3 +2351,97 @@ Feature: Validate all scenarios related to application
     Then I softly do not see "Technical Proposal" page block displayed
     #186348
     Then I softly can see "Performance" sub tab at view detail page
+
+  @188965 @188967 @189027 @189019 @189020 @190117 @189025 @188969 @sprint-5 @userStory-187057
+  Scenario: Verify  for  external application record owner  there is new field for 'Max Admin Cost Rate' displayed
+  | Verify external application record owner can see the 'Max Admin Cost Allowed' field '
+  | Verify  new field for 'Total Budgeted Amount' that is a roll-up field and shows the sum of all Award Total amounts from the budget grid and is read only.
+  | Verify for external application record owner there is a validation on Submit that ' Admin Cost taken '  cannot exceed 'Max Admin Cost Allowed'.
+  | Verify help text is displayed for the 'Admin Cost Taken' field
+  | Verify the help test is displayed for the Max Admin Cost Allowed field
+  | Verify the help text for the field 'Indirect Cost Taken' field
+  | Verify when Allocation Amount > zero, then Max Admin Cost Allowed is calculated using Allocation Amount.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    When I enter value "Yes" into field "fieldIsGoalsRequired__c"
+    When I enter value "Yes" into field "fieldKPIsRequired__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "10" into field "fieldSCDE_MaxAdminCostRate__c"
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---tableID:-:GoalsAndObjectives---"
+    When I click "Associate" after selection of "SPO-0001" in the table "---tableID:-:Modal---"
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementKPI---"
+    When I click "Associate" after selection of "KPI-0000" in the table "---tableID:-:AnnouncementKPIModal---"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    #188965 #188967
+    And I navigate to "Budget" sub tab
+    Then I softly see that "Max Admin Cost Rate" rendered in view mode only
+    #189027
+    And I softly see field "Total Budgeted Amount" as "$1,100.00"
+    Then I softly see that "Total Budgeted Amount" rendered in view mode only
+    #189019
+    And I click on "Edit" in the page details
+    When I enter value "200" into field " fieldSCDE_AdminCostTaken__c"
+    And I click on "Save" in the page details
+    And I click on "Submit Application" in the page details
+    Then I softly see the text containing :
+      | Budget Tab - 'Admin Cost Taken' cannot be greater than the 'Max Admin Cost Allowed'. |
+    #189020
+    And I hovering mouse on help text icon inside page block detail "Admin Cost Taken"
+    Then I softly see "Admin Cost Taken' should total the sum of all admin costs entered in the 'Budget" shown as help text
+    #190117
+    And I hovering mouse on help text icon inside page block detail "Max Admin Cost Allowed"
+    Then I softly see "If an allocation is provided for the application, this field is calculated using the 'Allocation amount'. Otherwise, this field is calculated using the 'Total Budgeted Amount'. Calculation is as follows: (Allocation Amount or Total Budgeted Amount * Max Admin Cost Rate)." shown as help text
+    #189025
+    And I hovering mouse on help text icon inside page block detail "Indirect Cost Taken"
+    Then I softly see "'Indirect Cost Taken' should be the sum of all indirect costs entered in the 'Budget' section below." shown as help text
+    #188969
+    Then I softly see field "Max Admin Cost Allowed" as "100"
