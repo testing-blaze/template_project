@@ -253,10 +253,11 @@ Feature: Validate all scenarios related to organization profile
     #184324
     Then I softly cannot see row level action button "Edit" against "2021" in flex table with id "---tableID:-:SubOrgIndirectRates---"
 
-  @189493 @189510 @189499 @sprint-5 @userStory-188692
+  @189493 @189510 @189499 @189505 @sprint-5 @userStory-188692
   Scenario: Verify that the Organization Files section (External user)
   |Verify that I do not see the Parent/Child Legal Document option (External User)
   |Verify that I see the option to upload a document for 'Neglected and Delinquent Annual Count' in the Classification picklist (External User)
+  |Verify that the Classification options are in alphabetical order, except Other Artifacts is listed last (External User)
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Home" tab
@@ -269,3 +270,11 @@ Feature: Validate all scenarios related to organization profile
     Then I softly do not see Classification as "Parent/Child Legal Document" at upload file modal
       #189499
     Then I softly see Classification as "Neglected and Delinquent Annual Count" at upload file modal
+    #189505
+    Then I softly see Classification as "DAI proof" at upload file modal
+    Then I softly see Classification as "Financial Artifacts" at upload file modal
+    Then I softly see Classification as "Indirect rate plan" at upload file modal
+    Then I softly see Classification as "Neglected and Delinquent Annual Count" at upload file modal
+    Then I softly see Classification as "Program Artifacts" at upload file modal
+    Then I softly see Classification as "W9" at upload file modal
+    Then I softly see Classification as "Other Artifacts" at upload file modal

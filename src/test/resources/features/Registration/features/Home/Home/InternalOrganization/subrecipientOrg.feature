@@ -333,10 +333,11 @@ Feature: Validate all scenarios related to subrecipient organization
       | There can only be one Unrestricted Indirect cost rate type per Fiscal Year |
     And I close modal by clicking the top right x button
 
-  @189538 @189561 @189543 @sprint-5 @userStory-188692
+  @189538 @189561 @189543 @189555 @sprint-5 @userStory-188692
   Scenario: Verify that the Organization Files section (Internal user)
   |Verify that I do not see the Parent/Child Legal Document option (Internal User)
   |Verify that I see the option to upload a document for 'Neglected and Delinquent Annual Count' in the Classification picklist (Internal User)
+  |Verify that the Classification options are in alphabetical order, except Other Artifacts is listed last (Internal User)
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
@@ -350,3 +351,11 @@ Feature: Validate all scenarios related to subrecipient organization
     Then I softly do not see Classification as "Parent/Child Legal Document" at upload file modal
       #189543
     Then I softly see Classification as "Neglected and Delinquent Annual Count" at upload file modal
+    #189555
+    Then I softly see Classification as "DAI proof" at upload file modal
+    Then I softly see Classification as "Financial Artifacts" at upload file modal
+    Then I softly see Classification as "Indirect rate plan" at upload file modal
+    Then I softly see Classification as "Neglected and Delinquent Annual Count" at upload file modal
+    Then I softly see Classification as "Program Artifacts" at upload file modal
+    Then I softly see Classification as "W9" at upload file modal
+    Then I softly see Classification as "Other Artifacts" at upload file modal
