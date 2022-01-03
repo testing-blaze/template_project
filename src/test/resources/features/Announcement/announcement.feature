@@ -771,11 +771,11 @@ Feature: Validate all scenarios related to announcement
     And I pause execution for "3" seconds
     And I click modal button "Upload File"
     Then I softly see the following messages in the page details contains:
-      | Row Number - 4 - Final Allocation - Invalid Amount format: A50
-      | Row Number 5 - Org Code : 1212 is entered more than once in the Excel. Please remove the duplicate entries and retry uploading.
-      | Row Number 6 - Org Code: 4321 does not exist in the system.
-      | Row Number - 7 - Negative value (-100) is not allowed in "Allocation"
-      | Row Number 8 - Org Code: 4162AC must be numeric.
+      | Row Number - 4 - Final Allocation - Invalid Amount format: A50 |
+      | Row Number 5 - Org Code : 1212 is entered more than once in the Excel. Please remove the duplicate entries and retry uploading. |
+      | Row Number 6 - Org Code: 4321 does not exist in the system.                                                                     |
+      | Row Number - 7 - Negative value (-100) is not allowed in "Allocation"                                                           |
+      | Row Number 8 - Org Code: 4162AC must be numeric.                                                                                |
     And I wait for "3" seconds
     And I close modal by clicking the top right x button
     #183728 #183729
@@ -799,8 +799,8 @@ Feature: Validate all scenarios related to announcement
     And I pause execution for "3" seconds
     And I click modal button "Upload File"
     Then I softly see the following messages in the page details contains:
-      | Row Number 2 - School Code: 866 does not exist in the system.
-      | Row Number 3 - School Code: 123ABC must be numeric.
+      | Row Number 2 - School Code: 866 does not exist in the system. |
+      | Row Number 3 - School Code: 123ABC must be numeric.           |
     And I wait for "3" seconds
     And I close modal by clicking the top right x button
     #183748
@@ -823,7 +823,7 @@ Feature: Validate all scenarios related to announcement
     And I pause execution for "3" seconds
     And I click modal button "Upload File"
     Then I softly see the following messages in the page details contains:
-      | The uploaded Excel file must contain data.
+      | The uploaded Excel file must contain data. |
     And I wait for "3" seconds
     And I close modal by clicking the top right x button
     #183726
@@ -835,12 +835,12 @@ Feature: Validate all scenarios related to announcement
     And I pause execution for "3" seconds
     And I click modal button "Upload File"
     Then I softly see the following messages in the page details contains:
-      | School Code is required. Verify that all Excel rows contain a value for School Code.
+      | School Code is required. Verify that all Excel rows contain a value for School Code. |
     When I upload file "SchoolCodeOnly.xlsx" into library
     And I pause execution for "3" seconds
     And I click modal button "Upload File"
     Then I softly see the following messages in the page details contains:
-      | Org Code is required. Verify that all Excel rows contain a value for Org Code.
+      | Org Code is required. Verify that all Excel rows contain a value for Org Code. |
     And I wait for "3" seconds
     And I close modal by clicking the top right x button
     #183746
@@ -862,7 +862,7 @@ Feature: Validate all scenarios related to announcement
     And I pause execution for "3" seconds
     And I click modal button "Upload File"
     Then I softly see the following messages in the page details contains:
-      | Row Number 2 - School Code: 201006 does not exist in the system.
+      | Row Number 2 - School Code: 201006 does not exist in the system. |
     And I wait for "3" seconds
     And I close modal by clicking the top right x button
     #183768
@@ -935,7 +935,7 @@ Feature: Validate all scenarios related to announcement
     And I pause execution for "3" seconds
     And I click modal button "Upload File"
     Then I softly see the following messages in the page details contains:
-      | Row Number 3 - Org Code / School Code combination is entered more than once in the Excel. Please remove the duplicate entries and retry uploading.
+      | Row Number 3 - Org Code / School Code combination is entered more than once in the Excel. Please remove the duplicate entries and retry uploading.|
     And I wait for "3" seconds
     And I close modal by clicking the top right x button
     #183721
@@ -961,7 +961,7 @@ Feature: Validate all scenarios related to announcement
     And I pause execution for "3" seconds
     And I click modal button "Upload File"
     Then I softly see the following messages in the page details contains:
-      | Row Number 2 - The school specified in the row does not belong to the applicant organization specified in the same row.
+      | Row Number 2 - The school specified in the row does not belong to the applicant organization specified in the same row. |
     And I wait for "3" seconds
     And I close modal by clicking the top right x button
     #183707
