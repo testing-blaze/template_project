@@ -2207,6 +2207,7 @@ Feature: Validate all scenarios related to application
   |Verify the  Opportunity ID field is relabeled to be Opportunity EGMS ID and has the following updated help text  on  Overview tab's Opportunity Overview section on the Application section Help text:  Funding opportunity associated with this application.
   |Verify the DUNS field is hidden on the Overview tabs Information section on the Application
   |Verify the Country is hidden on  Overview tab's Place of Performance section on the Application external view
+  |Verify the layout has 4 columns to match the layout of sections below. on the Overview tabs Information section on the Application on External side
   |Verify the  Performance tab is hidden if both Objectives and KPIs are not required for the related announcement.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
@@ -2447,10 +2448,10 @@ Feature: Validate all scenarios related to application
     Then I softly see field "Max Admin Cost Allowed" as "100"
 
   @188968 @188966 @188991 @190121 @sprint-5 @userStory-187057
-    Scenario: Verify for external user if the 'Maximum Admin Cost Rate' field on the announcement is blank, then  'Max Admin Cost Allowed'  field is hidden.
-    | Verify for the external application record owner if the 'Maximum Admin Cost Rate' field on the announcement is blank, then this field is blank on application
-    | Verify there is no validation on Submit application  if the 'Maximum Admin Cost Rate' field on the announcement is blank
-    | Verify when Allocation Amount  field is blank then it is calculated using Total Budgeted Amount
+  Scenario: Verify for external user if the 'Maximum Admin Cost Rate' field on the announcement is blank, then  'Max Admin Cost Allowed'  field is hidden.
+  | Verify for the external application record owner if the 'Maximum Admin Cost Rate' field on the announcement is blank, then this field is blank on application
+  | Verify there is no validation on Submit application  if the 'Maximum Admin Cost Rate' field on the announcement is blank
+  | Verify when Allocation Amount  field is blank then it is calculated using Total Budgeted Amount
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -2524,3 +2525,167 @@ Feature: Validate all scenarios related to application
       | Files Tab - All mandatory forms must be 100% completed |
     #190121
     And I softly see field "Total Budgeted Amount" as "$1,100.00"
+
+  @186433 @186432 @sprint-4 @userStory-185382
+  Scenario: Verify the Performance tab's Technical Proposal section is hidden
+  |Verify the Proposals tab is renamed to Performance tab
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    When I enter value "Yes" into field "fieldIsGoalsRequired__c"
+    When I enter value "Yes" into field "fieldKPIsRequired__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---tableID:-:GoalsAndObjectives---"
+    When I click "Associate" after selection of "SPO-0001" in the table "---tableID:-:Modal---"
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementKPI---"
+    When I click "Associate" after selection of "KPI-0000" in the table "---tableID:-:AnnouncementKPIModal---"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I click toggle button to select "Applications - Draft"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:InternalApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:InternalApplicationTableId---"
+    #186433
+    And I navigate to "Performance" sub tab
+    Then I softly do not see "Technical Proposal" page block displayed
+    #186432
+    Then I softly can see "Performance" sub tab at view detail page
+
+  @186429 @186425 @186430 @186427 @186431 @186424 @186428 @186426 @186434 @sprint-4 @userStory-185382
+  Scenario: Verify Program Income? field is hidden on  Overview tab's Opportunity Overview section on the Application section
+  |Verify that  UEI and is ready only on the Overview tabs , Information section on the Application Internal view
+  |Verify the  Office field is added and shows the Office from the Announcement as read-only  on  Overview tab's Opportunity Overview section on the Application section
+  |Verify the Congressional District is hidden on  Overview tab's Place of Performance section on the Application
+  |Verify the  Opportunity ID field is relabeled to be Opportunity EGMS ID and has the following updated help text  on  Overview tab's Opportunity Overview section on the Application section Help text:  Funding opportunity associated with this application.
+  |Verify the DUNS field is hidden on the Overview tabs Information section on the Application
+  |Verify the Country is hidden on  Overview tab's Place of Performance section on the Application Internal view
+  |Verify the layout has 4 columns to match the layout of sections below. on the Overview tabs Information section on the Application on internal side
+  |Verify the  Performance tab is hidden if both Objectives and KPIs are not required for the related announcement.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I click toggle button to select "Applications - Draft"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:InternalApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:InternalApplicationTableId---"
+      #186429
+    Then I softly do not see field "Program Income?" inside "Opportunity Overview" section
+      #186425
+    Then I softly see field "UEI" as "XSGWZYNU6FZ6"
+      #186430
+    Then I softly see field "Office" as "Ofc"
+      #186427
+    Then I softly do not see field "Congressional District" inside "Primary Place of Performance" section
+      #186431
+    Then I softly see field "Opportunity EGMS ID" inside "Opportunity Overview" section
+    And I hovering mouse on help text icon inside page block detail "Opportunity EGMS ID"
+    Then I softly see "Funding opportunity associated with this application" shown as help text
+    #186424
+    Then I softly do not see field "DUNS" inside "Information" section
+    #186428
+    Then I softly do not see field "Country" inside "Primary Place of Performance" section
+    #186426
+    Then I softly see field "Applicant Organization" inside "Information" section
+    Then I softly see field "Address" inside "Information" section
+    Then I softly see field "EIN" inside "Information" section
+    Then I softly see field "UEI" inside "Information" section
+    #186434
+    Then I softly cannot see "Performance" sub tab at view detail page
