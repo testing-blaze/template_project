@@ -2689,3 +2689,101 @@ Feature: Validate all scenarios related to application
     Then I softly see field "UEI" inside "Information" section
     #186434
     Then I softly cannot see "Performance" sub tab at view detail page
+
+  @189708 @189465 @189469 @189460 @189462 @189461 @189463 @189466 @sprint-5 @userStory-187074
+  Scenario: Verify "Budget For" field should be displayed on the modal, only when "School" is selected in "Detailed Budgeting Options" picklist on Announcement
+  | Verify "Cash Match" field is an optional field.
+  | Verify "Non Cash Match" field is an optional field.
+  | Verify "Cost" field is required on save.
+  | Verify "Award Total" field is a calculated field (Quantity * Cost)
+  | Verify "Cost" field is a Currency field that allows 2 decimals
+  | Verify "Cash Match" field is a currency field that allows 2 decimals
+  | Verify "Non Cash Match" is a currency field that allows 2 decimals.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    When I enter value "Yes" into field "fieldIsGoalsRequired__c"
+    When I enter value "Yes" into field "fieldKPIsRequired__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---tableID:-:GoalsAndObjectives---"
+    When I click "Associate" after selection of "SPO-0001" in the table "---tableID:-:Modal---"
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementKPI---"
+    When I click "Associate" after selection of "KPI-0000" in the table "---tableID:-:AnnouncementKPIModal---"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #189708
+    Then I softly see field "fieldSCDE_BudgetFor__c" inside "Add/Update Detailed Budget" section
+    #189465
+    Then I softly do not see asterisk mark on "Cash Match"
+    #189469
+    Then I softly do not see asterisk mark on "Non Cash Match"
+    #189460
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "2" into field "fieldQuantity__c"
+    When I enter value "Districtwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Testing" into field "fieldNarrative__c"
+    When I enter value "10.11" into field "fieldCashMatch__c"
+    When I enter value "5.11" into field "fieldNonCashMatch__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+    | Cost is required to save. |
+    #189462 #189461
+    When I enter value "100.111" into field "fieldUnitPrice__c"
+    And I click modal button "Save"
+    And I expand nested table containing column value "BP01"
+    Then I softly see value "$200.22" for title "Award Total" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #189463
+    And I expand nested table containing column value "110 - General Instruction"
+    Then I softly see value "$10.11" for title "Cash Match" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #189466
+    Then I softly see value "$5.11" for title "Non Cash Match" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
