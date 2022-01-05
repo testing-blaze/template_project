@@ -2690,15 +2690,25 @@ Feature: Validate all scenarios related to application
     #186434
     Then I softly cannot see "Performance" sub tab at view detail page
 
-  @189708 @189465 @189469 @189460 @189462 @189461 @189463 @189466 @sprint-5 @userStory-187074
+  @189708 @189465 @189469 @189449 @189460 @189462 @189461 @189456 @189463 @189466 @189457 @189712 @189713 @189471 @189472 @189180 @189491 @189198 @sprint-5 @userStory-187074 @UmangParekh
   Scenario: Verify "Budget For" field should be displayed on the modal, only when "School" is selected in "Detailed Budgeting Options" picklist on Announcement
   | Verify "Cash Match" field is an optional field.
   | Verify "Non Cash Match" field is an optional field.
+  | Verify "Object Code" field on the modal is lookup to all object codes.
   | Verify "Cost" field is required on save.
   | Verify "Award Total" field is a calculated field (Quantity * Cost)
   | Verify "Cost" field is a Currency field that allows 2 decimals
+  | Verify "Quantity" field is a numeric field that allows 2 decimals.
   | Verify "Cash Match" field is a currency field that allows 2 decimals
   | Verify "Non Cash Match" is a currency field that allows 2 decimals.
+  | Verify "Quantity" field is required on save
+  | Verify "School" field is a required field on modal, when "Schoolwide" option is selected in the "Budget For" dropdown on the modal.
+  | Verify "School" field is not a required field on modal, when "Schoolwide" option is not selected in the "Budget For" dropdown on the modal.
+  | Verify "Total Cash Match" is a calculated field (Total Cash Match = Cash Match + Non Cash Match )
+  | Verify "Total Project Cost" is a calculated field (Total Project Cost = Award Total + Total Match)
+  | Verify external user on clicking the "Add" action button navigates to a detailed modal.
+  | Verify "Description" field inside the Narrative section should have text area with 2000 char
+  | Verify external user should able to save the record on the Add/Update Detailed Budget modal
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -2767,9 +2777,11 @@ Feature: Validate all scenarios related to application
     Then I softly do not see asterisk mark on "Cash Match"
     #189469
     Then I softly do not see asterisk mark on "Non Cash Match"
+    #189449
+    Then I softly see field "fieldMST_Budget_Category__c" inside "Add/Update Detailed Budget" section
     #189460
     When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
-    When I enter value "2" into field "fieldQuantity__c"
+    When I enter value "2.111" into field "fieldQuantity__c"
     When I enter value "Districtwide" into field "fieldSCDE_BudgetFor__c"
     When I enter value "Testing" into field "fieldNarrative__c"
     When I enter value "10.11" into field "fieldCashMatch__c"
@@ -2777,16 +2789,63 @@ Feature: Validate all scenarios related to application
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | Cost is required to save. |
-    #189462 #189461
+    #189462 #189461 #189456
     When I enter value "100.111" into field "fieldUnitPrice__c"
     And I click modal button "Save"
     And I expand nested table containing column value "BP01"
-    Then I softly see value "$200.22" for title "Award Total" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    Then I softly see value "$211.23" for title "Award Total" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
     #189463
     And I expand nested table containing column value "110 - General Instruction"
     Then I softly see value "$10.11" for title "Cash Match" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
     #189466
     Then I softly see value "$5.11" for title "Non Cash Match" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #189457
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Testing" into field "fieldNarrative__c"
+    When I enter value "100.111" into field "fieldUnitPrice__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Quantity is Required to Save. |
+    #189712
+    Then I softly see asterisk mark on "School"
+    #189713
+    And I close modal by clicking the top right x button
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "2.111" into field "fieldQuantity__c"
+    When I enter value "Districtwide" into field "fieldSCDE_BudgetFor__c"
+    Then I softly do not see asterisk mark on "School"
+    #189471
+    When I enter value "Testing" into field "fieldNarrative__c"
+    When I enter value "10.11" into field "fieldCashMatch__c"
+    When I enter value "5.11" into field "fieldNonCashMatch__c"
+    When I enter value "100.111" into field "fieldUnitPrice__c"
+    And I click modal button "Save"
+    And I expand nested table containing column value "BP01"
+    And I expand nested table containing column value "110 - General Instruction"
+    Then I softly see value "$15.22" for title "Total Match" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #189472
+    Then I softly see value "$452.90" for title "Total Project Cost" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #189180
+    And I refresh the page
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    Then I softly see "Add/Update Detailed Budget" in flex table header "---tableID:-:ApplicationDetailedBudgetModal---"
+    #189491
+    And I hovering mouse on help text icon inside page block detail "Narrative"
+    Then I softly see "2,000 Char Limit" shown as help text
+    #189198
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "2.111" into field "fieldQuantity__c"
+    When I enter value "Districtwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Testing" into field "fieldNarrative__c"
+    When I enter value "100.111" into field "fieldUnitPrice__c"
+    And I click modal button "Save"
+    And I expand nested table containing column value "BP01"
+    And I expand nested table containing column value "110 - General Instruction"
+    Then I softly see value "100 - Salaries" for title "Object Code" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
 
   @189723 @189726 @189725 @189742 @sprint-5 @userStory-188671
   Scenario: Verify that do not see the "Indirect Cost Rate" field
