@@ -2690,7 +2690,7 @@ Feature: Validate all scenarios related to application
     #186434
     Then I softly cannot see "Performance" sub tab at view detail page
 
-  @189708 @189465 @189469 @189449 @189460 @189462 @189461 @189456 @189463 @189466 @189457 @189712 @189713 @189471 @189472 @189180 @189491 @189198 @sprint-5 @userStory-187074 @UmangParekh
+  @189708 @189465 @189469 @189449 @189460 @189462 @189461 @189456 @189463 @189466 @189457 @189712 @189713 @189471 @189472 @189180 @189491 @189442 @189197 @189198 @188993 @189446 @189445 @189425 @189443 @189485 @189202 @189489 @189447 @189483 @189187 @189475 @190173 @190174 @sprint-5 @userStory-187074 @UmangParekh
   Scenario: Verify "Budget For" field should be displayed on the modal, only when "School" is selected in "Detailed Budgeting Options" picklist on Announcement
   | Verify "Cash Match" field is an optional field.
   | Verify "Non Cash Match" field is an optional field.
@@ -2708,7 +2708,23 @@ Feature: Validate all scenarios related to application
   | Verify "Total Project Cost" is a calculated field (Total Project Cost = Award Total + Total Match)
   | Verify external user on clicking the "Add" action button navigates to a detailed modal.
   | Verify "Description" field inside the Narrative section should have text area with 2000 char
+  | Verify external user should not see the focus area title on the modal, if Focus Area Required is set to "NO" on announcement, except the standard focus area
+  | Verify external user should see "Save and Cancel" action buttons on the Add/Update Detailed Budget modal
   | Verify external user should able to save the record on the Add/Update Detailed Budget modal
+  | Verify external user should see focus area table has an "Add" action button
+  | Verify external user should see mentioned fields on the modal.
+  | Verify external user should see static text instructions under the "Details" section on the modal
+  | Verify external user should see the "Function Code" in read only
+  | Verify external user should see the function code on the modal
+  | Verify the "Budget For" field on the modal is a dropdown field with 2 options.
+  | Verify on cancel, system should show a warning message on the modal
+  | Verify the "Narrative" section should have a new field as "Description"
+  | Verify the "Object Code" field on the modal is required on save
+  | Verify the custom message, when "School" field is kept blank
+  | Verify the label or name of the modal as 'Add/Update Detailed Budget'
+  | Verify the modal shows related Detailed Budgeting Options fields which were selected on the related Announcement
+  | Verify the behaviour of close modal
+  | Verify the behaviour of cancel modal
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -2836,6 +2852,11 @@ Feature: Validate all scenarios related to application
     #189491
     And I hovering mouse on help text icon inside page block detail "Narrative"
     Then I softly see "2,000 Char Limit" shown as help text
+    #189442
+    Then I softly do not see "Focus Area" inside page block detail
+    #189197
+    Then I softly can see top right button "Save" in flex table with id "---tableID:-:ApplicationDetailedBudgetModal---"
+    Then I softly can see top right button "Cancel" in flex table with id "---tableID:-:ApplicationDetailedBudgetModal---"
     #189198
     When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
     When I enter value "2.111" into field "fieldQuantity__c"
@@ -2846,6 +2867,62 @@ Feature: Validate all scenarios related to application
     And I expand nested table containing column value "BP01"
     And I expand nested table containing column value "110 - General Instruction"
     Then I softly see value "100 - Salaries" for title "Object Code" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #188993
+    And I refresh the page
+    And I expand nested table containing column value "BP01"
+    Then I softly can see row level action button "Add" against "110 - General Instruction" in flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #189446
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    Then I softly see field "Object Code" inside "Add/Update Detailed Budget" section
+    Then I softly see field "Quantity" inside "Add/Update Detailed Budget" section
+    Then I softly see field "Cost" inside "Add/Update Detailed Budget" section
+    Then I softly see field "Cash Match" inside "Add/Update Detailed Budget" section
+    Then I softly see field "Non Cash Match" inside "Add/Update Detailed Budget" section
+    #189445
+    Then I softly see the text :
+    | All fields below are required, except Cash Match and Non Cash Match are optional. |
+    #189425
+    Then I softly see that "Function Code" rendered in view mode only
+    #189443
+    Then I softly see "Function Code" inside page block detail
+    #189485
+    Then I see the following options in dropdown field "fieldSCDE_BudgetFor__c" :
+      | Districtwide | Schoolwide |
+    #189202
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "2.111" into field "fieldQuantity__c"
+    When I enter value "Districtwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Testing" into field "fieldNarrative__c"
+    When I enter value "100.111" into field "fieldUnitPrice__c"
+    And I click modal button "Cancel"
+    Then I softly see the following messages in the page details contains:
+    | Are you sure you want to cancel? |
+    #189489
+    And I refresh the page
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    Then I softly see field "Description" inside "Narrative" section
+    #189447
+    When I enter value "2.111" into field "fieldQuantity__c"
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Testing" into field "fieldNarrative__c"
+    When I enter value "100.111" into field "fieldUnitPrice__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Object Code is required to save. |
+    #189483
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+    | School is required if 'Budget For' is Schoolwide |
+    #189187
+    Then I softly see "Add/Update Detailed Budget" in flex table header "---tableID:-:ApplicationDetailedBudgetModal---"
+    #189475
+    Then I softly see field "Use of Funds" inside "Details" section
+    Then I softly see field "Course" inside "Details" section
+    #190173 #190174
+    And I close modal by clicking the top right x button
+    Then I softly see value "$452.90" for title "Total Project Cost" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
 
   @189723 @189726 @189725 @189742 @sprint-5 @userStory-188671
   Scenario: Verify that do not see the "Indirect Cost Rate" field
