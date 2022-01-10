@@ -105,6 +105,9 @@ public class UsersAndURL implements UsersController {
             case "SME":
                 username = "smeautomation@scde.org.qa1";
                 break;
+            case "SME2":
+                username = "automationsme2@maildrop.cc";
+                break;
             default:
                 username = "reiadmin@scdoe.org.qa1";
         }

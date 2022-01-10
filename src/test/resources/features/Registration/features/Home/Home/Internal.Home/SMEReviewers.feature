@@ -57,3 +57,21 @@ Feature: Validate all scenarios related to SME reviewers
     Then I softly do not see "Primary Area of Expertise Description" inside page block detail
     Then I softly do not see "Secondary Area of Expertise" inside page block detail
     Then I softly do not see "Tertiary Area of Expertise" inside page block detail
+
+  @186737 @186740 @186741 @186731 @186736 @sprint-5 @userstory-181802
+  Scenario: Verify external user (SME)  should see the Street Line 1 does not say 'null'
+  |Verify external user (SME) should see the Area of Expertise is not in the header.
+    Given I am on "SUBPORTAL" portal
+    When I login as "SME2" user
+    When I select "My Profile" from user dropdown
+      #186737
+    And I softly see field "Address Line 1" as "Baner Balewadi"
+      #186740
+    Then I softly do not see "Primary Area of Expertise" field inside header "Automation SME2"
+      #186741
+    Then I softly do not see "Primary Area of Expertise" page block displayed
+      #186731
+    And I softly see field "Prefix" as "Dr."
+      #186736(Bug-191258)
+    Then I softly cannot see top right button "Edit" in page detail
+    And I softly see field "Profile Description" as "Lecture"
