@@ -4449,29 +4449,29 @@ Feature: Validate all scenarios related to application
     #189586 #189542
     And I click on "Submit Application" in the page details
     Then I softly see the text containing :
-      | Budget Tab - The 'Budgeted Amount' for each school must equal the 'Allocation Amount' for the school.  |
+      | Budget Tab - The 'Budgeted Amount' for each school must equal the 'Allocation Amount' for the school. |
     Then I softly see the text containing :
       | Budget Tab - The 'Total Budgeted Amount' must be equal to the 'Allocation Amount' for the application. |
 
   @186928 @187581 @187582 @187599 @186789 @186791 @186788 @186792 @186796 @186797 @186790 @187594 @187586 @187588 @187592 @186787 @187587 @187585 @sprint-5 @userStory-185281
-    Scenario: Verify external user should receive a task that a revision has been requested with Task Type as "Application Revision Request"
-    | Verify external user should receive a task that a revision has been requested with Task Subject as Revise Application <<Application Title>>
-    | Verify external user should receive a task that a revision has been requested with Due Date that is populated from the Revision tab
-    | Verify external user should  provide some text in the Applicant Response section on Revision tab
-    | Verify external user should Add data, from only those sections of application, that are selected internal user (SCDE) in the "Application section for Revisions" fields on the Application
-    | Verify external user should Delete data, from only those sections of application, that are selected internal user (SCDE) in the "Application section for Revisions" fields on the Application
-    | Verify external user should edit data, from only those sections of application, that are selected internal user (SCDE) in the "Application section for Revisions" fields on the Application
-    | Verify external user should edit forms section, if internal user selects "Allow Edits" for the forms section on the Application
-    | Verify external user should get an error, if application is submitted without entering the text in Applicant Response section on Revisions tab
-    | Verify external user should get a confirmation pop-up on the submit of revised application
-    | Verify external user should Remove data, from only those sections of application, that are selected internal user (SCDE) in the "Application section for Revisions" fields on the Application
-    | Verify external user should see 'Allow Edits' column is checked on Available forms for Revision section of Revision tab , if the announcement owner checked it for a given form.
-    | Verify external user should see "Applicant Name" as the name of the subrecipient user who created the application in read only.
-    | Verify external user should see "Application Section for Revisions" as read only fields on Revision tab
-    | Verify external user should see "Available Forms for Revisions" section on Revision tab
-    | Verify external user should see "Due Date" as read only fields on Revision tab
-    | Verify external user should see "Revision Created Date" as the date/time on which the revision changes were first saved in read only.
-    | Verify external user should see "Revision Request Status" as read only fields on Revision tab
+  Scenario: Verify external user should receive a task that a revision has been requested with Task Type as "Application Revision Request"
+  | Verify external user should receive a task that a revision has been requested with Task Subject as Revise Application <<Application Title>>
+  | Verify external user should receive a task that a revision has been requested with Due Date that is populated from the Revision tab
+  | Verify external user should  provide some text in the Applicant Response section on Revision tab
+  | Verify external user should Add data, from only those sections of application, that are selected internal user (SCDE) in the "Application section for Revisions" fields on the Application
+  | Verify external user should Delete data, from only those sections of application, that are selected internal user (SCDE) in the "Application section for Revisions" fields on the Application
+  | Verify external user should edit data, from only those sections of application, that are selected internal user (SCDE) in the "Application section for Revisions" fields on the Application
+  | Verify external user should edit forms section, if internal user selects "Allow Edits" for the forms section on the Application
+  | Verify external user should get an error, if application is submitted without entering the text in Applicant Response section on Revisions tab
+  | Verify external user should get a confirmation pop-up on the submit of revised application
+  | Verify external user should Remove data, from only those sections of application, that are selected internal user (SCDE) in the "Application section for Revisions" fields on the Application
+  | Verify external user should see 'Allow Edits' column is checked on Available forms for Revision section of Revision tab , if the announcement owner checked it for a given form.
+  | Verify external user should see "Applicant Name" as the name of the subrecipient user who created the application in read only.
+  | Verify external user should see "Application Section for Revisions" as read only fields on Revision tab
+  | Verify external user should see "Available Forms for Revisions" section on Revision tab
+  | Verify external user should see "Due Date" as read only fields on Revision tab
+  | Verify external user should see "Revision Created Date" as the date/time on which the revision changes were first saved in read only.
+  | Verify external user should see "Revision Request Status" as read only fields on Revision tab
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -4606,7 +4606,7 @@ Feature: Validate all scenarios related to application
     And I click on "Save" in the page details
     And I click on "Submit Application" in the page details
     Then I softly see the text containing :
-    | The application will no longer be editable. Are you sure you are ready to submit the negotiation to Grantor? |
+      | The application will no longer be editable. Are you sure you are ready to submit the negotiation to Grantor? |
     #186790
     And I refresh the page
     And I navigate to "Forms and Files" sub tab
@@ -4628,3 +4628,174 @@ Feature: Validate all scenarios related to application
     Then I softly see that "Revision Created Date" rendered in view mode only
     #187585
     Then I softly see that "Revision Request Status" rendered in view mode only
+
+  @190564 @189957 @190967 @sprint-5 @userStory-187918
+  Scenario: Verify the internal user is able to save the form
+  |Verify reviewer is able to submit review form
+  |Verify reviewer is able to complete review form
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    When I enter value "project abstract" into field "fieldProjectAbstract__c"
+    When I enter value "checked" into field "fieldAcknowledgment4__c"
+    And I navigate to "Budget" sub tab
+    When I enter value "justification" into field "fieldJustification__c"
+    When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
+    When I enter value "2000" into field "fieldUnitPrice__c"
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Wright Middle" into field "fieldSchool__c"
+    When I enter value "test" into field "fieldNarrative__c"
+    And I click modal button "Save"
+    And I navigate to "Overview" sub tab
+    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
+    When I enter value "checked" into field "IsKeyContact__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
+    And I navigate to "Forms and Files" sub tab
+    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
+    When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
+      | Participant’s Name | School Name | Role    | Stakeholder Representation |
+      | Automation         | Dixie High  | Teacher | School within District     |
+    And I click on "Save" in the page details
+    And I click on "Validate" in the page details
+    And I click on "Submit Application" in the page details
+    And I softly see field "Status" as "Submitted to Grantor"
+    And I save the field containing "EGMS ID" as "APPID"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+      #Pre-screen Review
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
+    And I enter value "1" into field "MinimumNumberOfReviewers__c"
+    And I enter value "5" into field "DueInDays__c"
+    And I enter value "Checked" into field "Required__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ReviewForms---"
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I pause execution for "5" seconds
+    And I refresh the page
+    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Next Review Step" in the page details
+    When I edit the following rows inline in flex table with id "---tableID:-:ReviewForms---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Program Review    | 5           |
+      | Fiscal Review     | 5           |
+      | Compliance Review | 5           |
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I pause execution for "5" seconds
+    And I refresh the page
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
+    When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
+    And I pause execution for "5" seconds
+      #Program Review
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    And I softly see field "Status" as "Review Completed"
+
+  @189783 @189787 @sprint-5 @userStory-187612
+  Scenario: Verify that see a 'Revisions' link in the left menu under 'Application Reviews' heading
+  |Verify that I see two sections on the Revisions list page: Pending Revision and Completed Revisions
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Applications" tab
+      #189783
+    Then I see "Revisions" inside "Application Reviews" is displayed
+      #189787
+    When I navigate to "Revisions" content inside "Application Reviews" subheader on left panel
+    Then I softly see "Pending Revisions" page block displayed
+    Then I softly see "Completed Revisions" page block displayed
