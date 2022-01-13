@@ -4453,10 +4453,11 @@ Feature: Validate all scenarios related to application
     Then I softly see the text containing :
       | Budget Tab - The 'Total Budgeted Amount' must be equal to the 'Allocation Amount' for the application. |
 
-  @186928 @187581 @187582 @187599 @186789 @186791 @186788 @186792 @186796 @186797 @186790 @187594 @187586 @187588 @187592 @186787 @187587 @187585 @sprint-5 @userStory-185281
+  @186928 @187581 @187582 @186785 @187599 @186789 @186791 @186788 @186792 @186796 @186797 @186790 @187594 @187586 @187588 @187592 @186787 @187587 @187585 @187598 @187593 @186778 @187600 @186794 @187589 @186799 @186800 @sprint-5 @userStory-185281
   Scenario: Verify external user should receive a task that a revision has been requested with Task Type as "Application Revision Request"
   | Verify external user should receive a task that a revision has been requested with Task Subject as Revise Application <<Application Title>>
   | Verify external user should receive a task that a revision has been requested with Due Date that is populated from the Revision tab
+  | Verify the behaviour when external user click on the "Play" icon for the Task.
   | Verify external user should  provide some text in the Applicant Response section on Revision tab
   | Verify external user should Add data, from only those sections of application, that are selected internal user (SCDE) in the "Application section for Revisions" fields on the Application
   | Verify external user should Delete data, from only those sections of application, that are selected internal user (SCDE) in the "Application section for Revisions" fields on the Application
@@ -4472,6 +4473,14 @@ Feature: Validate all scenarios related to application
   | Verify external user should see "Due Date" as read only fields on Revision tab
   | Verify external user should see "Revision Created Date" as the date/time on which the revision changes were first saved in read only.
   | Verify external user should see "Revision Request Status" as read only fields on Revision tab
+  | Verify external user should see a new section "Applicant Response" on Revisions tab in Edit mode
+  | Verify external user should see all forms associated with the application in "Available forms for Revisions sections" on Revision tab
+  | Verify external user should see section "Explanation of Revisions Needed" on Revisions tab in Read Only mode
+  | Verify external user should see Explanation of Revisions Needed' section with the data entered and saved by the SCDE announcement owner.
+  | Verify external user should see the forms as Invalidated, if internal user selects the "Allow Edits" in forms section on the Application.
+  | Verify internal user should see "Revised Submitted Date" as blank in read only fields on Revision tab
+  | Verify if external user selects "Yes" on the confirmation pop-up of submit revised application, the application is submitted successfully, application status is set to 'Revision Submitted' and task is closed/completed.
+  | Verify once external user submits the revised application, any other user in my organization, should not be able to edit anything in the application.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -4577,8 +4586,10 @@ Feature: Validate all scenarios related to application
     Then I softly see value "Revise Application" for title "Subject" inside table "---tableID:-:PendingTask---"
     #187582
     Then I softly see value "12/30/2022" for title "Due Date" inside table "---tableID:-:PendingTask---"
-    #187599
+    #186785
     And I click on "Start" icon for "{SavedValue:programId}" inside flex table with id "{tableID:PendingTask}"
+    Then I softly see field "Status" as "Revision Initiated"
+    #187599
     And I navigate to "Revisions" sub tab
     Then I softly see fields "Applicant Response" is in edit mode
     #186789
@@ -4628,6 +4639,27 @@ Feature: Validate all scenarios related to application
     Then I softly see that "Revision Created Date" rendered in view mode only
     #187585
     Then I softly see that "Revision Request Status" rendered in view mode only
+    #187598
+    Then I softly see fields "fieldTEXTAREAApplicantResponse__c" is in edit mode
+    #187593
+    Then I softly see value "Title II, Part A - Stakeholder Participants" for title "Form Name" inside table "---tableID:-:ApplicationFormsRevision---"
+    #186778
+    Then I softly see that "Explanation of Revisions Needed" rendered in view mode only
+    #187600
+    And I softly see field "fieldTEXTAREAComments__c" as "Justification"
+    #186794
+    And I navigate to "Forms and Files" sub tab
+    Then I softly see value "No" for title "Is Form Validated?" inside table "---tableID:-:ApplicationForms---"
+    #187589
+    And I navigate to "Revisions" sub tab
+    Then I softly see field "Revised Submitted Date" inside "Revision Request Details" section
+    #186799
+    When I enter value "Testing" into field "Applicant Response"
+    And I click on "Save" in the page details
+    And I click on "Submit Application" in the page details
+    Then I softly see field "Status" as "Revision Submitted"
+    #186800
+    Then I softly cannot see top right button "Edit" in page detail
 
   @190564 @189957 @190967 @sprint-5 @userStory-187918
   Scenario: Verify the internal user is able to save the form
@@ -4799,3 +4831,271 @@ Feature: Validate all scenarios related to application
     When I navigate to "Revisions" content inside "Application Reviews" subheader on left panel
     Then I softly see "Pending Revisions" page block displayed
     Then I softly see "Completed Revisions" page block displayed
+
+  @189675 @189673 @189668 @189667 @189662 @189677 @189670 @sprint-5 @userStory-187916
+  Scenario: Verify announcement owner should able to sent back the application to reviewer, by going to Previous Step from the FDM, when FDM is in created state
+    | Verify announcement owner should able to sent back the application to reviewer, even after application is promoted to next step
+    | Verify application reviewer should receive a task Type, when announcement owner clicks on the "Sent Back to Reviewer" icon on the Application Review step.
+    | Verify application reviewer should receive a Subject, when announcement owner clicks on the "Sent Back to Reviewer" icon on the Application Review step.
+    | Verify Announcement owner user should see "Send Back to Reviewer" icon on the Actions column of Reviews section when the status of application is "Review Completed".
+    | Verify announcement owner should not able to sent back the application to reviewer, when FDM (application is promoted to FDM) is submitted for approval
+    | Verify when announcement owner clicks on the Application, then the status of application should be seen as "Review Completed".
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    When I enter value "project abstract" into field "fieldProjectAbstract__c"
+    When I enter value "checked" into field "fieldAcknowledgment4__c"
+    And I navigate to "Budget" sub tab
+    When I enter value "justification" into field "fieldJustification__c"
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
+    When I enter value "2000" into field "fieldUnitPrice__c"
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Wright Middle" into field "fieldSchool__c"
+    When I enter value "test" into field "fieldNarrative__c"
+    And I click modal button "Save"
+    And I navigate to "Overview" sub tab
+    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
+    When I enter value "checked" into field "IsKeyContact__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
+    And I navigate to "Forms and Files" sub tab
+    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
+    When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
+      | Participant’s Name | School Name | Role    | Stakeholder Representation |
+      | Automation         | Dixie High  | Teacher | School within District     |
+    And I click on "Save" in the page details
+    And I click on "Validate" in the page details
+    And I click on "Submit Application" in the page details
+    And I softly see field "Status" as "Submitted to Grantor"
+    And I save the field containing "EGMS ID" as "APPID"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    #Pre-screen Review
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
+    And I enter value "1" into field "MinimumNumberOfReviewers__c"
+    And I enter value "5" into field "DueInDays__c"
+    And I enter value "Checked" into field "Required__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ReviewForms---"
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I pause execution for "5" seconds
+    And I refresh the page
+    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Next Review Step" in the page details
+    When I edit the following rows inline in flex table with id "---tableID:-:ReviewForms---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Program Review    | 5           |
+      | Fiscal Review     | 5           |
+      | Compliance Review | 5           |
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignAppToUsergrid---"
+    And I pause execution for "5" seconds
+    And I refresh the page
+    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
+    And I pause execution for "5" seconds
+    #Fiscal Review
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    #Program Review
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    #Compliance Review
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Next Review Step" in the page details
+    #Management Review
+    When I edit the following rows inline in flex table with id "---tableID:-:ReviewForms---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Management Review | 5           |
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I refresh the page
+    And I pause execution for "5" seconds
+    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
+    And I pause execution for "3" seconds
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    And I click on "Previous Review Step" in the page details
+    When I click on "Sent back to Reviewer" icon for "AP-SCDE-211" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I wait for "3" seconds
+    #189675 #189673
+    And I softly see field "Status" as "Sent for Review"
+    #189668
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    Then I softly see value "Revise Review" for title "Type" inside table "---tableID:-:ApplicationPendingTask---"
+    #189667
+    Then I softly see value "Revise Review for Test Application for VD_TestOrg" for title "Subject" inside table "---tableID:-:ApplicationPendingTask---"
+    #189662
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewStep------"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    When I click on top right button "Promote to FDM" in flex table with id "---tableID:-:ReviewApplication---"
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FDMtableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FDMtableId---"
+    And I click on "Edit" in the page details
+    And I enter value "SA" into field "fieldGrantCode__c"
+    And I enter value "Justification Automation" into field "fieldJustification__c"
+    And I click on "Save" in the page details
+    When I edit the following rows inline in flex table with id "---tableID:-:fdmRecommnedApplication---" by clicking "Edit" :
+      | Application Title                            | Recommended Budget | Recommend for Funding | Comments           |
+      | {SavedValue:Automation Runtime Announcement} | 2000               | Yes                   | Automation Comment |
+    And I pause execution for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I navigate to "Applications" tab
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    And I click on "Previous Review Step" in the page details
+    Then I softly can see row level action button "Sent back to Reviewer" against "AP-SCDE-211" in flex table with id "---tableID:-:AnnouncementReviewStep---"
+    #189677
+    When I click on "Sent back to Reviewer" icon for "AP-SCDE-211" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    Then I softly see the text :
+    | Cannot send back the application review to the reviewer because the application is already promoted to a Funding Decision Memo (FDM) and the FDM is submitted for approval. |
+    #189670
+    And I navigate to "Applications" tab
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    And I softly see field "Status" as "Review Completed"
