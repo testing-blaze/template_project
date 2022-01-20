@@ -4820,9 +4820,15 @@ Feature: Validate all scenarios related to application
     And I wait for "5" seconds
     And I softly see field "Status" as "Review Completed"
 
-  @189783 @189787 @sprint-5 @userStory-187612
+  @189783 @189787 @191071 @191049 @190103 @191066 @190102 @191070 @sprint-5 @userStory-187612
   Scenario: Verify that see a 'Revisions' link in the left menu under 'Application Reviews' heading
   |Verify that I see two sections on the Revisions list page: Pending Revision and Completed Revisions
+  | Verify that the 'Revision Requested From' column shows the name of the review step from which the revision was initiated.
+  | Verify that The Completed Revisions section do not shows applications where application status are Revision Initiated and Revision Submitted
+  | Verify that the nested grid in the pending revisions section should show all revision records for the application
+  | Verify that the nested grid in the complete revisions section should show all revision records for the application are in status of Complete or Canceled
+  | Verify that the Pending Revisions section shows all applications where the application status is either Revision Initiated or Revision Submitted
+  | Verify that the Replace 'Applicant Name' column with 'Revision Requested From Step' column
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Applications" tab
       #189783
@@ -4831,6 +4837,189 @@ Feature: Validate all scenarios related to application
     When I navigate to "Revisions" content inside "Application Reviews" subheader on left panel
     Then I softly see "Pending Revisions" page block displayed
     Then I softly see "Completed Revisions" page block displayed
+     #191071
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    When I enter value "project abstract" into field "fieldProjectAbstract__c"
+    When I enter value "checked" into field "fieldAcknowledgment4__c"
+    And I navigate to "Budget" sub tab
+    When I enter value "justification" into field "fieldJustification__c"
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
+    When I enter value "2000" into field "fieldUnitPrice__c"
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Wright Middle" into field "fieldSchool__c"
+    When I enter value "test" into field "fieldNarrative__c"
+    And I click modal button "Save"
+    And I navigate to "Overview" sub tab
+    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
+    When I enter value "checked" into field "IsKeyContact__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
+    And I navigate to "Forms and Files" sub tab
+    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
+    When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
+      | Participant’s Name | School Name | Role    | Stakeholder Representation |
+      | Automation         | Dixie High  | Teacher | School within District     |
+    And I click on "Save" in the page details
+    And I click on "Validate" in the page details
+    And I click on "Submit Application" in the page details
+    And I softly see field "Status" as "Submitted to Grantor"
+    And I save the field containing "EGMS ID" as "APPID"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    #Pre-screen Review
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
+    And I enter value "1" into field "MinimumNumberOfReviewers__c"
+    And I enter value "5" into field "DueInDays__c"
+    And I enter value "Checked" into field "Required__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ReviewForms---"
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I pause execution for "5" seconds
+    And I refresh the page
+    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Next Review Step" in the page details
+    When I edit the following rows inline in flex table with id "---tableID:-:ReviewForms---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Program Review    | 5           |
+      | Fiscal Review     | 5           |
+      | Compliance Review | 5           |
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I pause execution for "5" seconds
+    And I refresh the page
+    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
+    And I pause execution for "5" seconds
+    And I click on top right button "Initiate Revision" in flex table with id "---tableID:-:Reviews---"
+    And I softly see field "Status" as "Revision Initiated"
+    And I navigate to "Revisions" sub tab
+    And I click on top right button "Create Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I softly see field "Status" as "Revision Created"
+    And I navigate to "Applications" tab
+    When I navigate to "Revisions" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Revisions" sub tab
+    And I expand nested table containing column value "Pre-Screen Review"
+    Then I softly see value "Pre-Screen Review" for title "Revision Requested From" inside table "---tableID:-:ApplicationRevisionRequested---"
+    #191049
+    And I navigate to "Revisions" sub tab
+    When I enter value "150" into field "NegotiationDueDate__c"
+    When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
+    When I enter value "Testing" into field "fieldExplanationOfRevisionsNeeded__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Revision Submitted"
+    #190103
+    And I expand nested table containing column value "Pre-Screen Review"
+    Then I softly see value "Revision Submitted" for title "Status" inside table "---tableID:-:ApplicationRevisionRequested---"
+    #191066
+    When I "Approve" in the approval decision
+    And I click on "Cancel Revisions" in the page details
+    Then I softly see field "Revision Request Status" as "Canceled"
+    And I click on "Complete Revisions" in the page details
+    And I softly see field "Status" as "Revision Completed"
+    And I navigate to "Revisions" sub tab
+    And I expand nested table containing column value "Pre-Screen Review"
+    Then I softly see value "Revision Completed" for title "Status" inside table "---tableID:-:ApplicationRevisionRequested---"
+    #190102
+    And I navigate to "Applications" tab
+    When I navigate to "Revisions" content inside "Application Reviews" subheader on left panel
+    Then I softly see value "Revision Initiated" for title "Status" inside table "---tableID:-:ApplicationRevisions---"
+    #191070
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Revisions" sub tab
+    And I expand nested table containing column value "Pre-Screen Review"
+    Then I softly see value "Pre-Screen Review" for title "Revision Requested" inside table "---tableID:-:ApplicationRevisionRequested---"
 
   @189675 @189673 @189668 @189667 @189662 @189677 @189670 @sprint-5 @userStory-187916
   Scenario: Verify announcement owner should able to sent back the application to reviewer, by going to Previous Step from the FDM, when FDM is in created state
@@ -5430,3 +5619,686 @@ Feature: Validate all scenarios related to application
     Then I softly see value "$2.00" for title "Cash Match" against the value "Grand Total" inside table "---tableID:-:ApplicationBudgetPeriod---"
     #190647
     Then I softly see value "$2,000.00" for title "Award Total" inside table "---tableID:-:ApplicationBudgetPeriod---"
+
+  @189032 @189033 @189034 @189035 @189031 @189036 @188779 @188857 @188775 @188977 @188979 @188827 @188954 @188957 @188955 @188931 @188930 @188947 @188949 @188815 @188950 @188859 @189584 @sprint-5 @userStory-187072
+  Scenario: Verify "Award Total" column on parent table should display the award total sum for all object codes added for the function code.
+  | Verify "Cash Match" column on parent table should display the cash match sum of all the object codes added for the function code.
+  | Verify "Non Cash Match" column on parent table should display the non cash match sum of all the object codes added for the function code.
+  | Verify "Total Match" column on parent table should display the total sum of both cash match and non cash match ['Total Match'= Cash Match + Non Cash Match]
+  | Verify "Functional Code" column on parent table should display the related functional code that is associated on the announcement
+  | Verify "Total Project Cost" column on parent should display the total sum of Award Total and Total Match ['Total Project Cost' = Award Total + Total Match].
+  | Verify external user should see the Budget table grouped by Focus Areas in the application.
+  | Verify external user should see a new child table(nested grid) once added on the parent.
+  | Verify external user should see Narrative Description column inside new child table that is added on the parent.
+  | Verify external user should see 'Budget Summary' option on Budget Section.
+  | Verify external user should be able to see the Start Date for the related Budget period on the parent table.
+  | Verify external user should be able to see the End Date for the related Budget period on the parent table.
+  | Verify external user should see the "Add" on the Action column of the Budget grid, of Budget Periods section, when Application is in created state.
+  | Verify external user should see the "Add" option on the Action column of the Budget grid, of Budget Periods section.
+  | Verify external user should see the function code on the modal
+  | Verify external user should see the "View" on the Action column of the child nested grid, of Budget Periods section, when Application is in created state.
+  | Verify external user should see the "View" on the Action column of the child nested grid, of Budget Periods section in the Application.
+  | Verify external user should see the "Edit" on the Action column of the child nested grid, of Budget Periods section, when Application is in created state
+  | Verify external user should see the "Delete" on the Action column of the child nested grid, of Budget Periods section, when Application is in created state.
+  | Verify external user should see the "Function Code","Award Total", "Cash Match", "Non Cash Match", 'Total Match', "Total Project Cost", "Actions column in Focus Area table (Parent), in the Application.
+  | Verify external user should see the Object Code column record in the child nested grid, of Budget Periods section.
+  | Verify external user should see the table columns in child nested grid, of Budget Periods section in the Application.
+  | Verify external user should see the Add on Action column of the Budget grid, of Budget Periods section, when Application is in created state.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    When I enter value "Yes" into field "fieldIsGoalsRequired__c"
+    When I enter value "Yes" into field "fieldKPIsRequired__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---tableID:-:GoalsAndObjectives---"
+    When I click "Associate" after selection of "SPO-0001" in the table "---tableID:-:Modal---"
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementKPI---"
+    When I click "Associate" after selection of "KPI-0000" in the table "---tableID:-:AnnouncementKPIModal---"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "2" into field "fieldQuantity__c"
+    When I enter value "Districtwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Testing" into field "fieldNarrative__c"
+    When I enter value "5000" into field "fieldUnitPrice__c"
+    When I enter value "10" into field "fieldCashMatch__c"
+    When I enter value "5" into field "fieldNonCashMatch__c"
+    And I click modal button "Save"
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    When I enter value "200 - Employee Benefits" into field "fieldMST_Budget_Category__c"
+    When I enter value "2" into field "fieldQuantity__c"
+    When I enter value "Districtwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Automation Testing" into field "fieldNarrative__c"
+    When I enter value "10000" into field "fieldUnitPrice__c"
+    When I enter value "10" into field "fieldCashMatch__c"
+    When I enter value "5" into field "fieldNonCashMatch__c"
+    And I click modal button "Save"
+    And I expand nested table containing column value "BP01"
+    #189032
+    Then I softly see value "$30,000.00" for title "Award Total" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #189033
+    And I expand nested table containing column value "110 - General Instruction"
+    Then I softly see value "$20.00" for title "Cash Match" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #189034
+    Then I softly see value "$10.00" for title "Non Cash Match" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #189035
+    Then I softly see value "$30.00" for title "Total Match" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #189031
+    And I refresh the page
+    And I expand nested table containing column value "BP01"
+    Then I softly see value "110 - General Instruction" for title "Function Code" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #189036
+    Then I softly see value "$30,030.00" for title "Total Project Cost" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #188779
+    Then I softly see value "BP01" for title "Budget Period" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #188857
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    When I enter value "200 - Employee Benefits" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
+    When I enter value "Districtwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Automation Test" into field "fieldNarrative__c"
+    When I enter value "100" into field "fieldUnitPrice__c"
+    When I enter value "10" into field "fieldCashMatch__c"
+    When I enter value "5" into field "fieldNonCashMatch__c"
+    And I click modal button "Save"
+    And I expand nested table containing column value "BP01"
+    And I expand nested table containing column value "110 - General Instruction"
+    Then I softly see value "200 - Employee Benefits" for title "Object Code" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #188775
+    Then I softly see value "Automation Test" for title "Narrative Description" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #188977
+    And I refresh the page
+    Then I softly can see top right button "Budget Summary" in flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+    #188979
+    Then I softly see value "02/10/2022" for title "Start Date" inside table "---tableID:-:ApplicationBudgetPeriod---"
+    #188827
+    Then I softly see value "12/01/2022" for title "End Date" inside table "---tableID:-:ApplicationBudgetPeriod---"
+    #188954 #188957
+    And I expand nested table containing column value "BP01"
+    Then I softly can see row level action button "Add" against "110 - General Instruction" in flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #188955
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    Then I softly see "Function Code" inside page block detail
+    #188931 #188930
+    And I close modal by clicking the top right x button
+    And I expand nested table containing column value "BP01"
+    And I expand nested table containing column value "110 - General Instruction"
+    Then I softly can see row level action button "View" against "100 - Salaries" in flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #188947
+    Then I softly can see row level action button "Edit" against "100 - Salaries" in flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #188949
+    Then I softly can see row level action button "Delete" against "100 - Salaries" in flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #188815
+    Then I see only the following ordered headers in table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---" :
+      | Object Code | Award Total | Cash Match | Non Cash Match | Total Match | Total Project Cost | Actions |
+    #188950
+    Then I softly see value "100 - Salaries" for title "Object Code" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #188859
+    And I refresh the page
+    And I expand nested table containing column value "BP01"
+    Then I see only the following ordered headers in table with id "---tableID:-:ApplicationBudgetPeriod---" :
+      | Function Code | Award Total | Total Project Cost | Actions |
+    #189584
+    Then I softly can see row level action button "Add" against "110 - General Instruction" in flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+
+  @191801 @191782 @191779 @191781 @191777 @191780 @sprint-6 @userStory-189788
+  Scenario: Verify that announcement owner, after promoting an application to FDM, can see the status of application as Reviewed.
+  | Verify that when application review is completed, Owner can see the status of application reviews as 'Completed'.
+  | Verify that for application review, Owner should able to see the different review forms.
+  | Verify that application Owner can Validate the review forms after completely filling it.
+  | Verify that the application Owner can view the forms associated with the application after completely filling it.
+  | Verify that the application Owner should be able to view the various business forms associated with the application.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    When I enter value "project abstract" into field "fieldProjectAbstract__c"
+    When I enter value "checked" into field "fieldAcknowledgment4__c"
+    And I navigate to "Budget" sub tab
+    When I enter value "justification" into field "fieldJustification__c"
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
+    When I enter value "2000" into field "fieldUnitPrice__c"
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Wright Middle" into field "fieldSchool__c"
+    When I enter value "test" into field "fieldNarrative__c"
+    And I click modal button "Save"
+    And I navigate to "Overview" sub tab
+    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
+    When I enter value "checked" into field "IsKeyContact__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
+    And I navigate to "Forms and Files" sub tab
+    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
+    When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
+      | Participant’s Name | School Name | Role    | Stakeholder Representation |
+      | Automation         | Dixie High  | Teacher | School within District     |
+    And I click on "Save" in the page details
+    And I click on "Validate" in the page details
+    And I click on "Submit Application" in the page details
+    And I softly see field "Status" as "Submitted to Grantor"
+    And I save the field containing "EGMS ID" as "APPID"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    #Pre-screen Review
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
+    And I enter value "1" into field "MinimumNumberOfReviewers__c"
+    And I enter value "5" into field "DueInDays__c"
+    And I enter value "Checked" into field "Required__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ReviewForms---"
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I pause execution for "5" seconds
+    And I refresh the page
+    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Next Review Step" in the page details
+    When I edit the following rows inline in flex table with id "---tableID:-:ReviewForms---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Program Review    | 5           |
+      | Fiscal Review     | 5           |
+      | Compliance Review | 5           |
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I pause execution for "5" seconds
+    And I refresh the page
+    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
+    And I pause execution for "5" seconds
+    #Fiscal Review
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    #Program Review
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    #Compliance Review
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Next Review Step" in the page details
+    #Management Review
+    When I edit the following rows inline in flex table with id "---tableID:-:ReviewForms---" by clicking "Edit" :
+      | Form Name         | Due in Days |
+      | Management Review | 5           |
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I refresh the page
+    And I pause execution for "5" seconds
+    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
+    And I pause execution for "3" seconds
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I complete filling in the Review form with recommendation "Recommended"
+    And I click on "Save" in the page details
+    And I wait for "6" seconds
+    When I click on "Submit" in the page details without processing
+    When I click alert button "OK"
+    And I wait for "5" seconds
+    #Promote To FDM
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewStep------"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    When I click on top right button "Promote to FDM" in flex table with id "---tableID:-:ReviewApplication---"
+    When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FDMtableId---" panel
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FDMtableId---"
+    And I click on "Edit" in the page details
+    And I enter value "SA" into field "fieldGrantCode__c"
+    And I enter value "Justification Automation" into field "fieldJustification__c"
+    And I click on "Save" in the page details
+    When I edit the following rows inline in flex table with id "---tableID:-:fdmRecommnedApplication---" by clicking "Edit" :
+      | Application Title                            | Recommended Budget | Recommend for Funding | Comments           |
+      | {SavedValue:Automation Runtime Announcement} | 2000               | Yes                   | Automation Comment |
+    And I pause execution for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I navigate to "Applications" tab
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+   #191801
+    And I softly see field "Status" as "Reviewed"
+   #191782
+    And I navigate to "Related Log" tab
+    Then I softly see value "Completed" for title "Status" inside table "---tableID:-:ReviewForms---"
+   #191779
+    And I expand nested table containing column value "SME Review"
+    Then I softly see value "50.00%" for title "Form Weight" inside table "---tableID:-:ReviewForms---"
+   #191781
+    Then I softly can see top right button "Validate" in flex table with id "---tableID:-:ReviewForms---"
+   #191777
+    Then I softly can see row level action button "View" against "SME Review" in flex table with id "---tableID:-:ReviewForms---"
+   #191780
+    And I navigate to "Setup" tab
+    Then I softly see value "Grantor Site Visit Forms" for title "Package Name" inside table "---tableID:-:ApplicationForms---"
+    Then I softly see value "Grantor Progress Report Forms" for title "Package Name" inside table "---tableID:-:ApplicationForms---"
+
+  @191914 @191911 @191912 @191909 @191913 @191910 @sprint-6 @userStory-189809
+  Scenario: Verify that Internal user should be able to view 'Subaward Floor' field is in Read Only mode after Announcement is Published.
+  | Verify that Internal user should be able to see Description mentioned in the field after Announcement is Published.
+  | Verify that 'Eligible Applicants' are displayed in 'Eligibility Details' Section once the Announcement is being Published.
+  | Verify that Key Dates Section is Populated with Published Date, Due Date, Estimated Project Period Start Date, End Date.
+  | Verify that Internal user should be able to see Funding Account associated with the application.
+  | Verify that Internal user should be able to see Business Forms that are associated with the application after Announcement is Published..
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+   #191914
+    And I navigate to "Financials" sub tab
+    Then I softly see that "Subaward Floor" rendered in view mode only
+   #191911
+    And I navigate to "Overview" sub tab
+    And I softly see field "Description" as "Testing"
+   #191912
+    Then I softly see field "Eligible Applicant Types" inside "Eligibility Details" section
+   #191909
+    Then I softly see field "Published Date" inside "Key Dates" section
+    Then I softly see field "Application Due Date" inside "Key Dates" section
+    Then I softly see field "Estimated Project Period Start Date" inside "Key Dates" section
+    Then I softly see field "Estimated Project Period End Date" inside "Key Dates" section
+   #191913
+    And I navigate to "Financials" sub tab
+    Then I softly see value "FA-ST-01" for title "Funding Account" inside table "---tableID:-:ApplicationFundingAccount---"
+   #191910
+    And I navigate to "Setup" sub tab
+    Then I softly see value "Grantor Site Visit Forms" for title "Package Name" inside table "---tableID:-:ApplicationForms---"
+    Then I softly see value "Organization Desk Review" for title "Package Name" inside table "---tableID:-:ApplicationForms---"
+
+  @191867 @191877 @191876 @191874 @191875 @191871 @191869 @191882 @191889 @191890 @sprint-6 @userStory-189862
+  Scenario: Verify external user should see "Add" button on the table
+  | Verify "Document Sub-Type" field is a drop-down with options
+  | Verify "Document Type" column is a drop-down field with 2 options
+  | Verify "Five-Year Period" field should be a dropdown with five-year timespans listed
+  | Verify "School Name" column is a dropdown field with five-year timespans listed
+  | Verify all the columns available on the table are required on Save
+  | Verify external user should able to "Add" multiple lines / entries to the table
+  | Verify external user should able to see the Document Version for the plan
+  | Verify external user should able to see the status as In-Progress after saving the Annual Plans
+  | Verify external user should delete an entry, only when the entry status In-Progress
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+   #191867
+    Then I softly can see top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+   #191877
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I see the following options in dropdown field "DocumentSubType__c" :
+      | Initial | Update 1 | Update 2 | Update 3 | Update 4 |
+   #191876
+    Then I see the following options in dropdown field "DocumentType__c" :
+      | CCNA  | One Plan |
+   #191874
+    Then I see the following options in dropdown field "FiveYearPeriod__c" :
+      | 2016/17 - 2020/21 | 2017/18 - 2021/22 | 2018/19 - 2022/23 | 2019/20 - 2023/24 | 2020/21 - 2024/25 |
+   #191875
+    Then I see the following options in dropdown field "SchoolYear__c" :
+      | 2016/17 | 2017/18 | 2018/19 | 2019/20 | 2020/21 | 2021/22 | 2022/23 | 2023/24 | 2024/25 |
+   #191871
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text :
+      | Required Field Missing |
+   #191869
+    Then I see only the following ordered headers in table with id "---tableID:-:ApplicationAnnualPlans---" :
+      | Five-Year Period | School Year | Document Type | Document Sub-Type | Document Version | Status | Last Submitted By | Last Submitted On | Document Link | Actions |
+   #191882
+    Then I softly see field "Document Version" inside "Annual Plans" section
+   #191889
+    When I enter value "2017/18 - 2021/22" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+   #191890
+    And I click on "Delete" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see "No Records Found" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+
+  @191787 @191789 @191799 @191790 @191791 @sprint-6 @userStory-190011
+  Scenario: Verify that external user should be able to edit value in 'Indirect Cost Rate' field.
+  | Verify external user should see message, if "Indirect Cost Taken" is greater than "Potential Indirect Cost Recovery" on application.
+  | Verify "Indirect Cost Taken" should be equal to "Potential Indirect Cost Recovery" on application.
+  | Verify that external user should see 'Max Admin Cost Rate' field as a Read only field.
+  | Verify "Allocation Amount" should be equal to "Total Budgeted Amount" on application.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    When I enter value "project abstract" into field "fieldProjectAbstract__c"
+    When I enter value "checked" into field "fieldAcknowledgment4__c"
+    And I navigate to "Budget" sub tab
+    When I enter value "justification" into field "fieldJustification__c"
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
+    When I enter value "2000" into field "fieldUnitPrice__c"
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Wright Middle" into field "fieldSchool__c"
+    When I enter value "test" into field "fieldNarrative__c"
+    And I click modal button "Save"
+    And I navigate to "Overview" sub tab
+    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
+    When I enter value "checked" into field "IsKeyContact__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
+    And I navigate to "Forms and Files" sub tab
+    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
+    When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
+      | Participant’s Name | School Name | Role    | Stakeholder Representation |
+      | Automation         | Dixie High  | Teacher | School within District     |
+    And I click on "Save" in the page details
+    And I click on "Validate" in the page details
+    And I click on "Submit Application" in the page details
+    And I softly see field "Status" as "Submitted to Grantor"
+    And I save the field containing "EGMS ID" as "APPID"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Applications" tab
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    And I softly see field "Status" as "Review Initiated"
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "UpdatedAllocationAmount.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Applications" tab
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    And I navigate to "Budget" sub tab
+    #191787
+    And I click on "Edit" in the page details
+    Then I softly see fields "Indirect Cost Rate" is in edit mode
+    #191789
+    And I enter value "500" into field "Indirect Cost Taken"
+    And I click on "Save" in the page details
+    And I click on "Submit Application" in the page details
+    Then I softly see the text containing :
+      | Budget Tab - The 'Indirect Cost Taken' must be equal to or less than the 'Potential Indirect Cost Recovery'. |
+    #191799
+    And I enter value "200" into field "Indirect Cost Taken"
+    And I click on "Save" in the page details
+    And I click on "Submit Application" in the page details
+    Then I softly see field "Indirect Cost Taken" as "$200.00"
+    #191790
+    Then I softly see that "Max Admin Cost Rate" rendered in view mode only
+    #191791
+    And I softly see field "Allocation Amount" as "$2,000.00"
