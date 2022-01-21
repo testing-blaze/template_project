@@ -5493,7 +5493,7 @@ Feature: Validate all scenarios related to application
     #190646
     Then I see "Total Records:1" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
 
-  @190543 @190651 @190650 @190649 @190648 @190647 @189130 @189365 @189135 @189769 @189350 @sprint-5 @userStory-187654
+  @190543 @190651 @190650 @190649 @190648 @190647 @189130 @189365 @189135 @189769 @sprint-5 @userStory-187654
   Scenario: Verify that "Total Match" is a calculated field (Total Match = Cash Match + Non Cash Match )
   |Verify that  "Total Project Cost" column on parent should display the total sum of Award Total and Total Match ['Total Project Cost' = Award Total + Total Match  ].
   |Verify that "Total Match" column on parent table should display the total sum of both cash match and non cash match ['Total Match'= Cash Match + Non Cash Match]
@@ -5504,7 +5504,6 @@ Feature: Validate all scenarios related to application
   |Verify that for each Focus area there is a table with columns
   |Verify that Function Code table (Budget Period table) has a new child table (nested grid) for Object Codes
   |Verify that view action is displayed for internal user on application of the child nested grid, of Budget Periods section in the Application, if Focus Area setting is required in the Announcement
-  |Verify that internal user is  allowed to download the budget data in an Excel format.
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
@@ -5651,7 +5650,95 @@ Feature: Validate all scenarios related to application
     Then I softly see "Actions" in flex table header "AppLineItemsFlexToggle"
     #189769
     Then I softly can see row level action button "View" against "Wright Middle" in flex table with id "---tableID:-:ApplicationBudgetPeriod---"
-    #189350
+
+  @189350 @sprint-5 @userStory-187654 @skipOnJenkins
+  Scenario: Verify that internal user is allowed to download the budget data in an Excel format.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "Yes" into field "fieldIsMatchRequired__c"
+    When I enter value "1" into field "fieldGranteeMatch__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "Yes" into field "fieldFocusAreaRequired__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFocusArea---"
+    And I check "{StaticRecords:AutomationPermanentFocusArea}" boxes in flex table with id "---tableID:-:Modal---"
+    And I check "{StaticRecords:AutomationPermanentFocusArea2}" boxes in flex table with id "---tableID:-:Modal---"
+    And I click on top right button "Associate" in flex table with id "---tableID:-:Modal---"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    When I enter value "project abstract" into field "fieldProjectAbstract__c"
+    When I enter value "checked" into field "fieldAcknowledgment4__c"
+    And I navigate to "Budget" sub tab
+    When I enter value "justification" into field "fieldJustification__c"
+    When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
+    When I enter value "1000" into field "fieldUnitPrice__c"
+    When I enter value "1" into field "fieldCashMatch__c"
+    When I enter value "1" into field "fieldNonCashMatch__c"
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Wright Middle" into field "fieldSchool__c"
+    When I enter value "test" into field "fieldNarrative__c"
+    And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:APPID}" in "---tableID:-:InternalApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:InternalApplicationTableId---"
+    And I navigate to "Budget" sub tab
     When I click on parallel lines menu bar with data target value "#EnhanceAppGrantorBudgetPeriodsFlexToggle"
     And I select "Download as XLS" from parallel lines dropdown of "Budget"
     Then I see "Function Codes" in downloaded xls or csv file "govgrants"
