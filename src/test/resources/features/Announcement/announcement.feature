@@ -771,7 +771,7 @@ Feature: Validate all scenarios related to announcement
     And I pause execution for "3" seconds
     And I click modal button "Upload File"
     Then I softly see the following messages in the page details contains:
-      | Row Number - 4 - Final Allocation - Invalid Amount format: A50 |
+      | Row Number - 4 - Final Allocation - Invalid Amount format: A50                                                                  |
       | Row Number 5 - Org Code : 1212 is entered more than once in the Excel. Please remove the duplicate entries and retry uploading. |
       | Row Number 6 - Org Code: 4321 does not exist in the system.                                                                     |
       | Row Number - 7 - Negative value (-100) is not allowed in "Allocation"                                                           |
@@ -935,7 +935,7 @@ Feature: Validate all scenarios related to announcement
     And I pause execution for "3" seconds
     And I click modal button "Upload File"
     Then I softly see the following messages in the page details contains:
-      | Row Number 3 - Org Code / School Code combination is entered more than once in the Excel. Please remove the duplicate entries and retry uploading.|
+      | Row Number 3 - Org Code / School Code combination is entered more than once in the Excel. Please remove the duplicate entries and retry uploading. |
     And I wait for "3" seconds
     And I close modal by clicking the top right x button
     #183721
@@ -1378,3 +1378,139 @@ Feature: Validate all scenarios related to announcement
     When I enter value "10.1111" into field "fieldSCDE_MaxAdminCostRate__c"
     And I click on "Save" in the page details
     Then I softly see field "Maximum Admin Cost Rate" as "10.11%"
+
+  @193535 @193534 @193533 @sprint-6 @userStory-190290
+  Scenario: Verify that the estimated total funding amount is not required on submit
+  |Verify that the subaward ceiling field is not required on submit.
+  |Verify that the subaward floor field is not required on submit.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+      #193535
+    And I softly see field "Estimated Total Funding" as ""
+      #193534
+    And I softly see field "Subaward Ceiling" as ""
+      #193533
+    And I softly see field "Subaward Floor" as ""
+
+  @191813 @191820 @191818 @sprint-6 @userStory-190477
+  Scenario: Verify announcement owner should see a section "Federal/NGO Programs" on announcement
+  |Verify if announcement owner associates more than one Federal/NGO Program, then system should throw message
+  |Verify announcement owner should associate only one external program to the announcement.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:CompetitiveAnnouncements---"
+    When I enter value "Competitive" into field "fieldAnnouncementType__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+      #191813
+    Then I softly see "Federal/NGO Programs" page block displayed
+      #191820
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFederalNGOProgram---"
+    And I check "{StaticRecords:AutomationPermanentExternalProgram}" boxes in flex table with id "SelectAnnCFDA"
+    And I check "Wildlife Services" boxes in flex table with id "SelectAnnCFDA"
+    And I click on top right button "Associate" in flex table with id "SelectAnnCFDA"
+    Then I softly see the following messages in the page details contains:
+      | Only one Federal/NGO Program can be associated to the announcement. |
+      #191818
+    And I check "{StaticRecords:AutomationPermanentExternalProgram}" boxes in flex table with id "SelectAnnCFDA"
+    And I click on top right button "Associate" in flex table with id "SelectAnnCFDA"
+    And I close modal by clicking the top right x button
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    Then I softly see value "Automation Permanent External Program" for title "Program Title" inside table "---tableID:-:AnnouncementFederalNGOProgram---"
+
+  @191817 @sprint-6 @userStory-190477
+  Scenario: Verify the field on "Federal/NGO Programs" section is optional
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:CompetitiveAnnouncements---"
+    When I enter value "Competitive" into field "fieldAnnouncementType__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    And I navigate to "Overview" sub tab
+    Then I softly see "No records found" inside flex table with id "---tableID:-:AnnouncementFederalNGOProgram---"
