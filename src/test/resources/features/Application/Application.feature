@@ -27,6 +27,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -89,6 +90,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -155,6 +157,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -244,6 +247,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -352,6 +356,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -469,6 +474,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -729,6 +735,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -799,6 +806,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -907,6 +915,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -1006,6 +1015,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -1181,6 +1191,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -1477,6 +1488,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -1693,6 +1705,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -1882,6 +1895,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     When I enter value "10" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
@@ -2272,6 +2286,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -2353,6 +2368,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -2428,6 +2444,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -2517,6 +2534,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -2594,6 +2612,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -2672,6 +2691,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -2794,6 +2814,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -3146,6 +3167,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -3216,6 +3238,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -3342,6 +3365,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -3555,6 +3579,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -3666,6 +3691,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -3813,6 +3839,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -4032,6 +4059,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -4294,6 +4322,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -4398,6 +4427,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -4505,6 +4535,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -4689,6 +4720,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -4861,6 +4893,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -5053,6 +5086,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -5315,6 +5349,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -5414,6 +5449,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -5530,6 +5566,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -5679,6 +5716,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -5792,6 +5830,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -5946,6 +5985,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -6204,6 +6244,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -6322,6 +6363,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -6458,6 +6500,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -6538,6 +6581,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -6620,6 +6664,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
@@ -6740,3 +6785,648 @@ Feature: Validate all scenarios related to application
     And I click on "Submit Application" in the page details
     Then I softly see the following messages in the page details contains:
       | The 'Indirect Cost Rate' for your organization is not available. Contact EGMS support for assistance. |
+
+  @193149 @193144 @193147 @193140 @193142 @193131 @193137 @193134 @sprint-6 @userStory-190318
+  Scenario: Verify that Delete icon where the entire line and document are deleted
+  | Verify that status changes to 'Submitted'
+  | Verify that the Last Submitted By field is populated
+  | Verify that the Document Sub-Type field in Annual plans tab is populated
+  | Verify that Upload Icon where I can upload the Required document
+  | Verify that the "Retract "row-level action with a back arrow icon.
+  | Verify that Retract updates the status to 'Retracted'
+  | Verify that External user can see the Document Version in Annual Plans tab.
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    When I enter value "2017/18 - 2021/22" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #193149
+    Then I softly can see row level action button "Delete" against "In-Progress" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #193144
+    When I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Submitted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    #193147
+    Then I softly see value "SPI Automation" for title "Last Submitted By" inside table "---tableID:-:ApplicationAnnualPlans---"
+    #193140
+    Then I softly see value "Initial" for title "Document Sub-Type" inside table "---tableID:-:ApplicationAnnualPlans---"
+    #193142
+    Then I softly can see row level action button "Upload" against "Submitted" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #193131
+    Then I softly can see row level action button "Retract" against "Submitted" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #193137
+    When I click on "Retract" icon for "Submitted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Retracted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    #193134
+    Then I softly see value "1" for title "Document Version" inside table "---tableID:-:ApplicationAnnualPlans---"
+
+  @192191 @192194 @sprint-6 @userStory-189636
+  Scenario: Verify that the Fiscal Year is required on Submit
+  | Verify that the validation Message:  Financials Tab - 'Fiscal Year' is required to Submit for Approval.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    #192191  #192194
+    Then I softly see the text containing :
+      | Financials Tab - 'Fiscal Year' is required to Submit for Approval. |
+
+  @192150 @192152 @192086 @192110 @192096 @192102 @192099 @192100 @192090 @192226 @192075 @192050 @192069 @192051 @192052 @192049 @192047 @192160 @192122 @sprint-6 @userStory-189635
+  Scenario: Verify that after save revisions tab changes in the application, I see a 'Cancel Revision' button on the application
+  | Verify that If I cancel the revision, I see a warning message with an option to continue or not continue
+  | Verify that If user click YES in the pop-up then in the Revisions tab user see 'Explanation of Revisions Needed' section shows data that user saved before canceled
+  | Verify that If user click YES in the pop-up then in the Revisions tab, user see Application Section for Revisions Shows data that I saved before I canceled
+  | Verify that If user click YES in the pop-up then user see Applicant Name as read-only in the Revisions tab
+  | Verify that If user click YES in the pop-up then user see In the 'Available Forms for Revisions' section, user see all forms associated with the application. I see that the 'Allow Edits' column is checked if I checked it for a given form before I canceled
+  | Verify that If user click YES in the pop-up then user see Revised Due Date (that was saved before user canceled) in Revision tab as read only
+  | Verify that If user click YES in the pop-up then user see Revised Submitted Date is blank in the Revisions tab
+  | Verify that If user click YES in the pop-up then user see Revision Created Date as read-only in the Revisions tab
+  | Verify that If user click YES in the pop-up then user see Revision Request Status " Canceled" as read-only in the Revisions tab
+  | Verify that after cancelation, I see that the Decision Status for the application in the review step is reset to 'Pending'. The application status remains 'Review Initiated'
+  | Verify that 'Explanation of Revisions Needed' is text field accept up to 4,000 chars
+  | Verify that after save changes in revisions tab, user not see the request revision action (dollar icon) in the review step for the application
+  | Verify that after saved changes in revisions tab, the 'Decision Status' for the application for the review step is updated from "Pending" to "Revision In-Progress"
+  | Verify that after saved revisions tab changes in the application,  Revision Request Status (status  = Created) shown as read only
+  | Verify that after saving my changes, I can Edit and save data in the fields in only the Revisions tab
+  | Verify that Applicant Name is read only after save revisions tab changes in the application
+  | Verify that in Revision tab, after saving my changes, I see 4 options (Edit, Send to Subrecipients, Cancel Revision, Back to Current Review Step) on the application header
+  | Verify that Application Section for Revisions filed is Multi-picklist in the 'Revisions' tab
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    When I enter value "project abstract" into field "fieldProjectAbstract__c"
+    When I enter value "checked" into field "fieldAcknowledgment4__c"
+    And I navigate to "Budget" sub tab
+    When I enter value "justification" into field "fieldJustification__c"
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
+    When I enter value "2000" into field "fieldUnitPrice__c"
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Wright Middle" into field "fieldSchool__c"
+    When I enter value "test" into field "fieldNarrative__c"
+    And I click modal button "Save"
+    And I navigate to "Overview" sub tab
+    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
+    When I enter value "checked" into field "IsKeyContact__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
+    And I navigate to "Forms and Files" sub tab
+    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
+    When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
+      | Participant’s Name | School Name | Role    | Stakeholder Representation |
+      | Automation         | Dixie High  | Teacher | School within District     |
+    And I click on "Save" in the page details
+    And I click on "Validate" in the page details
+    And I click on "Submit Application" in the page details
+    And I softly see field "Status" as "Submitted to Grantor"
+    And I save the field containing "EGMS ID" as "APPID"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Applications" tab
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    And I softly see field "Status" as "Review Initiated"
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
+    And I enter value "1" into field "MinimumNumberOfReviewers__c"
+    And I enter value "5" into field "DueInDays__c"
+    And I enter value "Checked" into field "Required__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ReviewForms---"
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I pause execution for "5" seconds
+    And I refresh the page
+    And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I navigate to "Revisions" sub tab
+    When I enter value "200" into field "NegotiationDueDate__c"
+    When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
+    When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    #192150
+    Then I softly can see top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    #192152
+    And I click on top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I softly see the following messages in the page details contains:
+      | The revisions will no longer be editable. Are you sure you are ready to cancel the revisions? |
+    #192086
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    And I navigate to "Revisions" sub tab
+    Then I softly see field "Details" inside "Explanation of Revisions Needed" section
+    #192110
+    Then I softly see field "Application Section for Revisions" inside "Request Revision Details" section
+    #192096
+    Then I softly see that "Applicant Name" rendered in view mode only
+    #192102
+    Then I softly see value "Title II, Part A - Private Schools" for title "Form Name" inside table "---tableID:-:ApplicationFormsRevision---"
+    Then I softly see value "Title II, Part A - Stakeholder Participants" for title "Form Name" inside table "---tableID:-:ApplicationFormsRevision---"
+    Then I softly see value "checked" for title "Allow Edits?" inside table "---tableID:-:ApplicationFormsRevision---"
+    #192099
+    Then I softly see that "Due Date" rendered in view mode only
+    #192100
+    Then I softly see field "Revised Submitted Date" inside "Request Revision Details" section
+    #192090
+    Then I softly see that "Revision Created Date" rendered in view mode only
+    #192226
+    Then I softly see field "Revision Request Status" as "Canceled"
+    Then I softly see that "Revision Request Status" rendered in view mode only
+    #192075
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
+    And I softly see field "Status" as "In Progress"
+    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
+    #192050
+    When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I softly see field "Status" as "Review Initiated"
+    #192069
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
+    Then I softly cannot see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ApplicationRevisions---"
+    #192051
+    Then I softly see value "Revision In-Progress" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
+    #192052
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    And I navigate to "Revisions" sub tab
+    Then I softly see field "Revision Request Status" as "Created"
+    Then I softly see that "Revision Request Status" rendered in view mode only
+    #192049
+    And I click on top right button "Edit" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly see fields "fieldNegotiationDueDate__c" is in edit mode
+    Then I softly see fields "fieldApplicationSectionsForRevision__c" is in edit mode
+    Then I softly see fields "ExplanationOfRevisionsNeeded__c" is in edit mode
+    #192047
+    And I click on top right button "Save" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly see that "Applicant Name" rendered in view mode only
+    #192160
+    Then I softly can see top right button "Edit" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly can see top right button " Send to Subrecipients" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly can see top right button "Cancel Revision" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly can see top right button "Back to Current Review Step" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    #192122
+    And I click on top right button "Edit" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly see "Budget:Performance:Forms and Files : Forms:Forms and Files: Supporting Document Checklist :Forms and Files: Application Files:Forms and Files: Notes" inside selectbox field "fieldApplicationSectionsForRevision__c"
+
+  @192111 @192104 @192109 @192073 @192076 @192101 @192114 @sprint-6 @userStory-190315
+  Scenario: Verify Document Type column is a drop-down field with options
+  | Verify all the columns available on the table are required on Save
+  | Verify that status changes to 'Submitted'
+  | Verify that Delete icon where the entire line and document are deleted
+  | Verify external user should delete an entry, only when the entry status is Submitted
+  | Verify that the Document Sub-Type field in Annual plans tab is populated
+  | Verify that the Last Submitted By field is populated
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    #192111
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I see the following options in dropdown field "DocumentType__c" :
+      | CCNA | One Plan |
+    #192104
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text :
+      | Required Field Missing |
+    #192109
+    When I enter value "2017/18 - 2021/22" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Submitted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    #192073
+    Then I softly can see row level action button "Delete" against "Submitted" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #192076
+    And I click on "Delete" icon for "Submitted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see "No Records Found" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #192101
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2018/19 - 2022/23" into field "FiveYearPeriod__c"
+    When I enter value "2018/19" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Initial" for title "Document Sub-Type" inside table "---tableID:-:ApplicationAnnualPlans---"
+    #192114
+    Then I softly see value "SPI Automation" for title "Last Submitted By" inside table "---tableID:-:ApplicationAnnualPlans---"
+
+  @191804 @191807 @191805 @191808 @sprint-6 @userStory-189880
+  Scenario: Verify that sequence of the sections in Forms and Files tab for External view
+  | Verify that all Forms section is re-labeled to be Forms for External view
+  | Verify that the columns on the Forms table tab for External view
+  | Verify that the Files tab is relabeled to be Forms and Files for External view
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementBudgetCategory---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I wait for "3" seconds
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    #191804
+    And I navigate to "Forms and Files" sub tab
+    Then I see only the following ordered page blocks :
+      | Forms | Supporting Documents Checklist | Application Files | Notes |
+    #191807
+    Then I softly see "Forms" Panel Header
+    #191805
+    Then I see only the following ordered headers in table with id "---tableID:-:ApplicationForms---" :
+      | Sequence Number | Form Name | Mandatory? | Is Form Validated? | Last Modified By | Last Modified Date | Actions |
+    #191808
+    Then I softly can see "Forms and Files" sub tab at view detail page
+
+  @191810 @191811 @sprint-6 @userStory-190010
+  Scenario: Verify that after save changes in revisions tab and Initiate Review Process, user can see the status as Review Initiated
+  | Verify that after save changes in revisions tab, user not see the request revision action (dollar icon) in the review step for the application
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    When I enter value "project abstract" into field "fieldProjectAbstract__c"
+    When I enter value "checked" into field "fieldAcknowledgment4__c"
+    And I navigate to "Budget" sub tab
+    When I enter value "justification" into field "fieldJustification__c"
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
+    When I enter value "2000" into field "fieldUnitPrice__c"
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Wright Middle" into field "fieldSchool__c"
+    When I enter value "test" into field "fieldNarrative__c"
+    And I click modal button "Save"
+    And I navigate to "Overview" sub tab
+    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
+    When I enter value "checked" into field "IsKeyContact__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
+    And I navigate to "Forms and Files" sub tab
+    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
+    When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
+      | Participant’s Name | School Name | Role    | Stakeholder Representation |
+      | Automation         | Dixie High  | Teacher | School within District     |
+    And I click on "Save" in the page details
+    And I click on "Validate" in the page details
+    And I click on "Submit Application" in the page details
+    And I softly see field "Status" as "Submitted to Grantor"
+    And I save the field containing "EGMS ID" as "APPID"
+    When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
+    And I enter value "1" into field "MinimumNumberOfReviewers__c"
+    And I enter value "5" into field "DueInDays__c"
+    And I enter value "Checked" into field "Required__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ReviewForms---"
+    When I enter the following values into flex table with id "---tableID:-:Reviewer---" by clicking "Add" :
+      | Reviewer      |
+      | Automation PM |
+    And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I pause execution for "5" seconds
+    And I refresh the page
+    And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I navigate to "Revisions" sub tab
+    When I enter value "200" into field "NegotiationDueDate__c"
+    When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
+    When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    #191810
+    And I softly see field "Status" as "Review Initiated"
+    #191811
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
+    Then I softly cannot see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ApplicationRevisions---"
+
+ @193421 @193431 @193426 @193430 @193428 @193432 @193433 @193230 @193229 @193423 @sprint-6 @userStory-190588
+  Scenario: Verify "Cash Match" field is an optional field.
+  | Verify "Non Cash Match" field is an optional field.
+  | Verify "Object Code" field on the modal is lookup to all object codes.
+  | Verify "Cost" field is required on save.
+  | Verify "Award Total" field is a calculated field (Quantity * Cost)
+  | Verify "Cost" field is a Currency field that allows 2 decimals
+  | Verify "Quantity" field is a numeric field that allows 2 decimals.
+  | Verify "Cash Match" field is a currency field that allows 2 decimals
+  | Verify "Non Cash Match" is a currency field that allows 2 decimals.
+  | Verify "Quantity" field is required on save
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    When I enter value "Yes" into field "fieldIsGoalsRequired__c"
+    When I enter value "Yes" into field "fieldKPIsRequired__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---tableID:-:GoalsAndObjectives---"
+    When I click "Associate" after selection of "SPO-0001" in the table "---tableID:-:Modal---"
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementKPI---"
+    When I click "Associate" after selection of "KPI-0000" in the table "---tableID:-:AnnouncementKPIModal---"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #193421
+    Then I softly do not see asterisk mark on "Cash Match"
+    #193431
+    Then I softly do not see asterisk mark on "Non Cash Match"
+    #193426
+    Then I softly see field "fieldMST_Budget_Category__c" inside "Add/Update Detailed Budget" section
+    #193430
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "2.111" into field "fieldQuantity__c"
+    When I enter value "Districtwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Testing" into field "fieldNarrative__c"
+    When I enter value "10.11" into field "fieldCashMatch__c"
+    When I enter value "5.11" into field "fieldNonCashMatch__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Cost is required to save. |
+    #193428 #193432 #193433
+    When I enter value "100.111" into field "fieldUnitPrice__c"
+    And I click modal button "Save"
+    And I expand nested table containing column value "BP01"
+    Then I softly see value "$211.23" for title "Award Total" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #193230
+    And I expand nested table containing column value "110 - General Instruction"
+    Then I softly see value "$10.11" for title "Cash Match" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #193229
+    Then I softly see value "$5.11" for title "Non Cash Match" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    #193423
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Testing" into field "fieldNarrative__c"
+    When I enter value "100.111" into field "fieldUnitPrice__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Quantity is Required to Save. |
