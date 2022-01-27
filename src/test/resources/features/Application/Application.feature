@@ -7430,3 +7430,176 @@ Feature: Validate all scenarios related to application
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | Quantity is Required to Save. |
+
+  @191887 @191886 @191851 @191863 @191883 @191884 @191885 @191891 @191888 @sprint-6 @userStory-189862
+  Scenario: Verify external user should see "Add" button on the table
+  | Verify external user should see "Upload" action on "Actions" column, when plan status = In-Progress
+  | Verify external user should see "Submit" action on "Actions" column, when plan status is In-Progress
+  | Verify external user should see a new tab called "Annual Plans" on the Subrecipient Organization's profile
+  | Verify "Document Sub-Type" field is a drop-down with options
+  | Verify "Five-Year Period" field should be a dropdown with five-year timespans listed
+  | Verify "School Name" column is a dropdown field with five-year timespans listed
+  | Verify external user should able to see the status as In-Progress after saving the Annual Plans
+  | Verify external user should delete an entry, only when the entry status In-Progress
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+     #191887
+    Then I softly can see top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #191883
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I see the following options in dropdown field "DocumentSubType__c" :
+      | Initial | Update 1 | Update 2 | Update 3 | Update 4 |
+     #191886
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2017/18 - 2021/22" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly can see row level action button "Upload" against "In-Progress" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+     #191851
+    Then I softly can see row level action button "Submit" against "In-Progress" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+     #191863
+    Then I softly can see "Annual Plans" sub tab at view detail page
+     #191884
+    Then I see the following options in dropdown field "FiveYearPeriod__c" :
+      | 2016/17 - 2020/21 | 2017/18 - 2021/22 | 2018/19 - 2022/23 | 2019/20 - 2023/24 | 2020/21 - 2024/25 |
+     #191891
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2018/19 - 2022/23" into field "FiveYearPeriod__c"
+    When I enter value "2018/19" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+     #191885
+    Then I see the following options in dropdown field "SchoolYear__c" :
+      | 2016/17 | 2017/18 | 2018/19 | 2019/20 | 2020/21 | 2021/22 | 2022/23 |
+     #191888
+    And I click on "Delete" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see "No Records Found" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+
+  @192374 @192301 @192549 @192548 @192348 @192515 @192541 @192537 @192534 @192528 @sprint-6 @userStory-190638
+  Scenario: Verify School field is a required field on modal, when Schoolwide option is selected in the "Budget For" dropdown on the modal.
+  | Verify "Total Cash Match" is a calculated field (Total Cash Match = Cash Match + Non Cash Match )
+  | Verify "Total Project Cost" is a calculated field (Total Project Cost = Award Total + Total Match)
+  | Verify external user on clicking the "Add" action button navigates to a detailed modal.
+  | Verify "Description" field inside the Narrative section should have text area with 2000 char
+  | Verify external user should not see the focus area title on the modal, if Focus Area Required is set to "NO" on announcement, except the standard focus area
+  | Verify external user should see "Save and Cancel" action buttons on the Add/Update Detailed Budget modal
+  | Verify external user should able to save the record on the Add/Update Detailed Budget modal
+  | Verify external user should see focus area table has an "Add" action button
+  | Verify external user should see mentioned fields on the modal.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    When I enter value "Yes" into field "fieldIsGoalsRequired__c"
+    When I enter value "Yes" into field "fieldKPIsRequired__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    And I click on top right button "Associate" in flex table with id "---tableID:-:GoalsAndObjectives---"
+    When I click "Associate" after selection of "SPO-0001" in the table "---tableID:-:Modal---"
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementKPI---"
+    When I click "Associate" after selection of "KPI-0000" in the table "---tableID:-:AnnouncementKPIModal---"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I click on "Save" in the page details
+    And I navigate to "Budget" sub tab
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+      #192374
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    Then I softly see asterisk mark on "School"
+      #192301
+    When I enter value "Testing" into field "fieldNarrative__c"
+    When I enter value "10.11" into field "fieldCashMatch__c"
+    When I enter value "5.11" into field "fieldNonCashMatch__c"
+    When I enter value "100.111" into field "fieldUnitPrice__c"
+    And I click modal button "Save"
+    And I expand nested table containing column value "BP01"
+    And I expand nested table containing column value "110 - General Instruction"
+    Then I softly see value "$15.22" for title "Total Match" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+      #192549
+    Then I softly see value "$452.90" for title "Total Project Cost" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+      #192548
+    And I refresh the page
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    Then I softly see "Add/Update Detailed Budget" in flex table header "---tableID:-:ApplicationDetailedBudgetModal---"
+      #192348
+    And I hovering mouse on help text icon inside page block detail "Narrative"
+    Then I softly see "2,000 Char Limit" shown as help text
+      #192515
+    Then I softly do not see "Focus Area" inside page block detail
+      #192541
+    Then I softly can see top right button "Save" in flex table with id "---tableID:-:ApplicationDetailedBudgetModal---"
+    Then I softly can see top right button "Cancel" in flex table with id "---tableID:-:ApplicationDetailedBudgetModal---"
+      #192537
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "2.111" into field "fieldQuantity__c"
+    When I enter value "Districtwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Testing" into field "fieldNarrative__c"
+    When I enter value "100.111" into field "fieldUnitPrice__c"
+    And I click modal button "Save"
+    And I expand nested table containing column value "BP01"
+    And I expand nested table containing column value "110 - General Instruction"
+    Then I softly see value "100 - Salaries" for title "Object Code" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+      #192534
+    And I refresh the page
+    And I expand nested table containing column value "BP01"
+    Then I softly can see row level action button "Add" against "110 - General Instruction" in flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+      #192528
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
+    Then I softly see field "Object Code" inside "Add/Update Detailed Budget" section
+    Then I softly see field "Quantity" inside "Add/Update Detailed Budget" section
+    Then I softly see field "Cash Match" inside "Add/Update Detailed Budget" section
+    Then I softly see field "Non Cash Match" inside "Add/Update Detailed Budget" section
+    Then I softly see field "Cost" inside "Add/Update Detailed Budget" section
