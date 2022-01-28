@@ -278,3 +278,132 @@ Feature: Validate all scenarios related to organization profile
     Then I softly see Classification as "Program Artifacts" at upload file modal
     Then I softly see Classification as "W9" at upload file modal
     Then I softly see Classification as "Other Artifacts" at upload file modal
+
+  @192792 @192777 @192788 @192791 @192779 @sprint-6 @userStory-190633
+  Scenario: Verify that  external user see validation on Save for a Document Type of CCNA, document sub-type must be Initial
+  |Verify that external user can see the Document version field populates on Save and is ready only
+  |Verify that external user see the validation message if it creates a new line with a Five-year period, school year, document type, and document sub-type combination that already exists in a previous 'in-progress'
+  |Verify that external user see the validation message if it creates a new line with a Five-year period, school year, document type, and document sub-type combination that already exists in a previous "Approved" entry
+  |Verify the external user can see Document Version populates is a computed field showing the subsequent version number when I add a row with the same settings on the four fields below, and the previous entry is in Revision Requested status:
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    #192792
+    When I enter the following values into flex table with id "---tableID:-:AnnualPlans---" by clicking "Add" :
+      | Status      | Five-Year Period  | School Year | Document Type | Document Sub-Type |
+      | In-Progress | 2016/17 - 2020/21 | 2016/17     | CCNA          | Update 1          |
+    Then I softly see the following messages in the page details contains:
+      | CCNA entries must have the 'Document Sub-Type' as Initial. |
+    #192777
+    And I refresh the page
+    When I enter the following values into flex table with id "---tableID:-:AnnualPlans---" by clicking "Add" :
+      | Status      | Five-Year Period  | School Year | Document Type | Document Sub-Type |
+      | In-Progress | 2016/17 - 2020/21 | 2016/17     | One Plan      | Initial           |
+    Then I softly see value "1" for title "Document Version" inside table "---tableID:-:AnnualPlans---"
+   #192788 #192791
+    When I enter the following values into flex table with id "---tableID:-:AnnualPlans---" by clicking "Add" :
+      | Status      | Five-Year Period  | School Year | Document Type | Document Sub-Type |
+      | In-Progress | 2016/17 - 2020/21 | 2016/17     | One Plan      | Initial           |
+    Then I softly see the following messages in the page details contains:
+      | An entry with the same Five-Year Period, School Year, Document Type, and Document Sub-Type combination already exists. |
+    #192779
+    And I refresh the page
+    And I click on "Upload" icon for "In-Progress" inside flex table with id "---tableID:-:AnnualPlans---"
+    And I switch to iframe with id "AnnualPlansExternaliframeContentId"
+    When I upload file "EmptyFile.xlsx" into library
+    And I click modal button "Save"
+    And I close modal by clicking the top right x button
+    And I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:AnnualPlans---"
+    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "123456765" in "---tableID:-:SubrecipientOrganization---" panel
+    When I click on "View" icon for "123456765" inside flex table with id "---tableID:-:SubrecipientOrganization---"
+    And I navigate to "Annual Plans" sub tab
+    And I click on "Request Revisions" icon for "Submitted" inside flex table with id "---tableID:-:AnnualPlansInternal---"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    When I enter the following values into flex table with id "---tableID:-:AnnualPlans---" by clicking "Add" :
+      | Status      | Five-Year Period  | School Year | Document Type | Document Sub-Type |
+      | In-Progress | 2016/17 - 2020/21 | 2016/17     | One Plan      | Initial           |
+    Then I softly see value "2" for title "Document Version" against the value "One Plan" inside table "---tableID:-:AnnualPlans---"
+
+  @192789 @192790 @sprint-6 @userStory-190633
+  Scenario: Verify that external user see the validation message if it creates a new line with a Five-year period, school year, document type, and document sub-type combination that already exists in a previous "Submitted" entry
+  |Verify that the external user see the validation message if it creates a new line with a Five-year period, school year, document type, and document sub-type combination that already exists in a previous "Retracted" entry
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    When I enter the following values into flex table with id "---tableID:-:AnnualPlans---" by clicking "Add" :
+      | Status      | Five-Year Period  | School Year | Document Type | Document Sub-Type |
+      | In-Progress | 2016/17 - 2020/21 | 2016/17     | One Plan      | Initial           |
+    And I click on "Upload" icon for "In-Progress" inside flex table with id "---tableID:-:AnnualPlans---"
+    And I switch to iframe with id "AnnualPlansExternaliframeContentId"
+    When I upload file "EmptyFile.xlsx" into library
+    And I click modal button "Save"
+    And I close modal by clicking the top right x button
+    And I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:AnnualPlans---"
+    When I enter the following values into flex table with id "---tableID:-:AnnualPlans---" by clicking "Add" :
+      | Status      | Five-Year Period  | School Year | Document Type | Document Sub-Type |
+      | In-Progress | 2016/17 - 2020/21 | 2016/17     | One Plan      | Initial           |
+    Then I softly see the following messages in the page details contains:
+      | An entry with the same Five-Year Period, School Year, Document Type, and Document Sub-Type combination already exists. |
+      #192790
+    And I refresh the page
+    And I click on "Retract" icon for "Submitted" inside flex table with id "---tableID:-:AnnualPlans---"
+    When I enter the following values into flex table with id "---tableID:-:AnnualPlans---" by clicking "Add" :
+      | Status      | Five-Year Period  | School Year | Document Type | Document Sub-Type |
+      | In-Progress | 2016/17 - 2020/21 | 2016/17     | One Plan      | Initial           |
+    Then I softly see the following messages in the page details contains:
+      | An entry with the same Five-Year Period, School Year, Document Type, and Document Sub-Type combination already exists. |
+
+  @192583 @192586 @192585 @192587 @192588 @192589 @192584 @sprint-6 @userStory-190317
+  Scenario: Verify that  for external user if an entry is in progress then the Submit action is displayed
+  |Verify that external user can see message if it tries to Submit and there is no document uploaded
+  |Verify that external user can see message is displayed when  click on Submit action
+  |Verify that the external user can see status  'Submitted' on Submit action
+  |Verify that external user can see the 'Last Submitted By' field is populated
+  |Verify  that external user can see 'Last Submitted On' field is populated
+  |Verify that  external user can see if an entry is in Retracted status then the Submit action is displayed
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+      #192583
+    When I enter the following values into flex table with id "---tableID:-:AnnualPlans---" by clicking "Add" :
+      | Status      | Five-Year Period  | School Year | Document Type | Document Sub-Type |
+      | In-Progress | 2016/17 - 2020/21 | 2016/17     | One Plan      | Initial           |
+    Then I softly see value "In-Progress" for title "Status" inside table "---tableID:-:AnnualPlans---"
+    Then I softly can see row level action button "Submit" against "In-Progress" in flex table with id "---tableID:-:AnnualPlans---"
+     #192586
+    And I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:AnnualPlans---"
+    Then I softly see the following messages in the page details contains:
+      | There is no document uploaded. Ensure a document is uploaded before submitting the entry. |
+     #192585
+    And I click on "Upload" icon for "In-Progress" inside flex table with id "---tableID:-:AnnualPlans---"
+    And I switch to iframe with id "AnnualPlansExternaliframeContentId"
+    When I upload file "EmptyFile.xlsx" into library
+    And I click modal button "Save"
+    And I close modal by clicking the top right x button
+    And I click on "Submit" icon for "In-Progress" inside table with table id "---tableID:-:AnnualPlans---" without processing
+    Then I see confirmation box with body "Are you sure you want to submit the entry?" is displayed
+     #192587
+    When I click "Yes" on modal confirmation box
+    Then I softly see value "Submitted" for title "Status" inside table "---tableID:-:AnnualPlans---"
+     #192588
+    Then I softly see value "SPI Automation" for title "Last Submitted By" inside table "---tableID:-:AnnualPlans---"
+     #192589
+    And I save the value from row "1" for column name "Last Submitted On" as "LastSubmittedOn" from flex table "---tableID:-:AnnualPlans---"
+    Then I softly see value "{SavedValue:LastSubmittedOn}" for title "Last Submitted On" inside table "---tableID:-:AnnualPlans---"
+     #192584
+    And I click on "Retract" icon for "Submitted" inside flex table with id "---tableID:-:AnnualPlans---"
+    Then I softly can see row level action button "Submit" against "Retracted" in flex table with id "---tableID:-:AnnualPlans---"
