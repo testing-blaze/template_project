@@ -407,3 +407,80 @@ Feature: Validate all scenarios related to organization profile
      #192584
     And I click on "Retract" icon for "Submitted" inside flex table with id "---tableID:-:AnnualPlans---"
     Then I softly can see row level action button "Submit" against "Retracted" in flex table with id "---tableID:-:AnnualPlans---"
+
+  @192612 @192593 @192596 @192594 @192604 @192609 @192597 @192592 @192611 @192591 @sprint-6 @userStory-190319
+  Scenario: Verify that internal user can see quick search
+  |Verify that internal user can see  "Five-Year Period" column
+  |Verify that internal user can see the  Document Sub-Type column displayed in table
+  |Verify that internal user can see the  School Year column displayed in table
+  |Verify that internal user can see the Decision On field column on table
+  |Verify that internal user can see the Document Link is displayed on table
+  |Verify that internal user can see the Document Version column  is displayed
+  |Verify that internal user should see a table with columns in the Annual Plan tab
+  |Verify that internal user can see the entries are sorted by Last Submitted On column
+  |Verify that internal user see the Annual Plans tab after the Risk Assessment  tab  on the Subrecipient Organization's profile
+    When I login to "As a Grantor" app as "Admin" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "123456765" in "---tableID:-:SubrecipientOrganization---" panel
+    When I click on "View" icon for "123456765" inside flex table with id "---tableID:-:SubrecipientOrganization---"
+    And I navigate to "Annual Plans" sub tab
+       #192612
+    Then I softly see quick search inside table id "---tableID:-:AnnualPlansInternal---"
+       #192593
+    Then I softly see "Five-Year Period" in flex table header "---tableID:-:AnnualPlansInternal---"
+       #192596
+    Then I softly see "Document Sub-Type" in flex table header "---tableID:-:AnnualPlansInternal---"
+       #192594
+    Then I softly see "School Year" in flex table header "---tableID:-:AnnualPlansInternal---"
+       #192604
+    Then I softly see "Decision On" in flex table header "---tableID:-:AnnualPlansInternal---"
+       #192609
+    Then I softly see "Document Link" in flex table header "---tableID:-:AnnualPlansInternal---"
+       #192597
+    Then I softly see "Document Version" in flex table header "---tableID:-:AnnualPlansInternal---"
+       #192592
+    Then I see only the following ordered headers in table with id "---tableID:-:AnnualPlansInternal---" :
+      | Five-Year Period | School Year | Document Type | Document Sub-Type | Document Version | Status | Last Submitted By | Last Submitted On | Decision By | Decision On | Document Link |
+       #192611
+    Then I softly see content of expected column "Last Submitted On" is in "DESC" order of table id "---tableID:-:AnnualPlansInternal---"
+       #192591
+    And I softly can see "Annual Plans" sub tab at view detail page
+
+  @192610 @192598 @192603 @192600 @192601 @sprint-6 @userStory-190319
+  Scenario: Verify that internal user can see the  Actions column on table
+  |Verify the internal user can see the column Status  having field status = Submitted
+  |Verify the internal user can see the Decision By  field is displayed
+  |Verify the internal user can see the Last Submitted by field
+  |Verify the internal user can see the Last Submitted On field
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    When I enter the following values into flex table with id "---tableID:-:AnnualPlans---" by clicking "Add" :
+      | Status      | Five-Year Period  | School Year | Document Type | Document Sub-Type |
+      | In-Progress | 2016/17 - 2020/21 | 2016/17     | One Plan      | Initial           |
+    And I click on "Upload" icon for "In-Progress" inside flex table with id "---tableID:-:AnnualPlans---"
+    And I switch to iframe with id "AnnualPlansExternaliframeContentId"
+    When I upload file "EmptyFile.xlsx" into library
+    And I click modal button "Save"
+    And I close modal by clicking the top right x button
+    And I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:AnnualPlans---"
+    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "123456765" in "---tableID:-:SubrecipientOrganization---" panel
+    When I click on "View" icon for "123456765" inside flex table with id "---tableID:-:SubrecipientOrganization---"
+    And I navigate to "Annual Plans" sub tab
+    #192610
+    Then I softly see "Actions" in flex table header "---tableID:-:AnnualPlansInternal---"
+    #192598
+    Then I softly see value "Submitted" for title "Status" inside table "---tableID:-:AnnualPlansInternal---"
+    #192603
+    Then I softly see value "" for title "Decision By" inside table "---tableID:-:AnnualPlansInternal---"
+    #192600
+    Then I softly see value "SPI Automation" for title "Last Submitted By" inside table "---tableID:-:AnnualPlansInternal---"
+    #192601
+    And I save the value from row "1" for column name "Last Submitted On" as "LastSubmittedOn" from flex table "---tableID:-:AnnualPlansInternal---"
+    Then I softly see value "{SavedValue:LastSubmittedOn}" for title "Last Submitted On" inside table "---tableID:-:AnnualPlansInternal---"
