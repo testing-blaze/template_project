@@ -285,6 +285,7 @@ Feature: Validate all scenarios related to organization profile
   |Verify that external user see the validation message if it creates a new line with a Five-year period, school year, document type, and document sub-type combination that already exists in a previous 'in-progress'
   |Verify that external user see the validation message if it creates a new line with a Five-year period, school year, document type, and document sub-type combination that already exists in a previous "Approved" entry
   |Verify the external user can see Document Version populates is a computed field showing the subsequent version number when I add a row with the same settings on the four fields below, and the previous entry is in Revision Requested status:
+    When I delete the record "" from the object "ANNUAL PLAN"
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Home" tab
@@ -337,6 +338,7 @@ Feature: Validate all scenarios related to organization profile
   @192789 @192790 @sprint-6 @userStory-190633
   Scenario: Verify that external user see the validation message if it creates a new line with a Five-year period, school year, document type, and document sub-type combination that already exists in a previous "Submitted" entry
   |Verify that the external user see the validation message if it creates a new line with a Five-year period, school year, document type, and document sub-type combination that already exists in a previous "Retracted" entry
+    When I delete the record "" from the object "ANNUAL PLAN"
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Home" tab
@@ -373,6 +375,7 @@ Feature: Validate all scenarios related to organization profile
   |Verify that external user can see the 'Last Submitted By' field is populated
   |Verify  that external user can see 'Last Submitted On' field is populated
   |Verify that  external user can see if an entry is in Retracted status then the Submit action is displayed
+    When I delete the record "" from the object "ANNUAL PLAN"
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Home" tab
@@ -453,6 +456,7 @@ Feature: Validate all scenarios related to organization profile
   |Verify the internal user can see the Decision By  field is displayed
   |Verify the internal user can see the Last Submitted by field
   |Verify the internal user can see the Last Submitted On field
+    When I delete the record "" from the object "ANNUAL PLAN"
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Home" tab
@@ -484,3 +488,119 @@ Feature: Validate all scenarios related to organization profile
     #192601
     And I save the value from row "1" for column name "Last Submitted On" as "LastSubmittedOn" from flex table "---tableID:-:AnnualPlansInternal---"
     Then I softly see value "{SavedValue:LastSubmittedOn}" for title "Last Submitted On" inside table "---tableID:-:AnnualPlansInternal---"
+
+  @193220 @193380 @sprint-6 @userStory-190590
+  Scenario: Verify that button to the report in the Annual Plans section header, called 'Annual Plans Report'is displayed
+    When I login to "As a Grantor" app as "Admin" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "123456765" in "---tableID:-:SubrecipientOrganization---" panel
+    When I click on "View" icon for "123456765" inside flex table with id "---tableID:-:SubrecipientOrganization---"
+    And I navigate to "Annual Plans" sub tab
+      #193220
+    Then I softly can see top right button "Annual Plans Report" in flex table with id "---tableID:-:AnnualPlansInternal---"
+      #193380
+    And I click on top right button "Annual Plans Report" in flex table with id "---tableID:-:AnnualPlansInternal---"
+    Then I softly see the text :
+      | Annual Plans For All Organizations |
+
+  @193222 @193224 @193223 @sprint-6 @userStory-190591
+  Scenario: Verify that as internal Admin user can see can add a COM Team Reviewer
+  |Verify that the field is located as the last field on the Overview tab's Description section, which is after the Maximum Users Allowed field.
+  |Verify that COM Team reviewer is a lookup to all active internal user
+    When I login to "As a Grantor" app as "Admin" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "123456765" in "---tableID:-:SubrecipientOrganization---" panel
+    When I click on "View" icon for "123456765" inside flex table with id "---tableID:-:SubrecipientOrganization---"
+      #193222
+    Then I softly see "COM Team Reviewer" inside page block detail
+      #193224
+    Then I see "Maximum Users Allowed" shown at number "14" inside "Description" page block detail
+    Then I see "COM Team Reviewer" shown at number "15" inside "Description" page block detail
+      #193223
+    And I click on "Edit" in the page details
+    When I click search icon for look up field "COM Team Reviewer Lookup (New Window)" with clearing
+    When I perform quick search for "Automation PM" in "---tableID:-:Modal---" panel
+    Then I softly see value "Automation PM" for title "Full Name" inside table "---tableID:-:Modal---"
+
+  @193154 @193155 @193157 @193158 @sprint-6 @userStory-190320 @wip
+  Scenario: Verify that for internal user 'Request Revision' shown with a blue back arrow icon when an entry is in Submitted status
+  |Verify that internal user when click on  the 'Request Revision' icon, the status updates to 'Revision Requested'
+  |Verify that internal user can see the Decision By field populated who requested the revision
+  |Verify the internal user can see the Decision On field populates with the date and time for when the revision was requested.
+    When I delete the record "" from the object "ANNUAL PLAN"
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    When I enter the following values into flex table with id "---tableID:-:AnnualPlans---" by clicking "Add" :
+      | Status      | Five-Year Period  | School Year | Document Type | Document Sub-Type |
+      | In-Progress | 2016/17 - 2020/21 | 2016/17     | One Plan      | Initial           |
+    And I click on "Upload" icon for "In-Progress" inside flex table with id "---tableID:-:AnnualPlans---"
+    And I switch to iframe with id "AnnualPlansExternaliframeContentId"
+    When I upload file "EmptyFile.xlsx" into library
+    And I click modal button "Save"
+    And I close modal by clicking the top right x button
+    And I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:AnnualPlans---"
+    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "123456765" in "---tableID:-:SubrecipientOrganization---" panel
+    When I click on "View" icon for "123456765" inside flex table with id "---tableID:-:SubrecipientOrganization---"
+    And I navigate to "Annual Plans" sub tab
+     #193154
+    Then I softly can see row level action button "Request Revisions" against "Submitted" in flex table with id "---tableID:-:AnnualPlansInternal---"
+     #193155
+    And I click on "Request Revisions" icon for "Submitted" inside flex table with id "---tableID:-:AnnualPlansInternal---"
+    Then I softly see value "Revision Requested" for title "Status" inside table "---tableID:-:AnnualPlansInternal---"
+     #193157
+    Then I softly see value "REI Admin" for title "Decision By" inside table "---tableID:-:AnnualPlansInternal---"
+     #193158
+    And I save the value from row "1" for column name "Decision On" as "DecisionOn" from flex table "---tableID:-:AnnualPlansInternal---"
+    Then I softly see value "{SavedValue:DecisionOn}" for title "Decision On" inside table "---tableID:-:AnnualPlansInternal---"
+    #193156
+    Then I softly can see mail notification for "INTERNAL" user with following subject:
+      | Sandbox: Revisions Requested for One Plan |
+
+  @193173 @193175 @193177 @193178 @193176 @sprint-6 @userStory-190576 @wip
+  Scenario: Verify that internal user can see the row -level action Approve when the status is submitted
+  |Verify that internal user can see the status as Approved when click on Approve icon
+  |Verify that internal user see the Decision By field populates user who approved the submission.
+  |Verify that internal user see the "Decision On" field populates with the date for when the submission was approved.
+  |Verify that  system sends an email to the subrecipient organization user who last submitted the entry.
+    When I delete the record "" from the object "ANNUAL PLAN"
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    When I enter the following values into flex table with id "---tableID:-:AnnualPlans---" by clicking "Add" :
+      | Status      | Five-Year Period  | School Year | Document Type | Document Sub-Type |
+      | In-Progress | 2016/17 - 2020/21 | 2016/17     | One Plan      | Initial           |
+    And I click on "Upload" icon for "In-Progress" inside flex table with id "---tableID:-:AnnualPlans---"
+    And I switch to iframe with id "AnnualPlansExternaliframeContentId"
+    When I upload file "EmptyFile.xlsx" into library
+    And I click modal button "Save"
+    And I close modal by clicking the top right x button
+    And I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:AnnualPlans---"
+    When I re-login to "As a Grantor" app as "Admin" user on "INTERNAL" portal
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "123456765" in "---tableID:-:SubrecipientOrganization---" panel
+    When I click on "View" icon for "123456765" inside flex table with id "---tableID:-:SubrecipientOrganization---"
+    And I navigate to "Annual Plans" sub tab
+     #193173
+    Then I softly can see row level action button "Approve" against "Submitted" in flex table with id "---tableID:-:AnnualPlansInternal---"
+     #193175
+    And I click on "Approve" icon for "Submitted" inside flex table with id "---tableID:-:AnnualPlansInternal---"
+    Then I softly see value "Approved" for title "Status" inside table "---tableID:-:AnnualPlansInternal---"
+     #193177
+    Then I softly see value "REI Admin" for title "Decision By" inside table "---tableID:-:AnnualPlansInternal---"
+     #193178
+    And I save the value from row "1" for column name "Decision On" as "DecisionOn" from flex table "---tableID:-:AnnualPlansInternal---"
+    Then I softly see value "{SavedValue:DecisionOn}" for title "Decision On" inside table "---tableID:-:AnnualPlansInternal---"
+    #193176
+    Then I softly can see mail notification for "INTERNAL" user with following subject:
+      | Sandbox: One Plan is Approved |
