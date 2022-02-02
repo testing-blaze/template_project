@@ -8552,3 +8552,19 @@ Feature: Validate all scenarios related to application
     Then I softly see value "SCDE Allocation Amount" for title "Changed Field" inside table "---tableID:-:ApplicationHistory---"
     #193467
     Then I softly see value "Indirect Cost Rate" for title "Changed Field" inside table "---tableID:-:ApplicationHistory---"
+
+  @191827 @191845 @191846 @sprint-6 @userStory-189863
+  Scenario: Verify that for internal user  'Pre-Applications'  hidden from the left navigation panel
+  |Verify that internal user can see the Application landing page list page columns
+  |Verify the columns displayed on Application list page (from the left navigation panel)
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Applications" tab
+      #191827
+    Then I do not see "Pre-Applications" inside "Applications" is displayed
+      #191845
+    Then I see only the following ordered headers in table with id "---tableID:-:InternalApplicationTableId---" :
+      | EGMS ID | Announcement Title | Applicant Organization | Application Due Date | Owner | Submitted On | Status | Actions |
+      #191846
+    When I navigate to "Applications" content inside "Applications" subheader on left panel
+    Then I see only the following ordered headers in table with id "---tableID:-:ApplicationTableId---" :
+      | EGMS ID | Announcement Title | Applicant Organization | Application Due Date | Owner | Submitted On | Status | Actions |

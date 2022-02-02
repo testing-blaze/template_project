@@ -40,4 +40,9 @@ public class InternalOrganizatioSteps extends ProjectWebServices {
     public void iCallApitoChangeStatusOfAnnouncement() {
         internalOrganizationPage.callAPItoChangetheStatusOfAnnouncement();
     }
+
+    @Given("^I delete the record \"([^\"]*)\" from the object \"([^\"]*)\"$")
+    public void deleteTestData(String recordName, String objectType) {
+        internalOrganizationPage.deletionApi(recordName, objectType);
+    }
 }
