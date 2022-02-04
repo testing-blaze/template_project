@@ -31,6 +31,7 @@ Feature: Validate all scenarios related to opportunities
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
@@ -84,6 +85,7 @@ Feature: Validate all scenarios related to opportunities
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
@@ -128,6 +130,7 @@ Feature: Validate all scenarios related to opportunities
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |

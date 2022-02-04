@@ -285,6 +285,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
@@ -336,6 +337,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
@@ -418,6 +420,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
@@ -889,6 +892,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
@@ -1066,7 +1070,7 @@ Feature: Validate all scenarios related to announcement
     Then I see "Total Records:1" inside flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     #183616
     Then I softly see "Allocation" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
-    Then I softly see value "$500.00" for title "Allocation" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "$2,000.00" for title "Allocation" inside table "---tableID:-:AnnouncementInvitedApplicants---"
     #183619
     Then I softly see "Program Manager" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
     Then I softly see value "Jim bob" for title "Program Manager" inside table "---tableID:-:AnnouncementInvitedApplicants---"
@@ -1186,6 +1190,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
@@ -1405,6 +1410,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
@@ -1456,6 +1462,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
@@ -1505,6 +1512,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
