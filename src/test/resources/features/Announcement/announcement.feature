@@ -1522,3 +1522,74 @@ Feature: Validate all scenarios related to announcement
     And I softly see field "Status" as "Submitted for Approval"
     And I navigate to "Overview" sub tab
     Then I softly see "No records found" inside flex table with id "---tableID:-:AnnouncementFederalNGOProgram---"
+
+  @194290 @194291 @194294 @194289 @194295 @194297 @sprint-7 @userStory-189872
+  Scenario: Verify that the field is a dropdown with Yes/No
+  |Verify that the field is required on the create modal
+  |Verify that 'Pre-Award Risk Assessment Required?' field is read only on the announcement layout
+  |Verify that the field for 'Pre-Award Risk Assessment Required?'
+  |Verify That the field has help text saying:  "Are pre-award risk assessments (i.e. audit) forms required for all applications?  If yes, the pre-award risk assessment form must be included in the application forms package."
+  |Verify that the validation is: Setup Tab - 'Pre-Award Risk Assessment Required?' is set as 'Yes', then a Pre-Award Risk Assessment form must be included in the application forms package."
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+      #194290
+    Then I softly see "--None--:Yes:No" inside selectbox field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+      #194291
+    And I click modal button "Save and Continue"
+    Then I softly see the following messages in the page details contains:
+      | Pre-Award Risk Assessment Required? is required to save. |
+    When I enter value "Yes" into field "fieldRiskAssessment_Required__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+      #194294
+    And I click on "Edit" in the page details
+    And I softly see field "Pre-Award Risk Assessment Required?" as "Yes"
+    And I click on "Save" in the page details
+      #194289
+    Then I softly see field "Pre-Award Risk Assessment Required?" inside "Announcement Specific Settings" section
+      #194295
+    And I hovering mouse on help text icon inside page block detail "Pre-Award Risk Assessment Required?"
+    Then I softly see "Are pre-award risk assessments (i.e. audit) forms required for all applications?" shown as help text
+    Then I softly see " If yes, the pre-award risk assessment form must be included in the application forms package." shown as help text
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+      #194297
+    And I click on "Submit For Approval" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Setup Tab - If 'Pre-Award Risk Assessment Required?' is set as 'Yes', then a Pre-Award Risk Assessment form must be included in the application forms package. |
