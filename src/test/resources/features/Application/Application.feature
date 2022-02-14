@@ -199,7 +199,7 @@ Feature: Validate all scenarios related to application
     Then I softly see field "Allocation Amount" inside "Allocation, Admin, and Indirect Costs" section
      #181725
     Then I see only the following ordered page blocks :
-      | Allocation, Admin, and Indirect Costs | Allocations By School | Budget Periods | Budget Narrative |
+      | Allocation, Admin, and Indirect Costs | Allocations By School | Budget | Budget Narrative |
     #181749
     And I logout
     Given I am on "INTERNAL" portal
@@ -219,8 +219,8 @@ Feature: Validate all scenarios related to application
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationExternalTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationExternalTableId---"
     And I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$1,000"
 
@@ -329,8 +329,8 @@ Feature: Validate all scenarios related to application
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationExternalTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationExternalTableId---"
     And I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$1,000"
 
@@ -448,8 +448,8 @@ Feature: Validate all scenarios related to application
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationExternalTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationExternalTableId---"
     And I navigate to "Budget" sub tab
     Then I softly see field "Allocation Amount" as "$1,000"
 
@@ -882,7 +882,7 @@ Feature: Validate all scenarios related to application
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
     #183483
-    And I navigate to "Forms and Files" sub tab
+    And I navigate to "Files" sub tab
     Then I softly see "Forms" Panel Header
     #183484
     Then I see only the following ordered page blocks :
@@ -972,8 +972,8 @@ Feature: Validate all scenarios related to application
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationExternalTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationExternalTableId---"
     And I navigate to "Budget" sub tab
       #184011 #183996 #184009
     Then I softly see value "0160003" for title "School Code" inside table "---tableID:-:AllocationsBySchool---"
@@ -1099,6 +1099,7 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Review Initiated"
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
@@ -1276,6 +1277,7 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Review Initiated"
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
@@ -1574,6 +1576,7 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Review Initiated"
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
@@ -2019,7 +2022,7 @@ Feature: Validate all scenarios related to application
     And I click on "Save" in the page details
     Then I softly see field "Indirect Cost Taken" as "$0.00"
     #185437
-    Then I softly see field "Potential Indirect Cost Recovery" as "$65.22"
+    Then I softly see field "Potential Indirect Cost Recovery" as "$181.82"
 
   @185446 @185456 @185457 @185440 @sprint-4 @userStory-179376
   Scenario: Verify that If the Maximum Indirect Cost Rate field on the announcement is blank, then the system shows the organization's rate for the same Fiscal Year and rate type as selected on the announcement.
@@ -2082,10 +2085,10 @@ Feature: Validate all scenarios related to application
     #185446
     And I navigate to "Budget" sub tab
     Then I softly see field "Indirect Cost Rate" as "15.00%"
-    Then I softly see field "Potential Indirect Cost Recovery" as "$65.22"
+    Then I softly see field "Potential Indirect Cost Recovery" as "$260.87"
     #185456 #185457 #185440
     And I click on "Edit" in the page details
-    Then I softly see field "Potential Indirect Cost Recovery" as "$65.22"
+    Then I softly see field "Potential Indirect Cost Recovery" as "$260.87"
 
   @185443 @sprint-4 @userStory-179376
   Scenario: Verify that If the organization does not have an indirect cost rate of the type on the announcement for any year, and if the Maximum Indirect Cost Rate is not filled, then the rate is blank on the application.
@@ -2142,7 +2145,7 @@ Feature: Validate all scenarios related to application
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I navigate to "Budget" sub tab
-    Then I softly see field "Potential Indirect Cost Recovery" as "$0.00"
+    Then I softly see field "Potential Indirect Cost Recovery" as "$142.86"
 
   @185442 @sprint-4 @userStory-179376
   Scenario: Verify that If the organization does not have an indirect cost rate of the type on the announcement for any year, then the application should show the Maximum Indirect Cost Rate from the announcement.
@@ -2227,7 +2230,7 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Not Allowed" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
-    When I enter value "10" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    When I enter value "0" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I refresh the page
@@ -2353,7 +2356,6 @@ Feature: Validate all scenarios related to application
     #186344
     Then I softly do not see field "Country" inside "Primary Place of Performance" section
     #186342
-    Then I softly see field "Applicant Organization" inside "Information" section
     Then I softly see field "Address" inside "Information" section
     Then I softly see field "EIN" inside "Information" section
     Then I softly see field "UEI" inside "Information" section
@@ -2505,11 +2507,18 @@ Feature: Validate all scenarios related to application
     And I navigate to "Budget" sub tab
     Then I softly see that "Max Admin Cost Rate" rendered in view mode only
     #189027
-    And I softly see field "Total Budgeted Amount" as "$1,100.00"
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
+    When I enter value "1000" into field "fieldUnitPrice__c"
+    When I enter value "test" into field "fieldNarrative__c"
+    And I click modal button "Save"
+    And I softly see field "Total Budgeted Amount" as "$1000.00"
     Then I softly see that "Total Budgeted Amount" rendered in view mode only
     #189019
     And I click on "Edit" in the page details
-    When I enter value "200" into field " fieldSCDE_AdminCostTaken__c"
+    When I enter value "200" into field "fieldSCDE_AdminCostTaken__c"
     And I click on "Save" in the page details
     And I click on "Submit Application" in the page details
     Then I softly see the text containing :
@@ -2599,7 +2608,7 @@ Feature: Validate all scenarios related to application
     Then I softly see field "Max Admin Cost Rate" as ""
     #188991
     And I click on "Edit" in the page details
-    When I enter value "100" into field " fieldSCDE_AdminCostTaken__c"
+    When I enter value "100" into field "fieldSCDE_AdminCostTaken__c"
     And I click on "Save" in the page details
     And I click on "Submit Application" in the page details
     Then I softly see the text containing :
@@ -2768,7 +2777,6 @@ Feature: Validate all scenarios related to application
     #186428
     Then I softly do not see field "Country" inside "Primary Place of Performance" section
     #186426
-    Then I softly see field "Applicant Organization" inside "Information" section
     Then I softly see field "Address" inside "Information" section
     Then I softly see field "EIN" inside "Information" section
     Then I softly see field "UEI" inside "Information" section
@@ -2879,13 +2887,13 @@ Feature: Validate all scenarios related to application
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
     #189708
-    Then I softly see field "fieldSCDE_BudgetFor__c" inside "Add/Update Detailed Budget" section
+    Then I softly see field "Budget For" inside "Details" section
     #189465
     Then I softly do not see asterisk mark on "Cash Match"
     #189469
     Then I softly do not see asterisk mark on "Non Cash Match"
     #189449
-    Then I softly see field "fieldMST_Budget_Category__c" inside "Add/Update Detailed Budget" section
+    Then I softly see field "Object Code" inside "Details" section
     #189460
     When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
     When I enter value "2.111" into field "fieldQuantity__c"
@@ -2916,9 +2924,13 @@ Feature: Validate all scenarios related to application
     Then I softly see the following messages in the page details contains:
       | Quantity is Required to Save. |
     #189712
-    Then I softly see asterisk mark on "School"
+    When I enter value "2.111" into field "fieldQuantity__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | 'School' is required if 'Budget For' is Schoolwide. |
     #189713
     And I close modal by clicking the top right x button
+    And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
     When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
     When I enter value "2.111" into field "fieldQuantity__c"
@@ -3052,7 +3064,6 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Not Allowed" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
-    When I enter value "10" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I refresh the page
@@ -3122,7 +3133,6 @@ Feature: Validate all scenarios related to application
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Not Allowed" into field "fieldSCDE_Indirect_Cost_Type__c"
     When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
-    When I enter value "10" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I refresh the page
@@ -4420,6 +4430,10 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Submitted to Grantor"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
+    And I navigate to "Applications" tab
+    And I click toggle button to select "Applications - All"
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:InternalApplicationTableId---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:InternalApplicationTableId---"
     And I navigate to "Budget" tab
     #189731
     Then I softly can see top right button "Budget Summary" in flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -4507,6 +4521,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
     When I enter value "Testing" into field "fieldNarrative__c"
     When I enter value "100" into field "fieldUnitPrice__c"
+    When I enter value "Wright Middle" into field "fieldSchool__c"
     And I click modal button "Save"
     And I expand nested table containing column value "BP01"
    #191157
@@ -5048,7 +5063,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
     And I click on top right button "Initiate Revision" in flex table with id "---tableID:-:Reviews---"
@@ -5209,7 +5224,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -6147,7 +6162,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
     #Fiscal Review
@@ -6378,9 +6393,9 @@ Feature: Validate all scenarios related to application
     When I enter value "Initial" into field "DocumentSubType__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
     Then I softly see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
-   #191890
+    #191890
     And I click on "Delete" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
-    Then I softly see "No Records Found" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly do not see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
 
   @191787 @191789 @191799 @191790 @191791 @sprint-6 @userStory-190011
   Scenario: Verify that external user should be able to edit value in 'Indirect Cost Rate' field.
@@ -6917,7 +6932,7 @@ Feature: Validate all scenarios related to application
     And I pause execution for "2" seconds
     And I click on "Submit For Approval" in the page details
     #192191  #192194
-    Then I softly see the text containing :
+    Then I softly see the following messages in the page details contains:
       | Financials Tab - 'Fiscal Year' is required to Submit for Approval. |
 
   @192150 @192152 @192086 @192110 @192096 @192102 @192099 @192100 @192090 @192226 @192075 @192050 @192069 @192051 @192052 @192049 @192047 @192160 @192122 @sprint-6 @userStory-189635
@@ -7039,6 +7054,7 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Review Initiated"
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
@@ -7162,13 +7178,18 @@ Feature: Validate all scenarios related to application
     When I enter value "CCNA" into field "DocumentType__c"
     When I enter value "Initial" into field "DocumentSubType__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #192073
+    Then I softly can see row level action button "Upload" against "CCNA" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #192076
+    And I click on "Upload" icon for "In-Progress" inside flex table with id "---tableID:-:AnnualPlans---"
+    And I switch to iframe with id "AnnualPlansExternaliframeContentId"
+    When I upload file "EmptyFile.xlsx" into library
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | Attachment saved successfully. |
+    And I close modal by clicking the top right x button
     When I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
     Then I softly see value "Submitted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
-    #192073
-    Then I softly can see row level action button "Delete" against "Submitted" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
-    #192076
-    And I click on "Delete" icon for "Submitted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
-    Then I softly see "No Records Found" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
     #192101
     And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
     When I enter value "2018/19 - 2022/23" into field "FiveYearPeriod__c"
@@ -7244,7 +7265,7 @@ Feature: Validate all scenarios related to application
     Then I see only the following ordered page blocks :
       | Forms | Supporting Documents Checklist | Application Files | Notes |
     #191807
-    Then I softly see "Forms" Panel Header
+    Then I softly see "Forms" page block displayed
     #191805
     Then I see only the following ordered headers in table with id "---tableID:-:ApplicationForms---" :
       | Sequence Number | Form Name | Mandatory? | Is Form Validated? | Last Modified By | Last Modified Date | Actions |
@@ -7347,6 +7368,7 @@ Feature: Validate all scenarios related to application
     And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
@@ -7458,7 +7480,7 @@ Feature: Validate all scenarios related to application
     #193431
     Then I softly do not see asterisk mark on "Non Cash Match"
     #193426
-    Then I softly see field "fieldMST_Budget_Category__c" inside "Add/Update Detailed Budget" section
+    Then I softly see field "Object Code" inside "Details" section
     #193430
     When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
     When I enter value "2.111" into field "fieldQuantity__c"
@@ -7537,7 +7559,7 @@ Feature: Validate all scenarios related to application
       | 2016/17 | 2017/18 | 2018/19 | 2019/20 | 2020/21 | 2021/22 | 2022/23 |
      #191888
     And I click on "Delete" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
-    Then I softly see "No Records Found" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly do not see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
 
   @192374 @192301 @192549 @192548 @192348 @192515 @192541 @192537 @192534 @192528 @sprint-6 @userStory-190638
   Scenario: Verify School field is a required field on modal, when Schoolwide option is selected in the "Budget For" dropdown on the modal.
@@ -7615,13 +7637,16 @@ Feature: Validate all scenarios related to application
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
       #192374
+    When I enter value "2.111" into field "fieldQuantity__c"
     When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
-    Then I softly see asterisk mark on "School"
-      #192301
     When I enter value "Testing" into field "fieldNarrative__c"
-    When I enter value "10.11" into field "fieldCashMatch__c"
-    When I enter value "5.11" into field "fieldNonCashMatch__c"
     When I enter value "100.111" into field "fieldUnitPrice__c"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    And I click modal button "Save"
+    Then I softly see the following messages in the page details contains:
+      | School is required if 'Budget For' is Schoolwide |
+      #192301
+    When I enter value "Wright Middle" into field "fieldSchool__c"
     And I click modal button "Save"
     And I expand nested table containing column value "BP01"
     And I expand nested table containing column value "110 - General Instruction"
@@ -8072,7 +8097,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
     #Fiscal Review
@@ -8296,6 +8321,7 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Review Initiated"
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
@@ -8715,6 +8741,8 @@ Feature: Validate all scenarios related to application
     When I enter value "10.11" into field "fieldCashMatch__c"
     When I enter value "5.11" into field "fieldNonCashMatch__c"
     When I enter value "100.111" into field "fieldUnitPrice__c"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
     And I click modal button "Save"
     And I expand nested table containing column value "BP01"
     And I expand nested table containing column value "110 - General Instruction"
@@ -8975,7 +9003,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -9209,3 +9237,139 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Budget Report" in flex table with id "---tableID:-:ApplicationBudgetPeriod---"
     Then I softly see the text :
       | Budget Report |
+
+  @194222 @sprint-7 @userStory-192821
+  Scenario: Verify that the Potential Indirect Cost Recovery field is calculated by (Allocation Amount * Indirect Cost Rate) / (1 + Indirect Cost Rate)
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    When I enter value "project abstract" into field "fieldProjectAbstract__c"
+    When I enter value "checked" into field "fieldAcknowledgment4__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldTitle__c"
+    And I navigate to "Budget" sub tab
+    When I enter value "justification" into field "fieldJustification__c"
+    When I enter value "10" into field "fieldSCDE_IndirectCostTaken__c"
+    When I enter value "10" into field "fieldSCDE_AdminCostTaken__c"
+    And I click on "Save" in the page details
+    And I softly see field "Potential Indirect Cost Recovery" as "$260.87"
+
+  @194223 @sprint-7 @userStory-192821
+  Scenario: Verify that the Potential Indirect Cost Recovery field is calculated by (Total Budgeted Amount * Indirect Cost Rate) / (1 + Indirect Cost Rate)
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:CompetitiveAnnouncements---"
+    When I enter value "Competitive" into field "fieldAnnouncementType__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "1000" into field "fieldAwardCeiling__c"
+    When I enter value "1000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    When I enter value "project abstract" into field "fieldProjectAbstract__c"
+    When I enter value "checked" into field "fieldAcknowledgment4__c"
+    And I navigate to "Budget" sub tab
+    When I enter value "justification" into field "fieldJustification__c"
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
+    When I enter value "1000" into field "fieldUnitPrice__c"
+    When I enter value "test" into field "fieldNarrative__c"
+    And I click modal button "Save"
+    And I softly see field "Potential Indirect Cost Recovery" as "$130.43"
