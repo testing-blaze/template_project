@@ -49,6 +49,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -64,7 +73,7 @@ Feature: Validate all scenarios related to application
     #182264
     Then I softly see content of expected column "Sequence Number" is in "ASC" order of table id "---tableID:-:ApplicationForms---"
 
-  @182203 @182200 @182152 @sprint-2 @userStory-178223
+  @182203 @182200 @182152 @sprint-2 @userStory-178223 @sanity
   Scenario: Verify that the forms are listed in the ascending order by default
   |Verify that the forms are listed in the ascending order of the sequence numbers listed on the form package.
   |Verify that there is a 'Sequence Number' column (as the first column) on the Forms section of the Forms
@@ -111,6 +120,16 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -181,6 +200,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -222,7 +250,7 @@ Feature: Validate all scenarios related to application
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationExternalTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationExternalTableId---"
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$1,000"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
 
   @181750 @sprint-2 @userStory-179997
   Scenario: Verify that the allocation amount updates in application while application Status 'Submitted'
@@ -276,6 +304,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -308,9 +345,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I logout
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "PM" user
@@ -332,7 +371,7 @@ Feature: Validate all scenarios related to application
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationExternalTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationExternalTableId---"
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$1,000"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
 
   @181761 @sprint-2 @userStory-179997
   Scenario: Verify that the allocation amount updates in application while application Status 'Review Initiated'
@@ -384,6 +423,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -451,7 +499,7 @@ Feature: Validate all scenarios related to application
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationExternalTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationExternalTableId---"
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$1,000"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
 
   @181764 @sprint-2 @userStory-179997 @wip
   Scenario: Verify that the allocation amount should not updated in application while application Status 'Reviewed'
@@ -505,6 +553,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -537,9 +594,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -711,7 +770,7 @@ Feature: Validate all scenarios related to application
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I navigate to "Budget" sub tab
-    Then I softly see field "Allocation Amount" as "$1,000"
+    Then I softly see field "Allocation Amount" as "$1,000.00"
 
   @183467 @183470 @183472 @183465 @sprint-3 @userStory-181779 @UmangParekh
   Scenario: Verify that all Forms section is re-labeled to be "Forms" for External view
@@ -762,6 +821,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -839,6 +907,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -871,9 +948,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I logout
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "PM" user
@@ -943,6 +1022,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -1050,6 +1138,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -1082,9 +1179,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1228,6 +1327,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -1260,9 +1368,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1527,6 +1637,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -1559,9 +1678,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1746,6 +1867,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -1778,9 +1908,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1884,7 +2016,7 @@ Feature: Validate all scenarios related to application
     #187842
     And I softly see field "Status" as "Approved"
 
-  @185269 @185278 @185277 @sprint-4 @userStory-179376
+  @185269 @185278 @185277 @sprint-4 @userStory-179376 @sanity
   Scenario: Verify that the Application's Budget tab has a section labeled 'Allocation, Admin, and Indirect Costs'
   | Verify that The system shows the organization's rate for the same Fiscal Year and rate type as selected on the announcement.
   |Verify that 'indirect cost rate'  field is pre-populated for the Unrestricted Indirect Cost Rate Type selected on the announcement.
@@ -1934,6 +2066,16 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -1949,7 +2091,7 @@ Feature: Validate all scenarios related to application
       #185278 #185277
     Then I softly see field "Indirect Cost Rate" as "10.00%"
 
-  @185276 @185461 @185466 @185464 @185437 @sprint-4 @userStory-179376
+  @185276 @185461 @185466 @185464 @185437 @sprint-4 @userStory-179376 @sanity
   Scenario: Verify that 'indirect cost rate'  field is pre-populated for the Restricted Indirect Cost Rate Type selected on the announcement.
   |Verify that The field 'Indirect Cost Taken' in section 'Allocation, Admin, and Indirect Costs'
   |Verify that The field 'Indirect Cost Taken' in section 'Allocation, Admin, and Indirect Costs' is optional.
@@ -1998,6 +2140,16 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -2073,6 +2225,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -2135,6 +2296,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPA1" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -2191,6 +2361,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPA1" user
@@ -2250,6 +2429,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPA1" user
@@ -2328,6 +2516,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -2417,6 +2614,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -2492,6 +2698,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -2592,6 +2807,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -2671,6 +2895,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -2744,6 +2977,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -2872,6 +3114,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -3085,6 +3336,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -3152,6 +3412,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -3225,6 +3494,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -3303,6 +3581,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -3335,9 +3622,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -3432,6 +3721,15 @@ Feature: Validate all scenarios related to application
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
@@ -3464,9 +3762,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -3646,6 +3946,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -3679,9 +3988,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -3759,6 +4070,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -3792,9 +4112,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -3908,6 +4230,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -3941,9 +4272,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -4129,6 +4462,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -4161,9 +4503,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -4393,6 +4737,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -4425,9 +4778,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -4502,6 +4857,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -4613,6 +4977,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -4645,9 +5018,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -4799,6 +5174,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -4832,9 +5216,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -4973,6 +5359,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -5005,9 +5400,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -5167,6 +5564,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -5199,9 +5605,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -5431,6 +5839,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -5464,9 +5881,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -5535,6 +5954,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -5572,9 +6000,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -5654,6 +6084,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -5703,8 +6142,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I pause execution for "2" seconds
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -5803,6 +6245,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -5915,6 +6366,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -6072,6 +6532,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -6104,9 +6573,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -6448,6 +6919,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -6480,9 +6960,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -6587,6 +7069,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -6666,6 +7157,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -6752,6 +7252,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -6816,6 +7325,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -6848,9 +7366,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I pause execution for "4" seconds
-    And I click on "Submit Application" in the page details
+    And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | The 'Indirect Cost Rate' for your organization is not available. Contact EGMS support for assistance. |
 
@@ -7005,6 +7521,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -7037,9 +7562,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -7252,6 +7779,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -7325,6 +7861,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -7357,9 +7902,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -7461,6 +8008,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -7624,6 +8180,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -7733,6 +8298,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -7763,10 +8337,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I pause execution for "4" seconds
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
 
   @192908 @192906 @sprint-6 @userStory-190291
   Scenario: Verify that for formula announcement there is no validation checking that the requested amount is not below the subaward floor
@@ -7821,6 +8396,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -7853,10 +8437,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I pause execution for "4" seconds
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
 
   @192849 @192846 @sprint-6 @userStory-190291
   Scenario: Verify that I can submit my formula application with a total budgeted amount that is above the subaward ceiling
@@ -7911,6 +8496,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -7943,10 +8537,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I pause execution for "4" seconds
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
 
   @191906 @193106 @193105 @191893 @191892 @192825 @192832 @193361 @sprint-6 @userStory-187064
   Scenario: Verify that application Owner can see the status as 'Reviewed'
@@ -8007,6 +8602,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -8039,9 +8643,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -8272,6 +8878,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -8304,9 +8919,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -8435,6 +9052,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -8467,9 +9093,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -8586,6 +9214,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -8621,10 +9258,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I pause execution for "4" seconds
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -8722,6 +9360,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -8856,6 +9503,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -8888,9 +9544,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -9132,6 +9790,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -9206,6 +9873,15 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -9290,6 +9966,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -9352,6 +10037,15 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -9373,3 +10067,292 @@ Feature: Validate all scenarios related to application
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
     And I softly see field "Potential Indirect Cost Recovery" as "$130.43"
+
+  @196210 @196214 @196217 @196216 @196218 @196221 @196219 @196230 @196225 @196212 @196211 @sprint-8 @userStory-194296
+  Scenario:  Verify that for a CCNA , if there is an Update 4 that is already approved, external user can add a second Update 4 with the same Five-Year Period, Document Type, and Document Sub-Type.
+  | Verify error message for a CCNA , if external user create a new Update 4 line for a five-year period and there is already an Update 4 entry for the same five-year period in status: 'in-progress' entry
+  | Verify error message for a CCNA , if external user create a new Update 4 line for a five-year period and there is already an Update 4 entry for the same five-year period in status: 'retracted' entry
+  | Verify error message for a CCNA , if external user create a new Update 4 line for a five-year period and there is already an Update 4 entry for the same five-year period in status: 'submitted' entry
+  | Verify error message for an One Plan, if external user create a new Update 4 line for a five-year period and there is already an Update 4 entry for the same five-year period in status: 'in-progress' entry
+  | Verify error message for an One Plan, if external user create a new Update 4 line for a five-year period and there is already an Update 4 entry for the same five-year period in status: 'retracted' entry
+  | Verify error message for an One Plan, if external user create a new Update 4 line for a five-year period and there is already an Update 4 entry for the same five-year period in status: 'submitted' entry
+  | Verify error msg when external user add an entry for a second Update4 for the same Five-Year Period and Document Type, the School Year NOT subsequent to the school year from the previously approved Update 4 for the same Five-Year Period and Document Type.
+  | Verify that external user add an entry for a second Update 4 for the same Five-Year Period and Document Type, the School Year must be subsequent to the school year from the previously approved Update 4 for the same Five-Year Period and Document Type.
+  | Verify that external user can add any number of Update 4s for a given Five-Year Period if the previous Update 4 is approved.
+  | Verify that for an One Plan, if there is an Update 4 that is already approved, external user can add a second Update 4 with the same Five-Year Period, Document Type, and Document Sub-Type.
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 4" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+      #196210
+    Then I softly can see row level action button "Submit" against "In-Progress" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+      #196214
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 4" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text :
+      | A new entry for Update 4 for a given Five-Year Period can be added only after the existing Update 4 entry is either approved or a revision is requested |
+      #196217
+    And I refresh the page
+    When I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    And I click on "Retract" icon for "Submitted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Retracted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 4" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text :
+      | A new entry for Update 4 for a given Five-Year Period can be added only after the existing Update 4 entry is either approved or a revision is requested |
+      #196216
+    And I refresh the page
+    When I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Submitted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 4" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text :
+      | A new entry for Update 4 for a given Five-Year Period can be added only after the existing Update 4 entry is either approved or a revision is requested. |
+       #196218
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "One Plan" into field "DocumentType__c"
+    When I enter value "Update 4" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly can see row level action button "Submit" against "In-Progress" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "One Plan" into field "DocumentType__c"
+    When I enter value "Update 4" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text :
+      | A new entry for Update 4 for a given Five-Year Period can be added only after the existing Update 4 entry is either approved or a revision is requested. |
+      #196221
+    And I refresh the page
+    When I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    And I click on "Retract" icon for "Submitted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Retracted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "One Plan" into field "DocumentType__c"
+    When I enter value "Update 4" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text :
+      | A new entry for Update 4 for a given Five-Year Period can be added only after the existing Update 4 entry is either approved or a revision is requested. |
+      #196219
+    And I refresh the page
+    When I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Submitted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "One Plan" into field "DocumentType__c"
+    When I enter value "Update 4" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text :
+      | A new entry for Update 4 for a given Five-Year Period can be added only after the existing Update 4 entry is either approved or a revision is requested. |
+      #196230
+    And I refresh the page
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2020/21" into field "SchoolYear__c"
+    When I enter value "One Plan" into field "DocumentType__c"
+    When I enter value "Update 4" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly can see row level action button "Submit" against "In-Progress" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2020/21" into field "SchoolYear__c"
+    When I enter value "One Plan" into field "DocumentType__c"
+    When I enter value "Update 4" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text :
+      | For a given Five-Year Period, a new entry for Update 4 can only be added for a School Year that is subsequent to the School Year for which the last Update 4 entry was approved. |
+      #196225
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "One Plan" into field "DocumentType__c"
+    When I enter value "Update 4" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly can see row level action button "Submit" against "Update 4" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+      #196212 #196211
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2018/19" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 4" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly can see row level action button "Submit" against "In-Progress" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+
+  @196295 @196296 @197086 @sprint-8 @userStory-194659
+  Scenario: Verify that Internal user can delete any entry in the Annual Plans table if it is in 'Submitted' status.
+  | Verify that Internal user can NOT delete any entry in the Annual Plans table if it is in 'Approved' status.
+  | Verify that Internal user can NOT delete any entry in the Annual Plans table if it is in 'Revision Requested' status.
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2017/18 - 2021/22" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Submitted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2018/19 - 2022/23" into field "FiveYearPeriod__c"
+    When I enter value "2018/19" into field "SchoolYear__c"
+    When I enter value "One Plan" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I click on "Approve" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Approved" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2019/20 - 2023/24" into field "FiveYearPeriod__c"
+    When I enter value "2019/20" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I click on "Approve" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I click on "Request Revision" icon for "Approved" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Revision Requested" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I logout
+    Given I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "TEXAS BEAR CREEK STORAGE" in "---tableID:-:ApplicationSubrecipientOrganization---" panel
+    When I click on "View" icon for "TEXAS BEAR CREEK STORAGE" inside flex table with id "---tableID:-:ApplicationSubrecipientOrganization---"
+    And I navigate to "Annual Plans" sub tab
+    #196295
+    And I click on "Delete" icon for "Submitted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly do not see value "Submitted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    #196296
+    Then I softly cannot see row level action button "Delete" against "Approved" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #197086
+    Then I softly cannot see row level action button "Delete" against "Revision Requested" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+
+  @197123 @197122 @197121 @sprint-8 @userStory-194064
+  Scenario: Verify that 'Organization Roles' table  'Assignment Status' column is a required field in Edit mode
+  | Verify that as the external WAC user can see the 'Edit' action where external WAC user can edit 'Assignment Status' column
+  | Verify that in-line Edit action on an 'Organization Roles' table's action column
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+      #197123
+    Then I softly see asterisk mark on "Assignment Status"
+      #197122
+    Then I see the following options in dropdown field "fieldAssignmentStatus__c" :
+      | Active | Inactive |
+      #197121
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly can see row level action button "Edit" against "SPI Automation" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+
+  @196723 @196721 @196716 @sprint-8 @userStory-194244
+  Scenario: Verify that 'Organization Roles' table  'Assignment Status' column is a required field in Edit mode
+  | Verify that as the internal Admin user can see the 'Edit' action where internal admin can edit 'Assignment Status' column
+  | Verify that in-line Edit action button in an 'Organization Roles' table's action column
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "Admin" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "TEXAS BEAR CREEK STORAGE" in "---tableID:-:ApplicationSubrecipientOrganization---" panel
+    When I click on "View" icon for "TEXAS BEAR CREEK STORAGE" inside flex table with id "---tableID:-:ApplicationSubrecipientOrganization---"
+    When I click on "Edit" icon for "VD TestUser5" inside flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "None" into field "fieldAssignmentStatus__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    #196723
+    Then I softly see the text containing :
+      | Required Field Missing |
+    #196721
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    Then I see the following options in dropdown field "fieldAssignmentStatus__c" :
+      | Active | Inactive |
+    #196716
+    And I close modal by clicking the top right x button
+    Then I softly can see row level action button "Edit" against "VD TestUser5" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+
+  @196709 @196707 @196703 @196701 @196684 @196697 @196689 @196682 @sprint-8 @userStory-194060
+    Scenario: Verify that the Advanced Search options are enabled for the Organization Role table.
+    | Verify that 'Last Updated'  field shows the date/time for when the entry was last edited
+    | Verify that 'Organization Roles' table  'Assignment Status' column is a dropdown field
+    | Verify that 'Organization Roles' table  'Assignment Status' column is a required field
+    | Verify that 'Organization Roles' table  'Role' column is a required field
+    | Verify that on 'Organization Roles' table  'Assigned To' column is a required field
+    | Verify that 'Organization Roles' table 'Role' column is a dropdown field
+    | Verify that Internal Admin can 'Add' multiple lines (entries) to the 'Organization Roles' table
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "Admin" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "TEXAS BEAR CREEK STORAGE" in "---tableID:-:ApplicationSubrecipientOrganization---" panel
+    When I click on "View" icon for "TEXAS BEAR CREEK STORAGE" inside flex table with id "---tableID:-:ApplicationSubrecipientOrganization---"
+    And I softly see field "Status" as "Active"
+    When I perform quick search for "Program Coordinator" in "---tableID:-:ApplicationOrganizationRoles---" panel
+    #196709
+    Then I softly see value "Program Coordinator" for title "Role" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    #196707
+    When I click on "Edit" icon for "SPI Automation" inside flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    Then I softly see value "02/18/2022" for title "Last Updated" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    #196703
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    Then I see the following options in dropdown field "fieldAssignmentStatus__c" :
+      | Active | Inactive |
+    #196701
+    Then I softly see asterisk mark on "Assignment Status"
+    #196684
+    Then I softly see asterisk mark on "Role"
+    #196697
+    Then I softly see asterisk mark on "Assigned To"
+    #196689
+    Then I see the following options in dropdown field "fieldRole__c" :
+      | Program Coordinator | Program Approver | Fiscal Coordinator | Fiscal Approver | Authorized Official |
+    #196682
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPI WAC Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Program Approver" for title "Role" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    Then I softly see value "SPI WAC Automation" for title "Assigned To" inside table "---tableID:-:ApplicationOrganizationRoles---"
