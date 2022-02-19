@@ -52,7 +52,7 @@ public class UsersAndURL implements UsersController {
                 password = "GovGrants@2022";
                 break;
             case "PM":
-                password = "GovGrants@2022";
+                password = "GovGrants2022";
                 break;
             case "PO":
                 password = "GovGrants@2022";
@@ -61,7 +61,7 @@ public class UsersAndURL implements UsersController {
                 password = "GovGrants@2021";
                 break;
             default:
-                password = "GovGrants@2021";
+                password = "GovGrants@2022";
         }
         return password;
     }

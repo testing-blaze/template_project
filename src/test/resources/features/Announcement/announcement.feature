@@ -142,7 +142,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Save" in the page details
     Then I softly see field "Negotiations Allowed?" as "Yes"
 
-  @184024 @184098 @184183 @184188 @184175 @184179 @184185 @184180 @184182 @184096 @184138 @184090 @184133 @184134 @184131 @sprint-3 @userStory-175346
+  @184024 @184098 @184183 @184188 @184175 @184179 @184185 @184180 @184182 @184096 @184138 @184090 @184133 @184134 @184131 @sprint-3 @userStory-175346 @sanity
   Scenario: Verify the "Type" field is read-only in Information section under overview tab
   |Verify that new "Office" field is editable
   |Verify that "Indirect Cost Type" is dropdown field with the following options: Restricted, Unrestricted, Not Allowed

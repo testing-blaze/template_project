@@ -153,7 +153,7 @@ Feature: Validate all scenarios related to opportunities
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
     Then I softly see value "Automation Permanent External Program" for title "Program Title" inside table "---tableID:-:AnnouncementFederalNGOProgram---"
 
-  @194269 @194271 @194274 @sprint-7 @userStory-189874
+  @194269 @194271 @194274 @sprint-7 @userStory-189874 @sanity
   Scenario: Verify that the field for 'Pre-Award Risk Assessment Required?'
   |Verify that the field for 'Pre-Award Risk Assessment Required?' is read only
   |Verify that the field has help text for external users saying:  "Indicates whether a pre-award risk assessment (i.e. audit) is required as part of the application."

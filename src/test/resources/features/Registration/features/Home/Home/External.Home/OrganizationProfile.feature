@@ -18,7 +18,6 @@ Feature: Validate all scenarios related to organization profile
     Then I softly see confirmation box with body "Email sent successfully." is displayed
     And I close modal by clicking the top right x button
     #181127
-
     Then I softly see value "Invitation Sent" for title "Status" inside table "---tableID:-:OrganizationProfileContacts---"
     Then I softly can see row level action button "Send Invitation" against "test test" in flex table with id "---tableID:-:OrganizationProfileContacts---"
 
@@ -30,7 +29,7 @@ Feature: Validate all scenarios related to organization profile
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     Then I softly see field "Organization Type" as "Nonprofit Organization"
 
-  @182058 @182057 @182062 @182065 @182061 @182055 @182051 @182053 @182052 @182056 @182059 @182063 @182054 @sprint-2 @userStory-178204
+  @182058 @182057 @182062 @182065 @182061 @182055 @182051 @182053 @182052 @182056 @182059 @182063 @182054 @sprint-2 @userStory-178204 @sanity
   Scenario: Verify Description section has added  Maximum Users Allowed field
   |Verify Description section has added  Send Claims to SCEIS? field
   |Verify Last Audit Year is hidden on Additional Information section
@@ -49,12 +48,9 @@ Feature: Validate all scenarios related to organization profile
     And I navigate to "Home" tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
       #182058
-    And I click on "Edit" in the page details
-    Then I softly see that "Maximum Users Allowed" rendered in view mode only
     Then I softly see field "Maximum Users Allowed" as "9"
       #182057
-    Then I softly see field "*Send Claims to SCEIS?" as "No"
-    And I click on "Save" in the page details
+    Then I softly see field "Send Claims to SCEIS?" as "No"
       #182062
     Then I softly do not see field "Last Audit Year" inside "Additional Information" section
       #182065
