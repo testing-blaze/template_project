@@ -10356,3 +10356,152 @@ Feature: Validate all scenarios related to application
     And I click modal button "Save"
     Then I softly see value "Program Approver" for title "Role" inside table "---tableID:-:ApplicationOrganizationRoles---"
     Then I softly see value "SPI WAC Automation" for title "Assigned To" inside table "---tableID:-:ApplicationOrganizationRoles---"
+
+  @197072 @197078 @197083 @197079 @197085 @196434 @196437 @197073 @197087 @196433 @sprint-8 @userStory-192664
+  Scenario: Verify that  that Role field has dropdown with the following options: Program Coordinator, Program Approver,  Fiscal Coordinator,  Fiscal Approver,  Authorized Official
+  | Verify that 'Assigned To' is a required field
+  | Verify that 'Assignment Status' field has dropdown field with the following options: Active, Inactive
+  | Verify that 'Assignment Status' is a required field
+  | Verify that 'Last Updated' field shows the date/time for when the entry was last edited.
+  | Verify that only external WAC user can 'Add' multiple lines (entries) to the 'Organization Roles' table.
+  | Verify that the table has the 'Role' column which is required on submit
+  | Verify that the 'Program' is an optional field.
+  | Verify that Quick Search and Advanced Search options are enabled for the table
+  | Verify that the static instructional text of 'Organization Roles' section
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    #197072
+    Then I see the following options in dropdown field "fieldRole__c" :
+      | Program Coordinator | Program Approver | Fiscal Coordinator | Fiscal Approver | Authorized Official |
+    #197078
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+      | Assigned To is required to save. |
+    #197083
+    Then I see the following options in dropdown field "fieldAssignmentStatus__c" :
+      | Active | Inactive |
+    #197079
+    And I refresh the page
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPI WAC Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+      | Assignment Status is required to save. |
+    #197085
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    When I click on "Edit" icon for "Program Approver" inside flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    Then I softly see value "02/21/2022" for title "Last Updated" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    #196434
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Program Coordinator" for title "Role" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    #196437
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+      | Role is required to save. |
+    #197073
+    Then I softly do not see asterisk mark on "Program"
+    #197087
+    And I refresh the page
+    When I perform quick search for "SPI Automation" in "---tableID:-:ApplicationOrganizationRoles---" panel
+    Then I softly see value "SPI Automation" for title "Assigned To" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    #196433
+    Then I softly see the text containing :
+    | The organization's Web-Access Coordinator (WAC) can update role assignments in this section. A WAC can assign at least one 'Active' user for each of the following roles: Program Coordinator, Program Approver, Fiscal Coordinator, Fiscal Approver, and Authorized Official. Program Coordinators and Fiscal Coordinators can be assigned on a per program basis. Program Approvers can only be assigned on a per program basis. And, Fiscal Approvers and Authorized Officials can only be assigned on an organization level basis.  Only one Fiscal Approver and a single Authorized Official is allowed to be assigned at the organization level i.e. there cannot be more than one record in the table below with Assignment Status as 'Active' for Fiscal Approver and Authorized Official.  If there are no program-level Program or Fiscal Coordinators assigned below for a given program, then tasks will be assigned to the organization-level Program or Fiscal Coordinators.  If for a given role (e.g. Program Coordinator), all assigned user accounts are inactive or the user accounts are active but the assignment status for all users assigned for that role is inactive, then the system will not create any task (e.g. Revise Application task) for that role. When roles are updated below, the role on individual records (e.g. applications or progress reports) that are already created in the system are not updated. |
+
+  @191877 @191876 @191874 @191875 @191871 @191869 @191882 @191867 @191887 @191863 @sprint-8 @userStory-189862
+  Scenario: Verify "Document Sub-Type" field is a drop-down with options
+  | Verify "Document Type" column is a drop-down field with 2 options
+  | Verify "Five-Year Period" field should be a dropdown with five-year timespans listed
+  | Verify "School Name" column is a dropdown field with five-year timespans listed
+  | Verify all the columns available on the table are required on Save
+  | Verify external user should able to "Add" multiple lines / entries to the table
+  | Verify external user should able to see the Document Version for the plan
+  | Verify external user should see "Add" button on the table
+  | Verify external user should see "Upload", "Submit" & "Delete" actions on "Actions" column, when plan status = In-Progress.
+  | Verify external user should see a table with columns in the Annual Plan tab
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #191877
+    Then I see the following options in dropdown field "DocumentSubType__c" :
+      | Initial | Update 1 | Update 2 | Update 3 | Update 4 |
+    #191876
+    Then I see the following options in dropdown field "DocumentType__c" :
+      | CCNA | One Plan |
+    #191874
+    Then I see the following options in dropdown field "FiveYearPeriod__c" :
+      | 2016/17 - 2020/21 | 2017/18 - 2021/22 | 2018/19 - 2022/23 | 2019/20 - 2023/24 | 2020/21 - 2024/25 |
+    #191875
+    Then I see the following options in dropdown field "SchoolYear__c" :
+      | 2016/17 | 2017/18 | 2018/19 | 2019/20 | 2020/21 | 2021/22 | 2022/23 |
+    #191871
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text :
+      | Required Field Missing |
+    #191869
+    When I enter value "2017/18 - 2021/22" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    #191882
+    Then I softly see value "1" for title "Document Version" inside table "---tableID:-:ApplicationAnnualPlans---"
+    #191867
+    Then I softly can see top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #191887
+    Then I softly can see row level action button "Upload" against "In-Progress" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly can see row level action button "Submit" against "In-Progress" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly can see row level action button "Delete" against "In-Progress" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #191863
+    Then I see only the following ordered headers in table with id "---tableID:-:ApplicationAnnualPlans---" :
+      | Five-Year Period | School Year | Document Type | Document Sub-Type | Document Version | Status | Last Submitted By | Last Submitted On | Document Link | Actions |
+
+  @196454 @196436 @196448 @sprint-8 @userStory-194658
+  Scenario: Verify that CCNA user cannot skip an update that has an in-progress entry for the previous update for a given five-year period.
+  | Verify that external user can enter a CCNA with Document Sub -type -Initial
+  | Verify that for CCNA plane user should not be able to select the school year outside of the five-year period
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2016/17" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 2" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #196454
+    Then I softly see the text :
+      | For the selected Five-Year Period, you cannot skip an update. |
+    #196436
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Initial" for title "Document Sub-Type" inside table "---tableID:-:ApplicationAnnualPlans---"
+    #196448
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2022/23" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text :
+    | For the selected Five-Year One Plan, and Document Sub-Type, select a valid School Year. The School Year must align with the document sub-type being added for the five year period. |
