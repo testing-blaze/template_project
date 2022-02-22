@@ -14,6 +14,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -52,9 +53,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -87,6 +89,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -165,6 +168,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -203,9 +207,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -265,6 +270,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -307,9 +313,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -386,6 +393,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -428,9 +436,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -514,6 +523,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -556,9 +566,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -788,6 +799,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
@@ -826,9 +838,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -868,6 +881,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -910,9 +924,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -989,6 +1004,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -1099,6 +1115,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -1141,9 +1158,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -1288,6 +1306,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -1330,9 +1349,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -1598,6 +1618,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -1640,9 +1661,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -1828,6 +1850,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -1870,9 +1893,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -2030,6 +2054,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -2107,6 +2132,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -2191,6 +2217,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -2228,9 +2255,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -2263,6 +2291,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
@@ -2329,6 +2358,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
@@ -2397,6 +2427,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
@@ -2483,6 +2514,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -2521,9 +2553,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -2572,6 +2605,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "Yes" into field "fieldIsGoalsRequired__c"
@@ -2617,9 +2651,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -2657,6 +2692,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "Yes" into field "fieldIsGoalsRequired__c"
@@ -2703,9 +2739,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -2765,6 +2802,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "Yes" into field "fieldIsGoalsRequired__c"
@@ -2810,9 +2848,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -2853,6 +2892,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "Yes" into field "fieldIsGoalsRequired__c"
@@ -2898,9 +2938,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -2944,6 +2985,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -2982,9 +3024,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -3074,6 +3117,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "Yes" into field "fieldIsGoalsRequired__c"
@@ -3119,9 +3163,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -3302,6 +3347,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -3339,9 +3385,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -3380,6 +3427,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -3417,9 +3465,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -3461,6 +3510,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -3499,9 +3549,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -3542,6 +3593,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -3584,9 +3636,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -3681,6 +3734,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -3724,9 +3778,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -3907,6 +3962,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -3949,9 +4005,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -4031,6 +4088,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -4073,9 +4131,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -4191,6 +4250,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -4233,9 +4293,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -4423,6 +4484,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -4465,9 +4527,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -4698,6 +4761,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -4740,9 +4804,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -4817,6 +4882,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "Yes" into field "fieldIsGoalsRequired__c"
@@ -4862,9 +4928,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -4938,6 +5005,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -4980,9 +5048,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -5135,6 +5204,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -5177,9 +5247,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -5320,6 +5391,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -5362,9 +5434,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -5525,6 +5598,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -5567,9 +5641,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -5800,6 +5875,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -5842,9 +5918,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -5911,6 +5988,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "Yes" into field "fieldFocusAreaRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
@@ -5957,9 +6035,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -6040,6 +6119,7 @@ Feature: Validate all scenarios related to application
     When I enter value "1" into field "fieldGranteeMatch__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "Yes" into field "fieldFocusAreaRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
@@ -6087,9 +6167,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -6203,6 +6284,7 @@ Feature: Validate all scenarios related to application
     When I enter value "1" into field "fieldGranteeMatch__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "Yes" into field "fieldFocusAreaRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
@@ -6250,9 +6332,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -6326,6 +6409,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "Yes" into field "fieldIsGoalsRequired__c"
@@ -6371,9 +6455,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -6493,6 +6578,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -6535,9 +6621,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -6764,6 +6851,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -6884,6 +6972,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -6922,9 +7011,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -7032,6 +7122,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldFocusAreaRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
@@ -7072,9 +7163,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -7123,6 +7215,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldFocusAreaRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
@@ -7162,9 +7255,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -7216,6 +7310,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldFocusAreaRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
@@ -7255,9 +7350,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -7287,6 +7383,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -7328,9 +7425,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -7420,6 +7518,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -7482,6 +7581,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -7524,9 +7624,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -7744,6 +7845,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
@@ -7782,9 +7884,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -7822,6 +7925,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -7864,9 +7968,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -7968,6 +8073,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "Yes" into field "fieldIsGoalsRequired__c"
@@ -8013,9 +8119,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -8138,6 +8245,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "Yes" into field "fieldIsGoalsRequired__c"
@@ -8183,9 +8291,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -8301,9 +8410,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -8357,6 +8467,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -8399,9 +8510,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -8457,6 +8569,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -8499,9 +8612,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -8563,6 +8677,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -8605,9 +8720,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -8839,6 +8955,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -8881,9 +8998,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -9013,6 +9131,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -9055,9 +9174,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -9175,6 +9295,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -9217,9 +9338,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -9320,6 +9442,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "Yes" into field "fieldIsGoalsRequired__c"
@@ -9365,9 +9488,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -9464,6 +9588,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -9506,9 +9631,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -9751,6 +9877,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -9793,9 +9920,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -9836,6 +9964,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -9878,9 +10007,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -9927,6 +10057,7 @@ Feature: Validate all scenarios related to application
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -9969,9 +10100,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -10040,9 +10172,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
@@ -10264,9 +10397,10 @@ Feature: Validate all scenarios related to application
     Then I see the following options in dropdown field "fieldAssignmentStatus__c" :
       | Active | Inactive |
       #197121
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     Then I softly can see row level action button "Edit" against "SPI Automation" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
 
@@ -10278,9 +10412,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "INTERNAL" portal
@@ -10316,9 +10451,10 @@ Feature: Validate all scenarios related to application
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     And I logout
     Given I am on "INTERNAL" portal
@@ -10475,10 +10611,18 @@ Feature: Validate all scenarios related to application
     Then I see only the following ordered headers in table with id "---tableID:-:ApplicationAnnualPlans---" :
       | Five-Year Period | School Year | Document Type | Document Sub-Type | Document Version | Status | Last Submitted By | Last Submitted On | Document Link | Actions |
 
-  @196454 @196436 @196448 @sprint-8 @userStory-194658
+  @196454 @196436 @196448 @196465 @196466 @196471 @196468 @196469 @196470 @196441 @196474 @sprint-8 @userStory-194658
   Scenario: Verify that CCNA user cannot skip an update that has an in-progress entry for the previous update for a given five-year period.
   | Verify that external user can enter a CCNA with Document Sub -type -Initial
   | Verify that for CCNA plane user should not be able to select the school year outside of the five-year period
+  | Verify that CCNA user cannot skip an update that has an submitted entry for the previous update for a given five-year period.
+  | Verify that CCNA user cannot skip an update that has an retracted entry for the previous update for a given five-year period.
+  | Verify that for CCNA entry user cannot add the new back dated entry or a given CCNA that has an approved status
+  | Verify that for CCNA entry user cannot add the new back dated entry or a given CCNA that has an in-progress
+  | Verify that for CCNA entry user cannot add the new back dated entry or a given CCNA that has an submitted status
+  | Verify that for CCNA entry user cannot add the new back dated entry or a given CCNA that has an retract status
+  | Verify that the validation is displayed for correct school year on  CCNA for selected document subtype - initial
+  | Verify the "Five Year Period' column is in sorted descending order
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
@@ -10504,4 +10648,179 @@ Feature: Validate all scenarios related to application
     When I enter value "Initial" into field "DocumentSubType__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
     Then I softly see the text :
-    | For the selected Five-Year One Plan, and Document Sub-Type, select a valid School Year. The School Year must align with the document sub-type being added for the five year period. |
+      | For the selected Five-Year One Plan, and Document Sub-Type, select a valid School Year. The School Year must align with the document sub-type being added for the five year period. |
+    #196465
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2016/17" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 3" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    And I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Submitted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2016/17" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 2" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year Period, you cannot skip an update. |
+   #196466
+    And I click on "Retract" icon for "Submitted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Retracted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2016/17" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 3" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year Period, you cannot skip an update. |
+    #196471
+    And I click on "Approve" icon for "Retracted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Approved" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 1" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year Period, you cannot add a backdated CCNA or One Plan. |
+    #196468
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2016/17" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 1" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 1" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year Period, you cannot add a backdated CCNA or One Plan. |
+    #196469
+    And I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Submitted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2018/19- 2022/23" into field "FiveYearPeriod__c"
+    When I enter value "2019/20" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 1" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year Period, you cannot add a backdated CCNA or One Plan. |
+    #196470
+    And I click on "Retract" icon for "Submitted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Retracted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2018/19- 2022/23" into field "FiveYearPeriod__c"
+    When I enter value "2019/20" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 1" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year Period, you cannot add a backdated CCNA or One Plan. |
+    #196441
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17- 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year One Plan, and Document Sub-Type, select a valid School Year. The School Year must align with the document sub-type being added for the five year period. |
+    #196474
+    Then I softly see content of expected column "Five-Year Period" is in "DESC" order of table id "---tableID:-:ApplicationAnnualPlans---"
+
+  @197182 @197184 @197181 @197183 @197187 @197185 @197191 @197193 @sprint-8 @userStory-192665
+  Scenario: Verify that the external WAC user cannot select a Program for the Authorized Official role
+  | Verify that the external WAC user cannot select a Program for the Authorized Official role in Edit mode
+  | Verify that the external WAC user cannot select a Program for the Fiscal Approver role
+  | Verify that the external WAC user cannot select a Program for the Fiscal Approver role in Edit mode
+  | Verify that when external WAC user add a record on Organization Roles table, only one active assignment is allowed per Program at any time for the Program Approver role
+  | Verify that when external WAC user add a record on Organization Roles table, the Program selection is required for Program Approver
+  | Verify that when external WAC user can add a record on Organization Roles table, only one active assignment can be made for a given user for a given program for the Program Coordinator role.
+  | Verify that when external WAC user can edit a record on Organization Roles table, only one active assignment can be made for a given user for a given program for the Program Coordinator role.
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Authorized Official" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    #197182
+    Then I softly see the text containing :
+    | Program selection is not allowed the Authorized Official role, as this is an organization-level role. |
+    #197184
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0005" into field "fieldProgram__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+    | Program selection is not allowed for the Authorized Official role, as this is an organization-level role. |
+    #197181
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Approver" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+    | Program selection is not allowed for the Fiscal Approver role, as this is an organization-level role. |
+    #197183
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0005" into field "fieldProgram__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+    | Program selection is not allowed for the Fiscal Approver role, as this is an organization-level role. |
+    #197187
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Active" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+    | Only one Program Approver can be made active for each program at any time. |
+    #197185
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+    | Program selection is required for the Program Approver role. |
+    #197191 #197193
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Active" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+    | Program Coordinator role can only be assigned to a user one time for a given program. |
