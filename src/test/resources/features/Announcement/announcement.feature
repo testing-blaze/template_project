@@ -12,6 +12,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -32,6 +33,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
@@ -165,6 +167,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -220,6 +223,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     #183342
@@ -237,6 +241,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementContactsTable---"
@@ -323,6 +328,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
@@ -406,6 +412,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
@@ -462,6 +469,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -509,6 +517,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -528,6 +537,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -546,6 +556,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -564,6 +575,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
@@ -582,6 +594,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
@@ -602,6 +615,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
@@ -644,6 +658,7 @@ Feature: Validate all scenarios related to announcement
     #184201
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     And I hovering mouse on help text icon inside page block detail "Type"
@@ -679,6 +694,7 @@ Feature: Validate all scenarios related to announcement
     #183314 #183395
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     Then I softly see the following messages in the page details contains:
@@ -744,6 +760,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
@@ -790,6 +807,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
@@ -929,6 +947,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
@@ -977,6 +996,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
@@ -1053,6 +1073,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
@@ -1123,6 +1144,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
@@ -1176,6 +1198,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
@@ -1244,6 +1267,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
@@ -1286,6 +1310,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
@@ -1322,6 +1347,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
@@ -1356,6 +1382,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     And I navigate to "Financials" sub tab
@@ -1373,6 +1400,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
@@ -1397,6 +1425,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
@@ -1448,6 +1477,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
@@ -1498,6 +1528,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
