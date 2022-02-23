@@ -10738,7 +10738,7 @@ Feature: Validate all scenarios related to application
     #196474
     Then I softly see content of expected column "Five-Year Period" is in "DESC" order of table id "---tableID:-:ApplicationAnnualPlans---"
 
-  @197182 @197184 @197181 @197183 @197187 @197185 @197191 @197193 @sprint-8 @userStory-192665
+  @197182 @197184 @197181 @197183 @197187 @197185 @197191 @197193 @197190 @197186 @197174 @197173 @197172 @197178 @197177 @197175 @sprint-8 @userStory-192665
   Scenario: Verify that the external WAC user cannot select a Program for the Authorized Official role
   | Verify that the external WAC user cannot select a Program for the Authorized Official role in Edit mode
   | Verify that the external WAC user cannot select a Program for the Fiscal Approver role
@@ -10747,6 +10747,14 @@ Feature: Validate all scenarios related to application
   | Verify that when external WAC user add a record on Organization Roles table, the Program selection is required for Program Approver
   | Verify that when external WAC user can add a record on Organization Roles table, only one active assignment can be made for a given user for a given program for the Program Coordinator role.
   | Verify that when external WAC user can edit a record on Organization Roles table, only one active assignment can be made for a given user for a given program for the Program Coordinator role.
+  | Verify that when external WAC user edit the record on Organization Roles table, only one active assignment is allowed per Program at any time for the Fiscal Coordinator role
+  | Verify that when external WAC user edit the record on Organization Roles table, the Program selection is required for Program Approver.
+  | Verify that when the external WAC, Add entries in the Organization Roles table only one active assignment is allowed for the organization (ie, not assigned to a program) at any time for the Authorized Official Role.
+  | Verify that when the external WAC, Add entries in the Organization Roles table only one active assignment is allowed for the organization (ie, not assigned to a program) at any time for the Fiscal Approver Role
+  | Verify that when the external WAC, Add entries in the Organization Roles table only one active assignment is allowed for the organization (ie, not assigned to a program) at any time for the Fiscal Coordinator Role
+  | Verify that when the external WAC, Edit entries in the Organization Roles table only one active assignment is allowed for the organization (ie, not assigned to a program) at any time for the Authorized Official Role
+  | Verify that when the external WAC, Edit entries in the Organization Roles table only one active assignment is allowed for the organization (ie, not assigned to a program) at any time for the Fiscal Approver Role
+  | Verify that when the external WAC, Edit entries in the Organization Roles table only one active assignment is allowed for the organization (ie, not assigned to a program) at any time for the Fiscal Coordinator Role
     Given I am on "SUBPORTAL" portal
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
@@ -10824,3 +10832,167 @@ Feature: Validate all scenarios related to application
     And I click modal button "Save"
     Then I softly see the text containing :
     | Program Coordinator role can only be assigned to a user one time for a given program. |
+    #197190
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Coordinator" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Active" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+    | Only one Fiscal Coordinator can be made active for each program at any time. |
+    #197186
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+    | Program selection is required for the Program Approver role. |
+    #197174
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Authorized Official" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Active" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Authorized Official" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+    | Only one Authorized Official can be made active for the organization at any time.  |
+    #197173
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Approver" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Active" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Approver" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+    | Only one Fiscal Approver can be made active for the organization at any time. |
+    #197172
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Active" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+    | Only one Fiscal Coordinator can be made active for the organization at any time. |
+    #197178
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Authorized Official" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Inactive" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    When I click on "Edit" icon for "Authorized Official" inside flex table with id "ApplicationOrganizationRoles"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    Then I softly see the text containing :
+    | Only one Authorized Official can be made active for the organization at any time. |
+    #197177
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Approver" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Inactive" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    When I click on "Edit" icon for "Fiscal Approver" inside flex table with id "ApplicationOrganizationRoles"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    Then I softly see the text containing :
+    | Only one Fiscal Approver can be made active for the organization at any time. |
+    #197175
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Inactive" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    When I click on "Edit" icon for "Fiscal Coordinator" inside flex table with id "ApplicationOrganizationRoles"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    Then I softly see the text containing :
+    | Only one Fiscal Coordinator can be made active for the organization at any time. |
+
+  @196670 @1966635 @196680 @196646 @196654 @196660 @sprint-8 @userStory-194059
+  Scenario: Verify that the Advanced Search options are enabled for the Organization Role table
+  | Verify  that the Quick Search options are enabled for the Organization Role table
+  | Verify that the Organization Role table automatically sorts by the 'Assignment Status' column
+  | Verify that the Subrecipient Organization's profile has a new section called 'Organization Roles' on the Overview tab.  It is located after the Contacts section on the layout
+  | Verify that the static instructional text in Organization Role section
+  | Verify the Organization Role section's table columns
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Coordinator" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "TEXAS BEAR CREEK STORAGE" in "---tableID:-:ApplicationSubrecipientOrganization---" panel
+    When I click on "View" icon for "TEXAS BEAR CREEK STORAGE" inside flex table with id "---tableID:-:ApplicationSubrecipientOrganization---"
+    And I softly see field "Status" as "Active"
+    When I perform quick search for "Program Approver" in "---tableID:-:ApplicationOrganizationRoles---" panel
+    #196670
+    Then I softly see value "Program Approver" for title "Role" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    #196663
+    When I perform quick search for "Fiscal Coordinator" in "---tableID:-:ApplicationOrganizationRoles---" panel
+    Then I softly see value "Fiscal Coordinator" for title "Role" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    #196680
+    Then I softly see content of expected column "Assignment Status" is in "ASC" order of table id "---tableID:-:ApplicationOrganizationRoles---"
+    #196646
+    Then I see only the following ordered page blocks :
+      | Description | Additional Information | Additional Addresses | Contacts | Organization Roles | Approval Steps by Process | Third Party Verification | Indirect Rates | System Information |
+    #196654
+    Then I softly see the Instruction text in the page
+      | The sub-recipient (district, LEA) organization's Web-Access Coordinator (WAC) can update role assignments in this section. The WAC can assign at least one organization user for each organization role. Some role distinctions include:                                                                                                                                                   |
+      | Program Coordinators and Fiscal Coordinators can be assigned at the program-level or organization-level. The system will assign organization-level Fiscal Coordinators as approvers if there is no Fiscal Coordinator assigned for a program. Similarly, the system will assign tasks to organization-level Program Coordinator if there is no Program Coordinator assigned for a program. |
+      | Program Approvers can only be assigned at the program level.                                                                                                                                                                                                                                                                                                                               |
+      | Only one Fiscal Approver and one Authorized Official can be assigned for a given organization.                                                                                                                                                                                                                                                                                             |
+      | Also, please note the following:                                                                                                                                                                                                                                                                                                                                                           |
+      | The system considers only 'Active' assignments when allowing role-specific actions (e.g., creating an application) or assigning tasks.                                                                                                                                                                                                                                                     |
+      | If a user's account is inactive, the system will not assign any task based on the user's 'Active' assignments listed below.                                                                                                                                                                                                                                                                |
+      | Any new assignments made below will apply only to newly created records and tasks in the system. Therefore, updating the assignments below will not automatically update the existing assignments in the system within existing records. However, the WAC can use the 'Refresh' option in the individual records (e.g., application) to manually refresh the assignments, if needed.       |
+    #196660
+    Then I see only the following ordered headers in table with id "---tableID:-:ApplicationOrganizationRoles---" :
+      | Role | Program  | Assigned To | Assignment Status | Last Updated |
