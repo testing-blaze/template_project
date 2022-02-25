@@ -328,8 +328,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -342,10 +340,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -451,8 +445,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -465,10 +457,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -581,8 +569,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -595,10 +581,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -939,8 +921,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -953,10 +933,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -1173,8 +1149,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -1187,10 +1161,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -1364,8 +1334,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -1378,10 +1346,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -1676,8 +1640,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -1690,10 +1652,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -1908,8 +1866,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -1922,10 +1878,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -3651,8 +3603,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -3665,10 +3615,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -3792,8 +3738,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
@@ -3807,10 +3751,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -4020,8 +3960,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
@@ -4035,10 +3973,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -4146,8 +4080,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
@@ -4161,10 +4093,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -4308,8 +4236,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
@@ -4323,10 +4249,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -4542,8 +4464,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -4556,10 +4476,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -4819,8 +4735,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -4833,10 +4747,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -5063,8 +4973,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -5077,10 +4985,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -5262,8 +5166,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
@@ -5277,10 +5179,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -5449,8 +5347,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -5463,10 +5359,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -5656,8 +5548,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -5670,10 +5560,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -5933,8 +5819,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
@@ -5948,10 +5832,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -6050,8 +5930,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
@@ -6069,10 +5947,6 @@ Feature: Validate all scenarios related to application
      #190546
     And I expand nested table containing column value "BP01"
     Then I softly see value "$2,001.00" for title "Total Project Cost" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -6182,8 +6056,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
@@ -6213,10 +6085,6 @@ Feature: Validate all scenarios related to application
     #190543
     And I expand nested table containing column value "BP01"
     Then I softly see value "$2.00" for title "Total Match" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -6347,8 +6215,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
@@ -6636,8 +6502,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -6650,10 +6514,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -7026,8 +6886,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -7040,10 +6898,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -7440,8 +7294,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -7454,10 +7306,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -7639,8 +7487,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -7653,10 +7499,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -7983,8 +7825,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -7997,10 +7837,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -8425,8 +8261,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -8437,10 +8271,6 @@ Feature: Validate all scenarios related to application
     When I enter value "1000" into field "fieldUnitPrice__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -8525,8 +8355,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -8539,10 +8367,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -8627,8 +8451,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -8641,10 +8463,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -8735,8 +8553,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -8749,10 +8565,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -9013,8 +8825,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -9027,10 +8837,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -9189,8 +8995,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -9203,10 +9007,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -9353,8 +9153,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     When I enter value "Automation Runtime Announcement" into field "fieldTitle__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
@@ -9370,10 +9168,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "No" inside table
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -9646,8 +9440,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -9660,10 +9452,6 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
-    And I navigate to "Overview" sub tab
-    When I click on "Edit" icon for "State Coordinator" inside flex table with id "---tableID:-:ApplicationContacts---"
-    When I enter value "checked" into field "IsKeyContact__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationContacts---"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -9935,8 +9723,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     When I enter value "Automation Runtime Announcement" into field "fieldTitle__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
@@ -10022,8 +9808,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     When I enter value "Automation Runtime Announcement" into field "fieldTitle__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
@@ -10115,8 +9899,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     When I enter value "Automation Runtime Announcement" into field "fieldTitle__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
@@ -10187,8 +9969,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Qualified"
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
-    When I enter value "project abstract" into field "fieldProjectAbstract__c"
-    When I enter value "checked" into field "fieldAcknowledgment4__c"
     And I navigate to "Budget" sub tab
     When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
@@ -10996,3 +10776,233 @@ Feature: Validate all scenarios related to application
     #196660
     Then I see only the following ordered headers in table with id "---tableID:-:ApplicationOrganizationRoles---" :
       | Role | Program  | Assigned To | Assignment Status | Last Updated |
+
+  @196692 @196712 @196708 @196698 @sprint-8 @userStory-194060
+  Scenario: Verify that on 'Organization Roles' table  'Program' column is a optional field
+  | Verify that the Organization Role table automatically sorts by the 'Assignment Status' column (Internal Admin user)
+  | Verify that the Quick Search options are enabled for the Organization Role table (Internal Admin)
+  | Verify that 'Organization Roles' table  'Assigned To' column is a Quick Search field that finds all Active users for the subrecipient organization
+    When I login to "As a Grantor" app as "Admin" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "TEXAS BEAR CREEK STORAGE" in "---tableID:-:ApplicationSubrecipientOrganization---" panel
+    When I click on "View" icon for "TEXAS BEAR CREEK STORAGE" inside flex table with id "---tableID:-:ApplicationSubrecipientOrganization---"
+    And I softly see field "Status" as "Active"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    #196692
+    Then I softly do not see asterisk mark on "Program"
+    #196712
+    Then I softly see content of expected column "Assignment Status" is in "ASC" order of table id "---tableID:-:ApplicationOrganizationRoles---"
+    #196708
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Authorized Official" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    When I perform quick search for "Authorized Official" in "---tableID:-:ApplicationOrganizationRoles---" panel
+    Then I softly see value "Authorized Official" for title "Role" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    #196698
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    When I perform quick search for "Active" in "---tableID:-:ApplicationOrganizationRoles---" panel
+    Then I softly see value "Active" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+
+  @196954 @196951 @197658 @196971 @196964 @196976 @196978 @197666 @196972 @196933 @196932 @196928 @196946 @sprint-8 @userStory-194245
+  Scenario: Verify that the Internal Admin user cannot select a Program for the Authorized Official role
+  | Verify that the Internal Admin user cannot select a Program for the Fiscal Approver role
+  | Verify that when Internal Admin user add a record on Organization Roles table, only one active assignment is allowed per Program at any time for the Fiscal Coordinator role
+  | Verify that when Internal Admin user add a record on Organization Roles table, only one active assignment is allowed per Program at any time for the Program Approver role
+  | Verify that when Internal Admin user add a record on Organization Roles table, the Program selection is required for Program Approver
+  | Verify that when Internal Admin user can add a record on Organization Roles table, only one active assignment can be made for a given user for a given program for the Program Coordinator role.
+  | Verify that when Internal Admin user can edit a record on Organization Roles table, only one active assignment can be made for a given user for a given program for the Program Coordinator role.
+  | Verify that when Internal Admin user edit the record on Organization Roles table, only one active assignment is allowed per Program at any time for the Fiscal Coordinator role
+  | Verify that when Internal Admin user edit the record on Organization Roles table, only one active assignment is allowed per Program at any time for the Program Approver role
+  | Verify that when the internal Admin, Add entries in the Organization Roles table only one active assignment is allowed for the organization (ie, not assigned to a program) at any time for the Authorized Official Role
+  | Verify that when the internal Admin, Add entries in the Organization Roles table only one active assignment is allowed for the organization (ie, not assigned to a program) at any time for the Fiscal Approver Role
+  | Verify that when the internal Admin, Add entries in the Organization Roles table only one active assignment is allowed for the organization (ie, not assigned to a program) at any time for the Fiscal Coordinator Role
+  | Verify that when the internal Admin, Edit entries in the Organization Roles table only one active assignment is allowed for the organization (ie, not assigned to a program) at any time for the Authorized Official Role
+    When I login to "As a Grantor" app as "Admin" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "TEXAS BEAR CREEK STORAGE" in "---tableID:-:ApplicationSubrecipientOrganization---" panel
+    When I click on "View" icon for "TEXAS BEAR CREEK STORAGE" inside flex table with id "---tableID:-:ApplicationSubrecipientOrganization---"
+    And I softly see field "Status" as "Active"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Authorized Official" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    #196954
+    Then I softly see the text containing :
+      | Program selection is not allowed for the Authorized Official role, as this is an organization-level role. |
+    #196951
+    When I enter value "Fiscal Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0315" into field "fieldProgram__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+      | Program selection is not allowed for the Fiscal Approver role, as this is an organization-level role. |
+    #197658
+    When I enter value "Fiscal Coordinator" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Active" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Coordinator" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+      | Only one Fiscal Coordinator can be made active for each program at any time. |
+    #196971
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0315" into field "fieldProgram__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Active" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0315" into field "fieldProgram__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+      | Only one Program Approver can be made active for each program at any time. |
+    #196964
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+      | Program selection is required for the Program Approver role. |
+    #196976
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Active" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+      | Program Coordinator role can only be assigned to a user one time for a given program. |
+    #196978
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Inactive" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    When I click on "Edit" icon for "Program Coordinator" inside flex table with id "ApplicationOrganizationRoles"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    Then I softly see the text containing :
+      | Program Coordinator role can only be assigned to a user one time for a given program. |
+    #197666
+    When I enter value "Fiscal Coordinator" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Inactive" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    When I click on "Edit" icon for "Fiscal Coordinator" inside flex table with id "ApplicationOrganizationRoles"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    Then I softly see the text containing :
+      | Only one Fiscal Coordinator can be made active for each program at any time. |
+    #196972
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0315" into field "fieldProgram__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Inactive" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    When I click on "Edit" icon for "Program Approver" inside flex table with id "ApplicationOrganizationRoles"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    Then I softly see the text containing :
+      | Only one Program Approver can be made active for each program at any time. |
+    #196933
+    When I enter value "Authorized Official" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Active" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Authorized Official" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+      | Only one  Authorized Official can be made active for the organization at any time. |
+    #196932
+    When I enter value "Fiscal Approver" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Active" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Approver" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+      | Only one Fiscal Approver can be made active for the organization at any time. |
+    #196928
+    When I enter value "Fiscal Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Active" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+      | Only one Fiscal Coordinator can be made active for the organization at any time. |
+    #196946
+    When I enter value "Authorized Official" into field "fieldRole__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    Then I softly see value "Inactive" for title "Assignment Status" inside table "---tableID:-:ApplicationOrganizationRoles---"
+    When I click on "Edit" icon for "Authorized Official" inside flex table with id "ApplicationOrganizationRoles"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    Then I softly see the text containing :
+      | Only one Authorized Official can be made active for the organization at any time. |
+
+  @196432 @197074 @197076 @197094 @sprint-8 @userStory-192664
+  Scenario: Verify that Program is a lookup field that finds all Active Internal Programs
+  | Verify that Organization's profile has a new section called 'Organization Roles'  located after the Contacts section on the layout
+  | Verify that the modal has a column for 'Program Name' and the user can select any one program.
+  | Verify that the table automatically sorts by the 'Assignment Status' column.
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    #197074
+    When I perform quick search for "PG-SCDE-0005" in "---tableID:-:ApplicationOrganizationRolesModal---" panel
+    Then I softly see value "PG-SCDE-0005" for title "EGMS ID" inside table "---tableID:-:ApplicationOrganizationRolesModal---"
+    #196432
+    Then I see only the following ordered page blocks :
+      | Description | Additional Information | Additional Addresses | Contacts | Organization Roles | Approval Steps by Process | Indirect Rates | System Information |
+    #197076
+    Then I softly see field "Program" inside "Overview" section
+    #197094
+    Then I softly see content of expected column "Assignment Status" is in "ASC" order of table id "---tableID:-:ApplicationOrganizationRoles---"

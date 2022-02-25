@@ -111,9 +111,9 @@ Feature: Validate all scenarios related to internal program
     Then I see "As a Grantee" inside CustomApp dropDown not displayed
     Examples:
       | userType |
-      | EXE      |
+#      | EXE      |
       | FD       |
-      | FO       |
+#      | FO       |
       | PM       |
       | PO       |
 
@@ -210,7 +210,7 @@ Feature: Validate all scenarios related to internal program
     #188548
     Then I softly see "Review Response Shared" in flex table header "---tableID:-:InternalProgramReviewForms---"
     #188589
-    And I softly see field "Review Response Shared" as "Yes"
+    Then I softly see value "Yes" for title "Review Response Shared" inside table "---tableID:-:InternalProgramReviewForms---"
     #188600 #188607
     And I hovering mouse on help text icon inside page block detail "Review Response Shared"
     Then I softly see "Select 'No' to allow only the assigned reviewer and the announcement record owner (for any announcement created for this program) to view the review response provided for an application in this review step. To share the review response with all SCDE users, select 'YES'." shown as help text

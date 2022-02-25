@@ -179,7 +179,7 @@ Feature: Validate all scenarios related to organization profile
     When I enter value "Contact" into field "fieldLastName"
     When I enter value "(111) 222-3333" into field "fieldPhone"
     And I enter email id "testmailDrop" into field "fieldEmail"
-    When I enter value "Secondary" into field "fieldUserRole__c"
+    When I enter value "Primary" into field "fieldUserRole__c"
     When I enter value "1133 Fifteenth St. N.W., Suite 1000" into field "fieldMailingStreet"
     When I enter value "Washington" into field "fieldMailingCity"
     When I enter value "HI" into field "fieldState__c"
@@ -220,7 +220,7 @@ Feature: Validate all scenarios related to organization profile
     When I enter value "Contact" into field "fieldLastName"
     When I enter value "(111) 222-3333" into field "fieldPhone"
     And I enter email id "testmailDrop" into field "fieldEmail"
-    When I enter value "Secondary" into field "fieldUserRole__c"
+    When I enter value "Primary" into field "fieldUserRole__c"
     When I enter value "1133 Fifteenth St. N.W., Suite 1000" into field "fieldMailingStreet"
     When I enter value "Washington" into field "fieldMailingCity"
     When I enter value "HI" into field "fieldState__c"
@@ -238,11 +238,10 @@ Feature: Validate all scenarios related to organization profile
     Given I am on "SUBPORTAL" portal
     When I login as "SPIWAC" user
     And I navigate to "Home" tab
-    And I navigate to "Overview" sub tab
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
     #184128 #184124
     Then I see only the following ordered page blocks :
-      | Description | Additional Information | Additional Addresses | Contacts | Indirect Rates | System Information |
+      | Description | Additional Information | Additional Addresses | Contacts | Organization Roles | Approval Steps by Process | Indirect Rates | System Information |
     #184130
     Then I see only the following ordered headers in table with id "---tableID:-:SubOrgIndirectRates---" :
       | Indirect Cost Rate Type | Approved Indirect Cost Rate (%) | Fiscal Year |
