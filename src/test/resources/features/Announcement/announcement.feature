@@ -140,6 +140,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     Then I softly see field "Negotiations Allowed?" as "Yes"
@@ -288,6 +289,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "2000" into field "fieldAwardCeiling__c"
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I refresh the page
@@ -1126,7 +1128,6 @@ Feature: Validate all scenarios related to announcement
     Then I softly see the following messages in the page details contains:
       | Award Ceiling value should be greater than Award Floor |
     #183654
-    And I click on "Edit" in the page details
     When I enter value "400" into field "fieldTotalCommittedAmount__c"
     And I click on "Save" in the page details
     Then I softly see field "Estimated Total Funding" as "400"
@@ -1573,6 +1574,7 @@ Feature: Validate all scenarios related to announcement
     Then I softly see "--None--:Yes:No" inside selectbox field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
       #194291

@@ -258,7 +258,6 @@ Feature: Validate all scenarios related to subrecipient organization
   | Verify that only one Restricted Indirect Cost Rate Type per Fiscal Year (Negative Scenario)
   | Verify that only one Unrestricted Indirect Cost Rate Type per Fiscal Year
   | Verify that only one Unrestricted Indirect Cost Rate Type per Fiscal Year (Negative Scenario)
-
     When I login to "As a Grantor" app as "PM" user
     And I navigate to "Home" tab
     When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
@@ -282,7 +281,7 @@ Feature: Validate all scenarios related to subrecipient organization
     And I close modal by clicking the top right x button
     #184339
     Then I see only the following ordered page blocks :
-      | Description | Additional Information | Additional Addresses | Contacts | Indirect Rates | Third Party Verification | System Information |
+      | Description | Additional Information | Additional Addresses | Contacts | Organization Roles | Approval Steps by Process | Third Party Verification | Indirect Rates | System Information |
     #184341
     Then I see only the following ordered headers in table with id "---tableID:-:IndirectRatesApplication---" :
       | Indirect Cost Rate Type | Approved Indirect Cost Rate (%) | Fiscal Year | Actions |
