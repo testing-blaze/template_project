@@ -329,7 +329,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -346,6 +345,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -446,7 +446,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -463,9 +462,12 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted to Grantor"
+    And I click on "Back" in the page details
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -570,7 +572,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -587,6 +588,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -922,7 +924,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -939,6 +940,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -1150,7 +1152,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -1167,6 +1168,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -1335,7 +1337,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -1352,6 +1353,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -1641,7 +1643,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -1658,6 +1659,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -1867,7 +1869,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -1884,6 +1885,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -3604,7 +3606,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -3621,6 +3622,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -3739,7 +3741,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
@@ -3757,6 +3758,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -3961,7 +3963,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
@@ -3979,6 +3980,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -4081,7 +4083,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
@@ -4099,6 +4100,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -4237,7 +4239,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
@@ -4255,6 +4256,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -4465,7 +4467,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -4482,6 +4483,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -4736,7 +4738,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -4753,6 +4754,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -4974,7 +4976,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -4991,6 +4992,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -5167,7 +5169,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
@@ -5185,6 +5186,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -5348,7 +5350,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -5365,6 +5366,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -5549,7 +5551,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -5566,6 +5567,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -5820,7 +5822,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
@@ -5838,6 +5839,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -5931,7 +5933,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
@@ -5953,6 +5954,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -6057,7 +6059,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     When I enter value "0" into field "fieldSCDE_IndirectCostTaken__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
@@ -6091,6 +6092,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -6503,7 +6505,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -6520,6 +6521,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -6887,7 +6889,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -6904,6 +6905,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -7295,7 +7297,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -7312,6 +7313,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | The 'Indirect Cost Rate' for your organization is not available. Contact EGMS support for assistance. |
@@ -7488,7 +7490,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -7505,6 +7506,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -7826,7 +7828,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -7843,6 +7844,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -8262,7 +8264,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -8277,6 +8278,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -8356,7 +8358,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -8373,6 +8374,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -8452,7 +8454,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -8469,6 +8470,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -8554,7 +8556,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -8571,6 +8572,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -8826,7 +8828,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -8843,6 +8844,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -8996,7 +8998,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -9013,6 +9014,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -9155,7 +9157,6 @@ Feature: Validate all scenarios related to application
     And I click modal button "Save and Continue"
     When I enter value "Automation Runtime Announcement" into field "fieldTitle__c"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     When I enter value "10" into field "fieldSCDE_IndirectCostTaken__c"
     When I enter value "10" into field "fieldSCDE_AdminCostTaken__c"
     And I click on "Save" in the page details
@@ -9174,6 +9175,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -9441,7 +9443,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -9458,6 +9459,7 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
+    And I click on "Back" in the page details
     And I click on "Submit for Approval" in the page details
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
@@ -9970,7 +9972,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    When I enter value "justification" into field "fieldJustification__c"
     And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
@@ -11006,3 +11007,663 @@ Feature: Validate all scenarios related to application
     Then I softly see field "Program" inside "Overview" section
     #197094
     Then I softly see content of expected column "Assignment Status" is in "ASC" order of table id "---tableID:-:ApplicationOrganizationRoles---"
+
+  @197991 @197995 @197990 @197986 @197981 @197979 @sprint-8 @userStory-195721
+  Scenario: Verify that 'I Agree' is checked and is read-only
+  | Verify that I can Attach a document in the Supporting Documents section.
+  | Verify that the 'Acknowledgement' section on the Overview tab is read-only
+  | Verify that The following statement (static text) is shown:  "I hereby certify that the information provided is accurate and complete.
+  | Verify that the button opens a modal window with a section for the 'Acknowledgement'
+  | Verify that page level button called 'Complete Acknowledgement'.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Coordinator" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I navigate to "Overview" sub tab
+    #197991
+    Then I softly see value "checked" for title "I Agree" inside table "---tableID:-:ApplicationAcknowledgement---"
+    #197995
+    And I navigate to "Forms And Files" sub tab
+    Then I softly can see top right button "New" in flex table with id "---tableID:-:ApplicationSupportingDocuments---"
+    #197990
+    And I navigate to "Overview" sub tab
+    And I click on "Edit" in the page details
+    Then I softly see that "Acknowledgement" rendered in view mode only
+    #197986
+    And I click on "Complete Acknowledgement" in the page details
+    Then I softly see the text :
+      | I hereby certify that the information provided is accurate and complete. |
+    #197981
+    Then I softly see field "fieldTEXTAREAAcknowledgment4__c" inside "Acknowledgement" section
+    #197979
+    Then I softly can see top right button "Complete Acknowledgement" in page detail
+
+  @196546 @196542 @196541 @196549 @196548 @196547 @196550 @196534 @196529 @196530 @sprint-8 @userStory-195713
+  Scenario: Verify "Document Sub-Type" field is a drop-down with options
+  | Verify "Document Type" column is a drop-down field with 2 options
+  | Verify "Five-Year Period" field should be a dropdown with five-year timespans listed
+  | Verify "School Name" column is a dropdown field with five-year timespans listed
+  | Verify all the columns available on the table are required on Save
+  | Verify external user should able to "Add" multiple lines / entries to the table
+  | Verify external user should able to see the Document Version for the plan
+  | Verify external user should see "Add" button on the table
+  | Verify external user should see "Upload", "Submit" & "Delete" actions on "Actions" column, when plan status = In-Progress.
+  | Verify external user should see a table with columns in the Annual Plan tab
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #196546
+    Then I see the following options in dropdown field "DocumentSubType__c" :
+      | Initial | Update 1 | Update 2 | Update 3 | Update 4 |
+    #196542
+    Then I see the following options in dropdown field "DocumentType__c" :
+      | CCNA | One Plan |
+    #196541
+    Then I see the following options in dropdown field "FiveYearPeriod__c" :
+      | 2016/17 - 2020/21 | 2017/18 - 2021/22 | 2018/19 - 2022/23 | 2019/20 - 2023/24 | 2020/21 - 2024/25 |
+    #196549
+    Then I see the following options in dropdown field "SchoolYear__c" :
+      | 2016/17 | 2017/18 | 2018/19 | 2019/20 | 2020/21 | 2021/22 | 2022/23 |
+    #196548
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text :
+      | Required Field Missing |
+    #196547
+    When I enter value "2017/18 - 2021/22" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    #196550
+    Then I softly see value "1" for title "Document Version" inside table "---tableID:-:ApplicationAnnualPlans---"
+    #196534
+    Then I softly can see top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #196529
+    Then I softly can see row level action button "Upload" against "In-Progress" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly can see row level action button "Submit" against "In-Progress" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly can see row level action button "Delete" against "In-Progress" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #196530
+    Then I see only the following ordered headers in table with id "---tableID:-:ApplicationAnnualPlans---" :
+      | Five-Year Period | School Year | Document Type | Document Sub-Type | Document Version | Status | Last Submitted By | Last Submitted On | Document Link | Actions |
+
+  @198681 @198680 @198686 @199147 @198685 @198675 @198677 @198676 @198678 @198682 @198671 @sprint-8 @userStory-197015
+  Scenario: Verify that School field is lookup filters out facilities.
+  | Verify that the "School" field is a lookup to all schools associated with the organization.
+  | Verify that user can View the contact record after creating contact.
+  | Verify that "School" field is displayed on View contact modal
+  | Verify that validation message is displayed  if I select the System Role as 'School User', then I must select a School
+  | Verify that WAC user create new contact the modal is shows  Role field is updated to show the following dropdown options, in this order: i.  Primary  ii.  School User iii.  Non-User
+  | Verify that WAC user create new contact the modal shows 'System Role' has help text saying:   For contacts within your organization who you wish to become a user of the system, select 'Primary.' For a school contact within your district who you wish to be.
+  | Verify that WAC user create new contact the modal shows Role field is relabeled to be 'System Role'
+  | Verify that WAC user create new contact the modal shows new field for "School"
+  | Verify that WAC user new contact is created the modal shows the "Contact type" is hidden
+  | Verify that when WAC user create a new contact then the modal shows the Organization' field is updated to populate with the logged in users organization and is read-only.
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationContacts---"
+    #198681 #198680
+    When I click search icon for look up field "School" with clearing
+    When I perform quick search for "0160001" in "---tableID:-:ApplicationContactsModal---" panel
+    Then I softly see value "Abbeville High" for title "School Name" inside table "---tableID:-:ApplicationContactsModal---"
+    #198686
+    When I enter value "Automation" into field "fieldFirstName"
+    When I enter value "Testing" into field "fieldLastName"
+    When I enter value "(897) 898-7654" into field "fieldPhone"
+    And I enter email id "testmailDrop" into field "fieldEmail"
+    When I enter value "Primary" into field "fieldUserRole__c"
+    When I enter value "1133 Fifteenth St. N.W., Suite 1000" into field "fieldMailingStreet"
+    When I enter value "Washington" into field "fieldMailingCity"
+    When I enter value "HI" into field "fieldState__c"
+    When I enter value "67848" into field "fieldMailingPostalCode"
+    And I click modal button "Save"
+    And I close modal by clicking the top right x button
+    And I click on "View" icon for "Automation Testing" inside flex table with id "---tableID:-:ApplicationContacts---"
+    Then I softly see "View Contact" inside page block detail
+    #199147
+    Then I softly see field "School" inside "Contact Information" section
+    #198685
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationContacts---"
+    When I enter value "Automation" into field "fieldFirstName"
+    When I enter value "Engineer" into field "fieldLastName"
+    When I enter value "(997) 998-7654" into field "fieldPhone"
+    And I enter email id "testmail" into field "fieldEmail"
+    When I enter value "School User" into field "fieldUserRole__c"
+    When I enter value "1133 Fifteenth St. N.W." into field "fieldMailingStreet"
+    When I enter value "Washington" into field "fieldMailingCity"
+    When I enter value "AK" into field "fieldState__c"
+    When I enter value "47848" into field "fieldMailingPostalCode"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+      | If the 'System Role' for the contact is 'School User,' the school to which the contact belongs must be selected. |
+    #198675
+    Then I see the following options in dropdown field "fieldUserRole__c" :
+      | Primary  | School User | Non-User |
+    #198677
+    And I hovering mouse on help text icon inside page block detail "System Role"
+    Then I see "For contacts within your organization who you wish to become a user of the system, select 'Primary.' For a school contact within your district who you wish to become a user of the system, select 'School User.'" shown as help text
+    #198676
+    Then I softly see field "System Role" inside "Contact Information" section
+    #198678
+    Then I softly see field "School" inside "Contact Information" section
+    #198682
+    Then I softly do not see "Contact type" inside page block detail
+    #198671
+    Then I softly see field "Organization" as "TEXAS BEAR CREEK STORAGE"
+    Then I softly see that "Organization" rendered in view mode only
+
+  @196921 @198032 @197381 @196863 @196861 @196884 @196877 @196874 @196886 @196920 @196922 @196924 @196895 @196925 @sprint-8 @userStory-194813
+  Scenario: Verify external user (Prog Coordinator) should see the Fiscal Coordinator assigned to the organization is assigned for that approval step, if there is NO Fiscal Coordinator assigned to the program related to the application.
+  | Verify external user (Program Coordinator) should see the order of the steps properly
+  | Verify external user (Program Coordinator) should not able to create application and see validation, when two approval steps are assigned to the same user on the org
+  | Verify external user (Program Coordinator) should see a new section called "Approvers" under Responsibilities tab in application.
+  | Verify external user (Program Coordinator) should see a new tab "Responsibilities" on the application
+  | Verify external user (Program Coordinator) should see both Step1 & Step2 approvals on application, if org level approval Step is set to Step1 for  Fiscal Approver and Step2 for Program Approver for the application [Two step approval].
+  | Verify external user (Program Coordinator) should see both Step1 & Step2 approvals on application, if org level approval Step is set to Step1 for Program Approver and Step2 for Fiscal Approver for the application [Two step approval].
+  | Verify external user (Program Coordinator) should see only Step1 approval on application, if org level approval Step is set to Step1 for Fiscal Approver for the application [Single step approval].
+  | Verify external user (Program Coordinator) should see the approval step populates with the assigned user, if there is a Program Approver assigned to the program related to the application.
+  | Verify external user (Program Coordinator) should see the approver name on application, if on org table Fiscal Coordinator is assigned to the program related to the application.
+  | Verify external user (Program Coordinator) should see the Name as blank on application if there is a Fiscal Approver step set up in the Approval Steps table, and there is not a Fiscal Coordinator assigned to the program or to the organization
+  | Verify external user (Program Coordinator) should see the Name as blank on application, if assigned approver's user account is 'Inactive'
+  | Verify external user (Program Coordinator) should see the Name as blank on application's approval process, if there is no Program Approver assigned to the program related to the application.
+  | Verify the external user (Program Coordinator) should see the Approver's section help text
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Coordinator" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I navigate to "Responsibilities" sub tab
+    #196921 #198032
+    Then I softly see value "Fiscal Coordinator" for title "Name" inside table "---tableID:-:ApplicationApprovers---"
+    Then I softly see value "Step 2" for title "Approval Step" inside table "---tableID:-:ApplicationApprovers---"
+    #197381
+    When I click on "Edit" icon for "Step 1" inside flex table with id "---tableID:-:ApplicationApprovers---"
+    When I enter value "Fiscal Coordinator" into field "fieldRole__c"
+    When I click on "Save" in the page details
+    Then I softly see the text containing :
+      | The application cannot be created because two approval steps are assigned to the same user. Contact your organization's Web Accessibility Coordinator (WAC) to update the approval assignments before creating the application |
+    #196863
+    Then I softly see that "Approvers" rendered in view mode only
+    #196861
+    Then I softly can see "Responsibilities" sub tab at view detail page
+    #196884
+    Then I softly see value "Program Approver" for title "Name" inside table "---tableID:-:ApplicationApprovers---"
+    #196877
+    Then I softly see value "Step 1" for title "Approval Step" inside table "---tableID:-:ApplicationApprovers---"
+    #196874
+    Then I softly see value "Fiscal Coordinator" for title "Name" inside table "---tableID:-:ApplicationApprovers---"
+    #196886
+    Then I softly see value "Step 2" for title "Approval Step" inside table "---tableID:-:ApplicationApprovers---"
+    #196920
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Approver" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Active" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Applications" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    And I navigate to "Responsibilities" sub tab
+    Then I softly see value "Fiscal Approver" for title "Name" inside table "---tableID:-:ApplicationApprovers---"
+    #196922
+    Then I softly see value "Step 1" for title "Approval Step" inside table "---tableID:-:ApplicationApprovers---"
+    #196924
+    Then I softly see value "" for title "Name" inside table "---tableID:-:ApplicationApprovers---"
+    Then I softly see value "Step 2" for title "Approval Step" inside table "---tableID:-:ApplicationApprovers---"
+    #196895
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Fiscal Approver" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Applications" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    And I navigate to "Responsibilities" sub tab
+    Then I softly see value "" for title "Name" inside table "---tableID:-:ApplicationApprovers---"
+    #196925
+    And I hovering mouse on help text icon inside page block detail "Approvers"
+    Then I softly see "Approvers can be edited by the organization's WAC user, if needed." shown as help text
+
+  @190658 @190661 @190933 @190656 @190664 @190667 @190660 @190657 @189355 @189278 @sprint-5 @userStory-187894
+  Scenario: Verify announcement owner should see the review records for the review form in the Review section of the Review Step, when "Review Response Shared" is NO for a given review form within a review step
+  | Verify announcement user should see "Average Weighted Score" column in parent table and "Average Score" column in nested table in the Application section of the Review step, when "Review Response Shared" is NO for any review form within a review step.
+  | Verify announcement users (excluding assigned reviewer & announcement owner) should see "Average Weighted Score" column (parent table) and "Average Score" column (nested table), when "Review Response Shared" is YES for any review form within a review step.
+  | Verify the label name of  "Recommendations" column should get changed to "Requested Review(s)" in the Applications section (nested table) of Review Step page.
+  | Verify any internal user (excluding assigned reviewer and announcement owner) should view the completed review record for that review form, when 'Review Response Shared' flag is YES for a given review form within a review step.
+  | Verify any internal users (excluding assigned reviewer & announcement owner) should see "Average Weighted Score" column (parent table) and "Average Score" (nested table), when "Review Response Shared" is YES for any review form within a review step.
+  | Verify assigned reviewer should not see "Average Weighted Score" column in parent table and "Average Score" column in nested table in the Application section of Review step, when "Review Response Shared" is NO for any review form within a review step.
+  | Verify assigned reviewer should see the review records for the review form in the Review section of the Review Step, when "Review Response Shared" is NO for a given review form within a review step
+  | Verify internal user should see the "Review Response Shared" column in the Application section (nested table) of Review Step page.
+  | Verify internal user should see the "Review Response Shared" column in the Forms section of Review Step page
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I navigate to "Budget" sub tab
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
+    When I enter value "2000" into field "fieldUnitPrice__c"
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Wright Middle" into field "fieldSchool__c"
+    When I enter value "test" into field "fieldNarrative__c"
+    And I click modal button "Save"
+    And I navigate to "Forms and Files" sub tab
+    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
+    When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
+      | Participant’s Name | School Name | Role    | Stakeholder Representation |
+      | Automation         | Dixie High  | Teacher | School within District     |
+    And I click on "Save" in the page details
+    And I click on "Back" in the page details
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
+    And I logout
+    Given I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Applications" tab
+    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
+    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
+    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I navigate to "Related Log" sub tab
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    #190658
+    Then I softly see value "AP-SCDE-236" for title "Application EGMS ID" inside table "---tableID:-:Reviews---"
+    #190661
+    Then I see only the following ordered headers in table with id "---tableID:-:ApplicationFormsRevision---" :
+      | EGMS ID | Application Title | Applicant Organization | Minimum Reviews | Average Weighted Score | Decision Status | Application Status | Actions |
+    #190933 #190656
+    And I expand nested table containing column value "VD_TestOrg"
+    Then I see only the following ordered headers in table with id "---tableID:-:ReviewForms---" :
+      | Form Name | Reviews Assigned | Reviews Required | Requested Review(s) | Average Score | Minimum Number of Reviews Completed | Review Response Shared |
+    #190664
+    Then I softly see value "Checked" for title "Minimum Number of Reviews Completed" inside table "---tableID:-:ReviewForms---"
+    #190667
+    And I refresh the page
+    Then I softly see value "N/A" for title "Average Weighted Score" inside table "---tableID:-:ApplicationFormsRevision---"
+    #190660
+    And I expand nested table containing column value "VD_TestOrg"
+    Then I softly see value "N/A" for title "Average Score" inside table "---tableID:-:ReviewForms---"
+    #190657
+    And I refresh the page
+    Then I softly see value "Assigned" for title "Status" inside table "---tableID:-:Reviews---"
+    #189355
+    And I expand nested table containing column value "VD_TestOrg"
+    Then I softly see value "Yes" for title "Review Response Shared" inside table "---tableID:-:ReviewForms---"
+    #189278
+    And I click on "Back to Announcement" in the page details
+    And I navigate to "Setup" sub tab
+    Then I see only the following ordered headers in table with id "---tableID:-:ApplicationForms---" :
+      | form Name | Minimum Number of Reviews Required | Number of Applications | Form Weight(%) | Required? | Due in Days | Review Response Shared | Actions |
+
+  @198717 @198718 @198698 @198721 @198720 @198719 @198722 @sprint-8 @userStory-197138
+  Scenario: Verify that when I 'Edit' a contact that is not a user 'System Role' has help text saying: For contacts within your organization who you wish to become a user of the system, select 'Primary.' For a school contact within your district who you wish to be.
+  | Verify that when I 'Edit' a contact that is not a user and who is not yet invited to register, the modal  shows new field for "School".
+  | Verify that when I 'Edit' a contact that is not a user and who is not yet invited to register, the modal  shows Role field is relabeled to be 'System Role'.
+  | Verify that when I 'Edit' a contact that is not a user and who is not yet invited to register, the modal  shows the "Contact type" is hidden.
+  | Verify that School field is lookup filters out facilities.
+  | Verify that the "School" field is a lookup to all schools associated with the organization.
+  | Verify that validation message is displayed  if I select the System Role as 'School User', then I must select a School
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    And I navigate to "Home" tab
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationContacts---"
+    When I enter value "Automation" into field "fieldFirstName"
+    When I enter value "Testing" into field "fieldLastName"
+    When I enter value "(897) 898-7654" into field "fieldPhone"
+    And I enter email id "testmailDrop" into field "fieldEmail"
+    When I enter value "Non-User" into field "fieldUserRole__c"
+    When I enter value "1133 Fifteenth St. N.W., Suite 1000" into field "fieldMailingStreet"
+    When I enter value "Washington" into field "fieldMailingCity"
+    When I enter value "HI" into field "fieldState__c"
+    When I enter value "67848" into field "fieldMailingPostalCode"
+    And I click modal button "Save"
+    And I close modal by clicking the top right x button
+    And I click on "Edit" icon for "Automation Testing" inside flex table with id "---tableID:-:ApplicationContacts---"
+    And I hovering mouse on help text icon inside page block detail "System Role"
+    #198717
+    Then I softly see the text containing :
+      | For contacts within your organization who you wish to become a user of the system, select 'Primary.' For a school contact within your district who you wish to become a user of the system, select 'School User.' |
+    #198718
+    Then I softly see field "School" inside "Contact Information" section
+    #198698
+    Then I softly see field "System Role" inside "Contact Information" section
+    #198721
+    Then I softly do not see "Contact type" inside page block detail
+    #198720 #198719
+    When I click search icon for look up field "School" with clearing
+    When I perform quick search for "0160001" in "---tableID:-:ApplicationContactsModal---" panel
+    Then I softly see value "Abbeville High" for title "School Name" inside table "---tableID:-:ApplicationContactsModal---"
+    #198722
+    And I close modal by clicking the top right x button
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationContacts---"
+    When I enter value "Automation" into field "fieldFirstName"
+    When I enter value "Engineer" into field "fieldLastName"
+    When I enter value "(997) 998-7654" into field "fieldPhone"
+    And I enter email id "testmail" into field "fieldEmail"
+    When I enter value "School User" into field "fieldUserRole__c"
+    When I enter value "1133 Fifteenth St. N.W." into field "fieldMailingStreet"
+    When I enter value "Washington" into field "fieldMailingCity"
+    When I enter value "AK" into field "fieldState__c"
+    When I enter value "47848" into field "fieldMailingPostalCode"
+    And I click modal button "Save"
+    Then I softly see the text containing :
+      | If the 'System Role' for the contact is 'School User,' the school to which the contact belongs must be selected. |
+
+  @200239 @200263 @200254 @sprint-9 @userStory-197350
+  Scenario: Verify Notify button on Allocation By School section in Budget tab
+  | Verify that user can select Yes on warning message and the system completes the notification
+  | Verify that when user Notify a school, the 'Allow Budget Edits?' column is set to Yes.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I navigate to "Budget" sub tab
+    #200239
+    Then I softly can see top right button "Notify" in flex table with id "---tableID:-:ApplicationAllocationsBySchool---"
+    #200263
+    And I click on top right button "Notify" in flex table with id "---tableID:-:ApplicationAllocationsBySchool---"
+    Then I softly see value "Yes" for title "School Notified?" inside table "---tableID:-:ApplicationAllocationsBySchool---"
+    #200254
+    Then I softly see value "Yes" for title "Allow Budget Edits?" inside table "---tableID:-:ApplicationAllocationsBySchool---"
