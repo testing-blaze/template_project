@@ -181,7 +181,7 @@ Feature: Validate all scenarios related to application
     When I enter value "2000" into field "fieldAwardCeiling__c"
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
-    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "2021" into field "fieldSCDE_Fiscal_Year__c"
     When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
@@ -2184,7 +2184,7 @@ Feature: Validate all scenarios related to application
     When I enter value "2000" into field "fieldAwardCeiling__c"
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Restricted" into field "fieldSCDE_Indirect_Cost_Type__c"
-    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "2021" into field "fieldSCDE_Fiscal_Year__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I refresh the page
@@ -2771,7 +2771,7 @@ Feature: Validate all scenarios related to application
     When I enter value "2000" into field "fieldAwardCeiling__c"
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
-    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "2021" into field "fieldSCDE_Fiscal_Year__c"
     When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
@@ -3917,7 +3917,7 @@ Feature: Validate all scenarios related to application
     When I enter value "2000" into field "fieldAwardCeiling__c"
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
-    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "2021" into field "fieldSCDE_Fiscal_Year__c"
     When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
@@ -11667,3 +11667,127 @@ Feature: Validate all scenarios related to application
     Then I softly see value "Yes" for title "School Notified?" inside table "---tableID:-:ApplicationAllocationsBySchool---"
     #200254
     Then I softly see value "Yes" for title "Allow Budget Edits?" inside table "---tableID:-:ApplicationAllocationsBySchool---"
+
+  @199143 @199130 @199136 @199135 @199134 @199133 @199137 @199129 @199140 @199142 @sprint-9 @userStory-184842
+  Scenario: Verify that CCNA user cannot skip an update that has an in-progress entry for the previous update for a given five-year period.
+  | Verify that external user can enter a CCNA with Document Sub -type -Initial
+  | Verify that for CCNA plane user should not be able to select the school year outside of the five-year period
+  | Verify that CCNA user cannot skip an update that has an submitted entry for the previous update for a given five-year period.
+  | Verify that CCNA user cannot skip an update that has an retracted entry for the previous update for a given five-year period.
+  | Verify that for CCNA entry user cannot add the new back dated entry or a given CCNA that has an approved status
+  | Verify that for CCNA entry user cannot add the new back dated entry or a given CCNA that has an in-progress
+  | Verify that for CCNA entry user cannot add the new back dated entry or a given CCNA that has an submitted status
+  | Verify that for CCNA entry user cannot add the new back dated entry or a given CCNA that has an retract status
+  | Verify that the validation is displayed for correct school year on  CCNA for selected document subtype - initial
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I navigate to "Annual Plans" sub tab
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2016/17" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 2" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    #199143
+    Then I softly see the text :
+      | For the selected Five-Year Period, you cannot skip an update. |
+    #199130
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Initial" for title "Document Sub-Type" inside table "---tableID:-:ApplicationAnnualPlans---"
+    #199136
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2022/23" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text :
+      | For the selected Five-Year One Plan, and Document Sub-Type, select a valid School Year. The School Year must align with the document sub-type being added for the five year period. |
+    #199135
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2016/17" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 3" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    And I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Submitted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2016/17" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 2" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year Period, you cannot skip an update. |
+   #199134
+    And I click on "Retract" icon for "Submitted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Retracted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2016/17" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 3" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year Period, you cannot skip an update. |
+    #199133
+    And I click on "Approve" icon for "Retracted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Approved" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 1" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year Period, you cannot add a backdated CCNA or One Plan. |
+    #199137
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2016/17" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 1" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17 - 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 1" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year Period, you cannot add a backdated CCNA or One Plan. |
+    #199129
+    And I click on "Submit" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Submitted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2018/19- 2022/23" into field "FiveYearPeriod__c"
+    When I enter value "2019/20" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 1" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year Period, you cannot add a backdated CCNA or One Plan. |
+    #199140
+    And I click on "Retract" icon for "Submitted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see value "Retracted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2018/19- 2022/23" into field "FiveYearPeriod__c"
+    When I enter value "2019/20" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Update 1" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year Period, you cannot add a backdated CCNA or One Plan. |
+    #199142
+    And I click on top right button "Add" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    When I enter value "2016/17- 2020/21" into field "FiveYearPeriod__c"
+    When I enter value "2017/18" into field "SchoolYear__c"
+    When I enter value "CCNA" into field "DocumentType__c"
+    When I enter value "Initial" into field "DocumentSubType__c"
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    Then I softly see the text containing :
+      | For the selected Five-Year One Plan, and Document Sub-Type, select a valid School Year. The School Year must align with the document sub-type being added for the five year period. |
