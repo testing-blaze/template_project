@@ -12181,3 +12181,255 @@ Feature: Validate all scenarios related to application
     #198710
     And I click on top right button "Update Role Assignments" in flex table with id "---tableID:-:ApplicationApprovers---"
     Then I softly see value "Program Approver" for title "Name" inside table "---tableID:-:ApplicationApprovers---"
+
+  @198658 @198663 @199796 @sprint-9 @userStory-197009
+  Scenario: Verify that external user do not see section for the Project Information on the Overview tab of the application.
+  | Verify that validation for requiring Abstract on 'Submit for Approval' and 'Submit to Grantor' is disabled.
+  | Verify that validation for requiring Abstract on 'Submit to Grantor' is disabled.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I navigate to "Overview" sub tab
+    #198658
+    Then I softly do not see "Project Information" page block displayed
+    #198663
+    And I navigate to "Budget" sub tab
+    And I click on "Save" in the page details
+    And I expand nested table containing column value "BP01"
+    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
+    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
+    When I enter value "1" into field "fieldQuantity__c"
+    When I enter value "2000" into field "fieldUnitPrice__c"
+    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
+    When I enter value "Wright Middle" into field "fieldSchool__c"
+    When I enter value "test" into field "fieldNarrative__c"
+    And I click modal button "Save"
+    And I navigate to "Forms and Files" sub tab
+    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
+    When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
+      | Participant’s Name | School Name | Role    | Stakeholder Representation |
+      | Automation         | Dixie High  | Teacher | School within District     |
+    And I click on "Save" in the page details
+    And I click on "Back" in the page details
+    And I click on "Submit for Approval" in the page details
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    #199796
+    And I click on "Submit Application to Grantor" in the page details
+    And I softly see field "Status" as "Submitted"
+
+  @198994 @198991 @sprint-9 @userStory-197011
+  Scenario: Verify that if the announcement has the 'Budget Narrative Required?' setting as No, then the Budget Narrative section is  hidden on the application and the validation requiring budget narrative does not run.
+  | Verify that  if the announcement has the 'Budget Narrative Required?' setting as Yes, then the Budget Narrative section is shown on the application.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I navigate to "Budget" sub tab
+    #198994
+    Then I softly do not see "Budget Narrative" inside page block detail
+    #198991
+    And I logout
+    Given I am on "INTERNAL" portal
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "Yes" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I navigate to "Budget" sub tab
+    Then I softly see "Budget Narrative" inside page block detail
+
+  @198600 @198601 @sprint-8 @userStory-197020
+  Scenario: Verify the Contacts table on Subrecipient Organization's profile, as an internal user
+  | Verify the Subrecipient Contacts table on the left navigation as an internal user
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Home" tab
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "MAINE TIMBER MATS LLC" in "---tableID:-:SubrecipientOrganization---" panel
+    When I click on "View" icon for "MAINE TIMBER MATS LLC" inside flex table with id "---tableID:-:SubrecipientOrganization---"
+    #198600
+    Then I see only the following ordered headers in table with id "---tableID:-:ApplicationContacts---" :
+      | Name | System Role | School | Email | Phone | Status | Is User | Actions |
+    #198601
+    When I navigate to "Subrecipients" content inside "Organization" subheader on left panel
+    When I perform quick search for "TEXAS BEAR CREEK STORAGE" in "---tableID:-:SubrecipientOrganization---" panel
+    When I click on "View" icon for "TEXAS BEAR CREEK STORAGE" inside flex table with id "---tableID:-:SubrecipientOrganization---"
+    Then I see only the following ordered headers in table with id "---tableID:-:ApplicationContacts---" :
+      | Name | Organization | School | Email | Phone | System Role | Status | Is User | Actions |

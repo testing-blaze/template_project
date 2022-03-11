@@ -1626,3 +1626,61 @@ Feature: Validate all scenarios related to announcement
     And I click on "Submit For Approval" in the page details
     Then I softly see the following messages in the page details contains:
       | Setup Tab - If 'Pre-Award Risk Assessment Required?' is set as 'Yes', then a Pre-Award Risk Assessment form must be included in the application forms package. |
+
+  @199121 @199120 @199084 @199119 @199122 @199089 @199103 @199087 @sprint-9 @userStory-197010
+  Scenario: Verify that 'Budget Narrative Required?' field is on the announcement layout has  help text saying: Is an overall budget narrative required for all applications?
+  | Verify that 'Budget Narrative Required?' field is on the announcement layout is editable on the layout.
+  | Verify that 'Budget Narrative Required? is located after KPIs Required? and the rest of the fields move forward in placement
+  | Verify that 'Budget Narrative Required?' field is on the announcement layout is located after KPI's Required? and the rest of the fields move forward in placement
+  | Verify that 'Budget Narrative Required?' field is on the announcement layout is required on Submit
+  | Verify that 'Budget Narrative Required?' field is required to Save
+  | Verify that 'Budget Narrative Required?' field on the announcement layout
+  | Verify that 'Budget Narrative Required?' has dropdown field with options for Yes/No.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Competitive" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:CompetitiveAnnouncements---"
+    When I enter value "Competitive" into field "fieldAnnouncementType__c"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    And I navigate to "Overview" sub tab
+    #199121
+    And I hovering mouse on help text icon inside page block detail "Budget Narrative Required?"
+    Then I softly see "Is an overall budget narrative required for all applications? " shown as help text
+    #199120
+    Then I softly see fields "fieldIsBudgetNarrativeRequired__c" is in edit mode
+    #199084 #199119
+    Then I softly see field "Budget Narrative Required?" inside "Announcement Specific Settings" section
+    #199122 #199089
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I click on "Submit For Approval" in the page details
+    Then I softly see the text containing :
+    | Overview Tab - 'Budget Narrative Required?' field is required for submitting for approval. |
+    #199103
+    Then I softly see "Budget Narrative Required?" inside page block detail
+    #199087
+    Then I see the following options in dropdown field "fieldIsBudgetNarrativeRequired__c" :
+      | Yes | No |
