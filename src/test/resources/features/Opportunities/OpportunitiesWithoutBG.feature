@@ -29,7 +29,7 @@ Feature: Validate all scenarios related to opportunities
     When I enter value "2000" into field "fieldAwardCeiling__c"
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
-    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "2021" into field "fieldSCDE_Fiscal_Year__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I refresh the page
@@ -72,7 +72,7 @@ Feature: Validate all scenarios related to opportunities
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
-    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "Yes" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
@@ -118,7 +118,7 @@ Feature: Validate all scenarios related to opportunities
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
-    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "Yes" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
@@ -130,7 +130,7 @@ Feature: Validate all scenarios related to opportunities
     When I enter value "2000" into field "fieldAwardCeiling__c"
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
-    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "2021" into field "fieldSCDE_Fiscal_Year__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I refresh the page
@@ -184,7 +184,7 @@ Feature: Validate all scenarios related to opportunities
     When I enter value "2000" into field "fieldAwardCeiling__c"
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
-    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "2021" into field "fieldSCDE_Fiscal_Year__c"
     When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
@@ -238,7 +238,7 @@ Feature: Validate all scenarios related to opportunities
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
-    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "Yes" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
