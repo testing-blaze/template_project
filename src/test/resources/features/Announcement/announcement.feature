@@ -1684,3 +1684,132 @@ Feature: Validate all scenarios related to announcement
     #199087
     Then I see the following options in dropdown field "fieldIsBudgetNarrativeRequired__c" :
       | Yes | No |
+
+  @198907 @198898 @198896 @198899 @198900 @198919 @198917 @198918 @198920 @198901 @198908 @198905 @198906 @198916 @198915 @198897 @198911 @198913 @198903 @198909 @sprint-9 @userStory-197032
+  Scenario: Verify that if "Allocation Level" is "By Applicant and School" then the 'Invited Applicants and Allocations' table has Org Code (Org code associated to the applicant organization)
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has  Multi-record select box
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Allocation (Currency field allowing two decimals)
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Program Manager  (Text field 255 char limit)
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns School (Formula field showing school name associated with School Code)
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has the  Applicant (Name of the organization)
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has the following columns  Actions with Edit and Remove
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has the School Code (7 digit text field)
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Last Updated By i. The Last updated column shows the last updated date and time for each allocation entry
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Last Updated i.  The Last updated by column shows the name of the user who last updated the allocation entry
+  | Verify that there is no validation preventing the Allocation amount to be below the Subaward Floor amount or above the Subaward Ceiling amount.  Validation is running when Saving the Invited Applicants and Allocations table
+  | Verify that there is no validation preventing the Allocation amounts to be higher than the Estimated Total Funding
+  | Verify that if "Allocation Level" is "By Applicant and School" then the Invited Applicants and Allocations table has columns Last Updated By ii. I should not see the Last Updated By column in the downloaded Excel
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has  Actions with Edit and Remove
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has  Last Updated By  i. The Last updated column shows the last updated date and time for each allocation entry
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has  Program Manager  (Text field 255 char limit)
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Allocation (Currency field allowing two decimals)
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Applicant (Name of the organization)
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Multi-record select box
+  | Verify that if "Allocation Level" is "By Applicant" then the 'Invited Applicants and Allocations' table has Org Code (Org code associated to the applicant organization)
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    #198907
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I pause execution for "3" seconds
+    And I click modal button "Upload File"
+    And I pause execution for "3" seconds
+    Then I softly see "Org Code" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "1212" for title "Org Code" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    #198898
+    Then I see "Total Records:1" inside flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #198896
+    Then I softly see "Allocation" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "$2,000.00" for title "Allocation" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    #198899
+    Then I softly see "Program Manager" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "Jim bob" for title "Program Manager" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    #198900
+    Then I softly see "School" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "Wright Middle" for title "School" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    #198919
+    Then I softly see "Applicant" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "TEXAS BEAR CREEK STORAGE" for title "Applicant" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    #198917
+    Then I softly can see row level action button "Edit" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly can see row level action button "Remove" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #198918
+    Then I softly see "School Code" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "0160016" for title "School Code" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    #198920
+    Then I softly see "Last Updated" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    #198901
+    Then I softly see "Last Updated By" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "Automation PM" for title "Last Updated By" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    #198908
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "SortByApplicant.xlsx" into library
+    And I pause execution for "3" seconds
+    And I click modal button "Upload File"
+    And I pause execution for "3" seconds
+    And I navigate to "Financials" sub tab
+    When I enter value "32000" into field "fieldAwardFloor__c"
+    When I enter value "30000" into field "fieldAwardCeiling__c"
+    And I click on "Save" in the page details
+    Then I softly see the following messages in the page details contains:
+      | Award Ceiling value should be greater than Award Floor |
+    #198905
+    When I enter value "400" into field "fieldTotalCommittedAmount__c"
+    And I click on "Save" in the page details
+    Then I softly see field "Estimated Total Funding" as "400"
+    #198906
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    And I close modal by clicking the top right x button
+    Then I softly cannot see "Last Updated By" in downloaded xls or csv file "govgrants"
+    #198916
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I pause execution for "3" seconds
+    And I click modal button "Upload File"
+    And I pause execution for "3" seconds
+    Then I softly can see row level action button "Edit" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly can see row level action button "Remove" against "1212" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #198915
+    Then I softly see "Last Updated" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    #198897
+    Then I softly see "Program Manager" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "Jim bob" for title "Program Manager" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    #198911
+    Then I softly see "Allocation" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "$500.00" for title "Allocation" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    #198913
+    Then I softly see "Applicant" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "TEXAS BEAR CREEK STORAGE" for title "Applicant" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+    #198903
+    Then I see "Total Records:1" inside flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    #198909
+    Then I softly see "Org Code" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
+    Then I softly see value "1212" for title "Org Code" inside table "---tableID:-:AnnouncementInvitedApplicants---"

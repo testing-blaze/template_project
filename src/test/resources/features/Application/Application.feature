@@ -12433,3 +12433,152 @@ Feature: Validate all scenarios related to application
     When I click on "View" icon for "TEXAS BEAR CREEK STORAGE" inside flex table with id "---tableID:-:SubrecipientOrganization---"
     Then I see only the following ordered headers in table with id "---tableID:-:ApplicationContacts---" :
       | Name | Organization | School | Email | Phone | System Role | Status | Is User | Actions |
+
+  @198615 @199399 @198872 @198617 @sprint-8 @userStory-197028
+  Scenario: Verify external school user should not see application in the application list page, if the school user is not given an allocation for the same application.
+  | Verify external school user should not see Revisions or Negotiations or Reviews in the left navigation and no other links on its layout
+  | Verify external school user should see "View" in the action column of Application list page.
+  | Verify external school user should see the application list page table with columns
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Applications" tab
+    #198615
+    Then I softly do not see value "{SavedValue:Automation Runtime Announcement}" for title "Application Title" inside table "{tableID:ApplicationId}"
+    #199399
+    Then I softly cannot see row level action button "Revision" against "AP-SCDE-34" in flex table with id "---tableID:-:ApplicationId---"
+    #198872
+    Then I softly can see row level action button "View" against "AP-SCDE-34" in flex table with id "---tableID:-:ApplicationId---"
+    #198617
+    Then I see only the following ordered headers in table with id "---tableID:-:ApplicationId---" :
+      | EGMS ID | Application Title | District Program Coordinator | Project Period | Budget Open for Edits? | Actions |
+
+  @200260 @200269 @200258 @200351 @sprint-9 @userStory-197350
+  Scenario: Verify warning message when user Notify schools
+  | Verify that user can select No on warning message and the system does not completes the notification
+  | Verify that when user Notify a school, the 'Allow Budget Edits?' column is set to Yes.
+  | Verify that user select one or more schools and click on the Notify button
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I pause execution for "3" seconds
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    And I click modal button "Save and Continue"
+    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
+    When I enter value "test" into field "fieldAnnouncementDescription__c"
+    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
+    When I enter value "200" into field "fieldApplicationDueDate__c"
+    And I navigate to "Financials" sub tab
+    When I enter value "1000" into field "fieldAwardFloor__c"
+    When I enter value "2000" into field "fieldAwardCeiling__c"
+    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
+    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
+    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
+    And I click on "Save" in the page details
+    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
+    And I refresh the page
+    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
+      | Budget Period Name | Start Date | End Date |
+      | BP01               | 250        | 365      |
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Overview" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchoolCode.xlsx" into library
+    And I click modal button "Upload File"
+    And I pause execution for "2" seconds
+    And I navigate to "Setup" sub tab
+    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
+    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
+    And I click modal button "Save"
+    And I click on "Submit For Approval" in the page details
+    And I softly see field "Status" as "Submitted for Approval"
+    When I "Approve" in the approval decision
+    And I click on "Publish" in the page details
+    And I softly see field "Status" as "Published"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPIWAC" user
+    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
+    When I enter value "Program Approver" into field "fieldRole__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
+    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
+    And I click modal button "Save"
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPI" user
+    And I navigate to "Opportunities" tab
+    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
+    When I click on "Qualify" in the page details
+    And I softly see field "Status" as "Qualified"
+    And I click on "Create Application" in the page details
+    And I click modal button "Save and Continue"
+    And I navigate to "Budget" sub tab
+    #200260
+    And I click on top right button "Notify" in flex table with id "---tableID:-:ApplicationAllocationsBySchool---"
+    Then I softly see the text containing :
+      | Notifying schools will automatically enable schools to edit school budgets. Are you sure you want to proceed? |
+    #200269
+    And I click on top right button "Notify" in flex table with id "---tableID:-:ApplicationAllocationsBySchool---"
+    And I click modal button "No"
+    Then I softly see value "No" for title "School Notified?" inside table "---tableID:-:ApplicationAllocationsBySchool---"
+    #200258
+    Then I softly see value "Yes" for title "Allow Budget Edits?" inside table "---tableID:-:ApplicationAllocationsBySchool---"
+    #200351
+    And I click on top right button "Notify" in flex table with id "---tableID:-:ApplicationAllocationsBySchool---"
+    And I click modal button "Yes"
+    Then I softly see value "Yes" for title "School Notified?" inside table "---tableID:-:ApplicationAllocationsBySchool---"
