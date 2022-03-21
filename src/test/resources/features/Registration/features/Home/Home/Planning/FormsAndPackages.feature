@@ -21,6 +21,17 @@ Feature: Validate all scenarios related to forms and packages
     #182136
     Then I softly do not see asterisk mark on "Sequence Number"
     #182133
+    And I refresh the page
+    And I click on top right button "New Package" in flex table with id "---tableID:-:Packages---"
+    When I enter value "Automation Testing" into field "fieldName"
+    When I enter value "Application" into field "fieldGNT__SubmissionType__c"
+    When I enter value "In Progress" into field "fieldGNT__Status__c"
+    And I click modal button "Associate Forms"
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AssociateForms---"
+    When I perform quick search for "JSTestForm1" in "---tableID:-:AddForms---" panel
+    And I check "JSTestForm1" boxes in flex table with id "---tableID:-:AddForms---"
+    And I click on top right button "Add Forms" in flex table with id "---tableID:-:AddForms---"
+    And I close modal by clicking the top right x button
     And I click on "Edit" icon for "JSTestForm1" inside flex table with id "---tableID:-:AssociateFormsModal---"
     When I enter value "2" into field "SCDE_SequenceNumber__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:AssociateFormsModal---"

@@ -45,4 +45,9 @@ public class InternalOrganizatioSteps extends ProjectWebServices {
     public void deleteTestData(String recordName, String objectType) {
         internalOrganizationPage.deletionApi(recordName, objectType);
     }
+
+    @When("^I hovering mouse on page block help text icon inside table \"([^\"]*)\" with tooltip id \"([^\"]*)\"$")
+    public void getHelpTextAtPageBlock(String tableId, String toolTipId) {
+        internalOrganizationPage.getHelpTextAtPageBlockOrInsideTable(tableId, toolTipId);
+    }
 }

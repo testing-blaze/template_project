@@ -21,9 +21,9 @@ Feature: Validate all scenarios related to internal program with background
     And I click on "Save" in the page details
     And I navigate to "Overview" sub tab
     And I click on top right button "Associate" in flex table with id "{tableID:InternalProgramContacs}"
-    And I perform quick search for "Automation PM" in "{tableID:InternalProgramContacs}" panel
-    And I check "Automation PM" boxes in flex table with id "{tableID:InternalProgramContacs}"
-    And I click on top right button "Associate" in flex table with id "{tableID:InternalProgramContacs}"
+    And I perform quick search for "Automation PM" in "{tableID:InternalProgramContact}" panel
+    And I check "Automation PM" boxes in flex table with id "{tableID:InternalProgramContact}"
+    And I click on top right button "Associate" in flex table with id "{tableID:InternalProgramContact}"
     When I click on "Edit" icon for "Automation PM" inside flex table with id "{tableID:InternalProgramContacs}"
     When I enter value "State Coordinator" into field "ProjectRole__c"
     And I click on top right button "Save" in flex table with id "{tableID:InternalProgramContacs}"
