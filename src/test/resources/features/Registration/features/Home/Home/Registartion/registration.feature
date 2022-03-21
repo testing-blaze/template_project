@@ -146,14 +146,14 @@ Feature: Validate all scenarios related to registration
     And I enter value "12345" into field "fieldPaymentAddressZipCode__c"
     When I click on "Save" in the page details
       #179912
-    Then I softly see "Web Accessibility Coordinator Information (WAC)" page block displayed
+    Then I softly see "Web-Access Coordinator (WAC)" page block displayed
       #179913
     Then I softly do not see field "Country" inside "Web Accessibility Coordinator Information (WAC)" section
       #179294
     Then I softly see "Organization Representative:" page block displayed
       #179911
     Then I softly see the text :
-      | To continue this registration, the following user profile information is required.  Upon approval of this registration request, the account information will be sent through email to the Web Accessibility Coordinator (WAC). |
+      | To continue this registration, the following user profile information is required.  Upon approval of this registration request, the account information will be sent through email to the Web-Access Coordinator (WAC). |
       | The WAC is the authorized representative for the organization and is responsible for adding additional users and assigning roles.                                                                                              |
 
   @181689 @179289 @sprint-1 @userStory-176381
@@ -187,7 +187,7 @@ Feature: Validate all scenarios related to registration
     When I enter value as "ZLP4KVER3S75" into "Unique Entity Identifier (UEI)" on old form
     When I enter value as "123456807" into "Employer Identification Number (EIN)" on old form
     When I click on "Verify Information" in the page details
-    And I pause execution for "2" seconds
+    And I pause execution for "5" seconds
     When I click on "Save and Continue" in the page details
     #183979
     Then I softly see that "4-Digit Zip Code Extension" rendered in view mode only

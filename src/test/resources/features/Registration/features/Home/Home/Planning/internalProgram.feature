@@ -212,7 +212,7 @@ Feature: Validate all scenarios related to internal program
     #188589
     Then I softly see value "Yes" for title "Review Response Shared" inside table "---tableID:-:InternalProgramReviewForms---"
     #188600 #188607
-    And I hovering mouse on help text icon inside page block detail "Review Response Shared"
+    When I hovering mouse on page block help text icon inside table "---tableID:-:InternalProgramReviewForms---" with tooltip id "ReviewResponseShared__ca0R3R000000hf91UAAFlexGridtooltip"
     Then I softly see "Select 'No' to allow only the assigned reviewer and the announcement record owner (for any announcement created for this program) to view the review response provided for an application in this review step. To share the review response with all SCDE users, select 'YES'." shown as help text
     #188576
     When I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:InternalProgramReviewForms---"

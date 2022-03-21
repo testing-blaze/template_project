@@ -89,4 +89,8 @@ public class InternalOrganizationPage extends ProjectManager {
             return false;
         }
     }
+
+    public void getHelpTextAtPageBlockOrInsideTable(String tableId, String toolTipId) {
+        I.amPerforming().scroll().toMoveToElement(By.xpath("//div[@id='" + tableId + "']//a[@id='" + toolTipId + "']//span[contains(@class,'fa-info')]"));
+    }
 }

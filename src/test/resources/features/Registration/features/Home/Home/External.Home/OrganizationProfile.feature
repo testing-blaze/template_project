@@ -56,7 +56,7 @@ Feature: Validate all scenarios related to organization profile
       #182065
     Then I softly do not see "Active Child Organizations" page block displayed
       #182061
-    Then I softly see field "Web Accessibility Coordinator (WAC)" inside "Additional Information" section
+    Then I softly see field "Web-Access Coordinator (WAC)" inside "Additional Information" section
       #182055
     Then I softly do not see field "Country" inside "Description" section
     Then I softly do not see field "Congressional District" inside "Description" section
@@ -114,7 +114,6 @@ Feature: Validate all scenarios related to organization profile
     Then I softly see fields "fieldMailingStreet" is in edit mode
     Then I softly see fields "fieldMailingCity" is in edit mode
     Then I softly see fields "fieldAddress2__c" is in edit mode
-    Then I softly see fields "fieldMailingState" is in edit mode
     Then I softly see fields "fieldMailingPostalCode" is in edit mode
     #181142
     Then I softly see that "fieldFirstName" rendered in view mode only
@@ -179,7 +178,7 @@ Feature: Validate all scenarios related to organization profile
     When I enter value "Contact" into field "fieldLastName"
     When I enter value "(111) 222-3333" into field "fieldPhone"
     And I enter email id "testmailDrop" into field "fieldEmail"
-    When I enter value "Non User" into field "fieldUserRole__c"
+    When I enter value "Non-User" into field "fieldUserRole__c"
     When I enter value "1133 Fifteenth St. N.W., Suite 1000" into field "fieldMailingStreet"
     When I enter value "Washington" into field "fieldMailingCity"
     When I enter value "HI" into field "fieldState__c"
@@ -220,7 +219,7 @@ Feature: Validate all scenarios related to organization profile
     When I enter value "Contact" into field "fieldLastName"
     When I enter value "(111) 222-3333" into field "fieldPhone"
     And I enter email id "testmailDrop" into field "fieldEmail"
-    When I enter value "Non User" into field "fieldUserRole__c"
+    When I enter value "Non-User" into field "fieldUserRole__c"
     When I enter value "1133 Fifteenth St. N.W., Suite 1000" into field "fieldMailingStreet"
     When I enter value "Washington" into field "fieldMailingCity"
     When I enter value "HI" into field "fieldState__c"
@@ -280,7 +279,7 @@ Feature: Validate all scenarios related to organization profile
   |Verify that external user see the validation message if it creates a new line with a Five-year period, school year, document type, and document sub-type combination that already exists in a previous 'in-progress'
   |Verify that external user see the validation message if it creates a new line with a Five-year period, school year, document type, and document sub-type combination that already exists in a previous "Approved" entry
   |Verify the external user can see Document Version populates is a computed field showing the subsequent version number when I add a row with the same settings on the four fields below, and the previous entry is in Revision Requested status:
-    When I delete the record "" from the object "ANNUAL PLAN"
+#    When I delete the record "" from the object "ANNUAL PLAN"
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Home" tab

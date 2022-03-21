@@ -26,13 +26,16 @@ Feature: Validate all scenarios related to opportunities
     When I enter value "2000" into field "fieldAwardCeiling__c"
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
     When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I refresh the page
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
-    And I navigate to "Overview" sub tab
+    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
+    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "AppWithSchoolCode.xlsx" into library

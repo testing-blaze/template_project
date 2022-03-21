@@ -37,7 +37,7 @@ Feature: Validate all scenarios related to subrecipient organization
     Then I softly do not see "Country" in flex table header "---tableID:-:AdditionalAddress---"
       #179284
     And I navigate to "User Profile" sub tab
-    Then I softly see "Web Accessibility Coordinator (WAC)" page block displayed
+    Then I softly see "Web-Access Coordinator (WAC)" page block displayed
       #179285
     Then I softly do not see field "Country" inside "Web Accessibility Coordinator (WAC)" section
 
@@ -305,13 +305,14 @@ Feature: Validate all scenarios related to subrecipient organization
     And I click on top right button "New" in flex table with id "---tableID:-:IndirectRatesApplication---"
     When I enter value "40" into field "fieldCostRate__c"
     When I enter value "Restricted" into field "fieldIndirectCostRateType__c"
-    When I enter value "2020" into field "fieldSCDE_FiscalYear__c"
+    When I enter value "2021" into field "fieldSCDE_FiscalYear__c"
     And I click modal button "Save"
+    And I click on "Delete" icon for "40.00%" inside flex table with id "---tableID:-:IndirectRatesApplication---"
     #184364
     And I click on top right button "New" in flex table with id "---tableID:-:IndirectRatesApplication---"
     When I enter value "50" into field "fieldCostRate__c"
     When I enter value "Restricted" into field "fieldIndirectCostRateType__c"
-    When I enter value "2020" into field "fieldSCDE_FiscalYear__c"
+    When I enter value "2022" into field "fieldSCDE_FiscalYear__c"
     And I click modal button "Save"
     Then I softly see the following messages in the page details contains:
       | There can only be one Restricted Indirect cost rate type per Fiscal Year |

@@ -342,7 +342,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "1000" into field "fieldAwardFloor__c"
     When I enter value "2000" into field "fieldAwardCeiling__c"
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
-    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "Restricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I refresh the page
@@ -426,7 +426,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "1000" into field "fieldAwardFloor__c"
     When I enter value "2000" into field "fieldAwardCeiling__c"
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
-    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "Restricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I refresh the page
@@ -793,11 +793,10 @@ Feature: Validate all scenarios related to announcement
     And I pause execution for "3" seconds
     And I click modal button "Upload File"
     Then I softly see the following messages in the page details contains:
-      | Row Number - 4 - Final Allocation - Invalid Amount format: A50                                                                  |
-      | Row Number 5 - Org Code : 1212 is entered more than once in the Excel. Please remove the duplicate entries and retry uploading. |
-      | Row Number 6 - Org Code: 4321 does not exist in the system.                                                                     |
-      | Row Number - 7 - Negative value (-100) is not allowed in "Allocation"                                                           |
-      | Row Number 8 - Org Code: 4162AC must be numeric.                                                                                |
+      | Row Number - 4 - Final Allocation - Invalid Amount format: A50 |
+      | Row Number 6 - Org Code: 4321 does not exist in the system.    |
+      | Row Number - 7 - Negative value (-100) is not allowed in "Allocation" |
+      | Row Number 8 - Org Code: 4162AC must be numeric.                      |
     And I wait for "3" seconds
     And I close modal by clicking the top right x button
     #183728 #183729
@@ -909,7 +908,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "1000" into field "fieldAwardFloor__c"
     When I enter value "2000" into field "fieldAwardCeiling__c"
     When I enter value "5000" into field "fieldTotalCommittedAmount__c"
-    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
+    When I enter value "Restricted" into field "fieldSCDE_Indirect_Cost_Type__c"
     And I click on "Save" in the page details
     And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
     And I refresh the page
@@ -1206,7 +1205,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "test" into field "fieldAnnouncementDescription__c"
     When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
     When I enter value "200" into field "fieldApplicationDueDate__c"
-    When I enter value "Location" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    When I enter value "District" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I navigate to "Financials" sub tab
     When I enter value "1000" into field "fieldAwardFloor__c"
     When I enter value "2000" into field "fieldAwardCeiling__c"
@@ -1359,9 +1358,9 @@ Feature: Validate all scenarios related to announcement
     Then I softly see "Review Response Shared" in flex table header "---tableID:-:AnnouncementReviewForms---"
     #188628
     And I click on top right button "New" in flex table with id "---tableID:-:AnnouncementReviewStep---"
-    And I softly see field "Review Response Shared" as "Yes"
+    Then I softly see value "Yes" for title "Review Response Shared" inside table "---tableID:-:AnnouncementReviewStep---"
     #188633 #188634
-    And I hovering mouse on help text icon inside page block detail "Review Response Shared"
+    When I hovering mouse on page block help text icon inside table "---tableID:-:AnnouncementReviewStep---" with tooltip id "ReviewResponseShared__ca0R3R000000hf91UAAFlexGridtooltip"
     Then I softly see "Select 'No' to allow only the assigned reviewer and the announcement record owner (for any announcement created for this program) to view the review response provided for an application in this review step. To share the review response with all SCDE users, select 'YES'." shown as help text
     #188627
     And I click on top right button "New" in flex table with id "---tableID:-:AnnouncementReviewStep---"
