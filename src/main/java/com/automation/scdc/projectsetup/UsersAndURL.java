@@ -43,7 +43,7 @@ public class UsersAndURL implements UsersController {
         String password;
         switch (userLevel.toUpperCase()) {
             case "ADMIN":
-                password = "scde@2022";
+                password = "GovGrants@2023";
                 break;
             case "FD":
                 password = "GovGrants2022";
@@ -70,7 +70,7 @@ public class UsersAndURL implements UsersController {
         String username;
         switch (userLevel.toUpperCase()) {
             case "ADMIN":
-                username = "reiadmin@scdoe.org.qa1";
+                username = "qa_admin@scdoe.org.qa1";
                 break;
             case "PM":
                 username = "automationpm@scdoe.org.qa1";

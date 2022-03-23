@@ -433,7 +433,7 @@ Feature: Validate all scenarios related to announcement
     And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
       | Budget Period Name | Start Date | End Date |
       | BP01               | 250        | 365      |
-    And I navigate to "Overview" sub tab
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     And I close modal by clicking the top right x button
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
@@ -767,6 +767,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     #183708
+    And I navigate to "Allocations" sub tab
     Then I softly can see top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     Then I softly can see top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     Then I softly can see top right button "Delete Selected" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
@@ -813,6 +814,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     And I close modal by clicking the top right x button
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
@@ -931,6 +933,7 @@ Feature: Validate all scenarios related to announcement
     And I softly see field "Status" as "Published"
     Then I softly see value "$0.00" for title "Allocation" inside table "---tableID:-:AnnouncementInvitedApplicants---"
     #183725
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "UpdateRows.xlsx" into library
@@ -953,6 +956,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "DuplicateEntries.xlsx" into library
@@ -1080,6 +1084,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     #183588
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "AppWithSchoolCode.xlsx" into library
@@ -1131,7 +1136,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Save" in the page details
     Then I softly see field "Estimated Total Funding" as "400"
     #183625
-    And I navigate to "Overview" sub tab
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     And I close modal by clicking the top right x button
     Then I softly cannot see "Last Updated By" in downloaded xls or csv file "govgrants"
@@ -1445,7 +1450,7 @@ Feature: Validate all scenarios related to announcement
       | BP01               | 250        | 365      |
     And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
     When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
-    And I navigate to "Overview" sub tab
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "AppWithSchoolCode.xlsx" into library
@@ -1601,7 +1606,7 @@ Feature: Validate all scenarios related to announcement
       | BP01               | 250        | 365      |
     And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
     When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
-    And I navigate to "Overview" sub tab
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "AppWithSchoolCode.xlsx" into library
@@ -1720,6 +1725,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     #198907
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "AppWithSchoolCode.xlsx" into library
@@ -1771,7 +1777,7 @@ Feature: Validate all scenarios related to announcement
     And I click on "Save" in the page details
     Then I softly see field "Estimated Total Funding" as "400"
     #198906
-    And I navigate to "Overview" sub tab
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     And I close modal by clicking the top right x button
     Then I softly cannot see "Last Updated By" in downloaded xls or csv file "govgrants"
@@ -1788,6 +1794,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "AppWithSchoolCode.xlsx" into library
