@@ -60,6 +60,9 @@ public class UsersAndURL implements UsersController {
             case "EXE":
                 password = "GovGrants@2021";
                 break;
+            case "SPI":
+                password = "GovGrants2022";
+                break;
             default:
                 password = "GovGrants@2022";
         }
