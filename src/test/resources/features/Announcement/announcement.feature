@@ -1819,3 +1819,56 @@ Feature: Validate all scenarios related to announcement
     #198909
     Then I softly see "Org Code" in flex table header "---tableID:-:AnnouncementInvitedApplicants---"
     Then I softly see value "1212" for title "Org Code" inside table "---tableID:-:AnnouncementInvitedApplicants---"
+
+  @201776 @200842 @201557 @201773 @201770 @200836 @201553 @sprint-10 @userStory-196739
+  Scenario: Verify internal user can simply free type any email ID in the To and Cc fields.
+  | Verify that internal SCDE user can send email from the Collab tab
+  | Verify that internal user should receive an email alert when the replied email is populated in the Collab record.
+  | Verify that internal user can attach the files.
+  | Verify that internal user can search by "Internal user" and 'External Users'.
+  | Verify that an internal user is able to @mention any active internal or external user from the organization.
+  | Verify that as internal user the Home Tab's 'Messages' section with the columns.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Planning" tab
+    When I navigate to "Internal Programs" content inside "Programs" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:InternalProgram---"
+    When I enter value "Automation Runtime Internal Program" into field "fieldProgramName__c"
+    When I enter value "Formula Grant" into field "fieldType__c"
+    When I enter value "Department of Education" into field "fieldPrimaryFundingOrganization__c"
+    When I enter value "No" into field "fieldFocusAreaRequired__c"
+    When I enter value "No" into field "fieldIsGoalsRequired__c"
+    When I enter value "No" into field "fieldKPIsRequired__c"
+    And I click modal button "Save and Continue"
+    When I enter value "description" into field "fieldObjectives__c"
+    And I click on "Save" in the page details
+    And I navigate to "Collab" sub tab
+    And I click on top right button "Send Email" in flex table with id "---tableID:-:Messages---"
+    #201776
+    Then I softly see "To" inside page block detail
+    Then I softly see "Cc" inside page block detail
+    #200842
+    When I enter value "Automation PM" into field "fieldEmailTo__c"
+    When I enter value "Testing" into field "fieldEmailSubject__c"
+    When I enter value "Automation Testing" into field "fieldEmailBody__c"
+    And I click modal button "Send"
+    And I close modal by clicking the top right x button
+    Then I softly see value "automation.pm@yopmail.com" for title "From Address" inside table "---tableID:-:Messages---"
+    #201557
+    Then I softly can see row level action button "Reply" against "automation.pm@yopmail.com" in flex table with id "---tableID:-:Messages---"
+    #201773
+    And I click on top right button "Send Email" in flex table with id "---tableID:-:Messages---"
+    Then I softly see "Attachments" inside page block detail
+    #201770
+    Then I see the following options in dropdown field "fieldSearchBy__c" :
+      | Internal | External |
+    #200836
+    And I close modal by clicking the top right x button
+    When I enter value "Testing" into field "fieldMyFeed__c"
+    And I click on "Share" in the page details
+    Then I softly see the text containing :
+    | Automation PM to South Carolina Department of Education Only |
+    #201553
+    And I navigate to "Home" tab
+    When I click on "Messages" button
+    Then I see only the following ordered headers in table with id "---tableID:-:HomeTabMessages---" :
+    | From Address | To Address | CC Address | Attention To | Email Subject | Created Date |
