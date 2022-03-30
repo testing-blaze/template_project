@@ -78,6 +78,49 @@ public class InternalOrganizationPage extends ProjectManager {
         return govgrants.perform().email().isSubjectEmailReceived(credentials.get("username"), credentials.get("password"), "GMAIL", 5, subject);
     }
 
+    public void enterValueInSendEmailModalFields(String value, String fieldLabel) {
+        if (fieldLabel.equalsIgnoreCase("Body Content")) {
+            By fieldWrapperLocator = ByUsing.xpath("//label[contains(text(),'" + fieldLabel + "')]//following-sibling::div");
+            WebElement fieldWrapper = I.amPerforming().getElementReference().of(fieldWrapperLocator);
+
+            By inputBoxSelector = By.xpath("//html//body[@contenteditable='true']");
+            I.amPerforming().waitFor().makeThreadSleep(1000);
+            I.amPerforming().switchTo().frame(I.amPerforming().getElementReference().ofNested(fieldWrapper, (By.xpath(".//iframe"))));
+            try {
+                I.amPerforming().textInput().toClear(I.amPerforming().getElementReference().ofNested(fieldWrapper, inputBoxSelector));
+            } catch (Exception e) {
+            }
+            I.amPerforming().textInput().in(inputBoxSelector, value);
+            I.amPerforming().switchTo().parentFrame();
+        } else {
+            WebElement fieldOnSendEmailModal = I.amPerforming().getElementReference().of(By.xpath("//label[contains(text(),'" + fieldLabel + "')]/following-sibling::div//input[@type='text']" +
+                    "| //label[contains(text(),'" + fieldLabel + "')]/parent::th/following-sibling::td//input[@type='text']"));
+            I.amPerforming().textInput().toClear(fieldOnSendEmailModal);
+            fieldOnSendEmailModal.sendKeys(value);
+        }
+    }
+
+    public void assertTextAtMyFeedSectionWithId(String usage, String text, String sectionId) {
+        if (usage.equalsIgnoreCase("see")) {
+            I.amPerforming().assertionsTo().assertThat(isExpectedTextDisabledAtMyFeedSection(text, sectionId)).isTrue();
+        } else if (usage.equalsIgnoreCase("do not see")) {
+            I.amPerforming().assertionsTo().assertThat(isExpectedTextDisabledAtMyFeedSection(text, sectionId)).isFalse();
+
+        }
+    }
+
+    public Boolean isExpectedTextDisabledAtMyFeedSection(String text, String sectionId) {
+        boolean flag = false;
+        try {
+            if (I.amPerforming().checkToSee().isDisplayed(ByUsing.xpath("//div[@id='" + sectionId + "']//*[" + I.amPerforming().sanityOfXpathTo().contains("text()", text) + "]"))) {
+                flag = true;
+            }
+        } catch (Exception e) {
+            flag = false;
+        }
+        return flag;
+    }
+
     /*********
      * "Local Methods with complete functionality - private"
      *****************/
