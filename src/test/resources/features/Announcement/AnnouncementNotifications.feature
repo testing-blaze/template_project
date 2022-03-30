@@ -216,3 +216,40 @@ Please login to the Enterprise Grants Management System (EGMS) to access this fu
 Please do not reply to this system-generated email. You may contact the South Carolina Department of Education at EGMS@ed.sc.gov if you have any questions or need assistance.
    """
 
+@200864 @200862 @200863 @200865 @Sprint:10 @UserStory:196741
+Scenario: Test internal view on communications through collab tab of an announcement
+   Given I login to "As a Grantor" app as "PM" user
+   And I navigate to "Announcements" tab
+   When I navigate to "Formula" content inside "Announcements" subheader on left panel
+   And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+   When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+   When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+   And I pause execution for "3" seconds
+   And I click on "Continue" in the page details
+   When I enter value "No" into field "fieldIsMatchRequired__c"
+   When I enter value "No" into field "fieldRiskAssessment_Required__c"
+   When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+   When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+   When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
+   When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+   And I click modal button "Save and Continue"
+   And I navigate to "Collab" sub tab
+   And I click on top right button "Send Email" in flex table with id "---tableID:-:Messages---"
+   When I enter value "automation.pm@yopmail.com" into field "To" on send email modal
+   When I enter value "Testing" into field "Subject" on send email modal
+   And I click modal button "Send"
+   And I close modal by clicking the top right x button
+   #200864
+   Then I softly see value "automation.pm@yopmail.com" for title "From Address" inside table "---tableID:-:Messages---"
+   #200862 #200863
+   And I enter value "@Automation PM" in my feed section and share the post
+   Then I softly see "Automation PM to South Carolina Department of Education Only" at my feed container with id "---tableID:-:MyFeedId---"
+   #200865
+   And I click on "Reply" icon for "automation.pm@yopmail.com" inside flex table with id "{tableID:Messages}" without waiting for record
+   When I enter value "automation.pm@yopmail.com" into field "To" on send email modal
+   When I enter value "Automation Testing" into field "Subject" on send email modal
+   And I click modal button "Send"
+   And I close modal by clicking the top right x button
+   And I navigate to "Home" tab
+   When I click on "Messages" button
+   Then I softly see value "automation.pm@yopmail.com" for title "To Address" inside table "{tableID:HomeTabMessages}"

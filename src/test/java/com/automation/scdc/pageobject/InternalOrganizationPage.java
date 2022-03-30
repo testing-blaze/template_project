@@ -78,6 +78,7 @@ public class InternalOrganizationPage extends ProjectManager {
         return govgrants.perform().email().isSubjectEmailReceived(credentials.get("username"), credentials.get("password"), "GMAIL", 5, subject);
     }
 
+
     /*********
      * "Local Methods with complete functionality - private"
      *****************/
