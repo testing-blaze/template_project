@@ -86,8 +86,8 @@ Feature: Validate all scenarios related to subrecipient organization
     And I click on "Save" in the page details
     Then I softly do not see "Active Child Organizations" page block displayed
       #180080
-    Then I softly see field "Web Accessibility Coordinator (WAC)" inside "Additional Information" section
-    Then I softly see field "Web Accessibility Coordinator (WAC)" as "null Avinash null"
+    Then I softly see field "Web-Access Coordinator (WAC)" inside "Additional Information" section
+    Then I softly see field "Web-Access Coordinator (WAC)" as "null Avinash null"
       #180074
     And I click on "Edit" in the page details
     Then I softly see fields "fieldSCDE_Sendclaims__c" is in edit mode
