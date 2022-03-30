@@ -50,4 +50,14 @@ public class InternalOrganizatioSteps extends ProjectWebServices {
     public void getHelpTextAtPageBlock(String tableId, String toolTipId) {
         internalOrganizationPage.getHelpTextAtPageBlockOrInsideTable(tableId, toolTipId);
     }
+
+    @When("I enter value {string} into field {string} on send email modal")
+    public void iEnterValueIntoFieldOnSendEmailModal(String value, String fieldLabel) {
+        internalOrganizationPage.enterValueInSendEmailModalFields(value, fieldLabel);
+    }
+
+    @Then("^I (softly see|softly do not see) \"([^\"]*)\" at my feed container with id \"([^\"]*)\"$")
+    public void iDoNotSeeAtMyFeedSectionContainerWithId(String usage,String text, String sectionId) {
+        internalOrganizationPage.assertTextAtMyFeedSectionWithId(usage,text,sectionId);
+    }
 }
