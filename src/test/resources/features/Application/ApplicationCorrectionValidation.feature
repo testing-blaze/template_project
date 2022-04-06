@@ -140,3 +140,38 @@ Please do not reply to this system-generated email. You may contact the South Ca
 
     """
 
+    @201032 @201035 @201037 @201038 @201039 @UserStory:188354 @Sprint:10
+    Scenario: Verify different Application list filters for Internal user
+        Given I login to "As a Grantor" app as "PM" user
+        And I navigate to "Applications" tab
+        And I perform quick search for "Created" in "{tableID:ApplicationToggleTableId}" panel
+        #201032
+        Then I softly see value "Created" for title "Status" inside table "---tableID:-:ApplicationToggleTableId---"
+        #201035
+        When I navigate to "Applications" content inside "Applications" subheader on left panel
+        When I perform quick search for "Created" in "---tableID:-:ApplicationQuickSearchGranter---" panel
+        Then I softly see value "Created" for title "Status" inside table "---tableID:-:ApplicationQuickSearchGranter---"
+        #201037
+        Then I see toggle option "Applications - All" inside flex table id "---tableID:-:ApplicationQuickSearchGranter---"
+        Then I see toggle option "Applications - Submitted" inside flex table id "---tableID:-:ApplicationQuickSearchGranter---"
+        Then I see toggle option "Applications - Pending Submission" inside flex table id "---ApplicationQuickSearchGranter---"
+        #201038
+        And I click toggle button to select "Applications - Pending Submission"
+        And I perform quick search for "Created" in "{tableID:ApplicationQuickSearchGranter}" panel
+        Then I softly see value "Created" for title "Status" inside table "---tableID:-:ApplicationQuickSearchGranter---"
+        And I perform quick search for "Submitted for SR Approval" in "{tableID:ApplicationQuickSearchGranter}" panel
+        Then I softly see value "Submitted for SR Approval" for title "Status" inside table "---tableID:-:ApplicationQuickSearchGranter---"
+        And I perform quick search for "Approved for Submission" in "{tableID:ApplicationQuickSearchGranter}" panel
+        Then I softly see value "Approved for Submission" for title "Status" inside table "---tableID:-:ApplicationQuickSearchGranter---"
+        And I perform quick search for "Revision Initiated" in "{tableID:ApplicationQuickSearchGranter}" panel
+        Then I softly see value "Revision Initiated" for title "Status" inside table "---tableID:-:ApplicationQuickSearchGranter---"
+        #201039
+        And I click toggle button to select "Applications - Submitted"
+        And I perform quick search for "Submitted to Grantor" in "{tableID:ApplicationQuickSearchGranter}" panel
+        Then I softly see value "Submitted to Grantor" for title "Status" inside table "---tableID:-:ApplicationQuickSearchGranter---"
+        And I perform quick search for "Reviewed" in "{tableID:ApplicationQuickSearchGranter}" panel
+        Then I softly see value "Reviewed" for title "Status" inside table "---tableID:-:ApplicationQuickSearchGranter---"
+        And I perform quick search for "Revision Submitted" in "{tableID:ApplicationQuickSearchGranter}" panel
+        Then I softly see value "Revision Submitted" for title "Status" inside table "---tableID:-:ApplicationQuickSearchGranter---"
+        And I perform quick search for "Converted to Award" in "{tableID:ApplicationQuickSearchGranter}" panel
+        Then I softly see value "Converted to Award" for title "Status" inside table "---tableID:-:ApplicationQuickSearchGranter---"
