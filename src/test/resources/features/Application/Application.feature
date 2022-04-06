@@ -232,7 +232,7 @@ Feature: Validate all scenarios related to application
     Then I softly see field "Allocation Amount" inside "Allocation, Admin, and Indirect Costs" section
      #181725
     Then I see only the following ordered page blocks :
-      | Allocation, Admin, and Indirect Costs | Allocations By School | Budget | Budget Narrative |
+      | Allocation, Admin, and Indirect Costs | Allocations By School | Budget |
     #181749
     And I logout
     Given I am on "INTERNAL" portal
@@ -339,20 +339,31 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I logout
     Given I am on "INTERNAL" portal
@@ -361,6 +372,7 @@ Feature: Validate all scenarios related to application
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "UpdatedAllocationAmount.xlsx" into library
@@ -459,37 +471,39 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
-    And I navigate to "Applications" tab
-    When I navigate to "Applications" content inside "Applications" subheader on left panel
-    And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
-    And I softly see field "Status" as "Review Initiated"
     And I navigate to "Announcements" tab
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "UpdatedAllocationAmount.xlsx" into library
@@ -559,16 +573,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -578,7 +582,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
     When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
@@ -588,30 +591,40 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
-    And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:AppReviewGranterAppSearchID---"
     And I navigate to "Related Log" sub tab
     #Pre-screen Review
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -625,7 +638,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -641,7 +654,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -654,14 +667,14 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+#    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
-    #Fiscal Review
+    #Program Review
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -672,7 +685,7 @@ Feature: Validate all scenarios related to application
     When I click on "Submit" in the page details without processing
     When I click alert button "OK"
     And I wait for "5" seconds
-    #Program Review
+    #Fiscal Review
     And I navigate to "Applications" tab
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -715,7 +728,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -943,20 +956,31 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I logout
     Given I am on "INTERNAL" portal
@@ -1055,6 +1079,7 @@ Feature: Validate all scenarios related to application
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "UpdatedAllocationAmount.xlsx" into library
@@ -1164,7 +1189,6 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I navigate to "Budget" sub tab
-    And I click on "Save" in the page details
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
     When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
@@ -1174,38 +1198,39 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
-    And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
-    And I navigate to "Applications" tab
-    When I navigate to "Applications" content inside "Applications" subheader on left panel
-    And I click toggle button to select "Applications - All"
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
-    And I softly see field "Status" as "Review Initiated"
-    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -1219,19 +1244,22 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
     And I navigate to "Revisions" sub tab
-    When I enter value "200" into field "NegotiationDueDate__c"
+    When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
     When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Save" in the page details
     #185303
-    Then I softly can see top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I can see top right button "Cancel Revision" in page detail
     #185304
-    And I click on top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    When I click on "Cancel Revision" in the page details without processing
     Then I softly see the following messages in the page details contains:
       | The revisions will no longer be editable. Are you sure you are ready to cancel the revisions? |
     #185631
+    When I click alert button "OK"
+    And I wait for "5" seconds
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
@@ -1262,7 +1290,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I softly see field "Status" as "In Progress"
-    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:AppRevisionInitiatedIconTable---"
 
   @185293 @185521 @185523 @185535 @185321 @185538 @185319 @185286 @185282 @185285 @185323 @185237 @185324 @185537 @185299 @185289 @185287 @sprint-4 @userStory-184581 @UmangParekh
   Scenario: Verify that 'Explanation of Revisions Needed' is text field accept up to 4,000 chars
@@ -1362,27 +1390,34 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -1393,7 +1428,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -1407,13 +1442,13 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
     And I navigate to "Revisions" sub tab
-    When I enter value "200" into field "NegotiationDueDate__c"
+    When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
     #185293
     When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Save" in the page details
     And I softly see field "Status" as "Review Initiated"
     #185521
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -1677,21 +1712,27 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -1702,7 +1743,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -1716,16 +1757,17 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
     And I navigate to "Revisions" sub tab
-    When I enter value "200" into field "NegotiationDueDate__c"
+    When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
     When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Save" in the page details
     #186370
-    Then I softly can see top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I can see top right button "Cancel Revision" in page detail
     #186363
-    And I click on top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Cancel Revision" in the page details
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
@@ -1900,27 +1942,34 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -1931,7 +1980,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -1948,9 +1997,10 @@ Feature: Validate all scenarios related to application
     #187897 #187896
     Then I softly can see row level action button "Request Revision" against "Automation PM" in flex table with id "---tableID:-:Reviewer---"
     #188031
-    And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
     And I navigate to "Revisions" sub tab
-    When I enter value "200" into field "NegotiationDueDate__c"
+    When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
     When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
@@ -2733,6 +2783,7 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
+    And I save the field containing "EGMS ID" as "APPID"
     #188965 #188967
     And I navigate to "Budget" sub tab
     Then I softly see that "Max Admin Cost Rate" rendered in view mode only
@@ -3018,6 +3069,7 @@ Feature: Validate all scenarios related to application
     And I click on "Create Application" in the page details
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
+    And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I click toggle button to select "Applications - Draft"
@@ -3646,21 +3698,27 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -3671,7 +3729,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -3779,30 +3837,41 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
       #Pre-screen Review
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -4010,24 +4079,34 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
       #Pre-screen Review
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -4133,24 +4212,34 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
       #Pre-screen Review
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -4180,7 +4269,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -4292,24 +4381,34 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
       #Pre-screen Review
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -4341,7 +4440,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -4401,7 +4500,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -4522,24 +4621,34 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     #Pre-screen Review
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -4569,7 +4678,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -4627,7 +4736,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -4662,7 +4771,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewStep------"
+    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps------"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to FDM" in flex table with id "---tableID:-:ReviewApplication---"
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
@@ -4796,14 +4905,24 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -5037,14 +5156,24 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -5234,24 +5363,34 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
       #Pre-screen Review
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -5281,7 +5420,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -5417,24 +5556,34 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     #Pre-screen Review
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -5464,7 +5613,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -5498,7 +5647,7 @@ Feature: Validate all scenarios related to application
     Then I softly see value "Pre-Screen Review" for title "Revision Requested From" inside table "---tableID:-:ApplicationRevisionRequested---"
     #191049
     And I navigate to "Revisions" sub tab
-    When I enter value "150" into field "NegotiationDueDate__c"
+    When I enter value "150" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
     When I enter value "Testing" into field "fieldExplanationOfRevisionsNeeded__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
@@ -5621,24 +5770,34 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     #Pre-screen Review
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -5668,7 +5827,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -5726,7 +5885,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -5772,7 +5931,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewStep------"
+    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps------"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to FDM" in flex table with id "---tableID:-:ReviewApplication---"
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
@@ -5896,14 +6055,24 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -6014,14 +6183,24 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -6155,14 +6334,24 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -6586,24 +6775,34 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     #Pre-screen Review
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -6633,7 +6832,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -6691,7 +6890,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -6726,7 +6925,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewStep------"
+    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps------"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to FDM" in flex table with id "---tableID:-:ReviewApplication---"
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
@@ -6973,21 +7172,27 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -6998,6 +7203,7 @@ Feature: Validate all scenarios related to application
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "UpdatedAllocationAmount.xlsx" into library
@@ -7384,10 +7590,11 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
     Then I softly see the following messages in the page details contains:
       | The 'Indirect Cost Rate' for your organization is not available. Contact EGMS support for assistance. |
 
@@ -7579,21 +7786,27 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -7604,7 +7817,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -7618,19 +7831,21 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
     And I navigate to "Revisions" sub tab
-    When I enter value "200" into field "NegotiationDueDate__c"
+    When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
     When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Save" in the page details
     #192150
-    Then I softly can see top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I can see top right button "Cancel Revision" in page detail
     #192152
-    And I click on top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    When I click on "Cancel Revision" in the page details without processing
     Then I softly see the following messages in the page details contains:
       | The revisions will no longer be editable. Are you sure you are ready to cancel the revisions? |
     #192086
+    When I click alert button "OK"
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
@@ -7920,26 +8135,33 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
-    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -7953,12 +8175,13 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
     And I navigate to "Revisions" sub tab
-    When I enter value "200" into field "NegotiationDueDate__c"
+    When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
     When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Save" in the page details
     #191810
     And I softly see field "Status" as "Review Initiated"
     #191811
@@ -8357,13 +8580,24 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
 
   @192908 @192906 @sprint-6 @userStory-190291
@@ -8455,13 +8689,24 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
 
   @192849 @192846 @sprint-6 @userStory-190291
@@ -8553,13 +8798,24 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
 
   @191906 @193106 @193105 @191893 @191892 @192825 @192832 @193361 @sprint-6 @userStory-187064
@@ -8657,23 +8913,34 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     #Pre-screen Review
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -8703,7 +8970,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -8761,7 +9028,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -8796,7 +9063,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewStep------"
+    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps------"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to FDM" in flex table with id "---tableID:-:ReviewApplication---"
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
@@ -8931,20 +9198,27 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -8955,7 +9229,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -8969,12 +9243,13 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
     And I navigate to "Revisions" sub tab
-    When I enter value "200" into field "NegotiationDueDate__c"
+    When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
     When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Save" in the page details
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
@@ -9103,20 +9378,27 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
-    And I navigate to "Applications" tab
-    When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
-    And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Applications" tab
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -9127,7 +9409,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -9142,11 +9424,12 @@ Feature: Validate all scenarios related to application
     And I pause execution for "2" seconds
     And I refresh the page
     #191865
-    Then I softly can see row level action button "Request Revision" against "Automation PM" in flex table with id "---tableID:-:Reviewer---"
+    Then I softly can see row level action button "Request Revision" against "{SavedValue:APPID}" in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
     #191872
-    And I click on "Request Revision" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
     And I navigate to "Revisions" sub tab
-    When I enter value "200" into field "NegotiationDueDate__c"
+    When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
     When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
@@ -9266,13 +9549,24 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
@@ -9552,23 +9846,34 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     #Pre-screen Review
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
@@ -9598,7 +9903,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -9656,7 +9961,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -9691,7 +9996,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewStep------"
+    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps------"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to FDM" in flex table with id "---tableID:-:ReviewApplication---"
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
@@ -10312,14 +10617,14 @@ Feature: Validate all scenarios related to application
     Then I softly can see row level action button "Edit" against "VD TestUser5" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
 
   @196709 @196707 @196703 @196701 @196684 @196697 @196689 @196682 @sprint-8 @userStory-194060
-    Scenario: Verify that the Advanced Search options are enabled for the Organization Role table.
-    | Verify that 'Last Updated'  field shows the date/time for when the entry was last edited
-    | Verify that 'Organization Roles' table  'Assignment Status' column is a dropdown field
-    | Verify that 'Organization Roles' table  'Assignment Status' column is a required field
-    | Verify that 'Organization Roles' table  'Role' column is a required field
-    | Verify that on 'Organization Roles' table  'Assigned To' column is a required field
-    | Verify that 'Organization Roles' table 'Role' column is a dropdown field
-    | Verify that Internal Admin can 'Add' multiple lines (entries) to the 'Organization Roles' table
+  Scenario: Verify that the Advanced Search options are enabled for the Organization Role table.
+  | Verify that 'Last Updated'  field shows the date/time for when the entry was last edited
+  | Verify that 'Organization Roles' table  'Assignment Status' column is a dropdown field
+  | Verify that 'Organization Roles' table  'Assignment Status' column is a required field
+  | Verify that 'Organization Roles' table  'Role' column is a required field
+  | Verify that on 'Organization Roles' table  'Assigned To' column is a required field
+  | Verify that 'Organization Roles' table 'Role' column is a dropdown field
+  | Verify that Internal Admin can 'Add' multiple lines (entries) to the 'Organization Roles' table
     Given I am on "SUBPORTAL" portal
     When I login as "SPIWAC" user
     When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
@@ -10431,7 +10736,7 @@ Feature: Validate all scenarios related to application
     Then I softly see value "SPI Automation" for title "Assigned To" inside table "---tableID:-:ApplicationOrganizationRoles---"
     #196433
     Then I softly see the text containing :
-    | The organization's Web-Access Coordinator (WAC) can update role assignments in this section. A WAC can assign at least one 'Active' user for each of the following roles: Program Coordinator, Program Approver, Fiscal Coordinator, Fiscal Approver, and Authorized Official. Program Coordinators and Fiscal Coordinators can be assigned on a per program basis. Program Approvers can only be assigned on a per program basis. And, Fiscal Approvers and Authorized Officials can only be assigned on an organization level basis.  Only one Fiscal Approver and a single Authorized Official is allowed to be assigned at the organization level i.e. there cannot be more than one record in the table below with Assignment Status as 'Active' for Fiscal Approver and Authorized Official.  If there are no program-level Program or Fiscal Coordinators assigned below for a given program, then tasks will be assigned to the organization-level Program or Fiscal Coordinators.  If for a given role (e.g. Program Coordinator), all assigned user accounts are inactive or the user accounts are active but the assignment status for all users assigned for that role is inactive, then the system will not create any task (e.g. Revise Application task) for that role. When roles are updated below, the role on individual records (e.g. applications or progress reports) that are already created in the system are not updated. |
+      | The organization's Web-Access Coordinator (WAC) can update role assignments in this section. A WAC can assign at least one 'Active' user for each of the following roles: Program Coordinator, Program Approver, Fiscal Coordinator, Fiscal Approver, and Authorized Official. Program Coordinators and Fiscal Coordinators can be assigned on a per program basis. Program Approvers can only be assigned on a per program basis. And, Fiscal Approvers and Authorized Officials can only be assigned on an organization level basis.  Only one Fiscal Approver and a single Authorized Official is allowed to be assigned at the organization level i.e. there cannot be more than one record in the table below with Assignment Status as 'Active' for Fiscal Approver and Authorized Official.  If there are no program-level Program or Fiscal Coordinators assigned below for a given program, then tasks will be assigned to the organization-level Program or Fiscal Coordinators.  If for a given role (e.g. Program Coordinator), all assigned user accounts are inactive or the user accounts are active but the assignment status for all users assigned for that role is inactive, then the system will not create any task (e.g. Revise Application task) for that role. When roles are updated below, the role on individual records (e.g. applications or progress reports) that are already created in the system are not updated. |
 
   @191877 @191876 @191874 @191875 @191871 @191869 @191882 @191867 @191887 @191863 @sprint-8 @userStory-189862
   Scenario: Verify "Document Sub-Type" field is a drop-down with options
@@ -10639,13 +10944,13 @@ Feature: Validate all scenarios related to application
     And I click modal button "Save"
     #197182
     Then I softly see the text containing :
-    | Program selection is not allowed the Authorized Official role, as this is an organization-level role. |
+      | Program selection is not allowed the Authorized Official role, as this is an organization-level role. |
     #197184
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
     When I enter value "PG-SCDE-0005" into field "fieldProgram__c"
     And I click modal button "Save"
     Then I softly see the text containing :
-    | Program selection is not allowed for the Authorized Official role, as this is an organization-level role. |
+      | Program selection is not allowed for the Authorized Official role, as this is an organization-level role. |
     #197181
     And I close modal by clicking the top right x button
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
@@ -10655,13 +10960,13 @@ Feature: Validate all scenarios related to application
     When I enter value "Active" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     Then I softly see the text containing :
-    | Program selection is not allowed for the Fiscal Approver role, as this is an organization-level role. |
+      | Program selection is not allowed for the Fiscal Approver role, as this is an organization-level role. |
     #197183
     When I enter value "SPI Automation" into field "fieldAssignedTo__c"
     When I enter value "PG-SCDE-0005" into field "fieldProgram__c"
     And I click modal button "Save"
     Then I softly see the text containing :
-    | Program selection is not allowed for the Fiscal Approver role, as this is an organization-level role. |
+      | Program selection is not allowed for the Fiscal Approver role, as this is an organization-level role. |
     #197187
     And I close modal by clicking the top right x button
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
@@ -10678,7 +10983,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Active" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     Then I softly see the text containing :
-    | Only one Program Approver can be made active for each program at any time. |
+      | Only one Program Approver can be made active for each program at any time. |
     #197185
     And I close modal by clicking the top right x button
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
@@ -10687,7 +10992,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Inactive" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     Then I softly see the text containing :
-    | Program selection is required for the Program Approver role. |
+      | Program selection is required for the Program Approver role. |
     #197191 #197193
     And I close modal by clicking the top right x button
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
@@ -10704,7 +11009,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Active" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     Then I softly see the text containing :
-    | Program Coordinator role can only be assigned to a user one time for a given program. |
+      | Program Coordinator role can only be assigned to a user one time for a given program. |
     #197190
     And I close modal by clicking the top right x button
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
@@ -10721,7 +11026,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Active" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     Then I softly see the text containing :
-    | Only one Fiscal Coordinator can be made active for each program at any time. |
+      | Only one Fiscal Coordinator can be made active for each program at any time. |
     #197186
     And I close modal by clicking the top right x button
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
@@ -10730,7 +11035,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Active" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     Then I softly see the text containing :
-    | Program selection is required for the Program Approver role. |
+      | Program selection is required for the Program Approver role. |
     #197174
     And I close modal by clicking the top right x button
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
@@ -10745,7 +11050,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Active" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     Then I softly see the text containing :
-    | Only one Authorized Official can be made active for the organization at any time.  |
+      | Only one Authorized Official can be made active for the organization at any time.  |
     #197173
     And I close modal by clicking the top right x button
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
@@ -10760,7 +11065,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Active" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     Then I softly see the text containing :
-    | Only one Fiscal Approver can be made active for the organization at any time. |
+      | Only one Fiscal Approver can be made active for the organization at any time. |
     #197172
     And I close modal by clicking the top right x button
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
@@ -10775,7 +11080,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Active" into field "fieldAssignmentStatus__c"
     And I click modal button "Save"
     Then I softly see the text containing :
-    | Only one Fiscal Coordinator can be made active for the organization at any time. |
+      | Only one Fiscal Coordinator can be made active for the organization at any time. |
     #197178
     And I close modal by clicking the top right x button
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
@@ -10788,7 +11093,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Active" into field "fieldAssignmentStatus__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
     Then I softly see the text containing :
-    | Only one Authorized Official can be made active for the organization at any time. |
+      | Only one Authorized Official can be made active for the organization at any time. |
     #197177
     And I close modal by clicking the top right x button
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
@@ -10801,7 +11106,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Active" into field "fieldAssignmentStatus__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
     Then I softly see the text containing :
-    | Only one Fiscal Approver can be made active for the organization at any time. |
+      | Only one Fiscal Approver can be made active for the organization at any time. |
     #197175
     And I close modal by clicking the top right x button
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
@@ -10814,7 +11119,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Active" into field "fieldAssignmentStatus__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
     Then I softly see the text containing :
-    | Only one Fiscal Coordinator can be made active for the organization at any time. |
+      | Only one Fiscal Coordinator can be made active for the organization at any time. |
 
   @196670 @1966635 @196680 @196646 @196654 @196660 @sprint-8 @userStory-194059
   Scenario: Verify that the Advanced Search options are enabled for the Organization Role table
@@ -11579,13 +11884,24 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     And I logout
     Given I am on "INTERNAL" portal
@@ -11593,9 +11909,9 @@ Feature: Validate all scenarios related to application
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
-    And I click on "Initiate Review Process" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
+    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     #190658
     Then I softly see value "AP-SCDE-236" for title "Application EGMS ID" inside table "---tableID:-:Reviews---"
     #190661
@@ -12099,7 +12415,7 @@ Feature: Validate all scenarios related to application
     When I enter value "testing" into field "fieldNarrative__c"
     And I click modal button "Save"
     Then I softly see the text containing :
-    | Schoolwide budget items can only be added for schools listed in the 'Allocations By School' section. |
+      | Schoolwide budget items can only be added for schools listed in the 'Allocations By School' section. |
 
   @199759 @199747 @199744 @198964 @198962 @198963 @198650 @198655 @198651 @200060 @198652 @198707 @198710 @sprint-9 @userStory-197037
   Scenario: Verify if approvers are same for both steps on Org Role assignment, then WAC user should see the validation on the click of "Update Role Assignments" on application.
@@ -12243,22 +12559,34 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
     Then I softly can see top right button "Update Role Assignments" in flex table with id "---tableID:-:ApplicationApprovers---"
     #200060
     Then I softly can see top right button "Submit Application to Grantor" in page detail
     #198652
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationRevision---" panel
-    And I click on "Request Revision" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationRevision---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
@@ -12366,14 +12694,25 @@ Feature: Validate all scenarios related to application
       | Participant’s Name | School Name | Role    | Stakeholder Representation |
       | Automation         | Dixie High  | Teacher | School within District     |
     And I click on "Save" in the page details
-    And I click on "Back" in the page details
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter value "Yes" into field "IsFormValidated__c"
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
     When I "Approve" in the approval decision
     And I softly see field "Status" as "Approved for Submission"
     #199796
-    And I click on "Submit Application to Grantor" in the page details
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
+    And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Submitted"
 
   @198994 @198991 @sprint-9 @userStory-197011
@@ -12980,144 +13319,3 @@ Feature: Validate all scenarios related to application
     #197458
     And I navigate to "Collab" sub tab
     Then I softly can see top right button "Send Email" in flex table with id "---tableID:-:Messages---"
-
-  @200832 @200837 @200852 @200843 @200851 @UserStory:199061 @Sprint:10
-  Scenario: Verify that Autorized Officer(AO) can select Send Back for Corrections on application
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    And I pause execution for "3" seconds
-    And I click on "Continue" in the page details
-    When I enter value "No" into field "fieldIsMatchRequired__c"
-    When I enter value "No" into field "fieldRiskAssessment_Required__c"
-    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
-    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
-    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
-    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
-    And I click modal button "Save and Continue"
-    When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
-    When I enter value "test" into field "fieldAnnouncementDescription__c"
-    When I enter value "Library" into field "fieldEligibleApplicantTypes__c"
-    When I enter value "200" into field "fieldApplicationDueDate__c"
-    And I navigate to "Financials" sub tab
-    When I enter value "1000" into field "fieldAwardFloor__c"
-    When I enter value "2000" into field "fieldAwardCeiling__c"
-    When I enter value "5000" into field "fieldTotalCommittedAmount__c"
-    When I enter value "Unrestricted" into field "fieldSCDE_Indirect_Cost_Type__c"
-    When I enter value "2022" into field "fieldSCDE_Fiscal_Year__c"
-    When I enter value "15" into field "fieldSCDE_Maximum_Indirect_Cost__c"
-    And I click on "Save" in the page details
-    And I click on top right button "Add Budget Period" in flex table with id "---tableID:-:AnnouncementBudgetPeriod---"
-    And I refresh the page
-    And I edit the following rows inline in flex table with id "---tableID:-:AnnouncementBudgetPeriod---" by clicking "Edit" :
-      | Budget Period Name | Start Date | End Date |
-      | BP01               | 250        | 365      |
-    And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
-    When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
-    And I navigate to "Allocations" sub tab
-    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
-    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
-    When I upload file "AppWithSchoolCode.xlsx" into library
-    And I click modal button "Upload File"
-    And I pause execution for "2" seconds
-    And I navigate to "Setup" sub tab
-    When I click on "Edit" icon for "Application" inside flex table with id "---tableID:-:AnnouncementBusinessForms---"
-    When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
-    And I click modal button "Save"
-    And I click on "Submit For Approval" in the page details
-    And I softly see field "Status" as "Submitted for Approval"
-    When I "Approve" in the approval decision
-    And I click on "Publish" in the page details
-    And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPI" user
-    And I navigate to "Opportunities" tab
-    When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
-    When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
-    When I click on "Qualify" in the page details
-    And I softly see field "Status" as "Qualified"
-    And I click on "Create Application" in the page details
-    And I click modal button "Save and Continue"
-    And I navigate to "Budget" sub tab
-    And I click on "Save" in the page details
-    And I expand nested table containing column value "BP01"
-    When I click on "Add" icon for "110 - General Instruction" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
-    When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
-    When I enter value "1" into field "fieldQuantity__c"
-    When I enter value "2000" into field "fieldUnitPrice__c"
-    When I enter value "Schoolwide" into field "fieldSCDE_BudgetFor__c"
-    When I enter value "Wright Middle" into field "fieldSchool__c"
-    When I enter value "test" into field "fieldNarrative__c"
-    And I click modal button "Save"
-    And I navigate to "Forms and Files" sub tab
-    When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
-    When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
-      | Participant’s Name | School Name | Role    | Stakeholder Representation |
-      | Automation         | Dixie High  | Teacher | School within District     |
-    And I click on "Save" in the page details
-    And I click on "Validate" in the page details
-    And I wait for "3" seconds
-    And I click on "Submit for Approval" in the page details
-    And I wait for "7" seconds
-    And I save the field containing "EGMS ID" as "APPID"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPA" user
-    And I navigate to "Applications" tab
-    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
-    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
-    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
-    When I "Approve" in the approval decision
-    And I softly see field "Status" as "Approved for Submission"
-    #200832
-    Then I can see top right button "Send Back for Corrections" in page detail
-    #200837
-    When I click on "Send Back for Corrections" in the page details without processing
-    And I wait for "3" seconds
-    Then I softly see confirmation box with body "Are you sure you want to send the application back to the Program Coordinator for corrections? Select Yes to proceed." is displayed
-    And I wait for "2" seconds
-    #200852
-    And I click "No" on modal confirmation box
-    And I wait for "2" seconds
-    Then I can see top right button "Send Back for Corrections" in page detail
-    #200843
-    When I click on "Send Back for Corrections" in the page details without processing
-    And I click "Yes" on modal confirmation box
-    Then I see the field labeled "Status" as "Created"
-    #200851
-    And I checkout to yopmail with mailid "automationspi@yopmail.com"
-    And I pause execution for "60" seconds
-    And I refresh the page
-    And I wait for "2" seconds
-    And I refresh the page
-    Then I see the mail text is as follows :
-    """
-   Hello,
-
-This email is to notify you that the application for {SavedValue:Automation Runtime Announcement} has been sent back for corrections by the Authorized Official.
-
-Application Details
-
-Application EGMS ID: {SavedValue:APPID}
-Application Title: {SavedValue:Automation Runtime Announcement}
-Opportunity Title: {SavedValue:Automation Runtime Announcement}
-
-Log into the Enterprise Grants Management System (EGMS) to revise and resubmit the application for approval.
-
-Please do not reply to this system-generated email. You may contact the South Carolina Department of Education at EGMS@ed.sc.gov if you have any questions or need assistance.
-
-    """
