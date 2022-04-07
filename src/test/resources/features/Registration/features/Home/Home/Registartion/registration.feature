@@ -171,38 +171,3 @@ Feature: Validate all scenarios related to registration
     When I click on "Register" button
     Then I softly do not see the Instruction text in the page
       | NOTE:  Passwords expire every 90 days.  For more account management information, review the Applicant FAQs. |
-
-  @183979 @183946 @183968 @183973 @183969 @183944 @183975 @183976 @sprint-3 @userStory-180376 @UmangParekh
-  Scenario: Verify the field "4-Digit Zip Code Extension" is read-only in the "Organization Address " section
-  | Verify the field "Address Line 1" is read-only in the "Organization Address " section
-  | Verify the field "Address Line 2" is read-only in the "Organization Address " section
-  | Verify the field "City" is read-only in the "Organization Address " section
-  | Verify the field "County" is read-only in the "Organization Address " section
-  | Verify the field "Organization Name" is read-only
-  | Verify the field "State" is read-only in the "Organization Address " section
-  | Verify the field "Zip Code" is read-only in the "Organization Address " section
-    Given I am on "SUBPORTAL" portal
-    When I click on "Register" button
-    And I click on "Begin Registration" button
-    When I enter value as "ZLP4KVER3S75" into "Unique Entity Identifier (UEI)" on old form
-    When I enter value as "123456807" into "Employer Identification Number (EIN)" on old form
-    When I click on "Verify Information" in the page details
-    And I pause execution for "5" seconds
-    When I click on "Save and Continue" in the page details
-    #183979
-    Then I softly see that "4-Digit Zip Code Extension" rendered in view mode only
-    #183946
-    Then I softly see that "Address Line 1" rendered in view mode only
-    #183968
-    Then I softly see that "Address Line 2" rendered in view mode only
-    #183973
-    Then I softly see that "City" rendered in view mode only
-    #183969
-    Then I softly see that "County" rendered in view mode only
-    #183944
-    Then I softly see that "Organization Name" rendered in view mode only
-    And I pause execution for "3" seconds
-    #183975
-    Then I softly see that "State" rendered in view mode only
-    #183976
-    Then I softly see that "Zip Code" rendered in view mode only
