@@ -145,68 +145,6 @@ Feature: Validate all scenarios related to announcement
     And I click on "Save" in the page details
     Then I softly see field "Negotiations Allowed?" as "Yes"
 
-  @184024 @184098 @184183 @184188 @184175 @184179 @184185 @184180 @184182 @184096 @184138 @184090 @184133 @184134 @184131 @sprint-3 @userStory-175346 @sanity
-  Scenario: Verify the "Type" field is read-only in Information section under overview tab
-  |Verify that new "Office" field is editable
-  |Verify that "Indirect Cost Type" is dropdown field with the following options: Restricted, Unrestricted, Not Allowed
-  |Verify that the "Maximum Indirect Cost" is optional field
-  |Verify the "Fiscal Year" field has dropdown showing Years, such as 2021, 2022, 2023, 2024
-  |Verify do not see that the Justification for Deficit Amount field
-  |Verify that a new field for Maximum Indirect Cost
-  |Verify that do not see Budget Type
-  |Verify that see a new field for Indirect Cost Type in "Financial Details" section under "Financials" tab
-  |Verify that do not see "Internal Division/Office" field in "Overview" tab
-  |Verify that do not see the Internal Organization field in "Overview" tab
-  |Verify that do not see the Leverage Allowed? field under Overview tab
-  |Verify that do not see the Program Income Allowed? field under Overview tab
-    When I login to "As a Grantor" app as "PM" user
-    And I navigate to "Announcements" tab
-    When I navigate to "Formula" content inside "Announcements" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
-    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    And I click on "Continue" in the page details
-    When I enter value "No" into field "fieldIsMatchRequired__c"
-    When I enter value "No" into field "fieldRiskAssessment_Required__c"
-    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
-    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
-    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
-    And I click modal button "Save and Continue"
-     #184024
-    Then I softly see field "Type" as "Formula"
-     #184098
-    Then I softly see fields "fieldSCDE_Office__c" is in edit mode
-      #184183
-    And I navigate to "Financials" sub tab
-    Then I softly see "--None--:Restricted:Unrestricted:Not Allowed" inside selectbox field "fieldSCDE_Indirect_Cost_Type__c"
-      #184188
-    Then I softly do not see asterisk mark on "Maximum Indirect Cost"
-      #184175
-    Then I see the following options in dropdown field "fieldSCDE_Fiscal_Year__c" :
-      | 2021 | 2030 | 2040 |
-    And I click on "Save" in the page details
-      #184179
-    Then I softly do not see "Justification for Deficit Amount" inside page block detail
-      #184185
-    Then I softly see "Indirect Cost Type" inside page block detail
-      #184180
-    Then I softly do not see "Budget Type" inside page block detail
-      #184182
-    Then I softly see field "Indirect Cost Type" inside "Financial Details" section
-     #184096
-    And I navigate to "Overview" sub tab
-    Then I softly do not see "Internal Division/Office" inside page block detail
-     #184138
-    Then I softly do not see "Are Expense Details Required on Reimbursement?" inside page block detail
-     #184090
-    Then I softly do not see "Internal Organization" inside page block detail
-     #184133
-    Then I softly do not see "Leverage Allowed?" inside page block detail
-     #184134
-    Then I softly do not see "Pre-Application Required?" inside page block detail
-     #184131
-    Then I softly do not see "Program Income Allowed?" inside page block detail
-
   @183342 @183339 @183344 @183343 @184116 @184092 @184093 @184094 @sprint-3 @userStory-@179300 @UmangParekh
   Scenario: Verify that when I create a new contact on my announcement, I do not see the Country field on the create new model
   | Verify that when I create a new contact on my announcement, I do not see the Project Role field on the create new modal
@@ -1872,3 +1810,80 @@ Feature: Validate all scenarios related to announcement
     When I click on "Messages" button
     Then I see only the following ordered headers in table with id "---tableID:-:HomeTabMessages---" :
     | From Address | To Address | CC Address | Attention To | Email Subject | Created Date |
+
+  @203390 @203384 @203385 @203388 @203387 @203392 @203391 @203393 @sprint-11 @userStory-199230
+  Scenario: Verify that the Message:  Row X - The row cannot be added because the 'Reviewer Email ID' is required.
+  | Verify that  Then I see that I can update existing rows and then I can upload the updated data in the Excel to the Reviewer Assignments section using the 'Upload Assignments' action. If the upload is successful, I see that the section refreshes and shows.
+  | Verify that I see an error message if the Record ID is invalid.
+  | Verify that the Message:  Row X - The 'Reviewer Email ID' cannot be added because it is not in a correct email format.
+  | Verify that the Message:  Row X - The 'Reviewer Email ID' cannot be added because it is not associated with an active internal or SME user of the system.
+  | Verify that the Message:  Row X - The row cannot be added because there is a duplicate entry for the same review assignment.
+  | Verify that the Message:  Row X - The row cannot be added because there is more than one user with the same 'Reviewer Email ID.'
+  | Verify that the Quick Search and Advanced Search options are enabled for the table.
+    When I login to "As a Grantor" app as "PM" user
+    And I navigate to "Announcements" tab
+    When I navigate to "Formula" content inside "Announcements" subheader on left panel
+    And I click on top right button "New" in flex table with id "---tableID:-:FormulaAnnouncements---"
+    When I enter value "Automation Runtime Announcement" into field "fieldAnnouncementName__c"
+    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
+    And I click on "Continue" in the page details
+    When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
+    When I enter value "No" into field "fieldIsNegotiationsAllowed__c"
+    When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
+    When I enter value "By Applicant and School" into field "fieldSCDE_Allocation_Level__c"
+    And I click modal button "Save and Continue"
+    And I navigate to "Allocations" sub tab
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "AppWithSchool.xlsx" into library
+    And I click modal button "Upload File"
+    And I wait for "3" seconds
+    And I navigate to "Setup" sub tab
+    And I click on top right button "Generate Assignment Matrix" in flex table with id "---tableID:-:ApplicationReviewAssignment---"
+    And I wait for "3" seconds
+    And I click on top right button "Upload Assignments" in flex table with id "---tableID:-:ApplicationReviewAssignment---"
+    When I switch to iframe with id "ApplicationReviewAssignmentsiframeContentId"
+    When I upload file "ReviewAssignmentsWithoutEmailId.xlsx" into library
+    And I click modal button "Upload File"
+    #203390
+    Then I softly see the text containing :
+      | Row 2 - The row cannot be added because the 'Reviewer Email ID' is required. |
+    #203384
+    And I close modal by clicking the top right x button
+    And I edit the following rows inline in flex table with id "---tableID:-:ApplicationReviewAssignment---" by clicking "Edit" :
+      | Reviewer Name |
+      | Automation PM |
+    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationReviewAssignment---"
+    Then I softly see value "Automation PM" for title "Reviewer Name" inside table "---tableID:-:ApplicationReviewAssignment---"
+    #203385
+    And I click on top right button "Upload Assignments" in flex table with id "---tableID:-:ApplicationReviewAssignment---"
+    When I switch to iframe with id "ApplicationReviewAssignmentsiframeContentId"
+    When I upload file "ReviewAssignmentsInvalidRecordId.xlsx" into library
+    And I click modal button "Upload File"
+    Then I softly see the text containing :
+      | Row 2 - The 'Record ID' is invalid. |
+    #203388 #203387
+    And I close modal by clicking the top right x button
+    And I click on top right button "Upload Assignments" in flex table with id "---tableID:-:ApplicationReviewAssignment---"
+    When I switch to iframe with id "ApplicationReviewAssignmentsiframeContentId"
+    When I upload file "ReviewAssignmentsEmailId.xlsx" into library
+    And I click modal button "Upload File"
+    Then I softly see the text containing :
+      | Row 2 - The 'Reviewer Email ID' cannot be added because it is not in a correct email format. |
+      | Row 3 - The 'Reviewer Email ID' cannot be added because it is not associated with an active internal or SME user of the system. |
+    #203392 #203391
+    And I close modal by clicking the top right x button
+    And I click on top right button "Upload Assignments" in flex table with id "---tableID:-:ApplicationReviewAssignment---"
+    When I switch to iframe with id "ApplicationReviewAssignmentsiframeContentId"
+    When I upload file "ReviewAssignmentsDuplicateEntry.xlsx" into library
+    And I click modal button "Upload File"
+    Then I softly see the text containing :
+      | Row 3 - The row cannot be added because there is a duplicate entry for the same review assignment. |
+      | Row 4 - The row cannot be added because there is more than one user with the same 'Reviewer Email ID' |
+    #203393
+    And I close modal by clicking the top right x button
+    And I wait for "3" seconds
+    When I perform quick search for "Automation PM" in "---tableID:-:ApplicationReviewAssignment---" panel
+    Then I softly see value "Automation PM" for title "Reviewer Name" inside table "---tableID:-:ApplicationReviewAssignment---"
