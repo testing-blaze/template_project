@@ -214,7 +214,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I logout
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "PM" user
@@ -346,7 +346,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Announcements" tab
@@ -466,7 +466,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -484,6 +484,7 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
+    And I halt execution
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
@@ -831,7 +832,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I logout
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "PM" user
@@ -1073,7 +1074,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
@@ -1081,7 +1082,7 @@ Feature: Validate all scenarios related to application
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
-    And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
+    And I click on "Edit" icon for "Pre-Screen" inside flex table witReview Initiatedh id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
     And I enter value "Checked" into field "Required__c"
@@ -1265,7 +1266,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1556,6 +1557,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -1580,7 +1582,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -1817,7 +1819,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -2489,6 +2491,23 @@ Feature: Validate all scenarios related to application
     And I click on "Edit" in the page details
     When I enter value "200" into field "fieldSCDE_AdminCostTaken__c"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
     Then I softly see the text containing :
       | Budget Tab - 'Admin Cost Taken' cannot be greater than the 'Max Admin Cost Allowed'. |
@@ -2590,6 +2609,23 @@ Feature: Validate all scenarios related to application
     And I click on "Edit" in the page details
     When I enter value "100" into field "fieldSCDE_AdminCostTaken__c"
     And I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
     Then I softly see the text containing :
       | Files Tab - All mandatory forms must be 100% completed |
@@ -3127,6 +3163,23 @@ Feature: Validate all scenarios related to application
       #189725
     Then I softly do not see "Potential Indirect Cost Recovery" inside page block detail
     #189742
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
     Then I cannot see the following messages in the page details contains:
       | indirect cost taken does not exceed Potential Indirect Cost Recovery |
@@ -3380,6 +3433,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -3404,7 +3458,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -3550,7 +3604,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -3761,6 +3815,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -3785,7 +3840,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -3894,6 +3949,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -3918,7 +3974,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -4063,6 +4119,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -4087,7 +4144,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -4303,6 +4360,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -4327,7 +4385,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -4611,7 +4669,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -4724,6 +4782,23 @@ Feature: Validate all scenarios related to application
    #189597
     Then I softly see field "Budgeted Amount" inside "Allocations by School" section
     #189586 #189542
+    And I wait for "3" seconds
+    And I click on "Validate" in the page details
+    And I wait for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+    And I logout
+    Given I am on "SUBPORTAL" portal
+    When I login as "SPA" user
+    And I navigate to "Applications" tab
+    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+    When I "Approve" in the approval decision
+    And I softly see field "Status" as "Approved for Submission"
+    And I click on "Complete Acknowledgement" in the page details
+    And I enter value "Checked" into field "selectCheckBoxDiv"
+    And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
     Then I softly see the text containing :
       | Budget Tab - The 'Budgeted Amount' for each school must equal the 'Allocation Amount' for the school. |
@@ -4862,7 +4937,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -5045,6 +5120,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -5069,7 +5145,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -5238,6 +5314,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -5262,7 +5339,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -5452,6 +5529,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -5476,7 +5554,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -5737,6 +5815,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -5761,7 +5840,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -5889,7 +5968,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -6013,6 +6092,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     #190543
     And I expand nested table containing column value "BP01"
     Then I softly see value "$2.00" for title "Total Match" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
@@ -6040,7 +6120,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -6457,6 +6537,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -6481,7 +6562,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -6707,7 +6788,7 @@ Feature: Validate all scenarios related to application
     Then I softly see that "Subaward Floor" rendered in view mode only
    #191911
     And I navigate to "Overview" sub tab
-    And I softly see field "Description" as "Testing"
+    And I softly see field "Description" as "test"
    #191912
     Then I softly see field "Eligible Applicant Types" inside "Eligibility Details" section
    #191909
@@ -6720,8 +6801,8 @@ Feature: Validate all scenarios related to application
     Then I softly see value "FA-ST-01" for title "Funding Account" inside table "---tableID:-:ApplicationFundingAccount---"
    #191910
     And I navigate to "Setup" sub tab
-    Then I softly see value "Grantor Site Visit Forms" for title "Package Name" inside table "---tableID:-:ApplicationForms---"
-    Then I softly see value "Organization Desk Review" for title "Package Name" inside table "---tableID:-:ApplicationForms---"
+    Then I softly see value "Grantor Application Forms" for title "Package Name" inside table "---tableID:-:ApplicationForms---"
+    Then I softly see value "Grantor Progress Report Forms" for title "Package Name" inside table "---tableID:-:ApplicationForms---"
 
   @191867 @191877 @191876 @191874 @191875 @191871 @191869 @191882 @191889 @191890 @sprint-6 @userStory-189862
   Scenario: Verify external user should see "Add" button on the table
@@ -6878,7 +6959,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -7375,7 +7456,7 @@ Feature: Validate all scenarios related to application
     And I click on "Submit For Approval" in the page details
     #192191  #192194
     Then I softly see the following messages in the page details contains:
-      | Financials Tab - 'Fiscal Year' is required to Submit for Approval. |
+      | Financials Tab - Fiscal Year is required to Submit for Approval. |
 
   @192150 @192152 @192086 @192110 @192096 @192102 @192099 @192100 @192090 @192226 @192075 @192050 @192069 @192051 @192052 @192049 @192047 @192160 @192122 @sprint-6 @userStory-189635
   Scenario: Verify that after save revisions tab changes in the application, I see a 'Cancel Revision' button on the application
@@ -7477,6 +7558,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -7501,7 +7583,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -7852,7 +7934,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -8297,7 +8379,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
 
   @192908 @192906 @sprint-6 @userStory-190291
   Scenario: Verify that for formula announcement there is no validation checking that the requested amount is not below the subaward floor
@@ -8406,7 +8488,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
 
   @192849 @192846 @sprint-6 @userStory-190291
   Scenario: Verify that I can submit my formula application with a total budgeted amount that is above the subaward ceiling
@@ -8515,7 +8597,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
 
   @191906 @193106 @193105 @191893 @191892 @192825 @192832 @193361 @sprint-6 @userStory-187064
   Scenario: Verify that application Owner can see the status as 'Reviewed'
@@ -8606,6 +8688,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -8630,7 +8713,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -8891,6 +8974,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -8915,7 +8999,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -9095,7 +9179,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -9242,6 +9326,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     And I click on "Edit" icon for "No" inside table
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -9266,7 +9351,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -9539,6 +9624,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -9563,7 +9649,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
@@ -11704,6 +11790,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -11728,7 +11815,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     And I logout
     Given I am on "INTERNAL" portal
     When I login to "As a Grantor" app as "PM" user
@@ -12110,8 +12197,8 @@ Feature: Validate all scenarios related to application
     Then I softly do not see field "Total Match" inside "Details" section
     Then I softly do not see field "Total Project Cost" inside "Details" section
     #198679
-    Then I softly see field "Object Code" inside "Details" section
-    Then I softly see field "Award Total" inside "Details" section
+    Then I softly see field " Object Code " inside "Details" section
+    Then I softly see field " Quantity " inside "Details" section
     Then I softly see field "Budget For" inside "Details" section
     #198659
     And I close modal by clicking the top right x button
@@ -12407,7 +12494,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationRevision---" panel
@@ -12539,7 +12626,7 @@ Feature: Validate all scenarios related to application
     And I enter value "Checked" into field "selectCheckBoxDiv"
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
-    And I softly see field "Status" as "Submitted"
+    And I softly see field "Status" as "Review Initiated"
 
   @198994 @198991 @sprint-9 @userStory-197011
   Scenario: Verify that if the announcement has the 'Budget Narrative Required?' setting as No, then the Budget Narrative section is  hidden on the application and the validation requiring budget narrative does not run.
@@ -13134,6 +13221,7 @@ Feature: Validate all scenarios related to application
     Then I softly see fields "fieldSCDE_IndirectCostTaken__c" is in edit mode
     Then I softly see fields "fieldSCDE_AdminCostTaken__c" is in edit mode
     #197069 #196641
+    And I click on "Save" in the page details
     Then I softly can see top right button "Edit" in page detail
     Then I softly can see top right button "Submit for SR Approval" in page detail
     And I navigate to "Overview" sub tab
