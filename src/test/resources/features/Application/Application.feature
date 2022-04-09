@@ -484,7 +484,6 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I halt execution
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
@@ -518,11 +517,13 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-#    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+#    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
+#    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
     #Program Review
@@ -563,7 +564,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -575,7 +576,8 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+#    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
@@ -598,7 +600,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewStep------"
+    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps------"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to FDM" in flex table with id "---tableID:-:ReviewApplication---"
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
@@ -1354,7 +1356,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -1847,7 +1849,7 @@ Feature: Validate all scenarios related to application
     And I pause execution for "2" seconds
     And I refresh the page
     #187897 #187896
-    Then I softly can see row level action button "Request Revision" against "Automation PM" in flex table with id "---tableID:-:Reviewer---"
+    Then I softly can see row level action button "Request Revision" against "{SavedValue:APPID}" in flex table with id "---tableID:-:Reviewer---"
     #188031
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
     And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
@@ -3485,7 +3487,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3627,7 +3629,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -3643,7 +3645,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -3707,7 +3709,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -3719,11 +3721,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -3997,7 +3999,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -4167,7 +4169,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -4257,11 +4259,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -4408,7 +4410,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -4437,11 +4439,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
     #Fiscal Review
@@ -4494,11 +4496,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -5168,7 +5170,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -5362,7 +5364,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -5398,7 +5400,7 @@ Feature: Validate all scenarios related to application
     When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
-    And I click on top right button "Initiate Revision" in flex table with id "---tableID:-:Reviews---"
+    And I click on top right button "Initiate Revision" in flex table with id "---tableID:-:ReviewApplication---"
     And I softly see field "Status" as "Revision Initiated"
     And I navigate to "Revisions" sub tab
     And I click on top right button "Create Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
@@ -5577,7 +5579,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -5606,11 +5608,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
     #Fiscal Review
@@ -5663,11 +5665,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -5680,7 +5682,7 @@ Feature: Validate all scenarios related to application
     When I click alert button "OK"
     And I wait for "5" seconds
     And I click on "Previous Review Step" in the page details
-    When I click on "Sent back to Reviewer" icon for "AP-SCDE-211" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    When I click on "Sent back to Reviewer" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
     And I wait for "3" seconds
     #189675 #189673
     And I softly see field "Status" as "Sent for Review"
@@ -8736,7 +8738,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -8765,7 +8767,7 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I pause execution for "5" seconds
     And I refresh the page
@@ -8822,11 +8824,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -9672,7 +9674,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -9701,11 +9703,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
     #Fiscal Review
@@ -9758,11 +9760,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab

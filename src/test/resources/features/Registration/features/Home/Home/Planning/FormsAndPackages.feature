@@ -26,6 +26,8 @@ Feature: Validate all scenarios related to forms and packages
     When I enter value "Automation Testing" into field "fieldName"
     When I enter value "Application" into field "fieldGNT__SubmissionType__c"
     When I enter value "In Progress" into field "fieldGNT__Status__c"
+    And I click modal button "Save"
+    When I click on "View" icon for "Automation Testing" inside flex table with id "---tableID:-:Packages---"
     And I click modal button "Associate Forms"
     And I click on top right button "Associate" in flex table with id "---tableID:-:AssociateForms---"
     When I perform quick search for "JSTestForm1" in "---tableID:-:AddForms---" panel
