@@ -289,7 +289,7 @@ Feature: Validate all scenarios related to announcement
       | BP01               | 250        | 365      |
     And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
     When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
-    And I navigate to "Overview" sub tab
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     And I close modal by clicking the top right x button
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
@@ -717,7 +717,6 @@ Feature: Validate all scenarios related to announcement
     When I upload file "SortByApplicant.xlsx" into library
     And I pause execution for "3" seconds
     And I click modal button "Upload File"
-    Then I softly see value "REI Systems, Inc." for title "Applicant" inside table "---tableID:-:AnnouncementInvitedApplicants---"
     Then I softly see value "TEXAS BEAR CREEK STORAGE" for title "Applicant" inside table "---tableID:-:AnnouncementInvitedApplicants---"
     #183752
     Then I softly see value "$700.00" for title "Allocation" against the value "Grand Total" inside table "---tableID:-:AnnouncementInvitedApplicants---"
@@ -828,17 +827,17 @@ Feature: Validate all scenarios related to announcement
     And I wait for "3" seconds
     And I close modal by clicking the top right x button
     #183768
-    And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
-    And I close modal by clicking the top right x button
-    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
-    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
-    When I upload file "InactiveSchoolCode.xlsx" into library
-    And I pause execution for "3" seconds
-    And I click modal button "Upload File"
-    Then I softly see the following messages in the page details contains:
-      | Row Number 2 - The school specified in the row is inactive. |
-    And I wait for "3" seconds
-    And I close modal by clicking the top right x button
+#    And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+#    And I close modal by clicking the top right x button
+#    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+#    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+#    When I upload file "InactiveSchoolCode.xlsx" into library
+#    And I pause execution for "3" seconds
+#    And I click modal button "Upload File"
+#    Then I softly see the following messages in the page details contains:
+#      | Row Number 2 - The school specified in the row is inactive. |
+#    And I wait for "3" seconds
+#    And I close modal by clicking the top right x button
     #183753
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
     When I enter value "test" into field "fieldAnnouncementDescription__c"
@@ -1303,7 +1302,7 @@ Feature: Validate all scenarios related to announcement
     And I click on top right button "New" in flex table with id "---tableID:-:AnnouncementReviewStep---"
     Then I softly see value "Yes" for title "Review Response Shared" inside table "---tableID:-:AnnouncementReviewStep---"
     #188633 #188634
-    When I hovering mouse on page block help text icon inside table "---tableID:-:AnnouncementReviewStep---" with tooltip id "ReviewResponseShared__ca0R3R000000hf91UAAFlexGridtooltip"
+    When I hovering mouse on page block help text icon inside table "---tableID:-:AnnouncementReviewStep---" with tooltip id "ReviewResponseShared__ca0R3R000000hf69UAAFlexGridtooltip"
     Then I softly see "Select 'No' to allow only the assigned reviewer and the announcement record owner (for any announcement created for this program) to view the review response provided for an application in this review step. To share the review response with all SCDE users, select 'YES'." shown as help text
     #188627
     And I click on top right button "New" in flex table with id "---tableID:-:AnnouncementReviewStep---"
@@ -1552,6 +1551,7 @@ Feature: Validate all scenarios related to announcement
     And I pause execution for "2" seconds
       #194294
     And I click on "Edit" in the page details
+    And I navigate to "Overview" sub tab
     And I softly see field "Pre-Award Risk Assessment Required?" as "Yes"
     And I click on "Save" in the page details
       #194289
@@ -1785,9 +1785,8 @@ Feature: Validate all scenarios related to announcement
     Then I softly see "To" inside page block detail
     Then I softly see "Cc" inside page block detail
     #200842
-    When I enter value "Automation PM" into field "fieldEmailTo__c"
-    When I enter value "Testing" into field "fieldEmailSubject__c"
-    When I enter value "Automation Testing" into field "fieldEmailBody__c"
+    When I enter value "automation.pm@yopmail.com" into field "To" on send email modal
+    When I enter value "Automation Testing" into field "Subject" on send email modal
     And I click modal button "Send"
     And I close modal by clicking the top right x button
     Then I softly see value "automation.pm@yopmail.com" for title "From Address" inside table "---tableID:-:Messages---"
@@ -1801,8 +1800,7 @@ Feature: Validate all scenarios related to announcement
       | Internal | External |
     #200836
     And I close modal by clicking the top right x button
-    When I enter value "Testing" into field "fieldMyFeed__c"
-    And I click on "Share" in the page details
+    And I enter value "@Automation PM" in my feed section and share the post
     Then I softly see the text containing :
     | Automation PM to South Carolina Department of Education Only |
     #201553
