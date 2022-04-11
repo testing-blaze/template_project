@@ -54,16 +54,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -91,6 +81,7 @@ Feature: Validate all scenarios related to application
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "UpdatedAllocationAmount.xlsx" into library
@@ -158,16 +149,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -290,16 +271,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -484,7 +455,6 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I halt execution
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
@@ -518,11 +488,13 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-#    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+#    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
+#    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
     #Program Review
@@ -563,7 +535,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -575,7 +547,8 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+#    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
@@ -598,7 +571,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewStep------"
+    And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps------"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to FDM" in flex table with id "---tableID:-:ReviewApplication---"
     When I navigate to "Funding Decision Memos (FDM)" content inside "Application Reviews" subheader on left panel
@@ -692,16 +665,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -776,16 +739,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -903,15 +856,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -1021,16 +965,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -1082,7 +1016,7 @@ Feature: Validate all scenarios related to application
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
-    And I click on "Edit" icon for "Pre-Screen" inside flex table witReview Initiatedh id "---tableID:-:ReviewForms---"
+    And I click on "Edit" icon for "Pre-Screen" inside flex table with id "---tableID:-:ReviewForms---"
     And I enter value "1" into field "MinimumNumberOfReviewers__c"
     And I enter value "5" into field "DueInDays__c"
     And I enter value "Checked" into field "Required__c"
@@ -1095,8 +1029,8 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
-    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ReviewApplication---"
     And I navigate to "Revisions" sub tab
     When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
@@ -1109,7 +1043,7 @@ Feature: Validate all scenarios related to application
     Then I softly see the following messages in the page details contains:
       | The revisions will no longer be editable. Are you sure you are ready to cancel the revisions? |
     #185631
-    When I click alert button "OK"
+    When I click alert button "Yes"
     And I wait for "5" seconds
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -1141,7 +1075,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I softly see field "Status" as "In Progress"
-    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:AppRevisionInitiatedIconTable---"
+    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:ReviewApplication---"
 
   @185293 @185521 @185523 @185535 @185321 @185538 @185319 @185286 @185282 @185285 @185323 @185237 @185324 @185537 @185299 @185289 @185287 @sprint-4 @userStory-184581 @UmangParekh
   Scenario: Verify that 'Explanation of Revisions Needed' is text field accept up to 4,000 chars
@@ -1210,16 +1144,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -1293,7 +1217,8 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ReviewApplication---"
     And I navigate to "Revisions" sub tab
     When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
@@ -1307,9 +1232,9 @@ Feature: Validate all scenarios related to application
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
-    Then I softly cannot see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I softly cannot see row level action button "Request Revision" against "{SavedValue:APPID}" in flex table with id "---tableID:-:ReviewApplication---"
     #185523
-    Then I softly see value "Revision In-Progress" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly see value "Revision In-Progress" for title "Decision Status" inside table "---tableID:-:ReviewApplication---"
     #185535
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -1319,24 +1244,24 @@ Feature: Validate all scenarios related to application
     Then I softly see field "Revision Request Status" as "Created"
     Then I softly see that "Revision Request Status" rendered in view mode only
     #185321
-    And I click on top right button "Edit" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    And I click on "Edit" in the page details
     Then I softly see fields "fieldNegotiationDueDate__c" is in edit mode
     Then I softly see fields "fieldApplicationSectionsForRevision__c" is in edit mode
     Then I softly see fields "ExplanationOfRevisionsNeeded__c" is in edit mode
     #185538
-    And I click on top right button "Save" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    And I click on "Save" in the page details
     Then I softly see that "Applicant Name" rendered in view mode only
     #185319
-    Then I softly can see top right button "Edit" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
-    Then I softly can see top right button " Send to Subrecipients" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
-    Then I softly can see top right button "Cancel Revision" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
-    Then I softly can see top right button "Back to Current Review Step" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Send to Subrecipients" in page detail
+    Then I softly can see top right button "Cancel Revision" in page detail
+    Then I softly can see top right button "Back to Current Review Step" in page detail
     #185286
-    And I click on top right button "Edit" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
-    Then I softly see "Budget:Performance:Forms and Files : Forms:Forms and Files: Supporting Document Checklist :Forms and Files: Application Files:Forms and Files: Notes" inside selectbox field "fieldApplicationSectionsForRevision__c"
+    And I click on "Edit" in the page details
+    Then I softly see "Budget:Performance:Forms and Files: Forms:Forms and Files: Supporting Document Checklist:Forms and Files: Application Files:Forms and Files: Notes" inside selectbox field "fieldApplicationSectionsForRevision__c"
     #185282 #185285
-    When I enter value "12/02/2021" into field "NegotiationDueDate__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    When I enter value "12/02/2021" into field "fieldNegotiationDueDate__c"
+    And I click on "Save" in the page details
     Then I softly see the text containing :
       | Revisions Tab - 'Due Date' must be in future. |
     #185323
@@ -1345,16 +1270,16 @@ Feature: Validate all scenarios related to application
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
-    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
-    Then I softly see value "Review Initiated" for title "Application Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
-    Then I softly can see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:ReviewApplication---"
+    Then I softly see value "Review Initiated" for title "Application Status" inside table "---tableID:-:ReviewApplication---"
+    Then I softly can see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ReviewApplication---"
     #185237
     And I navigate to "Applications" tab
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -1365,11 +1290,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -1387,9 +1312,9 @@ Feature: Validate all scenarios related to application
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Management Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
-    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:ApplicationManagementReview---"
-    Then I softly see value "Review Initiated" for title "Application Status" inside table "---tableID:-:ApplicationManagementReview---"
-    Then I softly can see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ApplicationManagementReview---"
+    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:ReviewApplication---"
+    Then I softly see value "Review Initiated" for title "Application Status" inside table "---tableID:-:ReviewApplication---"
+    Then I softly can see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ReviewApplication---"
     #185324
     #Fiscal Review
     And I navigate to "Applications" tab
@@ -1429,9 +1354,9 @@ Feature: Validate all scenarios related to application
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
-    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:ApplicationSmeReview---"
-    Then I softly see value "Review Initiated" for title "Application Status" inside table "---tableID:-:ApplicationSmeReview---"
-    Then I softly can see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ApplicationSmeReview---"
+    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:ReviewApplication---"
+    Then I softly see value "Review Initiated" for title "Application Status" inside table "---tableID:-:ReviewApplication---"
+    Then I softly can see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ReviewApplication---"
     #185537
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -1444,7 +1369,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on top right button "Promote to next step" in flex table with id "---tableID:-:AnnouncementReviewSteps---"
+    And I click on top right button "Promote to next step" in flex table with id "---tableID:-:ReviewApplication---"
     Then I softly see the following messages in the page details contains:
       | One or more applications selected for promotion are not eligible for promotion because the application is already promoted or a revision is in progress. |
     #185289
@@ -1528,16 +1453,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -1609,8 +1524,8 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
-    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ReviewApplication---"
     And I navigate to "Revisions" sub tab
     When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
@@ -1625,20 +1540,20 @@ Feature: Validate all scenarios related to application
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
-    Then I softly see value "Revision In-Progress" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
-    Then I softly see value "Revision Initiated" for title "Application Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly see value "Revision In-Progress" for title "Decision Status" inside table "---tableID:-:ReviewApplication---"
+    Then I softly see value "Revision Initiated" for title "Application Status" inside table "---tableID:-:ReviewApplication---"
     #186156
-    When I click on "View" icon for "TEXAS BEAR CREEK STORAGE" inside flex table with id "---tableID:-:ApplicationFormsRevision---"
+    When I click on "View" icon for "TEXAS BEAR CREEK STORAGE" inside flex table with id "---tableID:-:ReviewApplication---"
     Then I softly can see top right button "Send to Subrecipient" in page detail
     #186232 #186233
-    And I click on top right button "Send to Subrecipient" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    And I click on "Send to Subrecipient" in the page details
     Then I softly see the text :
       | Revisions Tab- Select at least one form to allow edits on, because the Form section is added for revision. |
     #186249
     And I click on "Edit" icon for "Title II, Part A - Stakeholder Participants" inside flex table with id "---tableID:-:AvailableFormsforRevision---"
     When I enter value "checked" into field "AllowEdit__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:AvailableFormsforRevision---"
-    And I click on top right button "Send to Subrecipient" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    And I click on "Send to Subrecipient" in the page details
     Then I softly see value "checked" for title "Allow Edits?" inside table "---tableID:-:ApplicationFormsRevision---"
     #186613
     Then I softly see that "Revised Submitted Date" rendered in view mode only
@@ -1666,8 +1581,9 @@ Feature: Validate all scenarios related to application
     Then I softly can see row level action button "Edit" against "Title II, Part A - Private Schools" in flex table with id "---tableID:-:ApplicationFormsRevision---"
     #187634
     And I navigate to "Revisions" sub tab
-    And I click on top right button "Back to Current Review Step" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
-    Then I softly see value "Review Incomplete" for title "Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
+    And I click on "Back to Current Review Step" in the page details
+#    And I click on top right button "Back to Current Review Step" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly see value "Review Incomplete" for title "Status" inside table "---tableID:-:ReviewApplication---"
 
   @185233 @185232 @185236 @sprint-4 @userStory-180192
   Scenario: Verify the Message: "Overview tab: The SAM Expiration Date is in the past. You must immediately update your SAM.gov registration to be eligible to receive a grant award for this application from SCDE, when announcement has a funding source is "Federal"
@@ -1765,16 +1681,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -1847,44 +1753,44 @@ Feature: Validate all scenarios related to application
     And I pause execution for "2" seconds
     And I refresh the page
     #187897 #187896
-    Then I softly can see row level action button "Request Revision" against "Automation PM" in flex table with id "---tableID:-:Reviewer---"
+    Then I softly can see row level action button "Request Revision" against "{SavedValue:APPID}" in flex table with id "---tableID:-:ReviewApplication---"
     #188031
-    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
-    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ReviewApplication---"
     And I navigate to "Revisions" sub tab
     When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
     When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
-    Then I softly can see top right button "Edit" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Save" in the page details
+    Then I softly can see top right button "Edit" in page detail
     Then I softly can see row level action button "Edit" against "Title II, Part A - Stakeholder Participants" in flex table with id "---tableID:-:AvailableFormsforRevision---"
     #188032
-    And I click on top right button "Edit" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Edit" in the page details
     Then I softly see fields "fieldExplanationOfRevisionsNeeded__c" is in edit mode
     #187887
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Save" in the page details
     Then I softly see that "Applicant Response" rendered in view mode only
     #188030
-    And I click on top right button "Edit" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Edit" in the page details
     Then I softly see fields "fieldApplicationSectionsForRevision__c" is in edit mode
     #188028
-    Then I softly see fields "NegotiationDueDate__c" is in edit mode
+    Then I softly see fields "fieldNegotiationDueDate__c" is in edit mode
     #187874
     Then I softly see value "Title II, Part A - Stakeholder Participants" for title "Form Name" inside table "---tableID:-:AvailableFormsforRevision---"
 	#187884
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Save" in the page details
     And I softly see field "Explanation of Revisions Needed" as "Test"
     Then I softly see that "Explanation of Revisions Needed" rendered in view mode only
     #188071
-    And I click on top right button "Edit" in flex table with id "---tableID:-:ApplicationRevisions---"
-    When I enter value "250" into field "NegotiationDueDate__c"
+    And I click on "Edit" in the page details
+    When I enter value "250" into field "fieldNegotiationDueDate__c"
     When I enter value "Automation Testing" into field "fieldExplanationOfRevisionsNeeded__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
-    Then I softly can see top right button "Send To Subrecipient" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Save" in the page details
+    Then I softly can see top right button "Send To Subrecipient" in page detail
     #188083
-    Then I softly can see top right button "Cancel Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I softly can see top right button "Cancel Revision" in page detail
     #187859
-    And I click on top right button "Send To Subrecipient" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Send To Subrecipient" in the page details
     And I softly see field "Revision Request Status" as "Submitted to Grantor"
     Then I softly see that "Revision Request Status" rendered in view mode only
     #187865
@@ -1903,9 +1809,9 @@ Feature: Validate all scenarios related to application
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationTableId---"
     And I pause execution for "2" seconds
-    Then I softly can see top right button "Complete Revisions" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I softly can see top right button "Complete Revisions" in page detail
     #188109
-    And I click on top right button "Complete Revisions" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Complete Revisions" in the page details
     And I softly see field "Status" as "Review Initiated"
     #187846
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -1968,16 +1874,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -2043,16 +1939,7 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
-    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPA1" user
+    When I login as "SPA" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
@@ -2111,16 +1998,7 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
-    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPA1" user
+    When I login as "SPA" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:PublishedOpportunities---"
@@ -2173,20 +2051,13 @@ Feature: Validate all scenarios related to application
     When I upload file "ByApplicant.xlsx" into library
     And I click modal button "Upload File"
     And I pause execution for "2" seconds
+    And I refresh the page
     And I click on "Submit For Approval" in the page details
+    And I wait for "3" seconds
     And I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
-    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPA1" user
@@ -2266,16 +2137,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -2366,16 +2227,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -2454,16 +2305,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -2491,8 +2332,6 @@ Feature: Validate all scenarios related to application
     And I click on "Edit" in the page details
     When I enter value "200" into field "fieldSCDE_AdminCostTaken__c"
     And I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I click on "Validate" in the page details
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
@@ -2581,16 +2420,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -2609,8 +2438,6 @@ Feature: Validate all scenarios related to application
     And I click on "Edit" in the page details
     When I enter value "100" into field "fieldSCDE_AdminCostTaken__c"
     And I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I click on "Validate" in the page details
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
@@ -2688,16 +2515,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -2709,7 +2526,7 @@ Feature: Validate all scenarios related to application
     And I click on "Save" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
-    And I click toggle button to select "Applications - Draft"
+    And I click toggle button to select "Applications - All"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationId---"
     #186433
@@ -2774,16 +2591,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -2796,7 +2603,7 @@ Feature: Validate all scenarios related to application
     And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
-    And I click toggle button to select "Applications - Draft"
+    And I click toggle button to select "Applications - All"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:InternalApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:InternalApplicationTableId---"
       #186429
@@ -2912,16 +2719,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -3136,16 +2933,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -3163,8 +2950,6 @@ Feature: Validate all scenarios related to application
       #189725
     Then I softly do not see "Potential Indirect Cost Recovery" inside page block detail
     #189742
-    And I wait for "3" seconds
-    And I click on "Validate" in the page details
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
@@ -3233,16 +3018,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -3254,7 +3029,7 @@ Feature: Validate all scenarios related to application
     And I click on "Save" in the page details
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
-    And I click toggle button to select "Applications - Draft"
+    And I click toggle button to select "Applications - All"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:InternalApplicationTableId---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:InternalApplicationTableId---"
     And I navigate to "Budget" sub tab
@@ -3315,16 +3090,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -3404,16 +3169,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -3485,7 +3240,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
@@ -3547,17 +3302,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPI" user
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
@@ -3627,7 +3371,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -3643,7 +3387,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -3707,7 +3451,7 @@ Feature: Validate all scenarios related to application
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     And I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
-    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    And I click on "View" icon for "SME Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
     When I click on top right button "Promote to Next Step" in flex table with id "---tableID:-:ReviewApplication---"
     And I click on "Next Review Step" in the page details
@@ -3719,11 +3463,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -3783,16 +3527,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -3919,16 +3653,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -3997,7 +3721,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -4089,16 +3813,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -4167,7 +3881,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -4257,11 +3971,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -4331,16 +4045,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -4408,7 +4112,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -4437,11 +4141,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
     #Fiscal Review
@@ -4494,11 +4198,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -4616,16 +4320,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -4645,6 +4339,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -4747,16 +4442,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -4780,10 +4465,8 @@ Feature: Validate all scenarios related to application
    #191157
     Then I softly see value "$200.00" for title "Award Total" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
    #189597
-    Then I softly see field "Budgeted Amount" inside "Allocations by School" section
+    Then I softly see "Budgeted Amount" in flex table header "---tableID:-:AllocationsBySchool---"
     #189586 #189542
-    And I wait for "3" seconds
-    And I click on "Validate" in the page details
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
@@ -4884,16 +4567,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -4913,6 +4586,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -4938,7 +4612,6 @@ Feature: Validate all scenarios related to application
     And I click modal button "Save And Close"
     And I click on "Submit Application" in the page details
     And I softly see field "Status" as "Review Initiated"
-    And I save the field containing "EGMS ID" as "APPID"
     When I re-login to "As a Grantor" app as "PM" user on "INTERNAL" portal
     And I navigate to "Applications" tab
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationRevision---" panel
@@ -5090,16 +4763,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -5168,7 +4831,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:Automation Runtime Announcement}" boxes in flex table with id "---tableID:-:Reviews---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -5285,16 +4948,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -5362,7 +5015,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -5398,7 +5051,7 @@ Feature: Validate all scenarios related to application
     When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
-    And I click on top right button "Initiate Revision" in flex table with id "---tableID:-:Reviews---"
+    And I click on top right button "Initiate Revision" in flex table with id "---tableID:-:ReviewApplication---"
     And I softly see field "Status" as "Revision Initiated"
     And I navigate to "Revisions" sub tab
     And I click on top right button "Create Revision" in flex table with id "---tableID:-:ApplicationRevisions---"
@@ -5500,16 +5153,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -5577,7 +5220,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -5606,11 +5249,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignAppToUsergrid---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
     #Fiscal Review
@@ -5663,11 +5306,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -5680,7 +5323,7 @@ Feature: Validate all scenarios related to application
     When I click alert button "OK"
     And I wait for "5" seconds
     And I click on "Previous Review Step" in the page details
-    When I click on "Sent back to Reviewer" icon for "AP-SCDE-211" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
+    When I click on "Sent back to Reviewer" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AnnouncementReviewStep---"
     And I wait for "3" seconds
     #189675 #189673
     And I softly see field "Status" as "Sent for Review"
@@ -5783,16 +5426,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -5910,16 +5543,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -5941,6 +5564,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
      #190546
     And I expand nested table containing column value "BP01"
     Then I softly see value "$2,001.00" for title "Total Project Cost" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
@@ -6049,16 +5673,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -6081,6 +5695,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I expand nested table containing column value "BP01"
     When I click on "Add" icon for "$0.00" inside flex table with id "---tableID:-:ApplicationBudgetPeriod---"
     When I enter value "100 - Salaries" into field "fieldMST_Budget_Category__c"
@@ -6222,16 +5837,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -6340,16 +5945,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -6506,16 +6101,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -6851,7 +6436,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
     Then I softly see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
     #191890
-    And I click on "Delete" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+#    And I click on "Delete" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
     Then I softly do not see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
 
   @191787 @191789 @191799 @191790 @191791 @sprint-6 @userStory-190011
@@ -6906,16 +6491,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -6935,6 +6510,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -7062,16 +6638,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -7152,16 +6718,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -7249,16 +6805,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -7324,16 +6870,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -7353,6 +6889,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -7529,16 +7066,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -7610,8 +7137,8 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
-    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ReviewApplication---"
     And I navigate to "Revisions" sub tab
     When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
@@ -7624,7 +7151,7 @@ Feature: Validate all scenarios related to application
     Then I softly see the following messages in the page details contains:
       | The revisions will no longer be editable. Are you sure you are ready to cancel the revisions? |
     #192086
-    When I click alert button "OK"
+    When I click alert button "Yes"
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationTableId---" panel
@@ -7655,7 +7182,7 @@ Feature: Validate all scenarios related to application
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
     And I softly see field "Status" as "In Progress"
-    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:ReviewApplication---"
     #192050
     When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
@@ -7666,9 +7193,9 @@ Feature: Validate all scenarios related to application
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
-    Then I softly cannot see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I softly cannot see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ReviewApplication---"
     #192051
-    Then I softly see value "Revision In-Progress" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly see value "Revision In-Progress" for title "Decision Status" inside table "---tableID:-:ReviewApplication---"
     #192052
     When I navigate to "Applications" content inside "Applications" subheader on left panel
     And I click toggle button to select "Applications - All"
@@ -7678,20 +7205,20 @@ Feature: Validate all scenarios related to application
     Then I softly see field "Revision Request Status" as "Created"
     Then I softly see that "Revision Request Status" rendered in view mode only
     #192049
-    And I click on top right button "Edit" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    And I click on "Edit" in the page details
     Then I softly see fields "fieldNegotiationDueDate__c" is in edit mode
     Then I softly see fields "fieldApplicationSectionsForRevision__c" is in edit mode
     Then I softly see fields "ExplanationOfRevisionsNeeded__c" is in edit mode
     #192047
-    And I click on top right button "Save" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    And I click on "Save" in the page details
     Then I softly see that "Applicant Name" rendered in view mode only
     #192160
-    Then I softly can see top right button "Edit" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
-    Then I softly can see top right button " Send to Subrecipients" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
-    Then I softly can see top right button "Cancel Revision" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
-    Then I softly can see top right button "Back to Current Review Step" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly can see top right button "Edit" in page detail
+    Then I softly can see top right button "Send to Subrecipients" in page detail
+    Then I softly can see top right button "Cancel Revision" in page detail
+    Then I softly can see top right button "Back to Current Review Step" in page detail
     #192122
-    And I click on top right button "Edit" in flex table with id "---tableID:-:AnnouncementPreScreenReview---"
+    And I click on "Edit" in the page details
     Then I softly see "Budget:Performance:Forms and Files : Forms:Forms and Files: Supporting Document Checklist :Forms and Files: Application Files:Forms and Files: Notes" inside selectbox field "fieldApplicationSectionsForRevision__c"
 
   @192111 @192104 @192109 @192073 @192076 @192101 @192114 @sprint-6 @userStory-190315
@@ -7784,7 +7311,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementBudgetCategory---"
     When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
     And I wait for "3" seconds
-    And I navigate to "Overview" sub tab
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "AppWithSchoolCode.xlsx" into library
@@ -7795,16 +7322,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -7881,16 +7398,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -7910,6 +7417,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -7956,8 +7464,8 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
-    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ReviewApplication---"
     And I navigate to "Revisions" sub tab
     When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
@@ -7971,7 +7479,7 @@ Feature: Validate all scenarios related to application
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
-    Then I softly cannot see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I softly cannot see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ReviewApplication---"
 
   @193421 @193431 @193426 @193430 @193428 @193432 @193433 @193230 @193229 @193423 @sprint-6 @userStory-190588
   Scenario: Verify "Cash Match" field is an optional field.
@@ -8035,16 +7543,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -8209,16 +7707,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -8295,6 +7783,7 @@ Feature: Validate all scenarios related to application
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
@@ -8328,16 +7817,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -8355,6 +7834,7 @@ Feature: Validate all scenarios related to application
     When I enter value "1000" into field "fieldUnitPrice__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -8435,16 +7915,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -8464,6 +7934,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -8544,16 +8015,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -8573,6 +8034,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -8659,16 +8121,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -8736,7 +8188,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -8765,8 +8217,8 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
-    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignAppToUsergrid---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
     When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
@@ -8822,11 +8274,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -8945,16 +8397,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -9026,8 +8468,8 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
-    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ReviewApplication---"
     And I navigate to "Revisions" sub tab
     When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
@@ -9048,20 +8490,16 @@ Feature: Validate all scenarios related to application
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
-    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
-    #192149
-    When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
-    And I softly see field "Status" as "Review Initiated"
-    #192127
+    Then I softly see value "Pending" for title "Decision Status" inside table "---tableID:-:ReviewApplication---"
+    #192149#192127
     When I navigate to "Reviews" content inside "Application Reviews" subheader on left panel
     And I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:ApplicationReviews---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:ApplicationReviews---"
     And I navigate to "Related Log" sub tab
     And I click on "View" icon for "Pre-Screen Review" inside flex table with id "---tableID:-:AnnouncementReviewSteps---"
-    Then I softly cannot see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ApplicationRevisions---"
+    Then I softly cannot see row level action button "Request Revision" against "TEXAS BEAR CREEK STORAGE" in flex table with id "---tableID:-:ReviewApplication---"
     #192126
-    Then I softly see value "Revision In-Progress" for title "Decision Status" inside table "---tableID:-:AnnouncementPreScreenReview---"
+    Then I softly see value "Revision In-Progress" for title "Decision Status" inside table "---tableID:-:ReviewApplication---"
 
   @191865 @191872 @191870 @191879 @191868 @191862 @191881 @192830 @sprint-6 @userStory-187064
   Scenario: Verify that the 'Request Revisions' button available on the application
@@ -9126,16 +8564,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -9155,6 +8583,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -9207,32 +8636,31 @@ Feature: Validate all scenarios related to application
     And I pause execution for "2" seconds
     And I refresh the page
     #191865
-    Then I softly can see row level action button "Request Revision" against "{SavedValue:APPID}" in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    Then I softly can see row level action button "Request Revision" against "{SavedValue:APPID}" in flex table with id "---tableID:-:ReviewApplication---"
     #191872
-    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
-    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:AppRevisionInitiatedIconTable---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:ReviewApplication---"
+    And I click on "Request Revision" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ReviewApplication---"
     And I navigate to "Revisions" sub tab
     When I enter value "200" into field "fieldNegotiationDueDate__c"
     When I enter value "Overview" into field "fieldApplicationSectionsForRevision__c"
     When I enter value "Test" into field "fieldExplanationOfRevisionsNeeded__c"
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
-    Then I softly can see top right button "Edit" in flex table with id "---tableID:-:ApplicationRevisions---"
-    Then I softly can see row level action button "Edit" against "Title II, Part A - Stakeholder Participants" in flex table with id "---tableID:-:AvailableFormsforRevision---"
+    And I click on "Save" in the page details
+    Then I softly can see top right button "Edit" in page detail
     #191870
-    And I click on top right button "Edit" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Edit" in the page details
     Then I softly see fields "fieldExplanationOfRevisionsNeeded__c" is in edit mode
     #191879
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Save" in the page details
     Then I softly see that "Applicant Response" rendered in view mode only
     #191868
-    And I click on top right button "Edit" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Edit" in the page details
     Then I softly see fields "fieldApplicationSectionsForRevision__c" is in edit mode
     #191862
-    Then I softly see fields "NegotiationDueDate__c" is in edit mode
+    Then I softly see fields "fieldNegotiationDueDate__c" is in edit mode
     #191881
     Then I softly see value "Title II, Part A - Stakeholder Participants" for title "Form Name" inside table "---tableID:-:AvailableFormsforRevision---"
 	#192830
-    And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationRevisions---"
+    And I click on "Save" in the page details
     And I softly see field "Explanation of Revisions Needed" as "Test"
     Then I softly see that "Explanation of Revisions Needed" rendered in view mode only
 
@@ -9292,16 +8720,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -9452,16 +8870,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -9589,20 +8997,11 @@ Feature: Validate all scenarios related to application
     When I enter value "VD_TestPackage" into field "fieldPackageConfig__c"
     And I click modal button "Save"
     And I click on "Submit For Approval" in the page details
+    And I refresh the page
     And I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -9672,7 +9071,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     When I navigate to "Pending Tasks" content inside "My Tasks" subheader on left panel
     And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
@@ -9701,11 +9100,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
-    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignAppToUsergrid---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
-    When I check "all" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "5" seconds
     #Fiscal Review
@@ -9758,11 +9157,11 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I refresh the page
     And I pause execution for "5" seconds
-    When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
+    When I check "{SavedValue:APPID}" boxes in flex table with id "---tableID:-:Reviews---"
     When I click on top right button "Send for Review" in flex table with id "---tableID:-:Reviews---"
     And I pause execution for "3" seconds
     And I navigate to "Applications" tab
@@ -9892,16 +9291,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -9974,16 +9363,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -10066,16 +9445,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -10103,6 +9472,7 @@ Feature: Validate all scenarios related to application
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
@@ -10133,16 +9503,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -11761,16 +11121,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -11962,16 +11312,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -12169,16 +11509,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -12275,16 +11605,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -12387,16 +11707,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "SPIWAC Automation" into field "fieldAssignedTo__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "Active" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
     When I enter value "Fiscal Coordinator" into field "fieldRole__c"
     When I enter value "SPIWAC Automation" into field "fieldAssignedTo__c"
@@ -12466,6 +11776,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -12568,16 +11879,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -12601,6 +11902,7 @@ Feature: Validate all scenarios related to application
     When I enter value "Wright Middle" into field "fieldSchool__c"
     When I enter value "test" into field "fieldNarrative__c"
     And I click modal button "Save"
+    And I save the field containing "EGMS ID" as "APPID"
     And I navigate to "Forms and Files" sub tab
     When I click on "Edit" icon for "No" inside flex table with id "---tableID:-:ApplicationForms---"
     When I enter the following values into flex table with id "---tableID:-:StakeholderParticipants---" by clicking "Add" :
@@ -12676,16 +11978,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -12743,16 +12035,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -12899,16 +12181,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -12991,16 +12263,6 @@ Feature: Validate all scenarios related to application
     And I softly see field "Status" as "Published"
     And I logout
     Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Approver" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
-    And I logout
-    Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:PublishedOpportunities---" panel
@@ -13024,9 +12286,26 @@ Feature: Validate all scenarios related to application
     #196355
     Then I softly see value "$200.00" for title "Award Total" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
     #198965
-    Then I softly see field "Budgeted Amount" inside "Allocations by School" section
+    Then I softly see "Budgeted Amount" in flex table header "---tableID:-:AllocationsBySchool---"
+#    Then I softly see field "Budgeted Amount" inside "Allocations by School" section
     #196365 #196393
-    And I click on "Submit Application" in the page details
+    And I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+#    And I logout
+#    Given I am on "SUBPORTAL" portal
+#    When I login as "SPA" user
+#    And I navigate to "Applications" tab
+#    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+#    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+#    When I "Approve" in the approval decision
+#    And I softly see field "Status" as "Approved for Submission"
+#    And I click on "Complete Acknowledgement" in the page details
+#    And I enter value "Checked" into field "selectCheckBoxDiv"
+#    And I click modal button "Save And Close"
+#    And I click on "Submit Application" in the page details
     Then I softly see the text containing :
       | Budget Tab - The 'Budgeted Amount' for each school must equal the 'Allocation Amount' for the school. |
     Then I softly see the text containing :
@@ -13093,16 +12372,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -13193,16 +12462,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-    Given I am on "SUBPORTAL" portal
-    When I login as "SPIWAC" user
-    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-    When I enter value "Program Coordinator" into field "fieldRole__c"
-    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user

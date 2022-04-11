@@ -194,7 +194,7 @@ Feature: Validate all scenarios related to opportunities
       | BP01               | 250        | 365      |
     And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementFunctionCode---"
     When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
-    And I navigate to "Overview" sub tab
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "AppWithSchoolCode.xlsx" into library
