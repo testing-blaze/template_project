@@ -53,16 +53,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -91,6 +81,7 @@ Feature: Validate all scenarios related to application
     When I navigate to "Formula" content inside "Announcements" subheader on left panel
     When I perform quick search for "{SavedValue:Automation Runtime Announcement}" in "---tableID:-:FormulaAnnouncements---" panel
     When I click on "View" icon for "{SavedValue:Automation Runtime Announcement}" inside flex table with id "---tableID:-:FormulaAnnouncements---"
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "UpdatedAllocationAmount.xlsx" into library
@@ -159,16 +150,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -291,16 +272,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -693,16 +664,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -779,16 +740,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -905,15 +856,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -1022,16 +964,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -1213,16 +1145,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -1530,16 +1452,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -1768,16 +1680,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -1973,16 +1875,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -2046,15 +1938,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Coordinator" into field "fieldRole__c"
-#    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Active" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPA" user
     And I navigate to "Opportunities" tab
@@ -2114,15 +1997,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Coordinator" into field "fieldRole__c"
-#    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Active" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPA" user
     And I navigate to "Opportunities" tab
@@ -2177,23 +2051,14 @@ Feature: Validate all scenarios related to application
     When I upload file "ByApplicant.xlsx" into library
     And I click modal button "Upload File"
     And I pause execution for "2" seconds
-    And I click on "Submit For Approval" in the page details
     And I refresh the page
+    And I click on "Submit For Approval" in the page details
     And I wait for "3" seconds
     And I softly see field "Status" as "Submitted for Approval"
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Coordinator" into field "fieldRole__c"
-#    When I enter value "SPA Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Active" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPA1" user
     And I navigate to "Opportunities" tab
@@ -2273,16 +2138,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -2371,16 +2226,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -2459,16 +2304,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -2497,8 +2332,6 @@ Feature: Validate all scenarios related to application
     And I click on "Edit" in the page details
     When I enter value "200" into field "fieldSCDE_AdminCostTaken__c"
     And I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I click on "Validate" in the page details
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
@@ -2586,16 +2419,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -2615,8 +2438,6 @@ Feature: Validate all scenarios related to application
     And I click on "Edit" in the page details
     When I enter value "100" into field "fieldSCDE_AdminCostTaken__c"
     And I click on "Save" in the page details
-    And I wait for "3" seconds
-    And I click on "Validate" in the page details
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
@@ -2693,16 +2514,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -2779,16 +2590,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -2919,16 +2720,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -3141,16 +2932,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -3169,8 +2950,6 @@ Feature: Validate all scenarios related to application
       #189725
     Then I softly do not see "Potential Indirect Cost Recovery" inside page block detail
     #189742
-    And I wait for "3" seconds
-    And I click on "Validate" in the page details
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
@@ -3238,16 +3017,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -3322,16 +3091,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-#    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -3408,16 +3167,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -3553,17 +3302,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPI" user
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     And I navigate to "Opportunities" tab
@@ -3789,16 +3527,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -3923,16 +3651,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -4093,16 +3811,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -4335,16 +4043,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -4620,16 +4318,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -4752,16 +4440,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -4787,10 +4465,8 @@ Feature: Validate all scenarios related to application
    #191157
     Then I softly see value "$200.00" for title "Award Total" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
    #189597
-    Then I softly see field "Budgeted Amount" inside "Allocations by School" section
+    Then I softly see "Budgeted Amount" in flex table header "---tableID:-:AllocationsBySchool---"
     #189586 #189542
-    And I wait for "3" seconds
-    And I click on "Validate" in the page details
     And I wait for "3" seconds
     And I click on "Submit for Approval" in the page details
     And I wait for "5" seconds
@@ -4889,16 +4565,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -5095,16 +4761,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -5290,16 +4946,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -5505,16 +5151,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -5790,16 +5426,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -5915,16 +5541,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -6055,16 +5671,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -6229,16 +5835,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -6349,16 +5945,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -6515,16 +6101,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -6860,7 +6436,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
     Then I softly see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
     #191890
-    And I click on "Delete" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+#    And I click on "Delete" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
     Then I softly do not see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
 
   @191787 @191789 @191799 @191790 @191791 @sprint-6 @userStory-190011
@@ -6913,16 +6489,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -7070,16 +6636,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -7162,16 +6718,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -7257,16 +6803,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -7332,16 +6868,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -7538,16 +7064,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -7795,7 +7311,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Associate" in flex table with id "---tableID:-:AnnouncementBudgetCategory---"
     When I click "Associate" after selection of "110 - General Instruction" in the table "---tableID:-:Modal---"
     And I wait for "3" seconds
-    And I navigate to "Overview" sub tab
+    And I navigate to "Allocations" sub tab
     And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
     When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
     When I upload file "AppWithSchoolCode.xlsx" into library
@@ -7806,16 +7322,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -7890,16 +7396,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -8047,16 +7543,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -8219,16 +7705,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -8307,6 +7783,7 @@ Feature: Validate all scenarios related to application
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
@@ -8338,16 +7815,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -8446,16 +7913,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -8556,16 +8013,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -8672,16 +8119,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -8780,8 +8217,8 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "Select All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
-    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignAppToUsergrid---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
     When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
@@ -8958,16 +8395,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -9135,16 +8562,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -9303,16 +8720,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -9461,16 +8868,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -9605,16 +9002,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -9713,8 +9100,8 @@ Feature: Validate all scenarios related to application
       | Reviewer      |
       | Automation PM |
     And I click on "Assign" icon for "Automation PM" inside flex table with id "---tableID:-:Reviewer---"
-    And I check "Select All" boxes in flex table with id "---tableID:-:AssignAppToUsergrid---"
-    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignAppToUsergrid---"
+    And I check "Select All" boxes in flex table with id "---tableID:-:AssignApplicationToUser---"
+    And I click on top right button "Assign" in flex table with id "---tableID:-:AssignApplicationToUser---"
     And I pause execution for "5" seconds
     And I refresh the page
     When I check "Select All" boxes in flex table with id "---tableID:-:Reviews---"
@@ -9903,16 +9290,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -9986,16 +9363,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -10077,16 +9444,6 @@ Feature: Validate all scenarios related to application
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
     And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
-    And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
     And I navigate to "Opportunities" tab
@@ -10115,6 +9472,7 @@ Feature: Validate all scenarios related to application
     And I click on "Continue" in the page details
     When I enter value "No" into field "fieldIsMatchRequired__c"
     When I enter value "No" into field "fieldRiskAssessment_Required__c"
+    When I enter value "No" into field "fieldIsBudgetNarrativeRequired__c"
     When I enter value "N/A" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
@@ -10145,16 +9503,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -11771,16 +11119,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -11974,16 +11312,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -12179,16 +11507,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -12287,16 +11605,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -12399,16 +11707,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "SPIWAC Automation" into field "fieldAssignedTo__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "Active" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
     When I enter value "Fiscal Coordinator" into field "fieldRole__c"
     When I enter value "SPIWAC Automation" into field "fieldAssignedTo__c"
@@ -12579,16 +11877,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -12688,16 +11976,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -12757,16 +12035,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -12911,16 +12179,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -13003,16 +12261,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Approver" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -13038,9 +12286,26 @@ Feature: Validate all scenarios related to application
     #196355
     Then I softly see value "$200.00" for title "Award Total" inside table "---tableID:-:ApplicationBudgetPeriodFunctionCodes---"
     #198965
-    Then I softly see field "Budgeted Amount" inside "Allocations by School" section
+    Then I softly see "Budgeted Amount" in flex table header "---tableID:-:AllocationsBySchool---"
+#    Then I softly see field "Budgeted Amount" inside "Allocations by School" section
     #196365 #196393
-    And I click on "Submit Application" in the page details
+    And I click on "Save" in the page details
+    And I wait for "3" seconds
+    And I click on "Submit for Approval" in the page details
+    And I wait for "5" seconds
+#    And I logout
+#    Given I am on "SUBPORTAL" portal
+#    When I login as "SPA" user
+#    And I navigate to "Applications" tab
+#    When I navigate to "Pending Tasks" content inside "Tasks" subheader on left panel
+#    And I perform quick search for "{SavedValue:APPID}" in "---tableID:-:ApplicationPendingTask---" panel
+#    And I click on "Start" icon for "{SavedValue:APPID}" inside flex table with id "---tableID:-:ApplicationPendingTask---"
+#    When I "Approve" in the approval decision
+#    And I softly see field "Status" as "Approved for Submission"
+#    And I click on "Complete Acknowledgement" in the page details
+#    And I enter value "Checked" into field "selectCheckBoxDiv"
+#    And I click modal button "Save And Close"
+#    And I click on "Submit Application" in the page details
     Then I softly see the text containing :
       | Budget Tab - The 'Budgeted Amount' for each school must equal the 'Allocation Amount' for the school. |
     Then I softly see the text containing :
@@ -13107,16 +12372,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Coordinator" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -13207,16 +12462,6 @@ Feature: Validate all scenarios related to application
     When I "Approve" in the approval decision
     And I click on "Publish" in the page details
     And I softly see field "Status" as "Published"
-#    And I logout
-#    Given I am on "SUBPORTAL" portal
-#    When I login as "SPIWAC" user
-#    When I navigate to "Organization Profile" content inside "Organization" subheader on left panel
-#    And I click on top right button "New" in flex table with id "---tableID:-:ApplicationOrganizationRoles---"
-#    When I enter value "Program Coordinator" into field "fieldRole__c"
-#    When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
-#    When I enter value "SPI Automation" into field "fieldAssignedTo__c"
-#    When I enter value "Inactive" into field "fieldAssignmentStatus__c"
-#    And I click modal button "Save"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
