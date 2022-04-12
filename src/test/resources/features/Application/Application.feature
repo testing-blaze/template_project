@@ -6436,7 +6436,7 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
     Then I softly see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
     #191890
-#    And I click on "Delete" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
+    And I click on "Delete" icon for "In-Progress" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
     Then I softly do not see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
 
   @191787 @191789 @191799 @191790 @191791 @sprint-6 @userStory-190011
@@ -6948,7 +6948,6 @@ Feature: Validate all scenarios related to application
     Then I softly see value "Retracted" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
     #193134
     Then I softly see value "1" for title "Document Version" inside table "---tableID:-:ApplicationAnnualPlans---"
-    And I click on "Delete" icon for "Retracted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
 
   @192191 @192194 @sprint-6 @userStory-189636
   Scenario: Verify that the Fiscal Year is required on Submit
@@ -7269,8 +7268,6 @@ Feature: Validate all scenarios related to application
     Then I softly see value "Initial" for title "Document Sub-Type" inside table "---tableID:-:ApplicationAnnualPlans---"
     #192114
     Then I softly see value "SPI Automation" for title "Last Submitted By" inside table "---tableID:-:ApplicationAnnualPlans---"
-    And I click on "Delete" icon for "2017/18" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
-    And I click on "Delete" icon for "2018/19" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
 
   @191804 @191807 @191805 @191808 @sprint-6 @userStory-189880
   Scenario: Verify that sequence of the sections in Forms and Files tab for External view
@@ -7640,7 +7637,6 @@ Feature: Validate all scenarios related to application
     Then I softly see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
      #191888
     And I click on "Delete" icon for "2017/18" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
-    And I click on "Delete" icon for "2018/19" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
     Then I softly do not see value "In-Progress" for title "Status" inside table "---tableID:-:ApplicationAnnualPlans---"
 
   @192374 @192301 @192549 @192548 @192348 @192515 @192541 @192537 @192534 @192528 @sprint-6 @userStory-190638
@@ -9754,11 +9750,6 @@ Feature: Validate all scenarios related to application
     And I click on top right button "Save" in flex table with id "---tableID:-:ApplicationAnnualPlans---"
     Then I softly see the text :
       | Saved Successfully! |
-    And I click on "Delete" icon for "Initial" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
-    And I click on "Delete" icon for "Update 1" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
-    And I click on "Delete" icon for "Update 2" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
-    And I click on "Delete" icon for "Update 3" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
-    And I click on "Delete" icon for "Update 4" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
 
   @196295 @196296 @197086 @sprint-8 @userStory-194659
   Scenario: Verify that Internal user can delete any entry in the Annual Plans table if it is in 'Submitted' status.
@@ -9796,9 +9787,7 @@ Feature: Validate all scenarios related to application
     #196296
     When I click on "Approve" icon for "Submitted" inside flex table with id "---tableID:-:AnnualPlansInternal---"
     Then I softly cannot see row level action button "Delete" against "Approved" in flex table with id "---tableID:-:AnnualPlansInternal---"
-    And I click on "Delete" icon for "Approved" inside flex table with id "---tableID:-:AnnualPlansInternal---"
     #197086
-    And I click on "Delete" icon for "Submitted" inside flex table with id "---tableID:-:ApplicationAnnualPlans---"
     And I logout
     Given I am on "SUBPORTAL" portal
     When I login as "SPI" user
@@ -9829,7 +9818,6 @@ Feature: Validate all scenarios related to application
     And I navigate to "Annual Plans" sub tab
     When I click on "Request Revision" icon for "Approved" inside flex table with id "---tableID:-:AnnualPlansInternal---"
     Then I softly cannot see row level action button "Delete" against "Revision Requested" in flex table with id "---tableID:-:AnnualPlansInternal---"
-    And I click on "Delete" icon for "Revision Requested" inside flex table with id "---tableID:-:AnnualPlansInternal---"
 
   @197123 @197122 @197121 @sprint-8 @userStory-194064
   Scenario: Verify that 'Organization Roles' table  'Assignment Status' column is a required field in Edit mode
