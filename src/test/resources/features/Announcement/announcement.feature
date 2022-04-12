@@ -521,7 +521,7 @@ Feature: Validate all scenarios related to announcement
     And I click modal button "Save and Continue"
     And I click on "Save" in the page details
     And I hovering mouse on help text icon inside page block detail "Type"
-    Then I softly see "Funding Announcement Type (Competitive or Formula)" shown as help text
+    Then I softly see "Type of funding announcement (Competitive or Formula)" shown as help text
 
   @184139 @sprint-3 @userStory-175346
   Scenario: Verify the Validation message says, "For 'Competitive' announcement types, 'Negotiations Allowed?' must be set to Yes
@@ -591,7 +591,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "PG-SCDE-0105" into field "fieldProgram__c"
      #184199
     And I hovering mouse on help text icon inside page block detail "Type"
-    Then I softly see "Funding Announcement Type (Competitive or Formula)" shown as help text
+    Then I softly see "Type of funding announcement (Competitive or Formula)" shown as help text
     And I click on "Continue" in the page details
     #184198
     Then I softly see "--None--:Competitive:Formula" inside selectbox field "fieldAnnouncementType__c"
@@ -602,7 +602,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "By Applicant" into field "fieldSCDE_Allocation_Level__c"
     And I click modal button "Save and Continue"
     And I hovering mouse on help text icon inside page block detail "Type"
-    Then I softly see "Funding Announcement Type (Competitive or Formula)" shown as help text
+    Then I softly see "Type of funding announcement (Competitive or Formula)" shown as help text
     #184200
     Then I softly see field "Type" as "Formula"
 
@@ -1329,9 +1329,9 @@ Feature: Validate all scenarios related to announcement
     And I click modal button "Save and Continue"
     And I navigate to "Financials" sub tab
     #188599
-    Then I softly see field "Maximum Admin Cost Rate" inside "Financial Details" section
+    Then I softly see "Maximum Admin Cost Rate" inside page block detail
     #188612
-    Then I softly see field "Maximum Indirect Cost Rate" inside "Financial Details" section
+    Then I softly see "Maximum Indirect Cost Rate" inside page block detail
     #189815
     Then I softly do not see asterisk mark on "Maximum Admin Cost Rate"
     #188598
@@ -1348,7 +1348,7 @@ Feature: Validate all scenarios related to announcement
     When I enter value "School" into field "fieldSCDE_Detailed_Budgeting_Options__c"
     And I click modal button "Save and Continue"
     And I navigate to "Financials" sub tab
-    Then I softly see field "Maximum Admin Cost Rate" inside "Financial Details" section
+    Then I softly see "Maximum Admin Cost Rate" inside page block detail
     #188610
     When I enter value "10.1111" into field "fieldSCDE_MaxAdminCostRate__c"
     And I click on "Save" in the page details
