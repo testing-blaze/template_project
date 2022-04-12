@@ -126,8 +126,8 @@ Feature: Validate all scenarios related to organization profile
     And I click modal button "Save"
     And I save the field labeled "Email" as "emailId"
     And I close modal by clicking the top right x button
-    When I perform quick search for "{SavedValue:emailId}" in "{tableID:OrganizationProfileContacts}" panel
-    And I click on "Send Invitation" icon for "{SavedValue:emailId}" inside flex table with id "{tableID:OrganizationProfileContacts}"
+    When I perform quick search for "{SavedValue:emailId}" in "---tableID:-:OrganizationProfileContacts---" panel
+    And I click on "Send Invitation" icon for "{SavedValue:emailId}" inside flex table with id "---tableID:-:OrganizationProfileContacts---"
     When I click modal button "Send"
     And I click "Ok" on modal confirmation box
     And I pause execution for "180" seconds
@@ -241,7 +241,7 @@ Feature: Validate all scenarios related to organization profile
     When I enter the following values into flex table with id "---tableID:-:AnnualPlans---" by clicking "Add" :
       | Status      | Five-Year Period  | School Year | Document Type | Document Sub-Type |
       | In-Progress | 2016/17 - 2020/21 | 2016/17     | One Plan      | Initial           |
-    Then I softly see the following messages in the page details contains:
+    Then I softly see the text containing :
       | An entry with the same Five-Year Period, School Year, Document Type, and Document Sub-Type combination already exists. |
     #192779
     And I refresh the page
