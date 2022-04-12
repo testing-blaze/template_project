@@ -49,7 +49,7 @@ public class UsersAndURL implements UsersController {
                 password = "GovGrants2022";
                 break;
             case "FO":
-                password = "GovGrants@2022";
+                password = "GovGrants2022";
                 break;
             case "PM":
                 password = "GovGrants2022";
@@ -88,7 +88,7 @@ public class UsersAndURL implements UsersController {
                 username = "automationfd@scdoe.org.qa1";
                 break;
             case "FO":
-                username = "test.user.fo@yopmail.com.qa1";
+                username = "pompy.phukan@reisystems.in";
                 break;
             case "EXE":
                 username = "test.user.exe@yopmail.com.qa1";
