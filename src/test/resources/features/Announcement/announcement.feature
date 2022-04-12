@@ -827,17 +827,17 @@ Feature: Validate all scenarios related to announcement
     And I wait for "3" seconds
     And I close modal by clicking the top right x button
     #183768
-#    And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
-#    And I close modal by clicking the top right x button
-#    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
-#    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
-#    When I upload file "InactiveSchoolCode.xlsx" into library
-#    And I pause execution for "3" seconds
-#    And I click modal button "Upload File"
-#    Then I softly see the following messages in the page details contains:
-#      | Row Number 2 - The school specified in the row is inactive. |
-#    And I wait for "3" seconds
-#    And I close modal by clicking the top right x button
+    And I click on top right button "Download in Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    And I close modal by clicking the top right x button
+    And I click on top right button "Upload Excel" in flex table with id "---tableID:-:AnnouncementInvitedApplicants---"
+    When I switch to iframe with id "SoleSourceAwardOrganizationsiframeContentId"
+    When I upload file "InactiveSchoolCode.xlsx" into library
+    And I pause execution for "3" seconds
+    And I click modal button "Upload File"
+    Then I softly see the following messages in the page details contains:
+      | Row Number 2 - The school specified in the row is inactive. |
+    And I wait for "3" seconds
+    And I close modal by clicking the top right x button
     #183753
     When I enter value "Federal" into field "fieldSCDE_Funding_Source__c"
     When I enter value "test" into field "fieldAnnouncementDescription__c"
