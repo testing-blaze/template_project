@@ -179,6 +179,7 @@ public class ProjectWebServices {
                 deletionApi(I.amPerforming().propertiesFileOperationsTo().getValue(record), "Announcement");
             }
         }
+        deletionApi("","ANNUAL PLAN");
     }
     public void recaptchaChange(boolean shouldBeDisabled) {
         String finalEndPoint = endPoint + "/services/apexrest/recaptcha?shouldBeDisabled=" + shouldBeDisabled;
