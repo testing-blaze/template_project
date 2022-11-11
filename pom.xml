@@ -17,21 +17,9 @@
         <dependency>
             <groupId>com.github.testing-blaze</groupId>
             <artifactId>blaze-core</artifactId>
-            <version>1.3.9</version>
-        </dependency>
-        <dependency>
-            <groupId>rei.saas.automation</groupId>
-            <artifactId>govgrants-library</artifactId>
-            <version>1.0.0</version>
+            <version>1.4.5</version>
         </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>saasbusinesslayer.automation</id>
-            <url>http://nexus.reisys.com:8081/nexus/content/repositories/saasbusinesslayer.automation</url>
-        </repository>
-    </repositories>
 
     <build>
         <plugins>
