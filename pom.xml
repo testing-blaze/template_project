@@ -8,8 +8,8 @@
         <artifactId>blaze-epic</artifactId>
         <version>1.0.5</version>
     </parent>
-    <groupId>rei.saas.automation</groupId>
-    <artifactId>scde-project</artifactId>
+    <groupId>testing.blaze.temaplte</groupId>
+    <artifactId>sample-project</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
